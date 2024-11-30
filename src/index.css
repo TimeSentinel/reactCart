@@ -1,0 +1,31 @@
+/* ----->main index.css file ( src/index.css )
+Shopping Cart Project
+Main Stylesheet - (c)2024 Lance Stubblefield
+--------------------------------------------------------------------------------------
+Requires Tailwind CSS, PostCSS, PostCSS-custom-properties
+######################################################################################*/
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    /* ---------- Header Colors ---------- */
+    --header-bg-color: #dbedff;
+    --header-text-color: #124374;
+    --header-border-color: #0381f4;
+
+    /* ---------- Product Colors ------------ */
+    --product-shadow-color: #6a96c2;
+}
+
+.header {
+    background-color: var(--header-bg-color);
+    border-color: var(--header-border-color);
+    @apply w-full h-full;
+    @apply border-b-4;
+}
+
+.catalog-container {
+    @apply w-full grid gap-x-6 gap-y-8 grid-cols-3 px-3 pt-4;
+}
+

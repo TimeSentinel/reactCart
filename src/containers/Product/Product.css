@@ -1,0 +1,43 @@
+/* src/containers/Product/Product.css */
+
+
+.product-card {
+box-shadow: 0 8px 16px 0 var(--product-shadow-color), 0 6px 20px 0 var(--product-shadow-color);
+    @apply w-full p-3;
+
+
+    h2 {
+        @apply my-2 text-center font-bold;
+    }
+
+    .productContent {
+        @apply w-full h-72 overflow-scroll;
+
+        p {
+            @apply p-2 leading-tight font-light;
+        }
+    }
+
+    .thumbnail {
+        @apply w-11/12 h-48 overflow-hidden;
+
+        img {
+            @apply max-h-full mx-auto my-4;
+        }
+    }
+
+    .productLine {
+        @apply flex pt-2;
+
+        .productPrice {
+            @apply w-5/12 font-bold text-lg;
+        }
+
+        .productCategory {
+            @apply w-7/12 text-right align-bottom text-sm italic;
+        }
+    }
+}
+
+
+
