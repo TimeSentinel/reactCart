@@ -14,7 +14,13 @@ export const reducerFn = (state: StateInterface, action: ActionInterface) => {
                 ...state,
                 products: payload as ProductInterface[]
             }
-
+        case "ADD_TO_CART":
+            { const newCart = state.shoppingCart
+            newCart.push(payload as ProductInterface)
+            return {
+                ...state,
+                shoppingCart: newCart
+            } }
         default:
             return state
     }

@@ -26,7 +26,7 @@ function App() {
                 <Layout>
                         <Routes>
                             <Route path='/' element={<Home />} />
-                            <Route path='products/:title' element={<ProductDetail />} />
+                            <Route path='products/:title' element={<ProductDetail dispatch={dispatch}/>} />
                             <Route path='cart' element={<Cart />} />
                         </Routes>
                 </Layout>

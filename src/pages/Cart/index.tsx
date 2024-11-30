@@ -1,10 +1,25 @@
 // src/pages/Cart/index.tsx
 
-function Cart() {
+import {Product} from "../../containers/Product";
+import {StateInterface} from "../../globalTypes.tsx";
+import {useContext} from "react";
+import {ctx} from "../../context";
+
+
+const Cart: React.FC = () => {
+    const state = useContext(ctx) as StateInterface
 
     return (
         <>
-            SHOPPING CART
+            {state.shoppingCart.length ? (
+                <>
+                    {state.shoppingCart.map(product => (
+                        <Product title={product.title} image={product.image} price={product.price} category={product.category} />
+                    ))}
+                </>
+            ) : (
+                <h2>Cart Is Empty</h2>
+            )}
 
 
         </>
