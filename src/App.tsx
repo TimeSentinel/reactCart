@@ -1,10 +1,13 @@
 // src/app.tsx
 import './App.css';
 import {useEffect, useReducer} from "react";
-import {Product} from "./containers/Product";
 import {ctx} from "./context";
 import {initialState, reducerFn} from "./reducer";
-import Header from "./pages/header.tsx";
+import {Home} from "./pages/Home";
+import { Route, Routes} from 'react-router-dom';
+import {ProductDetail} from "./pages/ProductDetail";
+import {Layout} from "./layout";
+import Cart from "./pages/Cart";
 
 function App() {
     const [state, dispatch] = useReducer(reducerFn, initialState);
@@ -18,30 +21,15 @@ function App() {
     }, [])
     return (
         <ctx.Provider value={state}>
-            <div className="head-container">
-                <Header />
-            </div>
             <div className="App">
-                {
-                    state.products.length ? (
-                        <div className="catalog-container" >
-                            {state.products.map(product => (
-                                <div key={product.id}>
-                                    <Product
-                                        id={product.id}
-                                        title={product.title}
-                                        category={product.category}
-                                        description={product.description}
-                                        price={product.price}
-                                        image={product.image}
-                                    />
-                                </div>
-                            ))}
-                        </div>
-                    ) : (
-                        <h2>Loading...</h2>
-                    )
-                }
+
+                <Layout>
+                        <Routes>
+                            <Route path='/' element={<Home />} />
+                            <Route path='products/:title' element={<ProductDetail />} />
+                            <Route path='cart' element={<Cart />} />
+                        </Routes>
+                </Layout>
             </div>
         </ctx.Provider>
     )

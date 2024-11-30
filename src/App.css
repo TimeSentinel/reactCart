@@ -7,8 +7,12 @@
     @apply w-screen;
 }
 
-.head-container {
-    @apply w-full h-24;
+header {
+    @apply w-full h-36 mt-2;
+}
+
+main {
+
 }
 
 .App {

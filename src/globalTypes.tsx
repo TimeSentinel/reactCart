@@ -11,9 +11,17 @@ export interface ProductInterface {
 
 export interface StateInterface {
     products: ProductInterface[];
+    shoppingCart: ProductInterface[];
 }
 
 export interface ActionInterface {
     type: string;
     payload: unknown;
+}
+
+export interface ProductProps {
+    title: string;
+    image: string;
+    price: number;
+    category: string;
 }

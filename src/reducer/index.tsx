@@ -3,6 +3,7 @@ import {StateInterface, ActionInterface, ProductInterface} from "../globalTypes.
 
 export const initialState: StateInterface = {
     products: [],
+    shoppingCart: []
 }
 
 export const reducerFn = (state: StateInterface, action: ActionInterface) => {
