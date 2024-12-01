@@ -16,6 +16,9 @@ Requires Tailwind CSS, PostCSS, PostCSS-custom-properties
     --header-button-color: #7c9bb8;
     --header-button-hover-color: #0381f4;
     --header-button-hover-text-color: #dbedff;
+    --header-button-selected-color: #8bc0f1;
+    --header-button-selected-text-color: #0475e6;
+    --header-button-disabled-color: #98b7d2;
 
     /* ---------- Product Colors ------------ */
     --product-shadow-color: #6a96c2;
@@ -28,30 +31,65 @@ Requires Tailwind CSS, PostCSS, PostCSS-custom-properties
     @apply border-b-4;
 
     .titleRow {
-        @apply block w-full h-24;
+        @apply block w-full h-24 px-4 pt-4;
+
+        .cartCorner {
+            @apply float-right mt-6 mr-1 w-32;
+
+            .cartCount {
+                @apply ml-2 px-2 text-green-500 font-bold text-xl;
+            }
+
+            img {
+                @apply float-right w-4/12;
+            }
+        }
     }
 
     .menuRow {
         @apply flex  w-full h-12 pt-2;
 
         .menuFiller {
-            @apply h-full w-2/6;
+            @apply h-full w-3/12;
         }
 
         .menu {
-            @apply flex w-4/6 h-fit bottom-0;
+            @apply flex w-9/12 h-fit bottom-0;
 
             .menuItem {
                 @apply w-3/12 h-8 mx-2;
 
                 button {
-                    color: var(--header-text-color);
-                    @apply w-full h-full font-medium text-xl;
+                    @apply w-full h-full font-medium ;
                 }
 
-                button:hover {
+                .enabled {
+                    color: var(--header-text-color);
+                }
+
+                .enabled:hover {
                     color: var(--header-button-hover-text-color);
                     background-color: var(--header-button-hover-color);
+                }
+
+                .selected {
+                    color: var(--header-button-selected-text-color);
+                    background-color: var(--header-button-selected-color);
+                }
+
+                .disabled {
+                    @apply cursor-not-allowed;
+                    color: var(--header-button-disabled-color);
+                }
+
+
+                .cartButton {
+                    @apply text-center px-2 ;
+                    @apply border-green-600 border-2 bg-green-50 text-green-500;
+                }
+
+                .cartButton:hover {
+                    @apply bg-green-400 text-green-50 border-green-100 ;
                 }
             }
         }

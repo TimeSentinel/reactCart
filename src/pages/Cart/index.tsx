@@ -14,7 +14,7 @@ const Cart: React.FC = () => {
             {state.shoppingCart.length ? (
                 <>
                     {state.shoppingCart.map(product => (
-                        <Product title={product.title} image={product.image} price={product.price} category={product.category} />
+                        <Product title={product.title} price={product.price} category={product.category} quantity={product.quantity} />
                     ))}
                 </>
             ) : (

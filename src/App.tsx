@@ -11,8 +11,7 @@ import Cart from "./pages/Cart";
 
 function App() {
     const [state, dispatch] = useReducer(reducerFn, initialState);
-
-    console.log("State", state);
+    //console.log("State", state);
 
     useEffect(() => {
         fetch("src/products/products.json")

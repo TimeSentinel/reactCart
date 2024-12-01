@@ -5,14 +5,15 @@ import {useNavigate} from "react-router-dom";
 
 const Product = ({title, category, price, image}: ProductProps) => {
     const navigate = useNavigate();
-    const handleClick = () => navigate(`products/${title.trim()}`)
+    const handleClick = () => navigate(`/products/${title.trim()}`)
+    const handleClick2 = () => console.log("Add " + title + " to cart")
 
     return (
-        <div className="product-card" onClick={handleClick}>
-            <div className="thumbnail">
+        <div className="product-card">
+            <div className="thumbnail" onClick={handleClick}>
                 <img src={image} alt={title}/>
             </div>
-            <h2 className="Product__title">
+            <h2 className="Product_title" onClick={handleClick}>
                 {title}
             </h2>
 
@@ -21,7 +22,7 @@ const Product = ({title, category, price, image}: ProductProps) => {
                 <div className="productCategory">{category}</div>
             </div>
             <div className="cartButton">
-                <button className="button" onClick={handleClick}>ADD TO CART</button>
+                <button className="button" onClick={handleClick2}>ADD TO CART</button>
             </div>
         </div>
     )

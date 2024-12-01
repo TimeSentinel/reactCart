@@ -9,9 +9,17 @@ export interface ProductInterface {
     image: string;
 }
 
+export interface CartInterface {
+    id: number;
+    category: string;
+    title: string;
+    price: number;
+    quantity: number;
+}
+
 export interface StateInterface {
     products: ProductInterface[];
-    shoppingCart: ProductInterface[];
+    shoppingCart: CartInterface[];
 }
 
 export interface ActionInterface {
