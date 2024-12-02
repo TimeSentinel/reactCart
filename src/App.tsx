@@ -9,12 +9,14 @@ REQ: Vite-React.js+TypeScript, react-router-dom, react-hot-toast,
 import './App.css';
 import {useEffect, useReducer} from "react";
 import {ctx} from "./context";
-import {initialState, reducerFn} from "./reducer";
+import { reducerFn} from "./reducer";
 import {Home} from "./pages/Menu";
 import { Route, Routes} from 'react-router-dom';
 import {ProductDetail} from "./pages/ProductDetail";
 import {Layout} from "./layout";
 import Cart from "./pages/Cart";
+import {initialState} from "./reducer/index.tsx";
+
 
 function App() {
     const [state, dispatch] = useReducer(reducerFn, initialState);

@@ -22,28 +22,30 @@ export const reducerFn = (state: StateInterface, action: ActionInterface) => {
                 products: payload as ProductInterface[]
             }
 
-        case "ADD_TO_CART":
-        { const newCart = state.shoppingCart
-            if newCart[id] !== undefined &&
-            newCart.push(payload as CartInterface)
+        case "ADD_TO_CART": {
+            const newCart = state.shoppingCart
+            if (newCart[(payload as ProductInterface).id] === undefined)
+                newCart[(payload as ProductInterface).id] = 1;
+
             return {
                 ...state,
-                shoppingCart: newCart as CartInterface[]
-            }}
-        case "SUBTRACT_FROM_CART":
-        { const newCart = state.shoppingCart
-            newCart.push(payload as CartInterface)
-            return {
-                ...state,
-                shoppingCart: newCart
-            } }
-        case "EMPTY_CART":
-        { const newCart = state.shoppingCart
-            newCart.push(payload as CartInterface)
-            return {
-                ...state,
-                shoppingCart: newCart
-            } }
+                shoppingCart: newCart as CartInterface
+            }
+        }
+        // case "SUBTRACT_FROM_CART":
+        // { const newCart = state.shoppingCart
+        //     newCart.push(payload as CartInterface)
+        //     return {
+        //         ...state,
+        //         shoppingCart: newCart
+        //     } }
+        // case "EMPTY_CART":
+        // { const newCart = state.shoppingCart
+        //     newCart.push(payload as CartInterface)
+        //     return {
+        //         ...state,
+        //         shoppingCart: newCart
+        //     } }
         default:
             return state
     }
