@@ -1,4 +1,11 @@
-// src/pages/ProduleDetail/index.tsx
+/* Product Detail
+################################### Restaurant Functional Module ###################################
+/src/pages/ProduleDetail/index.tsx    ::: product detail
+REQ: Vite-React.js+TypeScript, react-router-dom, react-hot-toast,
+(c)2024 Lance Stubblefield
+####################################################################################################
+*/
+
 import {useParams} from "react-router-dom"
 import {ctx} from "../../context";
 import { useContext} from "react";
@@ -29,7 +36,7 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ dispatch }) => {
             {product.category}
             <button onClick={handleClick} >ADD TO CART</button>
         </div>
-        // todo: details and description of product on this page
+        // todo: css formatting, breadcrumbs?
     )
 }
 

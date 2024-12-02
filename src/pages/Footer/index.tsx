@@ -1,12 +1,17 @@
-/* CONTEXT
+/* FOOTER
 ################################### Restaurant Functional Module ###################################
-/src/context/index.tsx    ::: menu context wrapper
+/src/pages/Footer/index.tsx    ::: primary application container
 REQ: Vite-React.js+TypeScript, react-router-dom, react-hot-toast,
 (c)2024 Lance Stubblefield
 ####################################################################################################
 */
 
-import {createContext} from "react";
-import { StateInterface } from "../globalTypes"
 
-export const ctx = createContext<StateInterface | null>(null);
+function Footer() {
+    return (
+        <footer>
+
+        </footer>
+    )
+}
+export default Footer;

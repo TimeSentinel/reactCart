@@ -1,9 +1,16 @@
-// src/app.tsx
+/* APP.TSX
+################################### Restaurant Functional Module ###################################
+/src/App.tsx    ::: primary application container
+REQ: Vite-React.js+TypeScript, react-router-dom, react-hot-toast,
+(c)2024 Lance Stubblefield
+####################################################################################################
+*/
+
 import './App.css';
 import {useEffect, useReducer} from "react";
 import {ctx} from "./context";
 import {initialState, reducerFn} from "./reducer";
-import {Home} from "./pages/Home";
+import {Home} from "./pages/Menu";
 import { Route, Routes} from 'react-router-dom';
 import {ProductDetail} from "./pages/ProductDetail";
 import {Layout} from "./layout";
@@ -14,7 +21,7 @@ function App() {
     //console.log("State", state);
 
     useEffect(() => {
-        fetch("src/products/products.json")
+        fetch("/public/products/products.json")
             .then(res => res.json())
             .then(data => dispatch({type: "ADD_PRODUCTS", payload: data}));
     }, [])

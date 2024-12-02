@@ -1,4 +1,10 @@
-// src/pages/Home/index.tsx
+/* MENU PAGE
+################################### Restaurant Functional Module ###################################
+/src/pages/Menu/index.tsx    ::: main menu page
+REQ: Vite-React.js+TypeScript, react-router-dom, react-hot-toast,
+(c)2024 Lance Stubblefield
+####################################################################################################
+*/
 
 import {Product} from "../../containers/Product";
 import {useContext} from "react";

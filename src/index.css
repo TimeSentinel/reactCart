@@ -1,13 +1,16 @@
-/* ----->main index.css file ( src/index.css )
-Shopping Cart Project
-Main Stylesheet - (c)2024 Lance Stubblefield
---------------------------------------------------------------------------------------
-Requires Tailwind CSS, PostCSS, PostCSS-custom-properties
-######################################################################################*/
+/* INDEX.CSS
+################################### Restaurant Functional Module ###################################
+/src/index.css    ::: Main style sheet
+REQ: TailwindCSS, PostCSS, PostCSS-Custom-Properties
+(c)2024 Lance Stubblefield
+####################################################################################################
+*/
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* ################################ SYSTEM VARIABLES ################################ */
 :root {
     /* ---------- Header Colors ---------- */
     --header-bg-color: #dbedff;
@@ -22,9 +25,43 @@ Requires Tailwind CSS, PostCSS, PostCSS-custom-properties
 
     /* ---------- Product Colors ------------ */
     --product-shadow-color: #6a96c2;
+    --cart-row-border-color: #dbdbdb;
+
+    /* ---------- Cart-Column Layout ------------ */
+    --Column1: 43%; /* Item Name */
+    --Column2: 15%; /* Category  */
+    --Column3: 13%; /* Price     */
+    --Column4: 3%; /* --filler--*/
+    --Column5: 13%; /* Quantity  */
+    --Column6: 13%; /* Total     */
 }
 
-.header {
+
+/* --------------- END -- SYSTEM VARIABLES -- END --------------- */
+
+/* ################################ General Styles ################################ */
+body {
+    margin: 0;
+}
+@layer base {
+    h1 {
+        @apply text-2xl font-semibold;
+    }
+    h2 {
+        @apply text-xl font-semibold;
+    }
+    h3 {
+        @apply text-xl;
+    }
+    h4 {
+        @apply text-lg;
+    }
+}
+
+/* --------------- END -- General Styles -- END --------------- */
+
+/* ################################ Header ################################ */
+header {
     background-color: var(--header-bg-color);
     border-color: var(--header-border-color);
     @apply w-full h-full px-4 align-text-bottom text-right;
@@ -82,7 +119,6 @@ Requires Tailwind CSS, PostCSS, PostCSS-custom-properties
                     color: var(--header-button-disabled-color);
                 }
 
-
                 .cartButton {
                     @apply text-center px-2 ;
                     @apply border-green-600 border-2 bg-green-50 text-green-500;
@@ -97,6 +133,9 @@ Requires Tailwind CSS, PostCSS, PostCSS-custom-properties
 
 }
 
+/* --------------- END -- Header -- END --------------- */
+
+/* ################################ Content ################################ */
 .catalog-container {
     @apply w-full grid gap-x-6 gap-y-8 grid-cols-3 px-3 pt-4;
 }
@@ -109,3 +148,62 @@ Requires Tailwind CSS, PostCSS, PostCSS-custom-properties
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
 }
+
+/* *********** CART CONTAINER *********** */
+.cartHeader {
+    @apply w-11/12 my-4 mx-auto min-h-20 ;
+}
+
+.cartTable {
+    @apply block w-9/12 mx-auto ;
+    h3 {
+        @apply text-gray-600 mx-2;
+    }
+    .cartTableHeader {
+        @apply flex w-full text-gray-500 border-b-2 border-gray-500 my-2 px-2;
+
+        .cartTableHeaderItem {
+            @apply w-fit font-bold;
+        }
+
+        .column1 {
+            width: var(--Column1);
+        }
+
+        .column2 {
+            @apply text-center;
+            width: var(--Column2);
+        }
+
+        .column3 {
+            @apply text-right;
+            width: var(--Column3);
+        }
+
+        .column4 {
+            width: var(--Column4);
+        }
+
+        .column5 {
+            @apply text-center;
+            width: var(--Column5);
+        }
+
+        .column6 {
+            @apply text-right;
+            width: var(--Column5);
+        }
+
+    }
+}
+
+
+/* --------------- END -- Content -- END --------------- */
+
+/* ################################ Footer ################################ */
+
+/* --------------- END -- Footer -- END --------------- */
+
+/* ################################ Media-Responsiveness ################################ */
+
+/* --------------- END -- Media-Responsiveness -- END --------------- */

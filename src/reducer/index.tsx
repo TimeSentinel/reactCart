@@ -1,4 +1,11 @@
-// src/reducer/index.tsx
+/* REDUCERS
+################################### Restaurant Functional Module ###################################
+/src/reducer/index.tsx    ::: Reducers
+REQ: Vite-React.js+TypeScript, react-router-dom, react-hot-toast,
+(c)2024 Lance Stubblefield
+####################################################################################################
+*/
+
 import {StateInterface, ActionInterface, ProductInterface, CartInterface} from "../globalTypes.tsx"
 
 export const initialState: StateInterface = {
@@ -14,13 +21,15 @@ export const reducerFn = (state: StateInterface, action: ActionInterface) => {
                 ...state,
                 products: payload as ProductInterface[]
             }
+
         case "ADD_TO_CART":
-            { const newCart = state.shoppingCart
+        { const newCart = state.shoppingCart
+            if newCart[id] !== undefined &&
             newCart.push(payload as CartInterface)
             return {
                 ...state,
-                shoppingCart: newCart
-            } }
+                shoppingCart: newCart as CartInterface[]
+            }}
         case "SUBTRACT_FROM_CART":
         { const newCart = state.shoppingCart
             newCart.push(payload as CartInterface)
@@ -39,3 +48,4 @@ export const reducerFn = (state: StateInterface, action: ActionInterface) => {
             return state
     }
 }
+

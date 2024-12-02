@@ -1,4 +1,11 @@
-// src/cocntainers/Product/index.tsx
+/* Product Container
+################################### Restaurant Functional Module ###################################
+/src/containers/Product/index.tsx    :::  product container
+REQ: Vite-React.js+TypeScript, react-router-dom, react-hot-toast,
+(c)2024 Lance Stubblefield
+####################################################################################################
+*/
+
 import "./Product.css"
 import {ProductProps} from "../../globalTypes.tsx";
 import {useNavigate} from "react-router-dom";

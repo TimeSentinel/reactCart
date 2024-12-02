@@ -1,16 +1,16 @@
-import { createRoot } from 'react-dom/client'
-import React from 'react';
-import './index.css';
-import { BrowserRouter } from 'react-router-dom';
-import { Toaster } from 'react-hot-toast';
+import {createRoot} from 'react-dom/client'
+import {BrowserRouter} from 'react-router-dom';
+import {Toaster} from 'react-hot-toast';
 import App from './App.tsx'
+import {StrictMode} from "react";
+import './index.css';
 
 createRoot(document.getElementById('root')!).render(
-    <React.StrictMode>
-            <BrowserRouter>
-                <App />
-                <Toaster />
-            </BrowserRouter>
-    </React.StrictMode>
+    <StrictMode>
+        <BrowserRouter>
+            <App/>
+            <Toaster/>
+        </BrowserRouter>
+    </StrictMode>
 )
 

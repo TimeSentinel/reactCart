@@ -1,5 +1,10 @@
-/* src/containers/Product/Product.css */
-
+/* PRODUCT.CSS
+################################### Restaurant Functional Module ###################################
+/src/containers/Product/Cart.css    ::: product card style sheet
+REQ: TailwindCSS, PostCSS, PostCSS-Custom-Properties
+(c)2024 Lance Stubblefield
+####################################################################################################
+*/
 
 .product-card {
     box-shadow: 0 8px 16px 0 var(--product-shadow-color), 0 6px 20px 0 var(--product-shadow-color);

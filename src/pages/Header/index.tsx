@@ -1,16 +1,23 @@
-// src/pages/header.tsx
+/* HEADER
+################################### Restaurant Functional Module ###################################
+/src/pages/Header/index.tsx    ::: primary application container
+REQ: Vite-React.js+TypeScript, react-router-dom, react-hot-toast,
+(c)2024 Lance Stubblefield
+####################################################################################################
+*/
+
 
 import {useNavigate} from "react-router-dom";
-import cartIcon from "../../public/images/cart-100.png"
+import cartIcon from "../../../public/images/cart-100.png"
 import {useContext} from "react";
-import {ctx} from "../context";
-import {StateInterface} from "../globalTypes.tsx";
+import {ctx} from "../../context";
+import {StateInterface} from "../../globalTypes.tsx";
 
 function Header() {
     const state = useContext(ctx) as StateInterface
     const navigate = useNavigate();
     return (
-        <div className="header">
+        <header>
             <div className="titleRow">
                 <div className="logo"></div>
                 <div className="cartCorner" onClick={() => navigate("/cart")}>
@@ -59,7 +66,7 @@ function Header() {
                 </div>
             </div>
 
-        </div>
+        </header>
     )
 
 

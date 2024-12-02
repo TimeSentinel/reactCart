@@ -1,0 +1,58 @@
+/* src/containers/Product/Cart.css */
+
+.cartCard {
+    @apply flex flex-row h-8 my-2 px-2;
+    @apply border-b-2;
+    border-color: var(--cart-row-border-color);
+
+    .cartTitle {
+        @apply font-bold ;
+        width: var(--Column1);
+
+    }
+
+    .cartCategory {
+        width: var(--Column2);
+        @apply text-center italic text-gray-500 text-sm;
+    }
+
+    .cartPrice {
+        @apply text-right font-light;
+        width: var(--Column3);
+    }
+
+
+    .column4 {
+        width: var(--Column4);
+    }
+
+    .cartButton {
+        width: var(--Column5);
+        @apply flex justify-around ;
+
+        .cartQty {
+            @apply w-1/3 text-center font-semibold ;
+        }
+
+        button {
+            @apply w-7 h-6 mx-1 text-center align-middle font-bold text-gray-700;
+            @apply bg-gray-100 border border-gray-200 rounded-md ;
+        }
+        .cartInc:hover {
+            @apply bg-green-100 border-green-500 text-green-700;
+        }
+        .cartDec:hover {
+            @apply bg-red-100 border-red-500 text-red-700;
+        }
+    }
+
+    .cartLineTotal {
+        @apply text-right font-semibold;
+        width: var(--Column6);
+    }
+
+}
+
+
+
+

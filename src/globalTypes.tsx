@@ -1,4 +1,10 @@
-// src/globalTypes.tsx
+/* GLOBAL TYPES
+################################### Restaurant Functional Module ###################################
+/src/globalTypes.tsx    ::: primary type setting
+REQ: Vite-React.js+TypeScript, react-router-dom, react-hot-toast,
+(c)2024 Lance Stubblefield
+####################################################################################################
+*/
 
 export interface ProductInterface {
     id: number;
@@ -10,12 +16,17 @@ export interface ProductInterface {
 }
 
 export interface CartInterface {
-    id: number;
-    category: string;
-    title: string;
-    price: number;
-    quantity: number;
+    [id: number]: number;
 }
+/*
+const id = 519029525;
+let apple: CartInterface = [];
+if (apple[id] == null) {
+}
+apple[id] = 5;
+delete apple[id];
+console.log(apple[id])
+*/
 
 export interface StateInterface {
     products: ProductInterface[];
