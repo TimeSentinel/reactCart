@@ -30,7 +30,6 @@ const CartItem = ({id}: CartProps) => {
     const rowPrice = product.price
 
     const addClick = (row: number) => {
-        console.log("addClick - " + row)
         if (!(row in activeCart)) {
             dispatch({
                 type: "ADD_TO_CART",
@@ -46,7 +45,6 @@ const CartItem = ({id}: CartProps) => {
     }
 
     const minusClick = (row: number) => {
-        console.log("addClick - " + row)
         if (!(row in activeCart)) {
             toast.error("Failed to Reduce Quantity!")
         } else if (activeCart[row] === 1) {
@@ -54,7 +52,7 @@ const CartItem = ({id}: CartProps) => {
                 type: "REMOVE_ITEM",
                 payload: {id: row, quantity: 0}
             })
-        } else  {
+        } else {
             const curCount = activeCart[row] || 0
             dispatch({
                 type: "UPDATE_CART",
@@ -74,14 +72,21 @@ const CartItem = ({id}: CartProps) => {
                 {rowTitle ?? ""}
             </div>
             <div className="cartCategory">{rowCategory ?? ""}</div>
-            <div className="cartPrice">${rowPrice ?? 0}</div>
+            <div className="cartPrice">
+                {new Intl.NumberFormat('en-US', {style: 'currency', currency: 'USD'}).format(rowPrice) ?? 0}
+            </div>
             <div className="column4"></div>
             <div className="cartButton">
                 <button className="cartInc" onClick={() => addClick(id)}>+</button>
                 <div className="cartQty">{activeCart[id] | 0}</div>
                 <button className="cartDec" onClick={() => minusClick(id)}>-</button>
             </div>
-            <div className="cartLineTotal">${((rowPrice ?? 0) * (activeCart[id] ?? 0)) | 0}</div>
+            <div className="cartLineTotal">
+                {new Intl.NumberFormat('en-US', {
+                    style: 'currency',
+                    currency: 'USD'
+                }).format(((rowPrice) * (activeCart[id]))) ?? 0}
+            </div>
         </div>
     )
 }

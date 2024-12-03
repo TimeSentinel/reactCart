@@ -6,24 +6,36 @@ REQ: Vite-React.js+TypeScript, react-router-dom, react-hot-toast,
 ####################################################################################################
 */
 
-import {useContext} from "react";
+import {useContext, useEffect, useState} from "react";
 import {CartItem} from "src/pkg-Cart/containers/Cart";
 import {ctx} from "src/context";
 import toast from "react-hot-toast";
+import {ProductInterface} from "../../../globalTypes.tsx";
 
 const Cart: React.FC = () => {
     const state = useContext(ctx).state
-    const activeCart = state?.shoppingCart || []
     const dispatch = useContext(ctx).dispatch
+    const activeCart = state?.shoppingCart || []
+    const activeProducts = state?.products || []
 
     const emptyCart = () => {
-
         dispatch({
             type: "EMPTY_CART",
             payload: {id: 0, quantity: 0}
         })
         toast.success("CART EMPTIED!")
     }
+    let totalT = 0
+    const [total, setTotal] = useState<number>(0)
+    useEffect(() => {
+        totalT = 0
+        Object.keys(activeCart).map(id => {
+            totalT = totalT +
+                ((activeProducts.find(product => product.id === Number(id)) as ProductInterface).price as number)
+                * activeCart[Number(id)] as number
+        })
+        setTotal(totalT)
+    }, [state])
 
     return (
         <>
@@ -31,13 +43,17 @@ const Cart: React.FC = () => {
                 <div className="cartLeft">
                     <h1>Your Cart...</h1>
                 </div>
-                <hr className="cartLine"/>
+                <div className="cartCenter"></div>
                 <div className="cartRight">
-                    <button onClick={emptyCart}>
+                    <button onClick={emptyCart} className={
+                        Object.keys(activeCart).length == 0 &&
+                        "disabled" || "enabled"
+                    }>
                         EMPTY CART
                     </button>
                 </div>
             </div>
+            <hr className="cartLineTop"/>
             <div className="cartTable">
                 <div className="cartTableHeader">
                     <div className="cartTableHeaderItem column1">Item</div>
@@ -51,7 +67,6 @@ const Cart: React.FC = () => {
                     <>
                         {Object.keys(activeCart).map(id => (
                             <CartItem id={Number(id)} key={id}/>
-
                         ))}
                     </>
                 ) : (
@@ -59,10 +74,18 @@ const Cart: React.FC = () => {
                 )}
             </div>
 
-            <div className="cartTotal">TOTAL = $</div>
-            <hr className="cartLine"/>
+            <div className="cartTotal">TOTAL = <></>
+                 {new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(total) ?? 0}
+            </div>
+            <hr className="cartLineBottom"/>
             <div className="cartFooter">
-                <h3>Place Order</h3>
+                <button onClick={() => {
+                    toast.success("Order Submitted!")
+                }} className={
+                    Object.keys(activeCart).length == 0 &&
+                    "disabled" || "enabled"
+                }>Place Order
+                </button>
             </div>
         </>
     )
