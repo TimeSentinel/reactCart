@@ -10,20 +10,22 @@ REQ: Vite-React.js+TypeScript, react-router-dom, react-hot-toast,
 import {useNavigate} from "react-router-dom";
 import cartIcon from "../../../public/images/cart-100.png"
 import {useContext} from "react";
-import {ctx} from "../../context";
-import {StateInterface} from "../../globalTypes.tsx";
+import {ctx} from "../../App.tsx"
+
 
 function Header() {
-    const state = useContext(ctx) as StateInterface
+    const state = useContext(ctx).state
+    const activeCart  = state?.shoppingCart || []
     const navigate = useNavigate();
     return (
         <header>
             <div className="titleRow">
                 <div className="logo"></div>
                 <div className="cartCorner" onClick={() => navigate("/cart")}>
-                    <span className="cartCount">{state.shoppingCart.length}</span>
+                    <span className="cartCount">{Object.keys(activeCart).length}</span>
                     <img src={cartIcon} alt="cart" />
                 </div>
+
             </div>
             <div className="menuRow">
                 <div className="menuFiller"></div>

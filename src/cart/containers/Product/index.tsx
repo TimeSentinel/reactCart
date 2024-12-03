@@ -7,13 +7,38 @@ REQ: Vite-React.js+TypeScript, react-router-dom, react-hot-toast,
 */
 
 import "./Product.css"
-import {ProductProps} from "../../globalTypes.tsx";
+import {ProductProps} from "../../../globalTypes.tsx";
 import {useNavigate} from "react-router-dom";
+import {useContext} from "react";
+import {ctx} from "../../../App.tsx";
+import toast from "react-hot-toast";
 
-const Product = ({title, category, price, image}: ProductProps) => {
+const Product = ({id, title, category, price, image}: ProductProps) => {
+    const state = useContext(ctx).state
+    const dispatch = useContext(ctx).dispatch
     const navigate = useNavigate();
+    const activeCart = state?.shoppingCart
+
     const handleClick = () => navigate(`/products/${title.trim()}`)
-    const handleClick2 = () => console.log("Add " + title + " to cart")
+
+    const addClick = (row: number) => {
+        if (!(row in activeCart)) {
+            dispatch({
+                type: "ADD_TO_CART",
+                payload: {id: row, quantity: 1}
+            })
+            toast.success("Added to Cart");
+            console.log(row)
+        } else {
+            const curCount = activeCart[row] || 0
+            dispatch({
+                type: "UPDATE_CART",
+                payload: {id: row, quantity: (curCount + 1)}
+            })
+            toast.success("Cart Updated");
+            console.log("ID: " + row + "; curCount: " + curCount);
+        }
+    }
 
     return (
         <div className="product-card">
@@ -29,7 +54,7 @@ const Product = ({title, category, price, image}: ProductProps) => {
                 <div className="productCategory">{category}</div>
             </div>
             <div className="cartButton">
-                <button className="button" onClick={handleClick2}>ADD TO CART</button>
+                <button className="button" onClick={() => addClick(id)}>ADD TO CART</button>
             </div>
         </div>
     )

@@ -1,13 +1,13 @@
-// src/pages/Home/index.tsx
+// src/pages/Menu/index.tsx
 
 import {Product} from "../../containers/Product";
 import {useContext} from "react";
-import {StateInterface,} from "../../globalTypes.tsx";
-import {ctx} from "../../context";
+import {ctx} from "../../../App.tsx";
+
 
 
 const Home: React.FC = () => {
-    const state = useContext(ctx) as StateInterface
+    const state = useContext(ctx).state
 
     return (
         <>
@@ -17,6 +17,7 @@ const Home: React.FC = () => {
                         {state.products.map(product => (
                             <div key={product.id}>
                                 <Product
+                                    id={product.id}
                                     title={product.title}
                                     category={product.category}
                                     price={product.price}

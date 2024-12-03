@@ -30,6 +30,7 @@ export interface ActionInterface {
 }
 
 export interface ProductProps {
+    id: number;
     title: string;
     image: string;
     price: number;

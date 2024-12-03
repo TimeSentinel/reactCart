@@ -7,20 +7,27 @@ REQ: Vite-React.js+TypeScript, react-router-dom, react-hot-toast,
 */
 
 import './App.css';
-import {useEffect, useReducer} from "react";
-import {ctx} from "./context";
-import { reducerFn} from "./reducer";
-import {Home} from "./pages/Menu";
+import {createContext, useEffect, useReducer} from "react";
+import { reducerFn} from "./cart/reducer";
+import {Home} from "./cart/pages/Menu";
 import { Route, Routes} from 'react-router-dom';
-import {ProductDetail} from "./pages/ProductDetail";
+import {ProductDetail} from "./cart/pages/ProductDetail";
 import {Layout} from "./layout";
-import Cart from "./pages/Cart";
-import {initialState} from "./reducer/index.tsx";
+import Cart from "./cart/pages/Cart";
+import {initialState} from "./cart/reducer/index.tsx";
+import {ActionInterface, StateInterface} from "./globalTypes.tsx";
+import {Toaster} from "react-hot-toast";
 
+export const ctx = createContext<{
+    state: StateInterface;
+    dispatch: React.Dispatch<ActionInterface>; }>({
+        state: initialState,
+        dispatch: () => null
+    }
+);
 
 function App() {
     const [state, dispatch] = useReducer(reducerFn, initialState);
-    //console.log("State", state);
 
     useEffect(() => {
         fetch("/public/products/products.json")
@@ -28,13 +35,16 @@ function App() {
             .then(data => dispatch({type: "ADD_PRODUCTS", payload: data}));
     }, [])
     return (
-        <ctx.Provider value={state}>
+        <ctx.Provider value={{state, dispatch}}>
             <div className="App">
-
+                <Toaster
+                    position="top-right"
+                    reverseOrder={false}
+                />
                 <Layout>
                         <Routes>
                             <Route path='/' element={<Home />} />
-                            <Route path='products/:title' element={<ProductDetail dispatch={dispatch}/>} />
+                            <Route path='products/:title' element={<ProductDetail />} />
                             <Route path='cart' element={<Cart />} />
                         </Routes>
                 </Layout>
