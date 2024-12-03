@@ -12,23 +12,17 @@ REQ: TailwindCSS, PostCSS, PostCSS-Custom-Properties
 
 /* ################################ SYSTEM VARIABLES ################################ */
 :root {
-    /* ---------- Header Colors ---------- */
-    --header-bg-color: #dbedff;
-    --header-text-color: #124374;
-    --header-border-color: #0381f4;
-    --header-button-color: #7c9bb8;
-    --header-button-hover-color: #0381f4;
-    --header-button-hover-text-color: #dbedff;
-    --header-button-selected-color: #8bc0f1;
-    --header-button-selected-text-color: #0475e6;
-    --header-button-disabled-color: #98b7d2;
+    /* ---------- Theme1 Colors ---------- */
+    --light-color: #dbedff;
+    --soft-color: #8bc0f1;
+    --medium-color: #7c9bb8;
+    --dark-color: #124374;
+    --bright-color: #0381f4;
 
-    /* ---------- Body Colors ------------ */
-    --body-text-color: #4f5f6d;
+    --light-shade: #f2f3f4;
+    --medium-shade: #cad3db;
+    --dark-shade: #5f676f;
 
-    /* ---------- Cart Colors ------------ */
-    --product-shadow-color: #6a96c2;
-    --cart-row-border-color: #dbdbdb;
 
     /* ---------- Cart-Column Layout ------------ */
     --Column1: 43%; /* Item Name */
@@ -69,8 +63,8 @@ body {
 
 /* ################################ Header ################################ */
 header {
-    background-color: var(--header-bg-color);
-    border-color: var(--header-border-color);
+    background-color: var(--light-color);
+    border-color: var(--bright-color);
     @apply w-full h-full px-4 align-text-bottom text-right;
     @apply border-b-4;
 
@@ -109,22 +103,22 @@ header {
                 }
 
                 .enabled {
-                    color: var(--header-text-color);
+                    color: var(--dark-color);
                 }
 
                 .enabled:hover {
-                    color: var(--header-button-hover-text-color);
-                    background-color: var(--header-button-hover-color);
+                    color: var(--light-color);
+                    background-color: var(--bright-color);
                 }
 
                 .selected {
-                    color: var(--header-button-selected-text-color);
-                    background-color: var(--header-button-selected-color);
+                    color: var(--bright-color);
+                    background-color: var(--soft-color);
                 }
 
                 .disabled {
                     @apply cursor-not-allowed;
-                    color: var(--header-button-disabled-color);
+                    color: var(--medium-color);
                 }
 
                 .cartButton {
@@ -193,12 +187,12 @@ header {
 
 .cartLineTop {
     @apply w-5/12 mx-auto mb-16 border-b-2 ;
-    border-color: var(--cart-row-border-color);
+    border-color: var(--light-shade);
 }
 
 .cartLineBottom {
     @apply w-5/12 mx-auto mt-16 border-b-2 ;
-    border-color: var(--cart-row-border-color);
+    border-color: var(--light-shade);
 }
 
 .cartTotal {
@@ -216,6 +210,7 @@ header {
         @apply border-green-800 bg-green-300 text-green-800 font-bold;
         transform: scale(1.1)
     }
+
     .disabled {
         @apply cursor-not-allowed border-gray-500 text-gray-500 bg-gray-200;
     }
@@ -234,10 +229,16 @@ header {
     }
 
     .cartTableHeader {
-        @apply flex w-full text-gray-500 border-b-2 border-gray-500 my-2 px-2;
+        @apply flex w-full border-b-2 my-2 px-2 pt-1;
+        color: var(--dark-shade);
+        border-color: var(--dark-shade);
 
         .cartTableHeaderItem {
             @apply w-fit font-bold;
+        }
+
+        .column0 {
+            @apply px-1 mr-5 font-bold text-red-700;
         }
 
         .column1 {
@@ -286,14 +287,80 @@ header {
 /* *********** CART MENU (food) *********** */
 .menuHeader {
     @apply w-11/12 h-36 mx-auto pt-4;
-    color: var(--body-text-color);
+    color: var(--dark-shade);
+
     h1 {
         @apply my-3;
     }
 }
+
 .menuContainer {
     @apply w-11/12 mx-auto;
 }
+
+/* *********** CART - Product Details *********** */
+.productPage {
+    @apply w-11/12 mx-auto mt-5 pb-16 pt-8;
+    @apply border-2 shadow-2xl;
+    border-color: var(--medium-shade);
+
+    .productPic {
+        @apply w-10/12 mx-auto p-4;
+
+        img {
+            @apply w-10/12 mx-auto mb-4 rounded-md;
+            @apply border-2 shadow-2xl;
+            border-color: var(--dark-shade);
+        }
+
+        .productTitle {
+            @apply w-9/12 mx-auto mb-2 mt-6;
+            color: var(--dark-shade);
+        }
+    }
+
+    .productSection {
+        @apply w-8/12 mx-auto text-lg;
+
+        color: var(--dark-shade);
+
+        .productCatRow {
+            @apply flex justify-between my-4;
+
+            .productPrice {
+                @apply font-bold text-2xl;
+            }
+
+            .productCat {
+                @apply italic text-lg;
+                color: var(--medium-shade);
+            }
+        }
+
+        .productButton {
+            @apply w-4/12 mx-auto text-center my-8;
+
+            button {
+                @apply p-2 font-bold border-2 rounded-xl;
+                @apply border-green-400 text-green-400 bg-green-900;
+            }
+
+            button:hover {
+                @apply border-green-200 bg-green-700 text-green-200 font-bold;
+                transform: scale(1.1)
+            }
+        }
+
+        .productInCart {
+            @apply w-7/12 h-12 mx-auto content-center font-bold text-2xl text-center ;
+            @apply text-red-800 bg-yellow-300 border-red-500 border-2;
+        }
+
+    }
+
+}
+
+
 /* --------------- END -- Content -- END --------------- */
 
 /* ################################ Footer ################################ */

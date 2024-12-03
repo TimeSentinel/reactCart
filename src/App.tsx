@@ -7,11 +7,7 @@ REQ: Vite-React.js+TypeScript, react-router-dom, react-hot-toast,
 */
 
 /*
-todo: menu page heading
-todo: total on Cart page
-todo: place order on cart page
 todo: css on details page
-todo: css on shopping Cart
 todo: local storage for Cart
 todo: payment for cart
 todo: submit pickup/delivery order
@@ -22,7 +18,6 @@ todo: news, pkg-Cart from database
 todo: cms admin login
 todo: user accounts: login, user page, user settings, theme, etc
 todo: user accounts: order history, billing info
-
  */
 
 import './App.css';

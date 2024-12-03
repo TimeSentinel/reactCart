@@ -3,12 +3,11 @@
 .cartCard {
     @apply flex flex-row h-8 my-2 px-2;
     @apply border-b-2;
-    border-color: var(--cart-row-border-color);
+    border-color: var(--medium-shade);
 
     .cartTitle {
         @apply font-bold ;
         width: var(--Column1);
-
     }
 
     .cartCategory {

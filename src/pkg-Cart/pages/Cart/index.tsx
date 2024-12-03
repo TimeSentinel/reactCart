@@ -23,7 +23,7 @@ const Cart: React.FC = () => {
             type: "EMPTY_CART",
             payload: {id: 0, quantity: 0}
         })
-        toast.success("CART EMPTIED!")
+        if (Object.keys(activeCart).length !== 0) toast.success("CART EMPTIED!")
     }
     let totalT = 0
     const [total, setTotal] = useState<number>(0)
@@ -56,6 +56,7 @@ const Cart: React.FC = () => {
             <hr className="cartLineTop"/>
             <div className="cartTable">
                 <div className="cartTableHeader">
+                    <div className="cartTableHeaderItem column0">X</div>
                     <div className="cartTableHeaderItem column1">Item</div>
                     <div className="cartTableHeaderItem column2">Category</div>
                     <div className="cartTableHeaderItem column3">Price</div>
@@ -80,7 +81,7 @@ const Cart: React.FC = () => {
             <hr className="cartLineBottom"/>
             <div className="cartFooter">
                 <button onClick={() => {
-                    toast.success("Order Submitted!")
+                    if (Object.keys(activeCart).length !== 0) toast.success("Order Submitted!")
                 }} className={
                     Object.keys(activeCart).length == 0 &&
                     "disabled" || "enabled"
