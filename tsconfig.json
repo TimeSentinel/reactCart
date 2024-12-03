@@ -1,7 +1,18 @@
 {
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["src/*"],
+      "@cart/*": ["pkg-Cart/*"],
+      "@context/*": ["context/*"],
+      "src/*": ["./src/*"]
+    }
+  },
   "files": [],
   "references": [
     { "path": "./tsconfig.app.json" },
     { "path": "./tsconfig.node.json" }
   ]
+
 }
+

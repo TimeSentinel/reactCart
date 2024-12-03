@@ -6,18 +6,37 @@ REQ: Vite-React.js+TypeScript, react-router-dom, react-hot-toast,
 ####################################################################################################
 */
 
-import {StateInterface} from "../../globalTypes.tsx";
 import {useContext} from "react";
-import {ctx} from "../../context";
-import {CartItem} from "../../containers/Cart";
+import {CartItem} from "src/pkg-Cart/containers/Cart";
+import {ctx} from "src/context";
+import toast from "react-hot-toast";
 
 const Cart: React.FC = () => {
-    const state = useContext(ctx) as StateInterface
+    const state = useContext(ctx).state
+    const activeCart  = state?.shoppingCart || []
+    const dispatch = useContext(ctx).dispatch
+
+    const emptyCart = () => {
+
+            dispatch({
+                type: "EMPTY_CART",
+                payload: {id: 0, quantity: 0}
+            })
+        toast.success("CART EMPTIED!")
+    }
 
     return (
         <>
             <div className="cartHeader">
-                <h1>Your Cart...</h1>
+                <div className="cartLeft">
+                    <h1>Your Cart...</h1>
+                </div>
+                <hr className="cartLine"/>
+                <div className="cartRight">
+                    <button onClick={emptyCart}>
+                        EMPTY CART
+                    </button>
+                </div>
             </div>
             <div className="cartTable">
                 <div className="cartTableHeader">
@@ -28,17 +47,21 @@ const Cart: React.FC = () => {
                     <div className="cartTableHeaderItem column5">Quantity</div>
                     <div className="cartTableHeaderItem column6">Total</div>
                 </div>
-                {state.shoppingCart.length ? (
+                {Object.keys(activeCart).length ? (
                     <>
-                        {state.shoppingCart.map(product => (
-                            <CartItem id={product.id} title={product.title} price={product.price}
-                                      category={product.category}
-                                      quantity={product.quantity}/>
+                        {Object.keys(activeCart).map(id => (
+                            <CartItem id={Number(id)} key={id}/>
                         ))}
                     </>
                 ) : (
                     <h3>Cart Is Empty</h3>
                 )}
+            </div>
+
+            <div className="cartTotal">TOTAL = $</div>
+            <hr className="cartLine"/>
+            <div className="cartFooter">
+                <h3>Place Order</h3>
             </div>
         </>
     )

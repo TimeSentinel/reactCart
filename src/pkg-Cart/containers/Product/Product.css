@@ -19,16 +19,21 @@ REQ: TailwindCSS, PostCSS, PostCSS-Custom-Properties
     }
 
     .thumbnail {
-        @apply w-7/12 h-48 mx-auto overflow-hidden;
+        @apply w-11/12 max-h-48 mx-auto overflow-hidden;
 
         img {
             @apply max-h-full mx-auto my-4;
         }
     }
+    .thumbnail:hover {
+        transform: scale(1.5);
+    }
 
     .productLine {
         @apply flex pt-2;
-
+        .cartAdded {
+            @apply w-8/12 pt-4 text-right font-bold text-orange-600;
+        }
         .productPrice {
             @apply w-5/12 font-bold text-lg px-2;
         }
@@ -38,12 +43,13 @@ REQ: TailwindCSS, PostCSS, PostCSS-Custom-Properties
         }
     }
     .cartButton {
-        @apply text-right px-2 pt-2 text-sm font-bold text-green-500;
+        @apply w-4/12 text-right content-end px-2 pt-2 text-sm font-bold text-green-500;
         button {
             @apply p-1 border-green-600 border-2 bg-green-50;
         }
         button:hover {
             @apply bg-green-200;
+            transform: scale(1.1);
         }
     }
 }
