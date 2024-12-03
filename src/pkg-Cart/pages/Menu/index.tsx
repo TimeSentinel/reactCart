@@ -11,7 +11,7 @@ const Home: React.FC = () => {
     return (
         <>
             <div className="menuHeader">
-                <h1>Our Restaurant</h1>
+                <h1>Our Menu</h1>
                 <p>Unique and custom tastes require unique and custom words...
                 </p>
             </div>

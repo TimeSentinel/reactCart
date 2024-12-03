@@ -23,6 +23,9 @@ REQ: TailwindCSS, PostCSS, PostCSS-Custom-Properties
     --header-button-selected-text-color: #0475e6;
     --header-button-disabled-color: #98b7d2;
 
+    /* ---------- Body Colors ------------ */
+    --body-text-color: #4f5f6d;
+
     /* ---------- Cart Colors ------------ */
     --product-shadow-color: #6a96c2;
     --cart-row-border-color: #dbdbdb;
@@ -280,7 +283,17 @@ header {
     }
 }
 
-
+/* *********** CART MENU (food) *********** */
+.menuHeader {
+    @apply w-11/12 h-36 mx-auto pt-4;
+    color: var(--body-text-color);
+    h1 {
+        @apply my-3;
+    }
+}
+.menuContainer {
+    @apply w-11/12 mx-auto;
+}
 /* --------------- END -- Content -- END --------------- */
 
 /* ################################ Footer ################################ */
