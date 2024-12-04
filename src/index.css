@@ -95,7 +95,7 @@ header {
         .menu {
             @apply flex w-9/12 h-fit bottom-0;
 
-            .menuItem {
+            .menuItem, .popDown {
                 @apply w-3/12 h-8 mx-2;
 
                 button {
@@ -130,7 +130,40 @@ header {
                     @apply bg-green-400 text-green-50 border-green-100 ;
                 }
             }
+
+            .popDown {
+                color: var(--dark-color);
+            }
+
+            .dropDown {
+                @apply cursor-pointer;
+
+                .menuSubItem {
+                    @apply w-32 h-8 border-b-2 text-sm relative;
+                    @apply shadow-xl shadow-gray-500;
+                    color: var(--medium-color);
+                    border-color: var(--medium-color);
+                    background-color: var(--light-shade);
+                    -webkit-animation: slide 3s infinite ease-in-out;
+                    -webkit-animation-delay: 2s;
+                    animation: slide 2s forwards;
+                    animation-delay: 4s;
+                    z-index: 99;
+                }
+
+                .enabled:hover {
+                    color: var(--light-color);
+                    background-color: var(--dark-color);
+                }
+
+                .disabled, disabled:hover {
+                    color: var(--medium-shade);
+                    background-color: var(--light-shade);
+                }
+            }
+
         }
+
     }
 
 }

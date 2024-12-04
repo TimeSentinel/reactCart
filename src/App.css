@@ -16,12 +16,14 @@ REQ: TailwindCSS, PostCSS, PostCSS-Custom-Properties
 
 header {
     @apply w-full h-36 mt-2;
+    z-index: 20;
 }
 
 main {
-
+    z-index: 12;
 }
 
 .App {
     @apply w-full px-2;
+    z-index: 10;
 }

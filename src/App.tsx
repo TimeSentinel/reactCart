@@ -7,17 +7,24 @@ REQ: Vite-React.js+TypeScript, react-router-dom, react-hot-toast,
 */
 
 /*
-todo: css on details page
+todo: -responsiveness: header
+todo: -responsiveness: hamburger menu
+todo: -responsiveness: cart system: main menu
+todo: -responsiveness: cart system: cart
+todo: -responsiveness: cart system: product detail page
+todo: ****create footer
+
 todo: local storage for Cart
 todo: payment for cart
 todo: submit pickup/delivery order
-todo: category filters; dropdown menu from 'Menu'
+todo: -category filters; dropdown menu from 'Menu'
 todo: news/blog from json
-todo: restaurant name and log
+todo: **restaurant name and logo
 todo: news, pkg-Cart from database
 todo: cms admin login
 todo: user accounts: login, user page, user settings, theme, etc
 todo: user accounts: order history, billing info
+
  */
 
 import './App.css';
