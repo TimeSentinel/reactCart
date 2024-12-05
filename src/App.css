@@ -15,7 +15,7 @@ REQ: TailwindCSS, PostCSS, PostCSS-Custom-Properties
 }
 
 header {
-    @apply w-full h-36 mt-2;
+    @apply w-full h-36 pt-2;
     z-index: 20;
 }
 
@@ -23,7 +23,11 @@ main {
     z-index: 12;
 }
 
+footer {
+    @apply w-full h-28 pt-4 mt-16;
+}
+
 .App {
-    @apply w-full px-2;
+    @apply w-full;
     z-index: 10;
 }

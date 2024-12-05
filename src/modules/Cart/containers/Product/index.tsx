@@ -1,6 +1,7 @@
 /* Product Container
 ################################### Restaurant Functional Module ###################################
-/src/containers/Product/index.tsx    :::  product container
+Module: Cart
+/modules/Cart/containers/Product/index.tsx    :::  product container
 REQ: Vite-React.js+TypeScript, react-router-dom, react-hot-toast,
 (c)2024 Lance Stubblefield
 ####################################################################################################
@@ -10,7 +11,7 @@ import "./Product.css"
 import {ProductProps} from "src/globalTypes.tsx";
 import {useNavigate} from "react-router-dom";
 import {useContext} from "react";
-import {ctx} from "src/context/";
+import {ctx} from "src/context";
 import toast from "react-hot-toast";
 
 const Product = ({id, title, category, price, image}: ProductProps) => {

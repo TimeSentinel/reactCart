@@ -7,8 +7,8 @@ REQ: Vite-React.js+TypeScript, react-router-dom, react-hot-toast,
 */
 
 import {ReactNode} from "react";
-import Header from "../pages/Header";
-import Footer from "../pages/Footer";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 interface Props {
     children: ReactNode;

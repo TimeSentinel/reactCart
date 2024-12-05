@@ -6,7 +6,7 @@ REQ: Vite-React.js+TypeScript, react-router-dom, react-hot-toast,
 ####################################################################################################
 */
 
-import {StateInterface, ActionInterface, ProductInterface, CartInterface} from "../../globalTypes.tsx"
+import {StateInterface, ActionInterface, ProductInterface, CartInterface} from "../../../globalTypes.tsx"
 
 interface cartReducerInterface {
     id: number;

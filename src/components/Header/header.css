@@ -1,0 +1,117 @@
+/* header.css
+################################### Restaurant Functional Module ###################################
+/src/layout/Header/header.css    ::: Main header style sheet
+REQ: TailwindCSS, PostCSS, PostCSS-Custom-Properties
+(c)2024 Lance Stubblefield
+####################################################################################################
+*/
+
+/* ################################ Header ################################ */
+header {
+    @apply w-full h-full px-4 align-text-bottom text-right;
+    @apply border-b-4;
+    background-color: var(--light-color);
+    border-color: var(--bright-color);
+
+    .titleRow {
+        @apply block w-full h-24 px-4 pt-4;
+
+        .cartCorner {
+            @apply float-right mt-6 mr-1 w-32;
+            @apply cursor-pointer;
+
+            .cartCount {
+                @apply mx-2 px-2 text-green-500 font-bold text-xl;
+            }
+
+            img {
+                @apply float-right w-10;
+            }
+        }
+    }
+
+    .navRow {
+        @apply flex  w-full h-12 pt-2;
+
+        .navbarFiller {
+            @apply h-full w-3/12;
+        }
+
+        .navbar {
+            @apply flex w-9/12 h-fit bottom-0;
+
+            .navbarItem {
+                @apply w-3/12 h-8 mx-2;
+
+                button {
+                    @apply w-full h-full font-medium ;
+                }
+
+                .enabled {
+                    color: var(--dark-color);
+                }
+
+                .enabled:hover, .selected {
+                    color: var(--light-color);
+                    background-color: var(--bright-color);
+                    border-color: var(--dark-color);
+                    @apply border-b-4;
+                }
+
+                .selected {
+                    @apply border-2;
+                }
+
+                .disabled {
+                    @apply cursor-not-allowed;
+                    color: var(--medium-color);
+                }
+
+                .cartButton {
+                    @apply text-center px-2 ;
+                    @apply border-green-600 border-2 bg-green-50 text-green-500;
+                }
+
+                .cartButton:hover {
+                    @apply bg-green-400 text-green-50 border-green-100 ;
+                }
+            }
+
+            .dropDown {
+                @apply cursor-pointer border-2 h-fit;
+                border-color: var(--medium-shade);
+
+                .navbarSubItem {
+                    @apply h-8 border-b-2 text-sm relative;
+                    @apply shadow-xl shadow-gray-500;
+                    border-color: var(--medium-shade);
+                    background-color: var(--light-shade);
+                    -webkit-animation: slide 3s infinite ease-in-out;
+                    -webkit-animation-delay: 2s;
+                    animation: slide 2s forwards;
+                    animation-delay: 4s;
+                    z-index: 99;
+                    .enabled {
+                        color: var(--dark-color);
+                    }
+                    .enabled:hover {
+                        color: var(--light-color);
+                        background-color: var(--dark-color);
+                    }
+
+                    .disabled, .disabled:hover {
+                        color: var(--medium-shade);
+                        border-color: var(--medium-shade);
+                    }
+                }
+
+
+            }
+
+        }
+
+    }
+
+}
+
+/* --------------- END -- Header -- END --------------- */

@@ -6,11 +6,11 @@ REQ: Vite-React.js+TypeScript, react-router-dom, react-hot-toast,
 ####################################################################################################
 */
 
-
 import {useNavigate} from "react-router-dom";
-import cartIcon from "/images/cart-100.png"
+import cartIcon from "/images/cart-100.png";
 import {useContext} from "react";
-import {ctx} from "src/context"
+import {ctx} from "src/context";
+import "./header.css";
 
 function Header() {
     const state = useContext(ctx).state
@@ -19,20 +19,20 @@ function Header() {
 
     const dropDown = document.getElementById('dropDown') as HTMLInputElement
 
-    function handleClick1() {
+    function navClick1() {
         navigate("/")
         dropDown.className = "dropDown hidden"
     }
-    function handleClick2() {
+    function navClick2() {
         navigate("/")
         dropDown.className = "dropDown hidden"
     }
-    function handleClick3() {
+    function navClick3() {
         navigate("/")
         dropDown.className = "dropDown hidden"
     }
 
-    function openMenu() {
+    function openNavbar() {
         if (dropDown.className === "dropDown hidden") {
             dropDown.className = "dropDown enabled"
         } else {
@@ -50,49 +50,49 @@ function Header() {
                 </div>
 
             </div>
-            <div className="menuRow">
-                <div className="menuFiller"></div>
-                <div className="menu">
-                    <div className="menuItem">
+            <div className="navRow">
+                <div className="navbarFiller"></div>
+                <div className="navbar">
+                    <div className="navbarItem">
                         <button className="enabled" onClick={() => navigate("/")}>
                             Home
                         </button>
                     </div>
 
-                    <div className="menuItem">
-                        <button className="popDown enabled" onClick={openMenu}>Menu</button>
+                    <div className="navbarItem">
+                        <button className="enabled" onClick={openNavbar}>Menu</button>
                         <div className="dropDown hidden" id="dropDown">
-                            <button className="menuSubItem enabled" onClick={handleClick1}>ALL</button>
-                            <button className="menuSubItem disabled" onClick={handleClick2}>American</button>
-                            <button className="menuSubItem disabled" onClick={handleClick3}>Mexican</button>
-                            <button className="menuSubItem disabled" onClick={handleClick3}>Asian</button>
-                            <button className="menuSubItem disabled" onClick={handleClick3}>Fusion</button>
-                            <button className="menuSubItem disabled" onClick={handleClick3}>Breakfast</button>
-                            <button className="menuSubItem disabled" onClick={handleClick3}>Beverage</button>
+                            <button className="navbarSubItem enabled" onClick={navClick1}>ALL</button>
+                            <button className="navbarSubItem disabled" onClick={navClick2}>American</button>
+                            <button className="navbarSubItem disabled" onClick={navClick3}>Mexican</button>
+                            <button className="navbarSubItem disabled" onClick={navClick3}>Asian</button>
+                            <button className="navbarSubItem disabled" onClick={navClick3}>Fusion</button>
+                            <button className="navbarSubItem disabled" onClick={navClick3}>Breakfast</button>
+                            <button className="navbarSubItem disabled" onClick={navClick3}>Beverage</button>
                         </div>
                     </div>
 
-                    <div className="menuItem enabled" id="menuX">
+                    <div className="navbarItem enabled" id="menuX">
                     <button className="disabled">
                             Our Story
                         </button>
                     </div>
-                    <div className="menuItem">
+                    <div className="navbarItem">
                         <button className="disabled">
                             News
                         </button>
                     </div>
-                    <div className="menuItem">
-                        <button className="disabled">
-                            News
-                        </button>
-                    </div>
-                    {/*<div className="menuItem">*/}
+                    {/*<div className="navbarItem">*/}
                     {/*    <button className="disabled">*/}
-                    {/*        Takeout*/}
+                    {/*        Other*/}
                     {/*    </button>*/}
                     {/*</div>*/}
-                    <div className="menuItem">
+                    <div className="navbarItem">
+                        <button className="disabled">
+                            Contact Us
+                        </button>
+                    </div>
+                    <div className="navbarItem">
                         <button onClick={() => navigate("/cart")} className="cartButton">
                             Cart
                         </button>

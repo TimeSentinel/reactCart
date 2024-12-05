@@ -6,6 +6,7 @@ REQ: Vite-React.js+TypeScript, react-router-dom, react-hot-toast,
 ####################################################################################################
 */
 
+import "./footer.css"
 
 function Footer() {
     return (
@@ -16,7 +17,8 @@ function Footer() {
                 </div>
                 <div className="footCenter">
                     &copy; 2024 Lance Stubblefield<br/>
-                    <a href="mailto: lance@sol3.one">lance@sol3.one</a>
+                    <a href="mailto: lance@sol3.one">
+                        lance@sol3.one</a>
                 </div>
                 <div className="footRight">
 
@@ -25,4 +27,5 @@ function Footer() {
         </footer>
     )
 }
+
 export default Footer;

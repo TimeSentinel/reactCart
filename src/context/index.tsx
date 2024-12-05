@@ -8,7 +8,7 @@ REQ: Vite-React.js+TypeScript, react-router-dom, react-hot-toast,
 
 import {createContext} from "react";
 import {ActionInterface, StateInterface} from "../globalTypes.tsx";
-import {initialState} from "../pkg-Cart/reducer";
+import {initialState} from "../modules/Cart/reducer";
 
 export const ctx = createContext<{
     state: StateInterface;

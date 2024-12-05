@@ -1,16 +1,18 @@
-/* CART PAGE
+/* Cart Page
 ################################### Restaurant Functional Module ###################################
-/src/pages/Cart/index.tsx    ::: Cart Page
+Module: Cart
+/modules/Cart/pages/Cart/index.tsx    ::: Cart Page
 REQ: Vite-React.js+TypeScript, react-router-dom, react-hot-toast,
 (c)2024 Lance Stubblefield
 ####################################################################################################
 */
 
 import {useContext, useEffect, useState} from "react";
-import {CartItem} from "src/pkg-Cart/containers/Cart";
+import {CartItem} from "src/modules/Cart/containers/Cart";
 import {ctx} from "src/context";
 import toast from "react-hot-toast";
-import {ProductInterface} from "../../../globalTypes.tsx";
+import {ProductInterface} from "src/globalTypes.tsx";
+import "src/modules/Cart/pages/cartPages.css"
 
 const Cart: React.FC = () => {
     const state = useContext(ctx).state

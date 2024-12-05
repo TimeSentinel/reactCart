@@ -1,3 +1,14 @@
+/* Home Page
+################################### Restaurant Functional Module ###################################
+Main Pages
+/src/pages/Home/index.tsx    ::: Home Page
+REQ: Vite-React.js+TypeScript, react-router-dom, react-hot-toast,
+(c)2024 Lance Stubblefield
+####################################################################################################
+*/
+
+
+
 function Home() {
 
 

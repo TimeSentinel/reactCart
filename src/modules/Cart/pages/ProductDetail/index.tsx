@@ -1,11 +1,13 @@
-/* Product Detail
+/* Product Detail Page
 ################################### Restaurant Functional Module ###################################
-/src/pages/ProductDetail/index.tsx    ::: product detail
+Module: Cart
+/modules/Cart/pages/ProductDetail/index.tsx    ::: product detail
 REQ: Vite-React.js+TypeScript, react-router-dom, react-hot-toast,
 (c)2024 Lance Stubblefield
 ####################################################################################################
 */
 
+import "src/modules/Cart/pages/cartPages.css"
 import {useParams} from "react-router-dom"
 import {useContext} from "react";
 import {ProductInterface} from "src/globalTypes.tsx";

@@ -1,8 +1,17 @@
-// src/pages/Menu/index.tsx
+/* Menu Page
+################################### Restaurant Functional Module ###################################
+Module: Cart
+/modules/Cart/pages/ProductDetail/index.tsx    ::: product detail
+REQ: Vite-React.js+TypeScript, react-router-dom, react-hot-toast,
+(c)2024 Lance Stubblefield
+####################################################################################################
+*/
 
+
+import "src/modules/Cart/pages/cartPages.css"
 import {Product} from "../../containers/Product";
 import {useContext} from "react";
-import {ctx} from "../../../context";
+import {ctx} from "../../../../context";
 
 
 const Home: React.FC = () => {

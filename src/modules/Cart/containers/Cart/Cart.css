@@ -1,4 +1,11 @@
-/* src/containers/Product/Cart.css */
+/* Cart.css
+################################### Restaurant Functional Module ###################################
+Module: Cart
+/module/Cart/containers/Cart/Cart.css    ::: Cart card style sheet
+REQ: TailwindCSS, PostCSS, PostCSS-Custom-Properties
+(c)2024 Lance Stubblefield
+####################################################################################################
+*/
 
 .cartCard {
     @apply flex flex-row h-8 my-2 px-2;

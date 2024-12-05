@@ -1,6 +1,7 @@
 /* CART Container
 ################################### Restaurant Functional Module ###################################
-/src/containers/Cart/index.tsx    ::: pkg-Cart container
+Module: Cart
+/modules/Cart/containers/Cart/index.tsx    ::: cart container
 REQ: Vite-React.js+TypeScript, react-router-dom, react-hot-toast,
 (c)2024 Lance Stubblefield
 ####################################################################################################
@@ -11,6 +12,7 @@ import {useContext} from "react";
 import {ProductInterface} from 'src/globalTypes.tsx';
 import {ctx} from "src/context";
 import toast from "react-hot-toast";
+
 
 interface CartProps {
     id: number;

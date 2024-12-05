@@ -1,0 +1,39 @@
+/* footer.css
+################################### Restaurant Functional Module ###################################
+/src/layout/Footer/footer.css    ::: Main footer styles
+REQ: TailwindCSS, PostCSS, PostCSS-Custom-Properties
+(c)2024 Lance Stubblefield
+####################################################################################################
+*/
+
+/* ################################ Footer ################################ */
+footer {
+    @apply border-t-2;
+    border-color: var(--very-dark-shade);
+    background-color: var(--dark-shade);
+
+    .footRow {
+        @apply flex items-center justify-between px-3 pt-4;
+
+        .footLeft {
+
+        }
+
+        .footCenter {
+            @apply text-center font-light text-sm;
+            color: var(--light-color);
+
+            a, a:visited {
+                @apply underline;
+                color: var(--soft-color);
+            }
+
+
+        }
+
+        .footRight {
+
+        }
+    }
+}
+/* --------------- END -- Footer -- END --------------- */
