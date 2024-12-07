@@ -1,7 +1,7 @@
 /* CART Container
 ################################### Restaurant Functional Module ###################################
 Module: Cart
-/modules/Cart/containers/Cart/index.tsx    ::: cart container
+/modules/Cart/containers/Cart/stateReducers.tsx    ::: cart container
 REQ: Vite-React.js+TypeScript, react-router-dom, react-hot-toast,
 (c)2024 Lance Stubblefield
 ####################################################################################################
@@ -20,9 +20,9 @@ interface CartProps {
 
 const CartItem = ({id}: CartProps) => {
     const state = useContext(ctx).state
-    const dispatch = useContext(ctx).dispatch
-    // const [state, dispatch] = useReducer(reducerFn, state);
-    const activeCart = state?.shoppingCart || []
+    const localDispatch = useContext(ctx).localDispatch
+    const shoppingCart = useContext(ctx).localState.shoppingCart
+    // const setShoppingCart = useContext(ctx).localDispatch
     const activeProducts = state?.products || []
     const product: ProductInterface = activeProducts.find(
         product => product.id === Number(id)
@@ -32,14 +32,14 @@ const CartItem = ({id}: CartProps) => {
     const rowPrice = product.price
 
     const addClick = (row: number) => {
-        if (!(row in activeCart)) {
-            dispatch({
+        if (!(row in shoppingCart)) {
+            localDispatch({
                 type: "ADD_TO_CART",
                 payload: {id: row, quantity: 1}
             })
         } else {
-            const curCount = activeCart[row] || 0
-            dispatch({
+            const curCount = shoppingCart[row] || 0
+            localDispatch({
                 type: "UPDATE_CART",
                 payload: {id: row, quantity: (curCount + 1)}
             })
@@ -47,16 +47,16 @@ const CartItem = ({id}: CartProps) => {
     }
 
     const minusClick = (row: number) => {
-        if (!(row in activeCart)) {
+        if (!(row in shoppingCart)) {
             toast.error("Failed to Reduce Quantity!")
-        } else if (activeCart[row] === 1) {
-            dispatch({
+        } else if (shoppingCart[row] === 1) {
+            localDispatch({
                 type: "REMOVE_ITEM",
                 payload: {id: row, quantity: 0}
             })
         } else {
-            const curCount = activeCart[row] || 0
-            dispatch({
+            const curCount = shoppingCart[row] || 0
+            localDispatch({
                 type: "UPDATE_CART",
                 payload: {id: row, quantity: (curCount - 1)}
             })
@@ -66,7 +66,7 @@ const CartItem = ({id}: CartProps) => {
     return (
         <div className="cartCard" key={id}>
             <div className="cartDelete">
-                <button className="cartButton" onClick={() => dispatch({type: "REMOVE_ITEM", payload: {id}})}>
+                <button className="cartButton" onClick={() => localDispatch({type: "REMOVE_ITEM", payload: {id}})}>
                     X
                 </button>
             </div>
@@ -80,14 +80,14 @@ const CartItem = ({id}: CartProps) => {
             <div className="column4"></div>
             <div className="cartButton">
                 <button className="cartInc" onClick={() => addClick(id)}>+</button>
-                <div className="cartQty">{activeCart[id] | 0}</div>
+                <div className="cartQty">{shoppingCart[id] | 0}</div>
                 <button className="cartDec" onClick={() => minusClick(id)}>-</button>
             </div>
             <div className="cartLineTotal">
                 {new Intl.NumberFormat('en-US', {
                     style: 'currency',
                     currency: 'USD'
-                }).format(((rowPrice) * (activeCart[id]))) ?? 0}
+                }).format(((rowPrice) * (shoppingCart[id]))) ?? 0}
             </div>
         </div>
     )

@@ -1,6 +1,6 @@
 /* LAYOUT
 ################################### Restaurant Functional Module ###################################
-/src/containers/Cart/index.tsx    ::: primary application container
+/src/containers/Cart/stateReducers.tsx    ::: primary application container
 REQ: Vite-React.js+TypeScript, react-router-dom, react-hot-toast,
 (c)2024 Lance Stubblefield
 ####################################################################################################

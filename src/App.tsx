@@ -14,7 +14,7 @@ todo: -responsiveness: cart system: cart
 todo: -responsiveness: cart system: product detail page
 todo: *contact page
 todo: *about us page
-todo: local storage for Cart
+
 todo: payment for cart
 todo: submit pickup/delivery order
 todo: -category filters; dropdown menu from 'Menu'
@@ -25,43 +25,50 @@ todo: news, Cart from database
 todo: cms admin login
 todo: user accounts: login, user page, user settings, theme, etc
 todo: user accounts: order history, billing info
+todo: check local storage for old/corrupt setup and clear or modify as needed
 
  */
 
 import './App.css';
-import { ctx } from './context';
-import {initialState} from "./modules/Cart/reducer";
-import { useEffect, useReducer} from "react";
-import { reducerFn} from "./modules/Cart/reducer";
+import {ctx} from './context';
+// import {initialState} from "./modules/Cart/reducer";
+// import  { useEffect, useReducer} from "react";
+import {initialState, reducerFn} from "./modules/Cart/reducer/stateReducers.tsx";
 import {Layout} from "./layout";
-import { Route, Routes} from 'react-router-dom';
+import {Route, Routes} from 'react-router-dom';
 import {Home} from "./modules/Cart/pages/Menu";
 import {ProductDetail} from "./modules/Cart/pages/ProductDetail";
 import Cart from "./modules/Cart/pages/Cart";
 import {Toaster} from "react-hot-toast";
+import {useEffect, useReducer} from "react";
+import {useLocalStorage} from "./modules/Cart/reducer/localStateReducers.tsx";
 
 
 function App() {
     const [state, dispatch] = useReducer(reducerFn, initialState);
-
+    const [localState, localDispatch] = useLocalStorage("ShoppingCart")
+    // ------------------------------ CART MODULE CODE ------------------------------
     useEffect(() => {
-        fetch("/public/products/products.json")
+        fetch("/products/products.json")
             .then(res => res.json())
             .then(data => dispatch({type: "ADD_PRODUCTS", payload: data}));
     }, [])
+
+    // ------------------------------ END CART MODULE ------------------------------
+
     return (
-        <ctx.Provider value={{state, dispatch}}>
+        <ctx.Provider value={{state, dispatch, localState, localDispatch}}>
             <div className="App">
                 <Toaster
                     position="top-right"
                     reverseOrder={false}
                 />
                 <Layout>
-                        <Routes>
-                            <Route path='/' element={<Home />} />
-                            <Route path='products/:title' element={<ProductDetail />} />
-                            <Route path='cart' element={<Cart />} />
-                        </Routes>
+                    <Routes>
+                        <Route path='/' element={<Home/>}/>
+                        <Route path='products/:title' element={<ProductDetail/>}/>
+                        <Route path='cart' element={<Cart/>}/>
+                    </Routes>
                 </Layout>
             </div>
         </ctx.Provider>

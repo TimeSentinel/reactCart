@@ -1,7 +1,7 @@
 /* Cart Page
 ################################### Restaurant Functional Module ###################################
 Module: Cart
-/modules/Cart/pages/Cart/index.tsx    ::: Cart Page
+/modules/Cart/pages/Cart/stateReducers.tsx    ::: Cart Page
 REQ: Vite-React.js+TypeScript, react-router-dom, react-hot-toast,
 (c)2024 Lance Stubblefield
 ####################################################################################################
@@ -16,28 +16,28 @@ import "src/modules/Cart/pages/cartPages.css"
 
 const Cart: React.FC = () => {
     const state = useContext(ctx).state
-    const dispatch = useContext(ctx).dispatch
-    const activeCart = state?.shoppingCart || []
+    const localState = useContext(ctx).localState.shoppingCart
+    const localDispatch = useContext(ctx).localDispatch
     const activeProducts = state?.products || []
 
     const emptyCart = () => {
-        dispatch({
+        localDispatch({
             type: "EMPTY_CART",
             payload: {id: 0, quantity: 0}
         })
-        if (Object.keys(activeCart).length !== 0) toast.success("CART EMPTIED!")
+        if (Object.keys(localState).length !== 0) toast.success("CART EMPTIED!")
     }
     let totalT = 0
     const [total, setTotal] = useState<number>(0)
     useEffect(() => {
         totalT = 0
-        Object.keys(activeCart).map(id => {
+        Object.keys(localState).map(id => {
             totalT = totalT +
                 ((activeProducts.find(product => product.id === Number(id)) as ProductInterface).price as number)
-                * activeCart[Number(id)] as number
+                * localState[Number(id)] as number
         })
         setTotal(totalT)
-    }, [state])
+    }, [useContext(ctx).localState])
 
     return (
         <>
@@ -48,7 +48,7 @@ const Cart: React.FC = () => {
                 <div className="cartCenter"></div>
                 <div className="cartRight">
                     <button onClick={emptyCart} className={
-                        Object.keys(activeCart).length == 0 &&
+                        Object.keys(localState).length == 0 &&
                         "disabled" || "enabled"
                     }>
                         EMPTY CART
@@ -66,9 +66,9 @@ const Cart: React.FC = () => {
                     <div className="cartTableHeaderItem column5">Quantity</div>
                     <div className="cartTableHeaderItem column6">Total</div>
                 </div>
-                {Object.keys(activeCart).length ? (
+                {Object.keys(localState).length ? (
                     <>
-                        {Object.keys(activeCart).map(id => (
+                        {Object.keys(localState).map(id => (
                             <CartItem id={Number(id)} key={id}/>
                         ))}
                     </>
@@ -83,9 +83,9 @@ const Cart: React.FC = () => {
             <hr className="cartLineBottom"/>
             <div className="cartFooter">
                 <button onClick={() => {
-                    if (Object.keys(activeCart).length !== 0) toast.success("Order Submitted!")
+                    if (Object.keys(localState).length !== 0) toast.success("Order Submitted!")
                 }} className={
-                    Object.keys(activeCart).length == 0 &&
+                    Object.keys(localState).length == 0 &&
                     "disabled" || "enabled"
                 }>Place Order
                 </button>

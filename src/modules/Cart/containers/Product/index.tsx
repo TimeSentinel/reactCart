@@ -1,7 +1,7 @@
 /* Product Container
 ################################### Restaurant Functional Module ###################################
 Module: Cart
-/modules/Cart/containers/Product/index.tsx    :::  product container
+/modules/Cart/containers/Product/stateReducers.tsx    :::  product container
 REQ: Vite-React.js+TypeScript, react-router-dom, react-hot-toast,
 (c)2024 Lance Stubblefield
 ####################################################################################################
@@ -15,22 +15,22 @@ import {ctx} from "src/context";
 import toast from "react-hot-toast";
 
 const Product = ({id, title, category, price, image}: ProductProps) => {
-    const state = useContext(ctx).state
-    const dispatch = useContext(ctx).dispatch
+    const activeCart = useContext(ctx).localState.shoppingCart
+    const localDispatch = useContext(ctx).localDispatch
     const navigate = useNavigate();
-    const activeCart = state?.shoppingCart
+
     const handleClick = () => navigate(`/products/${title.trim()}`)
 
     const addClick = (row: number) => {
         if (!(row in activeCart)) {
-            dispatch({
+            localDispatch({
                 type: "ADD_TO_CART",
                 payload: {id: row, quantity: 1}
             })
             toast.success("Added to Cart");
         } else {
             const curCount = activeCart[row] || 0
-            dispatch({
+            localDispatch({
                 type: "UPDATE_CART",
                 payload: {id: row, quantity: (curCount + 1)}
             })

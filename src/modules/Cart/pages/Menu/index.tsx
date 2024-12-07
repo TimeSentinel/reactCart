@@ -1,7 +1,7 @@
 /* Menu Page
 ################################### Restaurant Functional Module ###################################
 Module: Cart
-/modules/Cart/pages/ProductDetail/index.tsx    ::: product detail
+/modules/Cart/pages/ProductDetail/stateReducers.tsx    ::: product detail
 REQ: Vite-React.js+TypeScript, react-router-dom, react-hot-toast,
 (c)2024 Lance Stubblefield
 ####################################################################################################
@@ -16,6 +16,7 @@ import {ctx} from "../../../../context";
 
 const Home: React.FC = () => {
     const state = useContext(ctx).state
+    // const contec = useContext(ctx)
 
     return (
         <>

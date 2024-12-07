@@ -1,7 +1,7 @@
 /* Contact Page
 ################################### Restaurant Functional Module ###################################
 Main Pages
-/src/pages/Contact/index.tsx    ::: Contact Us page
+/src/pages/Contact/stateReducers.tsx    ::: Contact Us page
 REQ: Vite-React.js+TypeScript, react-router-dom, react-hot-toast,
 (c)2024 Lance Stubblefield
 ####################################################################################################

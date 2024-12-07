@@ -1,7 +1,7 @@
 /* About Page
 ################################### Restaurant Functional Module ###################################
 Main Pages
-/src/pages/About/index.tsx    ::: About Us page
+/src/pages/About/stateReducers.tsx    ::: About Us page
 REQ: Vite-React.js+TypeScript, react-router-dom, react-hot-toast,
 (c)2024 Lance Stubblefield
 ####################################################################################################

@@ -19,10 +19,6 @@ export interface CartInterface {
     [id: number]: number;
 }
 
-export interface StateInterface {
-    products: ProductInterface[];
-    shoppingCart: CartInterface;
-}
 
 export interface ActionInterface {
     type: string;

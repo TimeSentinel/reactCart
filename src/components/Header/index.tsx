@@ -1,6 +1,6 @@
 /* HEADER
 ################################### Restaurant Functional Module ###################################
-/src/pages/Header/index.tsx    ::: primary application container
+/src/pages/Header/stateReducers.tsx    ::: primary application container
 REQ: Vite-React.js+TypeScript, react-router-dom, react-hot-toast,
 (c)2024 Lance Stubblefield
 ####################################################################################################
@@ -13,8 +13,7 @@ import {ctx} from "src/context";
 import "./header.css";
 
 function Header() {
-    const state = useContext(ctx).state
-    const activeCart = state?.shoppingCart || []
+    const localState = useContext(ctx).localState.shoppingCart
     const navigate = useNavigate();
 
     const dropDown = document.getElementById('dropDown') as HTMLInputElement
@@ -45,7 +44,7 @@ function Header() {
             <div className="titleRow">
                 <div className="logo"></div>
                 <div className="cartCorner" onClick={() => navigate("/cart")}>
-                    <span className="cartCount">{Object.keys(activeCart).length}</span>
+                    <span className="cartCount">{Object.keys(localState).length}</span>
                     <img src={cartIcon} alt="cart"/>
                 </div>
 

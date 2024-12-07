@@ -1,7 +1,7 @@
 /* Product Detail Page
 ################################### Restaurant Functional Module ###################################
 Module: Cart
-/modules/Cart/pages/ProductDetail/index.tsx    ::: product detail
+/modules/Cart/pages/ProductDetail/stateReducers.tsx    ::: product detail
 REQ: Vite-React.js+TypeScript, react-router-dom, react-hot-toast,
 (c)2024 Lance Stubblefield
 ####################################################################################################
@@ -17,9 +17,9 @@ import toast from "react-hot-toast";
 
 const ProductDetail: React.FC = () => {
     const state = useContext(ctx)?.state
-    const dispatch = useContext(ctx)?.dispatch
+    const localDispatch = useContext(ctx).localDispatch
     const navigate = useNavigate();
-    const activeCart = state?.shoppingCart || []
+    const localState = useContext(ctx).localState.shoppingCart
     const activeProducts = state?.products || []
     const {title} = useParams()
 
@@ -28,15 +28,15 @@ const ProductDetail: React.FC = () => {
     ) as ProductInterface
 
     const addClick = (row: number) => {
-        if (!(row in activeCart)) {
-            dispatch({
+        if (!(row in localState)) {
+            localDispatch({
                 type: "ADD_TO_CART",
                 payload: {id: row, quantity: 1}
             })
             toast.success("Added to Cart");
         } else {
-            const curCount = activeCart[row] || 0
-            dispatch({
+            const curCount = localState[row] || 0
+            localDispatch({
                 type: "UPDATE_CART",
                 payload: {id: row, quantity: (curCount + 1)}
             })
@@ -70,10 +70,10 @@ const ProductDetail: React.FC = () => {
                     <button onClick={() => addClick(product.id)}>ADD TO CART</button>
                 </div>
 
-                {product.id in activeCart && <div className="productInCart">
+                {product.id in localState && <div className="productInCart">
                     <button onClick={() =>
                         navigate("/cart")}>
-                        {activeCart[product.id]} in cart!
+                        {localState[product.id]} in cart!
                     </button>
                 </div>
                 }
