@@ -7,10 +7,10 @@ REQ: Vite-React.js+TypeScript, react-router-dom, react-hot-toast,
 ####################################################################################################
 */
 
-import "src/modules/Cart/pages/cartPages.css"
+import "src/modules/Menu/pages/menuPages.css"
 import {useParams} from "react-router-dom"
 import {useContext} from "react";
-import {ProductInterface} from "src/globalTypes.tsx";
+import {ProductInterface} from 'src/reducer/stateReducers.tsx';
 import {useNavigate} from "react-router-dom";
 import {ctx} from "src/context";
 import toast from "react-hot-toast";
@@ -27,7 +27,7 @@ const ProductDetail: React.FC = () => {
         product => product.title.trim() === title?.trim()
     ) as ProductInterface
 
-    const addClick = (row: number) => {
+    const addClick = (row: string) => {
         if (!(row in localState)) {
             localDispatch({
                 type: "ADD_TO_CART",

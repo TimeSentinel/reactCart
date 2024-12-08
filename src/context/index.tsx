@@ -7,19 +7,18 @@ REQ: Vite-React.js+TypeScript, react-router-dom, react-hot-toast,
 */
 
 import {createContext} from "react";
-import {ActionInterface} from "../globalTypes.tsx";
-import {initialState, StateInterface} from "../modules/Cart/reducer/stateReducers.tsx";
-import {initialLocalState, LocalStateInterface} from "../modules/Cart/reducer/localStateReducers.tsx";
+import {initialState, StateInterface, ActionInterface} from "../reducer/stateReducers.tsx";
+import {initialLocalState, LocalStateInterface, LocalActionInterface} from "../reducer/localStateReducers.tsx";
 
 export const ctx = createContext<{
     state: StateInterface;
     dispatch: React.Dispatch<ActionInterface>;
     localState: LocalStateInterface;
-    localDispatch: React.Dispatch<ActionInterface>;
+    localDispatch: React.Dispatch<LocalActionInterface>;
 }>({
         state: initialState,
         dispatch: () => null,
-        localState: initialLocalState,
-        localDispatch: () => null
+        localState:  initialLocalState,
+        localDispatch: () => null,
     }
 );

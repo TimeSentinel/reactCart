@@ -29,24 +29,28 @@ todo: check local storage for old/corrupt setup and clear or modify as needed
 
  */
 
+// Style Sheets
 import './App.css';
-import {ctx} from './context';
-// import {initialState} from "./modules/Cart/reducer";
-// import  { useEffect, useReducer} from "react";
-import {initialState, reducerFn} from "./modules/Cart/reducer/stateReducers.tsx";
-import {Layout} from "./layout";
-import {Route, Routes} from 'react-router-dom';
-import {Home} from "./modules/Cart/pages/Menu";
-import {ProductDetail} from "./modules/Cart/pages/ProductDetail";
-import Cart from "./modules/Cart/pages/Cart";
-import {Toaster} from "react-hot-toast";
+// Application Elements
 import {useEffect, useReducer} from "react";
-import {useLocalStorage} from "./modules/Cart/reducer/localStateReducers.tsx";
+import {Route, Routes} from 'react-router-dom';
+import {Toaster} from "react-hot-toast";
+// Classes and Functions
+import {ctx} from './context';
+import {Layout} from "./layout";
+import {initialState, reducerFn} from "./reducer/stateReducers.tsx";
+import {useLocalStorage} from "./reducer/localStateReducers.tsx";
+import {Home} from "./modules/Menu/pages/Menu";
+import {ProductDetail} from "./modules/Menu/pages/ProductDetail";
+import Cart from "./modules/Cart/pages/Cart";
+
 
 
 function App() {
     const [state, dispatch] = useReducer(reducerFn, initialState);
     const [localState, localDispatch] = useLocalStorage("ShoppingCart")
+
+
     // ------------------------------ CART MODULE CODE ------------------------------
     useEffect(() => {
         fetch("/products/products.json")

@@ -9,13 +9,12 @@ REQ: Vite-React.js+TypeScript, react-router-dom, react-hot-toast,
 
 import "./Cart.css"
 import {useContext} from "react";
-import {ProductInterface} from 'src/globalTypes.tsx';
+import {ProductInterface} from 'src/reducer/stateReducers';
 import {ctx} from "src/context";
 import toast from "react-hot-toast";
 
-
 interface CartProps {
-    id: number;
+    id: string;
 }
 
 const CartItem = ({id}: CartProps) => {
@@ -25,13 +24,13 @@ const CartItem = ({id}: CartProps) => {
     // const setShoppingCart = useContext(ctx).localDispatch
     const activeProducts = state?.products || []
     const product: ProductInterface = activeProducts.find(
-        product => product.id === Number(id)
+        product => product.id === (id)
     ) as ProductInterface
     const rowTitle = product.title
     const rowCategory = product.category
     const rowPrice = product.price
 
-    const addClick = (row: number) => {
+    const addClick = (row: string) => {
         if (!(row in shoppingCart)) {
             localDispatch({
                 type: "ADD_TO_CART",
@@ -46,7 +45,7 @@ const CartItem = ({id}: CartProps) => {
         }
     }
 
-    const minusClick = (row: number) => {
+    const minusClick = (row: string) => {
         if (!(row in shoppingCart)) {
             toast.error("Failed to Reduce Quantity!")
         } else if (shoppingCart[row] === 1) {

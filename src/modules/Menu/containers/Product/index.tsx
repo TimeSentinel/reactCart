@@ -1,18 +1,25 @@
 /* Product Container
 ################################### Restaurant Functional Module ###################################
 Module: Cart
-/modules/Cart/containers/Product/stateReducers.tsx    :::  product container
+/modules/Cart/containers/Product/index.tsx    :::  product container
 REQ: Vite-React.js+TypeScript, react-router-dom, react-hot-toast,
 (c)2024 Lance Stubblefield
 ####################################################################################################
 */
 
-import "./Product.css"
-import {ProductProps} from "src/globalTypes.tsx";
+import "./Product.css";
 import {useNavigate} from "react-router-dom";
 import {useContext} from "react";
 import {ctx} from "src/context";
 import toast from "react-hot-toast";
+
+export interface ProductProps {
+    id: string;
+    title: string;
+    image: string;
+    price: number;
+    category: string;
+}
 
 const Product = ({id, title, category, price, image}: ProductProps) => {
     const activeCart = useContext(ctx).localState.shoppingCart
@@ -21,7 +28,7 @@ const Product = ({id, title, category, price, image}: ProductProps) => {
 
     const handleClick = () => navigate(`/products/${title.trim()}`)
 
-    const addClick = (row: number) => {
+    const addClick = (row: string) => {
         if (!(row in activeCart)) {
             localDispatch({
                 type: "ADD_TO_CART",

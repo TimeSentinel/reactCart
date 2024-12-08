@@ -1,15 +1,37 @@
 /* REDUCERS
 ################################### Restaurant Functional Module ###################################
-/src/reducer/stateReducers.tsx    ::: Reducers
+/src/reducer/localStateReducers.tsx    ::: Reducers for local storage state
 REQ: Vite-React.js+TypeScript, react-router-dom, react-hot-toast,
 (c)2024 Lance Stubblefield
 ####################################################################################################
 */
 
-import {ActionInterface, CartInterface} from "src/globalTypes.tsx"
 import {useEffect, useReducer} from "react";
 
-export const useLocalStorage: (storageKey: string) => [LocalStateInterface, React.Dispatch<ActionInterface>] = (storageKey: string) => {
+export interface LocalStateInterface {
+    shoppingCart: CartInterface;
+}
+
+export interface LocalActionInterface {
+    type: string;
+    payload: unknown;
+}
+
+interface CartReducerInterface {
+    id: number;
+    quantity: number;
+}
+
+interface CartInterface {
+    [id: string]: number;
+}
+
+
+export const initialLocalState: LocalStateInterface = {
+    shoppingCart: {},
+}
+
+export const useLocalStorage: (storageKey: string) => [LocalStateInterface, React.Dispatch<LocalActionInterface>] = (storageKey: string) => {
     const [value, setValue] = useReducer(localReducerFn,
         JSON.parse(localStorage.getItem(storageKey) || JSON.stringify(initialLocalState)) as LocalStateInterface
     );
@@ -21,20 +43,8 @@ export const useLocalStorage: (storageKey: string) => [LocalStateInterface, Reac
     return [value, setValue];
 };
 
-interface CartReducerInterface {
-    id: number;
-    quantity: number;
-}
-
-export interface LocalStateInterface {
-    shoppingCart: CartInterface;
-}
-
-export const initialLocalState: LocalStateInterface = {
-    shoppingCart: {},
-}
-
-const localReducerFn = (state: LocalStateInterface, action: ActionInterface) => {
+const localReducerFn = (state: LocalStateInterface, action: LocalActionInterface) => {
+    console.log("localReducerFN")
     const {type, payload} = action
     switch (type) {
         case "ADD_TO_CART": {
@@ -69,9 +79,11 @@ const localReducerFn = (state: LocalStateInterface, action: ActionInterface) => 
             }
         }
         case "EMPTY_CART":
+            console.log("EMPTY_CART")
+
             return {
                 ...state,
-                shoppingCart: initialLocalState.shoppingCart
+                shoppingCart: {}
             }
         default:
             return state

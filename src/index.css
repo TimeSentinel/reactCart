@@ -24,6 +24,8 @@ REQ: TailwindCSS, PostCSS, PostCSS-Custom-Properties
     --dark-shade: #596066;
     --very-dark-shade: #272a2d;
 
+    --highlight-color: #ed42c7;
+    --alert-color: #ef9e39;
 
     /* ---------- Cart-Column Layout ------------ */
     --Column1: 43%; /* Item Name */

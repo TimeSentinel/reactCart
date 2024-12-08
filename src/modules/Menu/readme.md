@@ -1,4 +1,4 @@
-Shopping Cart Module
+Restaurant Menu Module
 ################################### Restaurant Functional Module ###################################
 Requires images and json files: image address in json. json in /products/products.json
 

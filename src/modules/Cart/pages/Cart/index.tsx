@@ -7,25 +7,30 @@ REQ: Vite-React.js+TypeScript, react-router-dom, react-hot-toast,
 ####################################################################################################
 */
 
-import {useContext, useEffect, useState} from "react";
+import {useContext, useEffect, useRef, useState} from "react";
 import {CartItem} from "src/modules/Cart/containers/Cart";
 import {ctx} from "src/context";
 import toast from "react-hot-toast";
-import {ProductInterface} from "src/globalTypes.tsx";
+import {ProductInterface} from 'src/reducer/stateReducers';
 import "src/modules/Cart/pages/cartPages.css"
+import Confirmation from "src/components/modals/modals.tsx";
 
 const Cart: React.FC = () => {
     const state = useContext(ctx).state
     const localState = useContext(ctx).localState.shoppingCart
     const localDispatch = useContext(ctx).localDispatch
     const activeProducts = state?.products || []
+    const dialogRef= useRef<HTMLDialogElement>(null);
 
     const emptyCart = () => {
-        localDispatch({
-            type: "EMPTY_CART",
-            payload: {id: 0, quantity: 0}
-        })
-        if (Object.keys(localState).length !== 0) toast.success("CART EMPTIED!")
+        const confirm = true;
+        if (confirm) {
+            localDispatch({
+                type: "EMPTY_CART",
+                payload: {}
+            })
+            if (Object.keys(localState).length !== 0) toast.success("CART EMPTIED!")
+        }
     }
     let totalT = 0
     const [total, setTotal] = useState<number>(0)
@@ -33,8 +38,8 @@ const Cart: React.FC = () => {
         totalT = 0
         Object.keys(localState).map(id => {
             totalT = totalT +
-                ((activeProducts.find(product => product.id === Number(id)) as ProductInterface).price as number)
-                * localState[Number(id)] as number
+            ((activeProducts.find(product => product.id === (id)) as ProductInterface).price as number)
+            * localState[(id)] as number
         })
         setTotal(totalT)
     }, [useContext(ctx).localState])
@@ -47,7 +52,8 @@ const Cart: React.FC = () => {
                 </div>
                 <div className="cartCenter"></div>
                 <div className="cartRight">
-                    <button onClick={emptyCart} className={
+                    <button onClick={() => dialogRef.current?.showModal()
+                    } className={
                         Object.keys(localState).length == 0 &&
                         "disabled" || "enabled"
                     }>
@@ -69,7 +75,7 @@ const Cart: React.FC = () => {
                 {Object.keys(localState).length ? (
                     <>
                         {Object.keys(localState).map(id => (
-                            <CartItem id={Number(id)} key={id}/>
+                            <CartItem id={(id)} key={id}/>
                         ))}
                     </>
                 ) : (
@@ -78,18 +84,20 @@ const Cart: React.FC = () => {
             </div>
 
             <div className="cartTotal">TOTAL = <></>
-                 {new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(total) ?? 0}
+                {new Intl.NumberFormat('en-US', {style: 'currency', currency: 'USD'}).format(total) ?? 0}
             </div>
             <hr className="cartLineBottom"/>
             <div className="cartFooter">
                 <button onClick={() => {
                     if (Object.keys(localState).length !== 0) toast.success("Order Submitted!")
+
                 }} className={
-                    Object.keys(localState).length == 0 &&
-                    "disabled" || "enabled"
+                    Object.keys(localState).length == 0 && "disabled" || "enabled"
                 }>Place Order
                 </button>
             </div>
+            <Confirmation modalDialog={"Empty cart and remove all items?"} responseText={"Yes"}
+                           responseAction={() => emptyCart()} dialogRef={dialogRef} />
         </>
     )
 }

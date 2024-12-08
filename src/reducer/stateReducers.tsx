@@ -6,10 +6,22 @@ REQ: Vite-React.js+TypeScript, react-router-dom, react-hot-toast,
 ####################################################################################################
 */
 
-import {ActionInterface, ProductInterface} from "../../../globalTypes.tsx"
-
 export interface StateInterface {
     products: ProductInterface[];
+}
+
+export interface ActionInterface {
+    type: string;
+    payload: unknown;
+}
+
+export interface ProductInterface {
+    id: string;
+    category: string;
+    title: string;
+    description: string;
+    price: number;
+    image: string;
 }
 
 export const initialState: StateInterface = {
