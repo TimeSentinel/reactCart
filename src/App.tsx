@@ -7,25 +7,31 @@ REQ: Vite-React.js+TypeScript, react-router-dom, react-hot-toast,
 */
 
 /*
-todo: -responsiveness: header
-todo: -responsiveness: hamburger menu
-todo: -responsiveness: cart system: main menu
-todo: -responsiveness: cart system: cart
-todo: -responsiveness: cart system: product detail page
-todo: *contact page
-todo: *about us page
 
-todo: payment for cart
-todo: submit pickup/delivery order
-todo: -category filters; dropdown menu from 'Menu'
-todo: news/blog from json
-todo: restaurant name and logo
-todo: social media links
-todo: news, Cart from database
-todo: cms admin login
-todo: user accounts: login, user page, user settings, theme, etc
-todo: user accounts: order history, billing info
-todo: check local storage for old/corrupt setup and clear or modify as needed
+todo: -category filters;
+
+todo: HEADER - responsiveness: header
+todo: HEADER - responsiveness: hamburger menu
+todo: MENU - responsiveness: main menu
+todo: CART - responsiveness: cart
+todo: MENU - responsiveness: product detail page
+
+todo: *contact page: file upload and email - custom server?
+todo: *home page
+todo: *about us page
+todo: CART - submit pickup/delivery order
+
+todo: HEADER/FOOTER - social media links
+todo: HEADER - restaurant name and logo
+todo: BLOG - news/blog from json
+
+
+todo: BLOG - news, Cart from database
+todo: CMS - admin login
+todo: USER - user accounts: login, user page, user settings, theme, etc
+todo: USER - user accounts: order history, billing info
+todo: MAINTENANCE - check local storage for old/corrupt setup and clear or modify as needed
+todo: CART - payment for cart
 
  */
 

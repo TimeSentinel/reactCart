@@ -5,7 +5,7 @@ Requires images and json files: image address in json. json in /products/product
     REQ: Vite-React.js+TypeScript, react-router-dom, react-hot-toast,
     REQ: TailwindCSS, PostCSS, PostCSS-Custom-Properties
 
-
+    Requires json file or API and image library
 
 
 

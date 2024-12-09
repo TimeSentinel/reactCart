@@ -23,12 +23,30 @@ const CartItem = ({id}: CartProps) => {
     const shoppingCart = useContext(ctx).localState.shoppingCart
     // const setShoppingCart = useContext(ctx).localDispatch
     const activeProducts = state?.products || []
-    const product: ProductInterface = activeProducts.find(
-        product => product.id === (id)
-    ) as ProductInterface
-    const rowTitle = product.title
-    const rowCategory = product.category
-    const rowPrice = product.price
+    let rowTitle: string;
+    let rowCategory: string;
+    let rowPrice: number;
+
+    const checkRoleExistence = (roleParam: string) => activeProducts.some( ({id}) => id == roleParam)
+
+    if (!(checkRoleExistence(id))) {
+        // localDispatch({
+        //     type: "REMOVE_ITEM",
+        //     payload: {id: id, quantity: 0}
+        // })
+        rowTitle = "Item no longer available";
+        rowCategory = "N/A";
+        rowPrice = 0;
+    } else {
+        const product: ProductInterface = activeProducts.find(
+            product => product.id === (id)
+        ) as ProductInterface || {id: "0", title: "Item no longer available", category: "N/A", price: 0}
+        rowTitle = product?.title || "Item no longer available";
+        rowCategory = product?.category || "N/A";
+        rowPrice = product?.price || 0;
+    }
+
+
 
     const addClick = (row: string) => {
         if (!(row in shoppingCart)) {

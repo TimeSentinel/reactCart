@@ -13,20 +13,20 @@ import {ctx} from "src/context";
 import "./header.css";
 
 function Header() {
+    const products = useContext(ctx).state.products;
+    const uniqueCats =
+        ([...new Set(products.map(item => item.category))]).sort((a, b) => a.localeCompare(b));
+
     const localState = useContext(ctx).localState.shoppingCart
     const navigate = useNavigate();
-
     const dropDown = document.getElementById('dropDown') as HTMLInputElement
 
     function navClick1() {
         navigate("/")
         dropDown.className = "dropDown hidden"
     }
+
     function navClick2() {
-        navigate("/")
-        dropDown.className = "dropDown hidden"
-    }
-    function navClick3() {
         navigate("/")
         dropDown.className = "dropDown hidden"
     }
@@ -62,17 +62,22 @@ function Header() {
                         <button className="enabled" onClick={openNavbar}>Menu</button>
                         <div className="dropDown hidden" id="dropDown">
                             <button className="navbarSubItem enabled" onClick={navClick1}>ALL</button>
-                            <button className="navbarSubItem disabled" onClick={navClick2}>American</button>
-                            <button className="navbarSubItem disabled" onClick={navClick3}>Mexican</button>
-                            <button className="navbarSubItem disabled" onClick={navClick3}>Asian</button>
-                            <button className="navbarSubItem disabled" onClick={navClick3}>Fusion</button>
-                            <button className="navbarSubItem disabled" onClick={navClick3}>Breakfast</button>
-                            <button className="navbarSubItem disabled" onClick={navClick3}>Beverage</button>
+                            {
+                                uniqueCats.map(item => {
+                                    return (
+                                        <>
+                                            <button className="navbarSubItem disabled"
+                                                    onClick={navClick2} key={item}>{item}
+                                            </button>
+                                        </>
+                                    )
+                                })
+                            }
                         </div>
                     </div>
 
                     <div className="navbarItem enabled" id="menuX">
-                    <button className="disabled">
+                        <button className="disabled">
                             Our Story
                         </button>
                     </div>

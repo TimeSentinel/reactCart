@@ -17,9 +17,8 @@ import Confirmation from "src/components/modals/modals.tsx";
 
 const Cart: React.FC = () => {
     const state = useContext(ctx).state
-    const localState = useContext(ctx).localState.shoppingCart
+    const localState = useContext(ctx).localState;
     const localDispatch = useContext(ctx).localDispatch
-    const activeProducts = state?.products || []
     const dialogRef= useRef<HTMLDialogElement>(null);
 
     const emptyCart = () => {
@@ -29,20 +28,22 @@ const Cart: React.FC = () => {
                 type: "EMPTY_CART",
                 payload: {}
             })
-            if (Object.keys(localState).length !== 0) toast.success("CART EMPTIED!")
+            if (Object.keys(localState.shoppingCart).length !== 0) toast.success("CART EMPTIED!")
         }
     }
-    let totalT = 0
+
     const [total, setTotal] = useState<number>(0)
     useEffect(() => {
-        totalT = 0
-        Object.keys(localState).map(id => {
-            totalT = totalT +
-            ((activeProducts.find(product => product.id === (id)) as ProductInterface).price as number)
-            * localState[(id)] as number
+        const activeProducts = state?.products || []
+
+        let cartTotal = 0;
+        Object.keys(localState.shoppingCart).map(id => {
+            cartTotal = cartTotal +
+            ((activeProducts.find(product => product.id === (id)) as ProductInterface)?.price || 0)
+            * localState.shoppingCart[(id)] as number
         })
-        setTotal(totalT)
-    }, [useContext(ctx).localState])
+        setTotal(cartTotal)
+    }, [localState, state?.products])
 
     return (
         <>
@@ -52,9 +53,10 @@ const Cart: React.FC = () => {
                 </div>
                 <div className="cartCenter"></div>
                 <div className="cartRight">
-                    <button onClick={() => dialogRef.current?.showModal()
+                    <button onClick={() =>
+                        (Object.keys(localState.shoppingCart).length > 0) && dialogRef.current?.showModal()
                     } className={
-                        Object.keys(localState).length == 0 &&
+                        Object.keys(localState.shoppingCart).length == 0 &&
                         "disabled" || "enabled"
                     }>
                         EMPTY CART
@@ -72,9 +74,9 @@ const Cart: React.FC = () => {
                     <div className="cartTableHeaderItem column5">Quantity</div>
                     <div className="cartTableHeaderItem column6">Total</div>
                 </div>
-                {Object.keys(localState).length ? (
+                {Object.keys(localState.shoppingCart).length ? (
                     <>
-                        {Object.keys(localState).map(id => (
+                        {Object.keys(localState.shoppingCart).map(id => (
                             <CartItem id={(id)} key={id}/>
                         ))}
                     </>
@@ -89,10 +91,10 @@ const Cart: React.FC = () => {
             <hr className="cartLineBottom"/>
             <div className="cartFooter">
                 <button onClick={() => {
-                    if (Object.keys(localState).length !== 0) toast.success("Order Submitted!")
+                    if (Object.keys(localState.shoppingCart).length !== 0) toast.success("Order Submitted!")
 
                 }} className={
-                    Object.keys(localState).length == 0 && "disabled" || "enabled"
+                    Object.keys(localState.shoppingCart).length == 0 && "disabled" || "enabled"
                 }>Place Order
                 </button>
             </div>
