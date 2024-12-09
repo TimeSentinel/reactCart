@@ -8,7 +8,7 @@ REQ: Vite-React.js+TypeScript, react-router-dom, react-hot-toast,
 
 /*
 
-todo: -category filters;
+todo: ask Aiden about the searchParam delay issue
 
 todo: HEADER - responsiveness: header
 todo: HEADER - responsiveness: hamburger menu
@@ -16,21 +16,22 @@ todo: MENU - responsiveness: main menu
 todo: CART - responsiveness: cart
 todo: MENU - responsiveness: product detail page
 
-todo: *contact page: file upload and email - custom server?
 todo: *home page
 todo: *about us page
 todo: CART - submit pickup/delivery order
-
 todo: HEADER/FOOTER - social media links
 todo: HEADER - restaurant name and logo
-todo: BLOG - news/blog from json
 
+todo: *contact page: file upload and email - custom server?
+todo: BLOG - news/blog from json
 
 todo: BLOG - news, Cart from database
 todo: CMS - admin login
+
 todo: USER - user accounts: login, user page, user settings, theme, etc
 todo: USER - user accounts: order history, billing info
 todo: MAINTENANCE - check local storage for old/corrupt setup and clear or modify as needed
+
 todo: CART - payment for cart
 
  */
@@ -46,9 +47,12 @@ import {ctx} from './context';
 import {Layout} from "./layout";
 import {initialState, reducerFn} from "./reducer/stateReducers.tsx";
 import {useLocalStorage} from "./reducer/localStateReducers.tsx";
-import {Home} from "./modules/Menu/pages/Menu";
+import Home from "./pages/Home";
+import Menu from "./modules/Menu/pages/Menu";
 import {ProductDetail} from "./modules/Menu/pages/ProductDetail";
 import Cart from "./modules/Cart/pages/Cart";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
 
 
 
@@ -75,9 +79,13 @@ function App() {
                 />
                 <Layout>
                     <Routes>
-                        <Route path='/' element={<Home/>}/>
-                        <Route path='products/:title' element={<ProductDetail/>}/>
-                        <Route path='cart' element={<Cart/>}/>
+                        <Route path='/' element={<Home />}/>
+                        <Route path='menu' element={<Menu />}/>
+                        <Route path='products/:title' element={<ProductDetail />}/>
+                        <Route path='about' element={<About />}/>
+                        <Route path='news' element={<Home />}/>
+                        <Route path='contact' element={<Contact />}/>
+                        <Route path='cart' element={<Cart />}/>
                     </Routes>
                 </Layout>
             </div>

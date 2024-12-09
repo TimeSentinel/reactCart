@@ -1,7 +1,7 @@
 /* About Page
 ################################### Restaurant Functional Module ###################################
 Main Pages
-/src/pages/About/stateReducers.tsx    ::: About Us page
+/src/pages/About/index.tsx    ::: About Us page
 REQ: Vite-React.js+TypeScript, react-router-dom, react-hot-toast,
 (c)2024 Lance Stubblefield
 ####################################################################################################
@@ -16,7 +16,7 @@ function About() {
         <>
             <div className="mainPage">
                 <div className="bodyHead">
-                    <h1>Main Page</h1>
+                    <h1>About Us Page</h1>
                     <h2>Under Construction</h2>
                 </div>
                 <hr/>

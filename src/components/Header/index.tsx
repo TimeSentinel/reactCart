@@ -1,7 +1,8 @@
 /* HEADER
 ################################### Restaurant Functional Module ###################################
-/src/pages/Header/stateReducers.tsx    ::: primary application container
+/src/components/Header/index.tsx    ::: root header file
 REQ: Vite-React.js+TypeScript, react-router-dom, react-hot-toast,
+Required header.css, Navbar.tsx
 (c)2024 Lance Stubblefield
 ####################################################################################################
 */
@@ -11,103 +12,33 @@ import cartIcon from "/images/cart-100.png";
 import {useContext} from "react";
 import {ctx} from "src/context";
 import "./header.css";
+import Navbar from "./Navbar.tsx";
 
 function Header() {
-    const products = useContext(ctx).state.products;
-    const uniqueCats =
-        ([...new Set(products.map(item => item.category))]).sort((a, b) => a.localeCompare(b));
-
     const localState = useContext(ctx).localState.shoppingCart
     const navigate = useNavigate();
-    const dropDown = document.getElementById('dropDown') as HTMLInputElement
-
-    function navClick1() {
-        navigate("/")
-        dropDown.className = "dropDown hidden"
-    }
-
-    function navClick2() {
-        navigate("/")
-        dropDown.className = "dropDown hidden"
-    }
-
-    function openNavbar() {
-        if (dropDown.className === "dropDown hidden") {
-            dropDown.className = "dropDown enabled"
-        } else {
-            dropDown.className = "dropDown hidden"
-        }
-    }
 
     return (
         <header>
             <div className="titleRow">
-                <div className="logo"></div>
-                <div className="cartCorner" onClick={() => navigate("/cart")}>
+                <div className="headerLeft">
+                <div className="logo">
+                    Logo goes here
+                </div>
+                </div>
+                <div className="headerCenter">
+
+                </div>
+                <div className="headerRight">
+                <div className="cartCorner" onClick={() =>  navigate("/cart")}>
                     <span className="cartCount">{Object.keys(localState).length}</span>
                     <img src={cartIcon} alt="cart"/>
                 </div>
-
-            </div>
-            <div className="navRow">
-                <div className="navbarFiller"></div>
-                <div className="navbar">
-                    <div className="navbarItem">
-                        <button className="enabled" onClick={() => navigate("/")}>
-                            Home
-                        </button>
-                    </div>
-
-                    <div className="navbarItem">
-                        <button className="enabled" onClick={openNavbar}>Menu</button>
-                        <div className="dropDown hidden" id="dropDown">
-                            <button className="navbarSubItem enabled" onClick={navClick1}>ALL</button>
-                            {
-                                uniqueCats.map(item => {
-                                    return (
-                                        <>
-                                            <button className="navbarSubItem disabled"
-                                                    onClick={navClick2} key={item}>{item}
-                                            </button>
-                                        </>
-                                    )
-                                })
-                            }
-                        </div>
-                    </div>
-
-                    <div className="navbarItem enabled" id="menuX">
-                        <button className="disabled">
-                            Our Story
-                        </button>
-                    </div>
-                    <div className="navbarItem">
-                        <button className="disabled">
-                            News
-                        </button>
-                    </div>
-                    {/*<div className="navbarItem">*/}
-                    {/*    <button className="disabled">*/}
-                    {/*        Other*/}
-                    {/*    </button>*/}
-                    {/*</div>*/}
-                    <div className="navbarItem">
-                        <button className="disabled">
-                            Contact Us
-                        </button>
-                    </div>
-                    <div className="navbarItem">
-                        <button onClick={() => navigate("/cart")} className="cartButton">
-                            Cart
-                        </button>
-                    </div>
                 </div>
             </div>
-
+            <Navbar />
         </header>
     )
-
-
 }
 
 export default Header;

@@ -1,7 +1,7 @@
 /* Cart Page
 ################################### Restaurant Functional Module ###################################
 Module: Cart
-/modules/Cart/pages/Cart/stateReducers.tsx    ::: Cart Page
+/modules/Cart/pages/Cart/index.tsx    ::: Cart Page
 REQ: Vite-React.js+TypeScript, react-router-dom, react-hot-toast,
 (c)2024 Lance Stubblefield
 ####################################################################################################
@@ -77,6 +77,7 @@ const Cart: React.FC = () => {
                 {Object.keys(localState.shoppingCart).length ? (
                     <>
                         {Object.keys(localState.shoppingCart).map(id => (
+
                             <CartItem id={(id)} key={id}/>
                         ))}
                     </>

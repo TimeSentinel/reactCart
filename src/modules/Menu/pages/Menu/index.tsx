@@ -12,11 +12,13 @@ import "src/modules/Cart/pages/cartPages.css"
 import {Product} from "../../containers/Product";
 import {useContext} from "react";
 import {ctx} from "../../../../context";
+import {useLocation} from "react-router-dom";
 
 
-const Home: React.FC = () => {
+function Menu() {
     const state = useContext(ctx).state
-    // const contec = useContext(ctx)
+    const location = useLocation();
+    console.log(location);
 
     return (
         <>
@@ -30,15 +32,19 @@ const Home: React.FC = () => {
                     state.products.length ? (
                         <div className="catalog-container">
                             {state.products.map(product => (
-                                <div key={product.id}>
-                                    <Product
-                                        id={product.id}
-                                        title={product.title}
-                                        category={product.category}
-                                        price={product.price}
-                                        image={product.image}
-                                    />
-                                </div>
+                                location.search === "" ||
+                                (location.pathname === "/menu"  && location.search === "?q=" + product.category)
+                                    ?
+                                    <div key={product.id}>
+                                        <Product
+                                            id={product.id}
+                                            title={product.title}
+                                            category={product.category}
+                                            price={product.price}
+                                            image={product.image}
+                                        />
+                                    </div>
+                                    : null
                             ))}
                         </div>
                     ) : (
@@ -50,4 +56,4 @@ const Home: React.FC = () => {
     )
 }
 
-export {Home};
+export default Menu;
