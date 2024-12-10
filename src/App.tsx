@@ -10,6 +10,8 @@ REQ: Vite-React.js+TypeScript, react-router-dom, react-hot-toast,
 
 todo: ask Aiden about the searchParam delay issue
 
+todo: NAVBAR - Change Menu-dropDown to open on hover and close on loseFocus
+
 todo: HEADER - responsiveness: header
 todo: HEADER - responsiveness: hamburger menu
 todo: MENU - responsiveness: main menu

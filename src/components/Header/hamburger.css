@@ -1,0 +1,65 @@
+/* hamburger.css
+################################### Restaurant Functional Module ###################################
+/src/components/Header/hamburger.css    ::: hamburger style sheet for Hamburger.tsx
+REQ: TailwindCSS, PostCSS, PostCSS-Custom-Properties
+(c)2024 Lance Stubblefield
+####################################################################################################
+*/
+.hamburger {
+
+    #hamburgerIcon {
+        .iconBar {
+
+        }
+    }
+
+    .hamburgerNavbar {
+        .hamburgerItem, .dropDown {
+            button {
+                .selected {
+
+                }
+                .disabled {
+
+                }
+            }
+            .navbarSubItem {
+
+            }
+        }
+        }
+    }
+
+
+.hidden {
+    @apply hidden;
+}
+.enabled {
+    @apply flex;
+}
+
+
+/* ########################### Media Selector ########################### */
+/* ------------ Mobile View ------------ */
+@media (max-width: 667px) {
+
+}
+
+/* ------------ End Mobile ------------ */
+
+/* ------------ Tablet View ------------ */
+@media (min-width: 668px) and (max-width: 991px) {
+
+}
+
+/* ------------ End Tablet ------------ */
+
+/* ------------ Desktop View ------------ */
+@media (min-width: 992px) {
+
+
+}
+
+/* ------------ End Desktop ------------ */
+
+/* ##########------------ End Media ------------########## */

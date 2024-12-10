@@ -9,7 +9,7 @@ REQ: Vite-React.js+TypeScript, react-router-dom, react-hot-toast,
 import {useLocation, useNavigate, useSearchParams} from "react-router-dom";
 import {useContext, useRef, useState} from "react";
 import {ctx} from "src/context";
-import "./header.css";
+import "./navbar.css";
 
 function Navbar() {
     const products = useContext(ctx).state.products;
@@ -28,11 +28,11 @@ function Navbar() {
         setSearchParams ({});
         setSearchQuery("");
         setSearchParams({q: key})
-           console.log("key: " + key);
+           console.log("key: " + key);   // %%%%%%%%%%%%%%%%%%%%%%%%%% DEBUG %%%%%%%%%%%%%%%%%%%%%%%%%%
         setSearchQuery(searchParams.get('q'));
-           console.log("searchParams.get('q'): " + searchParams.get('q'));
+           console.log("searchParams.get('q'): " + searchParams.get('q'));   // %%%%%%%%%%%%%%%%%%%%%%%%%% DEBUG %%%%%%%%%%%%%%%%%%%%%%%%%%
         navigate(`/menu?q=${encodeURIComponent(key)}`);
-           console.log("searchQuery: " + searchQuery);
+           console.log("searchQuery: " + searchQuery);   // %%%%%%%%%%%%%%%%%%%%%%%%%% DEBUG %%%%%%%%%%%%%%%%%%%%%%%%%%
         openFiltersCats = false;
         stateFilterCats(openFiltersCats);
     }
@@ -82,18 +82,18 @@ function Navbar() {
                 </div>
                 <div className="navbarItem" ref={categoryRef}>
                     <button className={ location.pathname === "/menu" ? "selected" : "enabled" }  onClick={toggleFilterCats}>Menu</button>
-                    <div className="dropDown hidden" id="dropDown" >
+                    <div className="dropdown hidden" id="dropDown" >
                         <button className="navbarSubItem enabled" onClick={() => {
                             navClick("menu")
                         }}>ALL</button>
-                        {
+                        { uniqueCats.length > 0 ?
                             uniqueCats.map(item => {
                                 return (
                                     <button className="navbarSubItem enabled"
                                             onClick={() => navClick2(item)} key={item}>{item}
                                     </button>
                                 )
-                            })
+                            }) : null
                         }
                     </div>
                 </div>

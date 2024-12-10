@@ -1,7 +1,7 @@
 /* Menu Page
 ################################### Restaurant Functional Module ###################################
-Module: Cart
-/modules/Cart/pages/ProductDetail/stateReducers.tsx    ::: product detail
+Module: Menu
+/modules/Menu/pages/menu/pages/index.tsx    ::: product detail
 REQ: Vite-React.js+TypeScript, react-router-dom, react-hot-toast,
 (c)2024 Lance Stubblefield
 ####################################################################################################
@@ -18,7 +18,7 @@ import {useLocation} from "react-router-dom";
 function Menu() {
     const state = useContext(ctx).state
     const location = useLocation();
-    console.log(location);
+    console.log(location.pathname)  // %%%%%%%%%%%%%%%%%%%%%%%%%% DEBUG %%%%%%%%%%%%%%%%%%%%%%%%%%
 
     return (
         <>
