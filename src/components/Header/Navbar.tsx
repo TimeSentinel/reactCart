@@ -7,7 +7,7 @@ REQ: Vite-React.js+TypeScript, react-router-dom, react-hot-toast,
 */
 
 import {useLocation, useNavigate, useSearchParams} from "react-router-dom";
-import {useContext, useRef, useState} from "react";
+import {useContext, useState} from "react";
 import {ctx} from "src/context";
 import "./navbar.css";
 
@@ -21,8 +21,6 @@ function Navbar() {
 
     function navClick(page: string) {
         navigate("/" + page);
-        openFiltersCats = false;
-        stateFilterCats(openFiltersCats);
     }
 
     function navClick2(key: string) {
@@ -34,78 +32,55 @@ function Navbar() {
         console.log("searchParams.get('q'): " + searchParams.get('q'));   // %%%%%%%%%%%%%%%%%%%%%%%%%% DEBUG %%%%%%%%%%%%%%%%%%%%%%%%%%
         navigate(`/menu?q=${encodeURIComponent(key)}`);
         console.log("searchQuery: " + searchQuery);   // %%%%%%%%%%%%%%%%%%%%%%%%%% DEBUG %%%%%%%%%%%%%%%%%%%%%%%%%%
-        openFiltersCats = false;
-        stateFilterCats(openFiltersCats);
     }
 
     // ------------------------------------------------------------------------------------
 
-    // click category dropdown  code --------------------------------------------------
+    // click product category and type lists  --------------------------------------------------
     const uniqueCats =
         ([...new Set(products.map(item => item.category))]).sort((a, b) => a.localeCompare(b));
     const uniqueTypes =
         ([...new Set(products.map(item => item.type))]).sort((a, b) => a.localeCompare(b));
-
-    const dropDown = document.getElementById('dropDown') as HTMLDivElement || {};
-    const categoryRef = useRef<HTMLDivElement>(null);
-    let openFiltersCats = false;
-
-
-    function stateFilterCats(state: boolean) {
-        if (state) {
-            dropDown.className = "dropDown enabled"
-        } else {
-            dropDown.className = "dropDown hidden"
-        }
-    }
-
-
-    function toggleFilterCats() {
-        openFiltersCats = !openFiltersCats;
-        stateFilterCats(openFiltersCats);
-    }
-
-    // -------------------------------------------------------------------------------------
+    // ------------------------------------------------------------------------------------
 
     return (
         <div className="navRow">
-            <div className="navbarFiller"></div>
             <div className="navbar">
                 <div className="navbarItem" id="home">
                     <button className={location.pathname === "/" ? "selected" : "enabled"} onClick={() => navigate("")}>
                         Home
                     </button>
                 </div>
-                <div className="navbarItem" id="menu" ref={categoryRef}>
+                <div className="navbarItem" id="menu">
                     <button className={location.pathname === "/menu" ? "selected" : "enabled"}
-                            onClick={toggleFilterCats}>Menu
+                    >Menu
                     </button>
-                    <div className="dropdown" id="dropDown">
-                        <button className="enabled" onClick={() => {
+                    <div className="dropDown" id="dropDown">
+                        <div className="navbarSubItem enabled" onClick={() => {
                             navClick("menu")
                         }}>ALL
-                        </button>
+                        </div>
                         <div className="dropdownSpace">
-                            <hr className="dropdownHr"/>
+
                         </div>
                         {uniqueCats.length > 0 ?
                             uniqueCats.map(item => {
                                 return (
-                                    <button className="navbarSubItem enabled"
-                                            onClick={() => navClick2(item)} key={item}>{item}
-                                    </button>
+                                    <div className="navbarSubItem enabled"
+                                         onClick={() => navClick2(item)} key={item}>{item}
+                                    </div>
                                 )
                             }) : null
                         }
                         <div className="dropdownSpace">
-                            <hr className="dropdownHr"/>
+
                         </div>
                         {uniqueTypes.length > 0 ?
                             uniqueTypes.map(item => {
                                 return (
-                                    <button className="navbarSubItem disabled"
-                                            onClick={() => navClick2("T:" + item)} key={item}>{item}
-                                    </button>
+                                    <div className="navbarSubItem disabled"
+                                         onClick={() => navClick2("T:" + item)} key={item}>{item}
+                                    </div>
                                 )
                             }) : null
                         }

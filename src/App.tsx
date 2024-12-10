@@ -15,6 +15,9 @@ todo: MENU - meal type sub-headings
 todo: MENU - names on items
 todo: MENU - add more foods to json
 
+todo: MENU - make product details pop up
+todo: CART - add name and instructions fields
+
 todo: CSS - product details page
 todo: HEADER - responsiveness: header
 todo: HEADER - responsiveness: hamburger menu

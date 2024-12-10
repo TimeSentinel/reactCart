@@ -19,7 +19,7 @@ REQ: TailwindCSS, PostCSS, PostCSS-Custom-Properties
     --dark-color: #124374;
     --bright-color: #0381f4;
 
-    --light-shade: #f2f3f4;
+    --light-shade: #dddfe1;
     --medium-shade: #aeb4b9;
     --dark-shade: #596066;
     --very-dark-shade: #272a2d;
@@ -60,6 +60,10 @@ body {
     h4 {
         @apply text-lg;
     }
+}
+
+button {
+    @apply rounded-md p-1;
 }
 
 /* --------------- END -- General Styles -- END --------------- */

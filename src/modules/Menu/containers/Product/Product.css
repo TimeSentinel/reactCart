@@ -9,10 +9,11 @@ REQ: TailwindCSS, PostCSS, PostCSS-Custom-Properties
 
 .product-card {
     box-shadow: 0 8px 16px 0 var(--light-color), 0 6px 20px 0 var(--medium-color);
-    @apply w-full h-full p-3;
+    @apply w-full h-full p-3 rounded-xl;
     @apply border-2;
     border-color: var(--medium-shade);
     background-color: var(--light-shade);
+    z-index: 40;
 
     h2 {
         @apply my-2 text-center font-bold;
@@ -24,22 +25,26 @@ REQ: TailwindCSS, PostCSS, PostCSS-Custom-Properties
 
     .thumbnail {
         @apply w-11/12 max-h-48 mx-auto overflow-hidden;
-
+        z-index: 41;
         img {
             @apply h-44 w-96 mx-auto my-4 rounded-2xl;
             @apply border-2;
             border-color: var(--dark-shade);
+            z-index: 42;
         }
     }
+
     .thumbnail:hover {
         transform: scale(1.5);
     }
 
     .productLine {
         @apply flex pt-2;
+
         .cartAdded {
             @apply w-6/12 pt-4 mr-4 text-left font-bold text-orange-600;
         }
+
         .productPrice {
             @apply w-5/12 font-bold text-lg px-2;
         }
@@ -48,11 +53,14 @@ REQ: TailwindCSS, PostCSS, PostCSS-Custom-Properties
             @apply w-7/12 text-right align-bottom text-sm italic px-2;
         }
     }
+
     .cartButton {
         @apply w-full text-right content-end px-2 pt-2 text-sm font-bold text-green-500;
+
         button {
             @apply p-1 border-green-600 border-2 bg-green-50;
         }
+
         button:hover {
             @apply bg-green-200;
             transform: scale(1.1);

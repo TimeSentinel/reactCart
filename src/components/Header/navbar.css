@@ -5,24 +5,24 @@ REQ: TailwindCSS, PostCSS, PostCSS-Custom-Properties
 (c)2024 Lance Stubblefield
 ####################################################################################################
 */
-.dropdownSpace {
-    @apply h-2;
-    background-color: var(--dark-shade);
-    opacity: 1;
-    .dropdownHr {
-        @apply border-t-2 border-gray-500;
-    }
-}
 
+/*navRow
+    navbar
+    navbarItem
+        button/selected/enabled
+dropdown
+button/enabled/disabled
+dropdownSpace
+navbarSubItem
+cart
+cartButton*/
+
+/* -------------------------- Main Menu Bar -------------------------- */
 .navRow {
-    @apply flex  w-full h-12 pt-2;
-
-    .navbarFiller {
-        @apply h-full w-3/12;
-    }
+    @apply block w-full h-12 pt-2;
 
     .navbar {
-        @apply flex w-9/12 h-fit bottom-0;
+        @apply flex w-8/12 content-end text-right float-right h-fit bottom-0;
 
         .navbarItem {
             @apply w-3/12 h-8 mx-2;
@@ -53,7 +53,7 @@ REQ: TailwindCSS, PostCSS, PostCSS-Custom-Properties
             }
 
             .cartButton {
-                @apply text-center px-2 ;
+                @apply text-center ;
                 @apply border-green-600 border-2 bg-green-50 text-green-500;
             }
 
@@ -61,20 +61,26 @@ REQ: TailwindCSS, PostCSS, PostCSS-Custom-Properties
                 @apply bg-green-400 text-green-50 border-green-100 ;
             }
         }
-
-
     }
-
 }
+
 .dropDown {
     display: none;
-    @apply cursor-pointer border-2 shadow-none;
-    border-color: var(--medium-shade);
-    button {
-        @apply h-8 border-b-2 text-sm relative shadow-none m-0 p-0;
+    @apply cursor-pointer shadow-none text-center;
+    @apply shadow-lg shadow-gray-800;
+    background-color: var(--light-color);
+    border-color: var(--dark-shade);
+    z-index: 99;
+
+    .navbarSubItem {
+        @apply h-8 border-b-2 text-sm font-bold relative;
         border-color: var(--medium-shade);
         background-color: var(--light-shade);
-        z-index: 99;
+        z-index: 98;
+
+        div {
+            @apply mt-2 align-middle;
+        }
 
         .enabled {
             color: var(--dark-color);
@@ -91,8 +97,17 @@ REQ: TailwindCSS, PostCSS, PostCSS-Custom-Properties
         }
     }
 
+    .dropdownSpace {
+        @apply h-2;
+
+        .dropdownHr {
+            @apply border-t-2 border-gray-500;
+        }
+    }
+
 
 }
+
 #menu:hover .dropDown {
     color: var(--dark-color);
     display: block;

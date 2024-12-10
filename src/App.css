@@ -20,7 +20,7 @@ header {
 }
 
 main {
-    @apply w-full ;
+    @apply w-full mb-36;
     z-index: 12;
 }
 
