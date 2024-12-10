@@ -11,7 +11,11 @@ REQ: Vite-React.js+TypeScript, react-router-dom, react-hot-toast,
 todo: ask Aiden about the searchParam delay issue
 
 todo: NAVBAR - Change Menu-dropDown to open on hover and close on loseFocus
+todo: MENU - meal type sub-headings
+todo: MENU - names on items
+todo: MENU - add more foods to json
 
+todo: CSS - product details page
 todo: HEADER - responsiveness: header
 todo: HEADER - responsiveness: hamburger menu
 todo: MENU - responsiveness: main menu
@@ -26,6 +30,9 @@ todo: HEADER - restaurant name and logo
 
 todo: *contact page: file upload and email - custom server?
 todo: BLOG - news/blog from json
+todo: CATERING - menu page
+todo: CATERING - scheduling calendar
+
 
 todo: BLOG - news, Cart from database
 todo: CMS - admin login

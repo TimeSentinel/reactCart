@@ -5,6 +5,14 @@ REQ: TailwindCSS, PostCSS, PostCSS-Custom-Properties
 (c)2024 Lance Stubblefield
 ####################################################################################################
 */
+.dropdownSpace {
+    @apply h-2;
+    background-color: var(--dark-shade);
+    opacity: 1;
+    .dropdownHr {
+        @apply border-t-2 border-gray-500;
+    }
+}
 
 .navRow {
     @apply flex  w-full h-12 pt-2;
@@ -54,44 +62,40 @@ REQ: TailwindCSS, PostCSS, PostCSS-Custom-Properties
             }
         }
 
-        .dropDown {
-            @apply cursor-pointer border-2 h-fit;
-            border-color: var(--medium-shade);
 
-            .navbarSubItem {
-                @apply h-8 border-b-2 text-sm relative;
-                @apply shadow-xl shadow-gray-500;
-                border-color: var(--medium-shade);
-                background-color: var(--light-shade);
-                -webkit-animation: slide 3s infinite ease-in-out;
-                -webkit-animation-delay: 2s;
-                animation: slide 2s forwards;
-                animation-delay: 4s;
-                z-index: 99;
+    }
 
-                .enabled {
-                    color: var(--dark-color);
-                }
+}
+.dropDown {
+    display: none;
+    @apply cursor-pointer border-2 shadow-none;
+    border-color: var(--medium-shade);
+    button {
+        @apply h-8 border-b-2 text-sm relative shadow-none m-0 p-0;
+        border-color: var(--medium-shade);
+        background-color: var(--light-shade);
+        z-index: 99;
 
-                .enabled:hover {
-                    color: var(--light-color);
-                    background-color: var(--dark-color);
-                }
-
-                .disabled, .disabled:hover {
-                    color: var(--medium-shade);
-                    border-color: var(--medium-shade);
-                }
-            }
-
-
+        .enabled {
+            color: var(--dark-color);
         }
 
-        #dropdown:hover {
-            @apply block;
+        .enabled:hover {
+            color: var(--light-color);
+            background-color: var(--dark-color);
+        }
+
+        .disabled, .disabled:hover {
+            color: var(--medium-shade);
+            border-color: var(--medium-shade);
         }
     }
 
+
+}
+#menu:hover .dropDown {
+    color: var(--dark-color);
+    display: block;
 }
 
 /* ########################### Media Selector ########################### */

@@ -21,7 +21,8 @@ function Footer() {
                         lance@sol3.one</a>
                 </div>
                 <div className="footRight">
-
+                    <br/>
+                    <a href="#" >admin</a>
                 </div>
             </div>
         </footer>

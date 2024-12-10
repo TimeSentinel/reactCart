@@ -1,0 +1,56 @@
+/* pages.css
+################################### Restaurant Functional Module ###################################
+/src/pages/pages.css    ::: navbar style sheet for Navbar.css
+REQ: TailwindCSS, PostCSS, PostCSS-Custom-Properties
+(c)2024 Lance Stubblefield
+####################################################################################################
+*/
+
+.hrDivider {
+    @apply w-8/12 mx-auto border-t-2 border-dotted my-8;
+    border-color: var(--medium-color);
+}
+
+.h1 {
+
+}
+.h2 {
+
+}
+.h3 {
+
+}
+.h4 {
+
+}
+.h5 {
+
+}
+
+.mainPage {
+    background-color: var(--light-shade);
+    color: var(--dark-color);
+    border-color: var(--medium-color);
+    @apply w-11/12 mx-auto mt-4 p-4;
+    @apply border-2;
+    .bodyHead {
+        @apply mb-4;
+        p {
+
+        }
+    }
+    .bodyMain {
+        @apply my-4;
+        p {
+
+        }
+    }
+    .bodyFoot {
+        @apply mt-4 pb-4;
+        p {
+
+        }
+    }
+}
+
+

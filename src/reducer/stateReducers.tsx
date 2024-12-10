@@ -17,6 +17,7 @@ export interface ActionInterface {
 
 export interface ProductInterface {
     id: string;
+    type: string;
     category: string;
     title: string;
     description: string;

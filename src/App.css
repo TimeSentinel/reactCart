@@ -15,16 +15,19 @@ REQ: TailwindCSS, PostCSS, PostCSS-Custom-Properties
 }
 
 header {
-    @apply w-full h-36 pt-2;
+    @apply w-full mx-auto min-h-24;
     z-index: 20;
 }
 
 main {
+    @apply w-full ;
     z-index: 12;
 }
 
 footer {
-    @apply w-full h-28 pt-4 mt-16;
+    @apply w-full h-20 mt-4 p-2 fixed bottom-0 text-center align-middle;
+    opacity: 0.9;
+    z-index: 10;
 }
 
 .App {

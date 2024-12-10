@@ -10,10 +10,10 @@ REQ: TailwindCSS, PostCSS, PostCSS-Custom-Properties
 footer {
     @apply border-t-2;
     border-color: var(--very-dark-shade);
-    background-color: var(--dark-shade);
+    background-color: var(--very-dark-shade);
 
     .footRow {
-        @apply flex items-center justify-between px-3 pt-4;
+        @apply flex items-center justify-between px-3;
 
         .footLeft {
 

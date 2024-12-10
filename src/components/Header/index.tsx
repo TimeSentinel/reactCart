@@ -20,23 +20,25 @@ function Header() {
 
     return (
         <header>
-            <div className="titleRow">
-                <div className="headerLeft">
-                <div className="logo">
-                    Logo goes here
-                </div>
-                </div>
-                <div className="headerCenter">
+            <div className="header">
+                <div className="titleRow">
+                    <div className="headerLeft">
+                        <div className="logo">
+                            Logo goes here
+                        </div>
+                    </div>
+                    <div className="headerCenter">
 
+                    </div>
+                    <div className="headerRight">
+                        <div className="cartCorner" onClick={() => navigate("/cart")}>
+                            <span className="cartCount">{Object.keys(localState).length}</span>
+                            <img src={cartIcon} alt="cart"/>
+                        </div>
+                    </div>
                 </div>
-                <div className="headerRight">
-                <div className="cartCorner" onClick={() =>  navigate("/cart")}>
-                    <span className="cartCount">{Object.keys(localState).length}</span>
-                    <img src={cartIcon} alt="cart"/>
-                </div>
-                </div>
+                <Navbar/>
             </div>
-            <Navbar />
         </header>
     )
 }

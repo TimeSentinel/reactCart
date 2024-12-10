@@ -7,7 +7,7 @@ REQ: Vite-React.js+TypeScript, react-router-dom, react-hot-toast,
 ####################################################################################################
 */
 
-
+import "src/pages/pages.css"
 
 function Home() {
 
@@ -16,15 +16,23 @@ function Home() {
         <>
             <div className="mainPage">
                 <div className="bodyHead">
+                    <h2 className=" text-center text-red-700 font-bold underline">Under Construction</h2>
                     <h1>Main Page</h1>
-                    <h2>Under Construction</h2>
+
+                    <p>
+                        Welcome to our restaurant. :) <br/>
+                    </p>
+                    <br/>
                 </div>
-                <hr/>
+                <hr className="hrDivider"/>
                 <div className="bodyMain">
-
+                    <h2>Sub-heading</h2>
+                    <p>We have a lot to say, so stay tuned!</p>
+                    <br/>
                 </div>
+                <hr className="hrDivider"/>
                 <div className="bodyFoot">
-
+                    <h3>This is the bottom of our page!</h3>
                 </div>
             </div>
 

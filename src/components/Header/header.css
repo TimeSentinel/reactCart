@@ -7,8 +7,8 @@ REQ: TailwindCSS, PostCSS, PostCSS-Custom-Properties
 */
 
 /* ################################ Header ################################ */
-header {
-    @apply w-full h-full px-2 align-text-bottom;
+.header {
+    @apply mt-2 mx-4 h-full px-2 align-text-bottom;
     @apply border-b-4;
     background-color: var(--light-color);
     border-color: var(--bright-color);

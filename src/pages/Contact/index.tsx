@@ -7,7 +7,7 @@ REQ: Vite-React.js+TypeScript, react-router-dom, react-hot-toast,
 ####################################################################################################
 */
 
-
+import "src/pages/pages.css"
 
 function Contact() {
 
@@ -15,15 +15,23 @@ function Contact() {
         <>
             <div className="mainPage">
                 <div className="bodyHead">
+                    <h2 className=" text-center text-red-700 font-bold underline">Under Construction</h2>
                     <h1>Contact Us Page</h1>
-                    <h2>Under Construction</h2>
+                    <p>
+                        Fill in the fields below to get in touch with us.
+                        <br/>
+                    </p>
+                    <br/>
                 </div>
-                <hr/>
+                <hr className="hrDivider"/>
                 <div className="bodyMain">
-
+                    <h2>Sub-heading</h2>
+                    <p>We look forward to hearing from you.</p>
+                    <br/>
                 </div>
+                <hr className="hrDivider"/>
                 <div className="bodyFoot">
-
+                    <h3>Thanks!</h3>
                 </div>
             </div>
 
