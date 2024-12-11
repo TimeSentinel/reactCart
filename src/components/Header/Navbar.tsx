@@ -24,11 +24,9 @@ function Navbar() {
     }
 
     function navClick2(key: string) {
-        setSearchParams({});
-        setSearchQuery("");
         setSearchParams({q: key})
         console.log("key: " + key);   // %%%%%%%%%%%%%%%%%%%%%%%%%% DEBUG %%%%%%%%%%%%%%%%%%%%%%%%%%
-        setSearchQuery(searchParams.get('q'));
+       setSearchQuery(searchParams.get('q'));
         console.log("searchParams.get('q'): " + searchParams.get('q'));   // %%%%%%%%%%%%%%%%%%%%%%%%%% DEBUG %%%%%%%%%%%%%%%%%%%%%%%%%%
         navigate(`/menu?q=${encodeURIComponent(key)}`);
         console.log("searchQuery: " + searchQuery);   // %%%%%%%%%%%%%%%%%%%%%%%%%% DEBUG %%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -60,9 +58,7 @@ function Navbar() {
                             navClick("menu")
                         }}>ALL
                         </div>
-                        <div className="dropdownSpace">
-
-                        </div>
+                        <hr className="dropdownSpace"/>
                         {uniqueCats.length > 0 ?
                             uniqueCats.map(item => {
                                 return (
@@ -72,14 +68,13 @@ function Navbar() {
                                 )
                             }) : null
                         }
-                        <div className="dropdownSpace">
+                        <hr className="dropdownSpace"/>
 
-                        </div>
                         {uniqueTypes.length > 0 ?
                             uniqueTypes.map(item => {
                                 return (
-                                    <div className="navbarSubItem disabled"
-                                         onClick={() => navClick2("T:" + item)} key={item}>{item}
+                                    <div className="navbarSubItem enabled"
+                                         onClick={() => navClick2("T-" + item)} key={item}>{item}
                                     </div>
                                 )
                             }) : null

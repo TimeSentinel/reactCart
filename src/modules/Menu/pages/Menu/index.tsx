@@ -18,7 +18,7 @@ import {useLocation} from "react-router-dom";
 function Menu() {
     const state = useContext(ctx).state
     const location = useLocation();
-    console.log(location.pathname)  // %%%%%%%%%%%%%%%%%%%%%%%%%% DEBUG %%%%%%%%%%%%%%%%%%%%%%%%%%
+    let prevCat = "";
 
     return (
         <>
@@ -33,17 +33,24 @@ function Menu() {
                         <div className="catalog-container">
                             {state.products.map(product => (
                                 location.search === "" ||
-                                (location.pathname === "/menu"  && location.search === "?q=" + product.category)
+                                (location.pathname === "/menu" && (location.search === "?q=" + product.category ||
+                                    location.search === "?q=T-" + product.type))
                                     ?
-                                    <div key={product.id}>
-                                        <Product
-                                            id={product.id}
-                                            title={product.title}
-                                            category={product.category}
-                                            price={product.price}
-                                            image={product.image}
-                                        />
-                                    </div>
+                                    <>
+                                        {/*{product.type !== prevCat && <div className="catalogHeader" >{product.type}</div>}*/}
+
+                                        <div key={product.id}>
+                                            <Product
+                                                id={product.id}
+                                                title={product.title}
+                                                category={product.category}
+                                                type={product.type}
+                                                price={product.price}
+                                                image={product.image}
+                                            />
+                                        </div>
+                                        {/*{prevCat = product.type}*/}
+                                    </>
                                     : null
                             ))}
                         </div>

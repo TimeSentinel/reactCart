@@ -2,6 +2,7 @@
 ################################### Restaurant Functional Module ###################################
 /src/components/Header/Hamburger.tsx    ::: small screen menu file
 REQ: Vite-React.js+TypeScript, react-router-dom, react-hot-toast,
+stylesheet: hamburger.css
 (c)2024 Lance Stubblefield
 ####################################################################################################
 */

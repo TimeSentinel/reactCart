@@ -27,6 +27,9 @@ REQ: TailwindCSS, PostCSS, PostCSS-Custom-Properties
     --highlight-color: #ed42c7;
     --alert-color: #ef9e39;
 
+    /* ---------- Theme1 Fonts/Styles ---------- */
+
+
     /* ---------- Cart-Column Layout ------------ */
     --Column1: 43%; /* Item Name */
     --Column2: 15%; /* Category  */
@@ -35,7 +38,6 @@ REQ: TailwindCSS, PostCSS, PostCSS-Custom-Properties
     --Column5: 13%; /* Quantity  */
     --Column6: 13%; /* Total     */
 }
-
 
 /* --------------- END -- SYSTEM VARIABLES -- END --------------- */
 

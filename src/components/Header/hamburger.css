@@ -2,38 +2,50 @@
 ################################### Restaurant Functional Module ###################################
 /src/components/Header/hamburger.css    ::: hamburger style sheet for Hamburger.tsx
 REQ: TailwindCSS, PostCSS, PostCSS-Custom-Properties
+support for hamburger.tsx
 (c)2024 Lance Stubblefield
 ####################################################################################################
 */
+
 .hamburger {
+    display: none;
 
     #hamburgerIcon {
-        .iconBar {
+        @apply h-24 w-24 content-between;
 
+        .iconBar {
+            @apply w-3/12 h-full border-2;
+            background-color: var(--dark-color);
         }
     }
 
     .hamburgerNavbar {
+        display: none;
+
         .hamburgerItem, .dropDown {
+            @apply block;
+
             button {
                 .selected {
 
                 }
+
                 .disabled {
 
                 }
             }
+
             .navbarSubItem {
 
             }
         }
-        }
     }
-
+}
 
 .hidden {
-    @apply hidden;
+    display: none;
 }
+
 .enabled {
     @apply flex;
 }

@@ -10,12 +10,13 @@ REQ: TailwindCSS, PostCSS, PostCSS-Custom-Properties
     navbar
     navbarItem
         button/selected/enabled
-dropdown
-button/enabled/disabled
-dropdownSpace
-navbarSubItem
-cart
-cartButton*/
+    dropdown
+        button/enabled/disabled
+        dropdownSpace
+        navbarSubItem
+    navbarItem
+        cartButton/selected
+ */
 
 /* -------------------------- Main Menu Bar -------------------------- */
 .navRow {
@@ -73,7 +74,7 @@ cartButton*/
     z-index: 99;
 
     .navbarSubItem {
-        @apply h-8 border-b-2 text-sm font-bold relative;
+        @apply h-7 border-b-2 text-sm font-bold relative;
         border-color: var(--medium-shade);
         background-color: var(--light-shade);
         z-index: 98;
@@ -98,11 +99,8 @@ cartButton*/
     }
 
     .dropdownSpace {
-        @apply h-2;
-
-        .dropdownHr {
-            @apply border-t-2 border-gray-500;
-        }
+        @apply border-4 relative;
+        border-color: var(--dark-color);
     }
 
 

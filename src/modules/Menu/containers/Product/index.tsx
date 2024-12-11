@@ -18,10 +18,11 @@ export interface ProductProps {
     title: string;
     image: string;
     price: number;
+    type: string;
     category: string;
 }
 
-const Product = ({id, title, category, price, image}: ProductProps) => {
+const Product = ({id, title, image, price, type, category}: ProductProps) => {
     const activeCart = useContext(ctx).localState.shoppingCart
     const localDispatch = useContext(ctx).localDispatch
     const navigate = useNavigate();
@@ -56,10 +57,13 @@ const Product = ({id, title, category, price, image}: ProductProps) => {
 
             <div className="productLine">
                 <div className="productPrice">${price}</div>
-                <div className="productCategory">{category}</div>
+                <div className="productType" onClick= { () => navigate(`/menu?q=${encodeURIComponent('T-' + type)}`)}  >
+                    {type}</div>
+                <div className="productCategory" onClick= { () => navigate(`/menu?q=${encodeURIComponent(category)}`) }>
+                    {category}</div>
             </div>
             <div className="productLine">
-                <div className="cartAdded" id={id.toString()}>
+            <div className="cartAdded" id={id.toString()}>
                     { id in activeCart && <> <button onClick={() => navigate("/cart")}>{activeCart[id]} in cart! </button></>
                     }
                 </div>
