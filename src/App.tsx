@@ -49,6 +49,7 @@ todo: CART - payment for cart
 
 // Style Sheets
 import './App.css';
+import './themes.css'
 // Application Elements
 import {useEffect, useReducer} from "react";
 import {Route, Routes} from 'react-router-dom';

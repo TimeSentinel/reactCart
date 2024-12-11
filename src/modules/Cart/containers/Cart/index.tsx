@@ -83,8 +83,7 @@ const CartItem = ({id}: CartProps) => {
     return (
         <div className="cartCard" key={id}>
             <div className="cartDelete">
-                <button className="cartButton" onClick={() => localDispatch({type: "REMOVE_ITEM", payload: {id}})}>
-                    X
+                <button className="cartButton" onClick={() => localDispatch({type: "REMOVE_ITEM", payload: {id}})}>X
                 </button>
             </div>
             <div className="cartTitle">

@@ -100,7 +100,8 @@ REQ: TailwindCSS, PostCSS, PostCSS-Custom-Properties
         }
 
         .column0 {
-            @apply px-1 mr-5 font-bold text-red-700;
+            @apply px-1 ml-1 mr-5 font-bold ;
+            color: var(--alert-color)
         }
 
         .column1 {
@@ -134,16 +135,5 @@ REQ: TailwindCSS, PostCSS, PostCSS-Custom-Properties
     }
 }
 
-.cartDelete {
-    @apply w-5 h-5 mr-6 font-bold text-sm text-center ;
-
-    button {
-        @apply px-2 border-2 border-red-500 text-red-500 bg-red-200;
-    }
-
-    button:hover {
-        @apply border-red-200 text-red-100 bg-red-600;
-    }
-}
 
 

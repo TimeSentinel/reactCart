@@ -10,50 +10,6 @@ REQ: TailwindCSS, PostCSS, PostCSS-Custom-Properties
 @tailwind components;
 @tailwind utilities;
 
-/* ################################ SYSTEM VARIABLES ################################ */
-:root {
-    /* ---------- Theme1 Styles ----------
-    --light-color: #dbedff;
-    --soft-color: #8bc0f1;
-    --medium-color: #7c9bb8;
-    --dark-color: #124374;
-    --very-dark-color: : #091f34;
-    --bright-color: #0381f4;
-
-    --highlight-color: #ed42c7;
-    --alert-color: #ef9e39;
-     */
-
-    /* ---------- Theme2 Styles ---------- */
-    --light-color: #ffeadb;
-    --soft-color: #f1b28b;
-    --medium-color: #b8917c;
-    --dark-color: #743812;
-    --very-dark-color: #341909;
-    --bright-color: #e54a07;
-
-    --highlight-color: #fde907;
-    --alert-color: #fa295a;
-
-    /* ---------- General Theme Styles ---------- */
-
-    --light-shade: #dddfe1;
-    --medium-shade: #aeb4b9;
-    --dark-shade: #596066;
-    --very-dark-shade: #272a2d;
-
-
-    /* ---------- Cart-Column Layout ------------ */
-    --Column1: 43%; /* Item Name */
-    --Column2: 15%; /* Category  */
-    --Column3: 13%; /* Price     */
-    --Column4: 3%; /* --filler--*/
-    --Column5: 13%; /* Quantity  */
-    --Column6: 13%; /* Total     */
-}
-
-/* --------------- END -- SYSTEM VARIABLES -- END --------------- */
-
 /* ################################ General Styles ################################ */
 body {
     @apply p-0 m-0;
