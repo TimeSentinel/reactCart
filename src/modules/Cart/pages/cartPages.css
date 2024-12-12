@@ -91,7 +91,7 @@ REQ: TailwindCSS, PostCSS, PostCSS-Custom-Properties
     }
 
     .cartTableHeader {
-        @apply flex w-full border-b-2 my-2 px-2 pt-1;
+        @apply flex w-full border-b-2 px-2 pt-1;
         color: var(--dark-shade);
         border-color: var(--dark-shade);
 

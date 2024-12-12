@@ -81,9 +81,9 @@ const CartItem = ({id}: CartProps) => {
     }
 
     return (
-        <div className="cartCard" key={id}>
+        <div className="cartRow" key={id}>
             <div className="cartDelete">
-                <button className="cartButton" onClick={() => localDispatch({type: "REMOVE_ITEM", payload: {id}})}>X
+                <button onClick={() => localDispatch({type: "REMOVE_ITEM", payload: {id}})}>X
                 </button>
             </div>
             <div className="cartTitle">
@@ -94,7 +94,7 @@ const CartItem = ({id}: CartProps) => {
                 {new Intl.NumberFormat('en-US', {style: 'currency', currency: 'USD'}).format(rowPrice) ?? 0}
             </div>
             <div className="column4"></div>
-            <div className="cartButton">
+            <div className="cartQtyCol">
                 <button className="cartInc" onClick={() => addClick(id)}>+</button>
                 <div className="cartQty">{shoppingCart[id] | 0}</div>
                 <button className="cartDec" onClick={() => minusClick(id)}>-</button>

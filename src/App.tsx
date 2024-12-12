@@ -8,42 +8,7 @@ REQ: Vite-React.js+TypeScript, react-router-dom, react-hot-toast,
 
 /*
 
-todo: ask Aiden about the searchParam delay issue
 
-todo: NAVBAR - add click to open for 'Menu'
-todo: MENU - meal type sub-headings
-todo: MENU - names on items
-todo: MENU - add more foods to json
-
-todo: MENU - make product details pop up
-todo: CART - add name and instructions fields
-
-todo: HEADER - responsiveness: header
-todo: HEADER - responsiveness: hamburger menu
-todo: MENU - responsiveness: main menu
-todo: CART - responsiveness: cart
-todo: MENU - responsiveness: product detail page
-
-todo: *home page
-todo: *about us page
-todo: CART - submit pickup/delivery order
-todo: HEADER/FOOTER - social media links
-todo: HEADER - restaurant name and logo
-
-todo: *contact page: file upload and email - custom server?
-todo: BLOG - news/blog from json
-todo: CATERING - menu page
-todo: CATERING - scheduling calendar
-
-
-todo: BLOG - news, Cart from database
-todo: CMS - admin login
-
-todo: USER - user accounts: login, user page, user settings, theme, etc
-todo: USER - user accounts: order history, billing info
-todo: MAINTENANCE - check local storage for old/corrupt setup and clear or modify as needed
-
-todo: CART - payment for cart
 
  */
 

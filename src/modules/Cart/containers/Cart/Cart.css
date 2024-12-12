@@ -7,21 +7,23 @@ REQ: TailwindCSS, PostCSS, PostCSS-Custom-Properties
 ####################################################################################################
 */
 
-.cartCard {
-    @apply flex flex-row h-8 my-2 px-2;
+.cartRow {
+    @apply flex flex-row h-fit px-2;
     @apply border-b-2;
     border-color: var(--medium-shade);
 
     .cartDelete {
-        @apply h-4 -mt-1 mb-1 ml-0 mr-4;
+        @apply h-fit my-1 ml-0 mr-4;
 
         button {
-            @apply relative w-fit p-1 text-center font-bold text-sm;
+            @apply relative w-fit p-1 text-center font-bold text-sm rounded-none;
             @apply border-2 border-red-500 text-red-500 bg-red-200;
         }
 
         button:hover {
             @apply border-red-200 text-red-100 bg-red-600;
+            @apply shadow-xl shadow-red-700;
+            transform: scale(1.2);
         }
     }
 
@@ -45,16 +47,16 @@ REQ: TailwindCSS, PostCSS, PostCSS-Custom-Properties
         width: var(--Column4);
     }
 
-    .cartButton {
+    .cartQtyCol {
         width: var(--Column5);
-        @apply flex pl-2;
+        @apply flex h-11 ml-2 content-around;
 
         .cartQty {
             @apply w-1/3 text-center font-semibold ;
         }
 
         button {
-            @apply w-fit mx-1 mb-1 text-center font-bold border-2;
+            @apply w-1/3 h-4/5 mx-2 my-1 text-center font-bold border-2;
             font-family: Arial, Helvetica, sans-serif;
             background-color: var(--light-shade);
             border-color: var(--dark-shade);
@@ -63,10 +65,14 @@ REQ: TailwindCSS, PostCSS, PostCSS-Custom-Properties
 
         .cartInc:hover {
             @apply bg-green-100 border-green-500 text-green-700;
+            @apply shadow-xl shadow-green-700;
+            transform: scale(1.1);
         }
 
         .cartDec:hover {
             @apply bg-red-100 border-red-500 text-red-700;
+            @apply shadow-xl shadow-red-700;
+            transform: scale(1.1);
         }
     }
 
