@@ -41,6 +41,10 @@ todo: CART - payment for cart
 
 CODE
 ##################################################################################
+HTML: document.title (tap title)
+
+
+--------------------------------------------------------------------------
 MAP
 examples:
 1.
@@ -81,10 +85,9 @@ example:
  examples:
  1. Reverse Order (mutative)
     setItem([...items].reverse());
-
+--------------------------------------------------------------------------
  FORMS
  onChange, onSubmit
-
      handleChange(event) {
         setValue(event.target.value);
      }
@@ -93,7 +96,6 @@ examples:
 1. UNCONTROLLED INPUT:
      const Form = () => {
      const inputRef = useRef(null);
-
      const handleSubmit = () => {
        const inputValue = inputRef.current.value;
        // Do something with the value
@@ -102,17 +104,14 @@ examples:
        <form onSubmit={handleSubmit}>
          <input ref={inputRef} type="text" />
        </form>
-     );
-    };
+     );    };
 
 2. CONTROLLED INPUT:
     const Form = () => {
      const [value, setValue] = useState("");
-
      const handleChange = (e) => {
        setValue(e.target.value)
      }
-
      return (
        <form>
          <input
@@ -121,19 +120,16 @@ examples:
            type="text"
          />
        </form>
-     );
-    };
+     );    };
 
 3. FILE INPUT:
     const Form = () => {
      const fileInput = useRef(null);
-
      const handleSubmit = (e) => {
        e.preventDefault();
        const files = fileInput.current.files;
        // Do something with the files here
      }
-
      return (
        <form onSubmit={handleSubmit}>
          <input
@@ -227,7 +223,6 @@ example:
           </AppContext.Provider>
      );
     };
-
     const ComponentA = React.memo(() => <ComponentB />);
     const ComponentB = () => <ComponentC />;
     const ComponentC = () => {
@@ -241,8 +236,17 @@ PROPS
     function Button(props) {
         <button>{props.children}</button>
     }
-
     <Button>text here</Button>
+--------------------------------------------------------------------------
+useSTATE
+example
+    setGiftCard(prevState => {
+      return (        {
+          ...prevState,
+          text: "Your coupone has been used",
+          instructions: "Please visit our restaurant to renew your gift card.",
+          valid: false,
+        }      )    })
 --------------------------------------------------------------------------
 STATE HOOK, PROPS, MAP
 example:
@@ -280,8 +284,67 @@ example:
         );  }
 
 --------------------------------------------------------------------------
+FETCH
+examples
+1.
+    useEffect(() => {
+        fetch('https://daddress/api')
+            .then((response) => response.json())
+            .then((data) => console.log(data)
+            .catch(error) => console.log(error);
+    }, []);
 
+2.
+      const fetchData = () => {
+        fetch(`https://api.coindesk.com/v1/bpi/currentprice.json`)
+          .then((response) => response.json())
+          .then((jsonData) => setBtcData(jsonData.bpi.USD))
+          .catch((error) => console.log(error));
+      };
 
+      useEffect(() => {
+        fetchData();
+      }, []);
+     ---------- conditional rendering based on promise return -------------
+     return someStateVariable.length > 0 ? (
+        <div>
+          <h1>Data returned:</h1>
+          <h2>{someStateVariable.results[0].price}</h2>
+        </div>
+      ) : ( <h1>Data pending...</h1> );
+--------------------------------------------------------------------------
+
+useReducer
+example
+1.
+    const reducer = (state, action) => {
+        if a(action.type === 'buy_ingredients') return {money: state.money - 10};
+        if a(action.type === 'sell_a_meal') return {money: state.money + 10};
+        return state;
+    }
+    function App() {
+        const initialState = {money: 100};
+        const [state, dispatch] = useReducer(reducer, initialState);
+        return (
+            <div className="App">
+                <button onClick={() => dispatch({type: 'buy_ingredients'})}>buy stuff</button>
+                <button onClick={() => dispatch({type: 'sell_a_meal'})}>sell stuff</button>
+    );  }
+--------------------------------------------------------------------------
+useRef
+example
+1.
+    function App() {
+        const formInputRef = useRef(null);
+        const focusInput = () => {
+        formInputRef.current.focus();
+    }
+    return (
+        <>
+            <input type=text useRef={formInputRef} />
+            <button onClick={focusInput}> Focus input </button>
+        </>
+    ); }
 
 
 
