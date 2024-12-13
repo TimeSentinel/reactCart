@@ -6,12 +6,6 @@ REQ: Vite-React.js+TypeScript, react-router-dom, react-hot-toast,
 ####################################################################################################
 */
 
-/*
-
-
-
- */
-
 // Style Sheets
 import './App.css';
 import './themes.css'
@@ -36,7 +30,6 @@ import Contact from "./pages/Contact";
 function App() {
     const [state, dispatch] = useReducer(reducerFn, initialState);
     const [localState, localDispatch] = useLocalStorage("ShoppingCart")
-
 
     // ------------------------------ CART MODULE CODE ------------------------------
     useEffect(() => {

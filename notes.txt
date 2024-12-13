@@ -3,8 +3,6 @@ TODO
 
 todo: ask Aiden about the searchParam delay issue
 
-todo: NAVBAR - add click to open for 'Menu' (for touch)
-
 todo: MENU - add options handling to product details
 todo: MENU - add options handling to cart
 

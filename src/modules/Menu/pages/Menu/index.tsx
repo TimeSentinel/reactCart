@@ -18,7 +18,6 @@ import {useLocation} from "react-router-dom";
 function Menu() {
     const state = useContext(ctx).state
     const location = useLocation();
-    let prevCat = "";
 
     return (
         <>

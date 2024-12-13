@@ -65,12 +65,16 @@ const ProductDetail: React.FC = () => {
                     <div className="productCat">
                         {product.category}
                     </div>
+                    <div className="productCat">
+                        {product.type}
+                    </div>
                 </div>
                 <div className="productButton">
                     <button onClick={() => addClick(product.id)}>ADD TO CART</button>
                 </div>
 
                 {product.id in localState && <div className="productInCart">
+                    {/*todo: add to cart form with customize, notes, name...*/}
                     <button onClick={() =>
                         navigate("/cart")}>
                         {localState[product.id]} in cart!
