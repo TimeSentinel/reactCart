@@ -8,18 +8,23 @@ support for hamburger.tsx
 */
 
 .hamburger {
-    display: none;
+    @apply -mt-14;
 
     #hamburgerIcon {
-        @apply h-24 w-24 content-between;
+        @apply h-16 w-16 rounded-lg;
+        @apply p-1 ml-2 mb-2 border-2;
+        @apply shadow-lg shadow-gray-300;
+        border-color: var(--medium-color);
+        background-color: var(--soft-color);
 
         .iconBar {
-            @apply w-3/12 h-full border-2;
+            @apply w-full h-1/4 my-1 border-2;
+
             background-color: var(--dark-color);
         }
     }
 
-    .hamburgerNavbar {
+    #hamburgerNavbar {
         display: none;
 
         .hamburgerItem, .dropDown {
@@ -36,7 +41,7 @@ support for hamburger.tsx
             }
 
             .navbarSubItem {
-
+                @apply block;
             }
         }
     }
@@ -47,28 +52,34 @@ support for hamburger.tsx
 }
 
 .enabled {
-    @apply flex;
+    @apply block;
 }
 
 
 /* ########################### Media Selector ########################### */
 /* ------------ Mobile View ------------ */
 @media (max-width: 667px) {
-
+    .hamburger {
+        display: block;
+    }
 }
 
 /* ------------ End Mobile ------------ */
 
 /* ------------ Tablet View ------------ */
 @media (min-width: 668px) and (max-width: 991px) {
-
+    .hamburger {
+        display: none;
+    }
 }
 
 /* ------------ End Tablet ------------ */
 
 /* ------------ Desktop View ------------ */
 @media (min-width: 992px) {
-
+    .hamburger {
+        display: none;
+    }
 
 }
 

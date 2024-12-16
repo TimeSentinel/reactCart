@@ -18,6 +18,7 @@ body {
 @layer base {
     h1 {
         @apply text-2xl font-semibold;
+        color: var(--very-dark-color)
     }
 
     h2 {
@@ -30,6 +31,10 @@ body {
 
     h4 {
         @apply text-lg;
+    }
+    h5 {
+        @apply italic;
+        color: var(--dark-color);
     }
 }
 

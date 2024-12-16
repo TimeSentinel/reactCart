@@ -7,12 +7,16 @@ Required header.css, Navbar.tsx
 ####################################################################################################
 */
 
-import {useNavigate} from "react-router-dom";
-import cartIcon from "/images/cart-100.png";
-import {useContext} from "react";
-import {ctx} from "src/context";
 import "./header.css";
+import cartIcon from "/images/cart-100.png";
+import logo from "/images/logos/delectatorium-purple.png";
+
+import {useContext} from "react";
+import {useNavigate} from "react-router-dom";
+
+import {ctx} from "src/context";
 import Navbar from "./Navbar.tsx";
+import Hamburger from "./Hamburger.tsx";
 
 function Header() {
     const localState = useContext(ctx).localState.shoppingCart
@@ -24,10 +28,13 @@ function Header() {
                 <div className="titleRow">
                     <div className="headerLeft">
                         <div className="logo">
-                            Logo goes here
+                            <img className="logoImg" src={logo} alt="logo" />
+
                         </div>
                     </div>
                     <div className="headerCenter">
+                        <h1>Delectorium</h1>
+                        <h5>Food so good, you can't stop!</h5>
 
                     </div>
                     <div className="headerRight">
@@ -38,6 +45,7 @@ function Header() {
                     </div>
                 </div>
                 <Navbar/>
+                <Hamburger />
             </div>
         </header>
     )

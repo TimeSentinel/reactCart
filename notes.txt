@@ -3,27 +3,41 @@ TODO
 
 todo: ask Aiden about the searchParam delay issue
 
-todo: MENU - add options handling to product details
-todo: MENU - add options handling to cart
+---------- RESPONSIVENESS ---------
+todo: responsiveness: hamburger menu
+todo: responsiveness: menu/products display
+todo: responsiveness: cart page
+todo: responsiveness: product detail page
+todo: TEST - all pages on various screens
+todo: TEST - all pages on different browsers
 
-todo: MENU - names on items
-todo: MENU - add more foods to json
-
-todo: MENU - make product details pop up
-todo: CART - add name and instructions fields
-
-todo: HEADER - responsiveness: header
-todo: HEADER - responsiveness: hamburger menu
-todo: MENU - responsiveness: main menu
-todo: CART - responsiveness: cart
-todo: MENU - responsiveness: product detail page
-
-todo: *home page
-todo: *about us page
-todo: CART - submit pickup/delivery order
+---------- HEADER/FOOTER ---------
 todo: HEADER/FOOTER - social media links
+todo: HEADER/FOOTER - add theme selection
 todo: HEADER - restaurant name and logo
 
+---------- MENU MODULE ---------
+todo: MENU - add options handling to product details
+todo: MENU - add options handling to cart
+todo: MENU - add more foods to json
+todo: MENU - make product details pop up
+todo: MENU - add options (name, instructions, options) when adding to cart
+
+---------- THEMES MODULE ---------
+todo: THEMES - create theme structure
+todo: THEMES - setup themes
+
+---------- CART MODULE ---------
+todo: CART - add options (name, instructions, options) when adding to cart
+todo: CART - submit pickup/delivery order
+
+---------- PAGES/CONTENT ---------
+todo: *home page
+todo: *about us page
+todo: *contact us page
+todo: *news page
+
+---------- NEW MODULES ---------
 todo: *contact page: file upload and email - custom server?
 todo: BLOG - news/blog from json
 todo: CATERING - menu page

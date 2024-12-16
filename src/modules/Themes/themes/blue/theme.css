@@ -1,0 +1,38 @@
+/* Theme Component: Blue CSS
+################################### Restaurant Functional Module ###################################
+/modules/Themes/themes/<name>/themes.css    ::: themes style sheet
+REQ: TailwindCSS, PostCSS, PostCSS-Custom-Properties
+accompanies index.tsx
+(c)2024 Lance Stubblefield
+####################################################################################################
+*/
+
+:root {
+    /* ######################## Theme1:Blue Styles ######################## */
+    --light-color: #dbedff;
+    --soft-color: #8bc0f1;
+    --medium-color: #7c9bb8;
+    --dark-color: #124374;
+    --very-dark-color: #091f34;
+    --bright-color: #0381f4;
+
+    --ok-color: #25e507;
+    --highlight-color: #ed42c7;
+    --alert-color: #ef9e39;
+
+
+    /* ######################## General Theme Styles ######################## */
+
+    --light-shade: #dddfe1;
+    --medium-shade: #aeb4b9;
+    --dark-shade: #596066;
+    --very-dark-shade: #272a2d;
+
+    /* ######################## Cart-Column Layout ######################## */
+    --Column1: 43%; /* Item Name */
+    --Column2: 15%; /* Category  */
+    --Column3: 13%; /* Price     */
+    --Column4: 3%; /* --filler--*/
+    --Column5: 13%; /* Quantity  */
+    --Column6: 13%; /* Total     */
+}

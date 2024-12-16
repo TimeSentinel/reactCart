@@ -13,7 +13,7 @@ accompanies index.css
     /*--soft-color: #8bc0f1;*/
     /*--medium-color: #7c9bb8;*/
     /*--dark-color: #124374;*/
-    /*--very-dark-color: : #091f34;*/
+    /*--very-dark-color: #091f34;*/
     /*--bright-color: #0381f4;*/
 
     /*--ok-color: #25e507;*/
@@ -35,29 +35,29 @@ accompanies index.css
 
 
     /* ######################## Theme3:Orange Styles ######################## */
-    --light-color: #fff2db;
-    --soft-color: #f1be8b;
-    --medium-color: #b8937c;
-    --dark-color: #743812;
-    --very-dark-color: #341909;
-    --bright-color: #ff8d46;
+    /*--light-color: #fff2db;*/
+    /*--soft-color: #f1be8b;*/
+    /*--medium-color: #b8937c;*/
+    /*--dark-color: #743812;*/
+    /*--very-dark-color: #341909;*/
+    /*--bright-color: #ff8d46;*/
 
-    --ok-color: #25e507;
-    --highlight-color: #fde907;
-    --alert-color: #fa295a;
+    /*--ok-color: #25e507;*/
+    /*--highlight-color: #fde907;*/
+    /*--alert-color: #fa295a;*/
 
 
     /* ######################## Theme4:Purple Styles ######################## */
-    /*--light-color: #efdbff;*/
-    /*--soft-color: #d48bff;*/
-    /*--medium-color: #8c51a8;*/
-    /*--dark-color: #460f61;*/
-    /*--very-dark-color: #290934;*/
-    /*--bright-color: #be34f4;*/
+    --light-color: #efdbff;
+    --soft-color: #d48bff;
+    --medium-color: #8c51a8;
+    --dark-color: #460f61;
+    --very-dark-color: #290934;
+    --bright-color: #be34f4;
 
-    /*--ok-color: #25e507;*/
-    /*--highlight-color: #07fde8;*/
-    /*--alert-color: #fa29d7;*/
+    --ok-color: #25e507;
+    --highlight-color: #07fde8;
+    --alert-color: #fa29d7;
 
 
     /* ######################## General Theme Styles ######################## */

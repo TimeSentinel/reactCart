@@ -18,21 +18,23 @@ function Hamburger() {
     const navigate = useNavigate();
     const hamCats =
         ([...new Set(products.map(item => item.category))]).sort((a, b) => a.localeCompare(b));
-    function navClick(key:string) {
+
+    function navClick(key: string) {
         console.log(key);
     }
-    function navClick2(key:string) {
+
+    function navClick2(key: string) {
         console.log(key);
     }
 
     return (
         <div className="hamburger">
-            <div id="hamburgerIcon" className="hidden">
+            <div id="hamburgerIcon">
                 <div className="iconBar"></div>
                 <div className="iconBar"></div>
                 <div className="iconBar"></div>
             </div>
-            <div id="hamburgerNavbar"  className="hidden">
+            <div id="hamburgerNavbar" >
                 <div className="hamburgerItem">
                     <button className={location.pathname === "/" ? "selected" : "enabled"} onClick={() => navigate("")}>
                         Home
@@ -47,6 +49,7 @@ function Hamburger() {
                             navClick("menu")
                         }}>ALL
                         </button>
+                        {/* ##########################vv DROP DOWN SUB-MENU vv########################## */}
                         {hamCats.length > 0 ?
                             hamCats.map(item => {
                                 return (
@@ -56,6 +59,7 @@ function Hamburger() {
                                 )
                             }) : null
                         }
+                        {/* ##########################^^ DROP DOWN SUB-MENU ^^########################## */}
                     </div>
                 </div>
                 <div className="hamburgerItem" id="menuX">

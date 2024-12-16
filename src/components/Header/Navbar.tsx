@@ -50,13 +50,12 @@ function Navbar() {
                     </button>
                 </div>
                 <div className="navbarItem" id="menu">
-                    <button className={location.pathname === "/menu" ? "selected" : "enabled"}
+                    <button className={location.pathname === "/menu" ? "selected" : "enabled"}  onClick={() => {navClick("menu")}}
                     >Menu
                     </button>
                     <div className="dropDown" id="dropDown">
-                        <div className="navbarSubItem enabled" onClick={() => {
-                            navClick("menu")
-                        }}>ALL
+                        <div className="navbarSubItem enabled" onClick={() => {navClick("menu")}}>
+                            ALL
                         </div>
                         <hr className="dropdownSpace"/>
                         {uniqueCats.length > 0 ?

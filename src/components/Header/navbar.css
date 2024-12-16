@@ -8,28 +8,28 @@ REQ: TailwindCSS, PostCSS, PostCSS-Custom-Properties
 
 /*navRow
     navbar
-    navbarItem
-        button/selected/enabled
-    dropdown
-        button/enabled/disabled
-        dropdownSpace
-        navbarSubItem
-    navbarItem
-        cartButton/selected
+        navbarItem
+            button/selected/enabled
+        dropdown
+            button/enabled/disabled
+            dropdownSpace
+            navbarSubItem
+        navbarItem
+            cartButton/selected
  */
 
 /* -------------------------- Main Menu Bar -------------------------- */
 .navRow {
-    @apply block w-full h-12 pt-2;
+    @apply block w-full h-12 pt-2 pr-2;
 
     .navbar {
-        @apply flex w-8/12 content-end text-right float-right h-fit bottom-0;
+        @apply content-end text-right float-right h-fit bottom-0;
 
         .navbarItem {
-            @apply w-3/12 h-8 mx-2;
+            @apply w-3/12 h-8 ;
 
             button {
-                @apply w-full h-full font-medium ;
+                @apply w-full h-full;
             }
 
             .enabled {
@@ -74,7 +74,7 @@ REQ: TailwindCSS, PostCSS, PostCSS-Custom-Properties
     z-index: 99;
 
     .navbarSubItem {
-        @apply h-7 border-b-2 text-sm font-bold relative;
+        @apply h-7 border-b-2 text-sm font-medium leading-tight relative;
         border-color: var(--medium-shade);
         background-color: var(--light-shade);
         z-index: 98;
@@ -84,6 +84,7 @@ REQ: TailwindCSS, PostCSS, PostCSS-Custom-Properties
         }
 
         .enabled {
+            @apply leading-tight;
             color: var(--dark-color);
         }
 
@@ -114,21 +115,45 @@ REQ: TailwindCSS, PostCSS, PostCSS-Custom-Properties
 /* ########################### Media Selector ########################### */
 /* ------------ Mobile View ------------ */
 @media (max-width: 667px) {
-
+    .navbar {
+        display: none;
+    }
 }
 
 /* ------------ End Mobile ------------ */
 
 /* ------------ Tablet View ------------ */
 @media (min-width: 668px) and (max-width: 991px) {
+    .navbar {
+        @apply w-10/12;
+        display: flex;
 
+        .navbarItem {
+            @apply mx-0;
+        }
+    }
+
+    .enabled, .enabled:hover, .selected, .selected:hover, .cartButton, .cartButton:hover {
+        @apply text-sm rounded-none;
+    }
 }
 
 /* ------------ End Tablet ------------ */
 
 /* ------------ Desktop View ------------ */
 @media (min-width: 992px) {
+    .navbar {
+        @apply w-8/12;
+        display: flex;
 
+        .navbarItem {
+            @apply mx-1 px-0;
+        }
+    }
+
+    .enabled, .enabled:hover, .selected, .selected:hover, .cartButton, .cartButton:hover {
+        @apply text-lg;
+    }
 
 }
 
