@@ -25,23 +25,27 @@ support for hamburger.tsx
     }
 
     #hamburgerNavbar {
-        display: none;
+        background-color: var(--soft-color);
 
         .hamburgerItem, .dropDown {
             @apply block;
 
             button {
-                .selected {
-
-                }
-
-                .disabled {
-
-                }
+                @apply w-full h-10 rounded-none;
+                @apply border-b-2;
             }
+            .cartButton {
+                @apply bg-green-300 text-green-900 border-green-700;
+            }
+            .dropDown {
+                @apply block shadow-none;
 
-            .navbarSubItem {
-                @apply block;
+                .navbarSubItem {
+                    @apply block font-medium h-8;
+                    background-color: var(--light-color);
+                    border-color: var(--soft-color);
+                    color: var(--medium-color);
+                }
             }
         }
     }
@@ -53,8 +57,21 @@ support for hamburger.tsx
 
 .enabled {
     @apply block;
+    border-color: var(--medium-color);
 }
 
+.selected {
+    @apply block;
+    background-color: var(--highlight-color);
+    border-color: var(--medium-color);
+}
+
+.disabled {
+    @apply block text-sm;
+    background-color: var(--medium-shade);
+    color: var(--dark-shade);
+    border-color: var(--dark-shade);
+}
 
 /* ########################### Media Selector ########################### */
 /* ------------ Mobile View ------------ */

@@ -9,87 +9,118 @@ stylesheet: hamburger.css
 
 
 import {useNavigate} from "react-router-dom";
-import {useContext} from "react";
+import {useContext, useState} from "react";
 import {ctx} from "src/context";
 import "./hamburger.css";
 
 function Hamburger() {
     const products = useContext(ctx).state.products;
     const navigate = useNavigate();
+    // click product category and type lists  --------------------------------------------------
     const hamCats =
         ([...new Set(products.map(item => item.category))]).sort((a, b) => a.localeCompare(b));
+    const hamTypes =
+        ([...new Set(products.map(item => item.type))]).sort((a, b) => a.localeCompare(b));
+    // ------------------------------------------------------------------------------------
+    const [displayMain, setDisplayMain] = useState<boolean>(false);
+    const [displaySub, setDisplaySub] = useState<boolean>(false);
 
-    function navClick(key: string) {
-        console.log(key);
+    function toggleMain() {
+        setDisplayMain(!displayMain);
     }
 
-    function navClick2(key: string) {
-        console.log(key);
+    function toggleSub() {
+        setDisplaySub(!displaySub);
+    }
+
+    //main navigation
+    function navClick(key: string) {
+        navigate(key)
+        setDisplayMain(false);
+        setDisplaySub(false);
     }
 
     return (
         <div className="hamburger">
-            <div id="hamburgerIcon">
+            <div id="hamburgerIcon" onClick={toggleMain}>
                 <div className="iconBar"></div>
                 <div className="iconBar"></div>
                 <div className="iconBar"></div>
             </div>
-            <div id="hamburgerNavbar" >
-                <div className="hamburgerItem">
-                    <button className={location.pathname === "/" ? "selected" : "enabled"} onClick={() => navigate("")}>
-                        Home
-                    </button>
-                </div>
-                <div className="hamburgerItem">
-                    <button className={location.pathname === "/menu" ? "selected" : "enabled"}>
-                        Menu
-                    </button>
-                    <div className="dropDown hidden" id="dropDown">
-                        <button className="navbarSubItem enabled" onClick={() => {
-                            navClick("menu")
-                        }}>ALL
+            {displayMain && (
+                <div id="hamburgerNavbar">
+                    <div className="hamburgerItem">
+                        <button className={location.pathname === "/" ? "selected" : "enabled"}
+                                onClick={() => {
+                                    navClick("");
+                                }}>
+                            Home
                         </button>
-                        {/* ##########################vv DROP DOWN SUB-MENU vv########################## */}
-                        {hamCats.length > 0 ?
-                            hamCats.map(item => {
-                                return (
-                                    <button className="navbarSubItem enabled"
-                                            onClick={() => navClick2(item)} key={item}>{item}
-                                    </button>
-                                )
-                            }) : null
-                        }
-                        {/* ##########################^^ DROP DOWN SUB-MENU ^^########################## */}
+                    </div>
+                    <div className="hamburgerItem">
+                        <button className={location.pathname === "/menu" ? "selected" : "enabled"} onClick={toggleSub}>
+                            Menu
+                        </button>
+                        {displaySub && (
+                            <div className="dropDown" id="dropDown">
+                                <button className="navbarSubItem enabled" onClick={() => {
+                                    navClick("/menu")
+                                }}><b>ALL</b>
+                                </button>
+                                <hr className="dropdownSpace"/>
+                                {/* ##########################vv DROP DOWN SUB-MENU vv########################## */}
+                                {hamCats.length > 0 ?
+                                    hamCats.map(item => {
+                                        return (
+                                            <button className="navbarSubItem enabled"
+                                                    onClick={() => navClick(`/menu?q=${encodeURIComponent(item)}`)} key={item}>{item}
+                                            </button>
+                                        )
+                                    }) : null
+                                }
+                                <hr className="dropdownSpace"/>
+                                {hamTypes.length > 0 ?
+                                    hamTypes.map(item => {
+                                        return (
+                                            <button className="navbarSubItem enabled"
+                                                    onClick={() => navClick(`/menu?q=T-${encodeURIComponent(item)}`)} key={item}>{item}
+                                            </button>
+                                        )
+                                    }) : null
+                                }
+                                {/* ##########################^^ DROP DOWN SUB-MENU ^^########################## */}
+                            </div>
+                        )}
+                    </div>
+                    <div className="hamburgerItem" id="menuX">
+                        <button className={location.pathname === "/about" ? "selected" : "enabled"}
+                                onClick={() => navClick("/about")}>
+                            Our Story
+                        </button>
+                    </div>
+                    <div className="hamburgerItem">
+                        <button className="disabled">
+                            News
+                        </button>
+                    </div>
+                    <div className="hamburgerItem">
+                        <button className="disabled">
+                            Other
+                        </button>
+                    </div>
+                    <div className="hamburgerItem">
+                        <button className="disabled">
+                            Contact Us
+                        </button>
+                    </div>
+                    <div className="hamburgerItem">
+                        <button onClick={() => navClick("/cart")}
+                                className={location.pathname === "/cart" ? "selected" : "cartButton"}>
+                            Cart
+                        </button>
                     </div>
                 </div>
-                <div className="hamburgerItem" id="menuX">
-                    <button className={location.pathname === "/about" ? "selected" : "enabled"}
-                            onClick={() => navClick("about")}>
-                        Our Story
-                    </button>
-                </div>
-                <div className="hamburgerItem">
-                    <button className="disabled">
-                        News
-                    </button>
-                </div>
-                {/*<div className="navbarItem">*/}
-                {/*    <button className="disabled">*/}
-                {/*        Other*/}
-                {/*    </button>*/}
-                {/*</div>*/}
-                <div className="hamburgerItem">
-                    <button className="disabled">
-                        Contact Us
-                    </button>
-                </div>
-                <div className="hamburgerItem">
-                    <button onClick={() => navigate("/cart")}
-                            className={location.pathname === "/cart" ? "selected" : "cartButton"}>
-                        Cart
-                    </button>
-                </div>
-            </div>
+            )}
         </div>
     )
 

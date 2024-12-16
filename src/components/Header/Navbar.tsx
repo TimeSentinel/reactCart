@@ -25,11 +25,9 @@ function Navbar() {
 
     function navClick2(key: string) {
         setSearchParams({q: key})
-        console.log("key: " + key);   // %%%%%%%%%%%%%%%%%%%%%%%%%% DEBUG %%%%%%%%%%%%%%%%%%%%%%%%%%
        setSearchQuery(searchParams.get('q'));
-        console.log("searchParams.get('q'): " + searchParams.get('q'));   // %%%%%%%%%%%%%%%%%%%%%%%%%% DEBUG %%%%%%%%%%%%%%%%%%%%%%%%%%
         navigate(`/menu?q=${encodeURIComponent(key)}`);
-        console.log("searchQuery: " + searchQuery);   // %%%%%%%%%%%%%%%%%%%%%%%%%% DEBUG %%%%%%%%%%%%%%%%%%%%%%%%%%
+        console.log(searchQuery);
     }
 
     // ------------------------------------------------------------------------------------
