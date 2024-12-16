@@ -8,9 +8,8 @@ REQ: TailwindCSS, PostCSS, PostCSS-Custom-Properties
 */
 
 .product-card {
+    @apply h-full p-3 rounded-xl border-2;
     box-shadow: 0 8px 16px 0 var(--light-color), 0 6px 20px 0 var(--medium-color);
-    @apply h-full p-3 rounded-xl;
-    @apply border-2;
     max-width: 400px;
     border-color: var(--medium-shade);
     background-color: var(--light-shade);
@@ -18,10 +17,7 @@ REQ: TailwindCSS, PostCSS, PostCSS-Custom-Properties
 
     h2 {
         @apply my-2 text-center font-bold;
-    }
-
-    .productContent {
-        @apply w-full h-10 overflow-scroll;
+        color: var(--very-dark-color);
     }
 
     .thumbnail {
@@ -41,15 +37,16 @@ REQ: TailwindCSS, PostCSS, PostCSS-Custom-Properties
         @apply rounded-2xl shadow-lg shadow-gray-500;
     }
 
+    .productTitle {
+        @apply h-20;
+    }
+
     .productLine {
         @apply flex pt-2;
 
-        .cartAdded {
-            @apply w-6/12 pt-4 mr-4 text-left font-bold text-orange-600;
-        }
 
         .productPrice {
-            @apply w-4/12 font-bold text-lg px-2;
+            @apply w-6/12 font-bold text-lg px-2;
         }
 
         .productType {
@@ -63,8 +60,12 @@ REQ: TailwindCSS, PostCSS, PostCSS-Custom-Properties
         }
     }
 
+    .cartAdded {
+        @apply w-6/12 pt-4 text-left font-bold text-orange-600;
+    }
+
     .cartButton {
-        @apply w-full text-right content-end px-2 pt-2 text-sm font-bold text-green-500;
+        @apply w-6/12 text-right content-end px-0 pt-2 text-sm font-bold text-green-500;
 
         button {
             @apply p-1 border-green-600 border-2 bg-green-50;
@@ -78,4 +79,26 @@ REQ: TailwindCSS, PostCSS, PostCSS-Custom-Properties
 }
 
 
+/* ########################### Media Selector ########################### */
+/* ------------ Mobile View ------------ */
+@media (max-width: 667px) {
 
+}
+
+/* ------------ End Mobile ------------ */
+
+/* ------------ Tablet View ------------ */
+@media (min-width: 668px) and (max-width: 991px) {
+
+}
+
+/* ------------ End Tablet ------------ */
+
+/* ------------ Desktop View ------------ */
+@media (min-width: 992px) {
+
+}
+
+/* ------------ End Desktop ------------ */
+
+/* ##########------------ End Media ------------########## */

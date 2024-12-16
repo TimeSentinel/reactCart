@@ -71,7 +71,7 @@ const Cart: React.FC = () => {
                     <div className="cartTableHeaderItem column2">Category</div>
                     <div className="cartTableHeaderItem column3">Price</div>
                     <div className="cartTableHeaderItem column4"></div>
-                    <div className="cartTableHeaderItem column5">Quantity</div>
+                    <div className="cartTableHeaderItem column5">Qty</div>
                     <div className="cartTableHeaderItem column6">Total</div>
                 </div>
                 {Object.keys(localState.shoppingCart).length ? (

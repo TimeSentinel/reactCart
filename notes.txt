@@ -3,20 +3,14 @@ TODO
 
 todo: ask Aiden about the searchParam delay issue
 
----------- RESPONSIVENESS ---------
-todo: responsiveness: hamburger menu
-todo: responsiveness: menu/products display
-todo: responsiveness: cart page
-todo: responsiveness: product detail page
-todo: TEST - all pages on various screens
-todo: TEST - all pages on different browsers
-
 ---------- HEADER/FOOTER ---------
 todo: HEADER/FOOTER - social media links
 todo: HEADER/FOOTER - add theme selection
 todo: HEADER - restaurant name and logo
 
 ---------- MENU MODULE ---------
+todo: MENU - add code for category grouping
+todo: MENU - more complex filtering (filter by Cat AND Type?)
 todo: MENU - add options handling to product details
 todo: MENU - add options handling to cart
 todo: MENU - add more foods to json

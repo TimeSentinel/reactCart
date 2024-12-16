@@ -10,9 +10,10 @@ REQ: TailwindCSS, PostCSS, PostCSS-Custom-Properties
 
 /* ################################ CART ################################ */
 
+
 /* *********** CART PAGE *********** */
 .cartHeader {
-    @apply flex w-10/12 h-24;
+
 
     .cartLeft {
         @apply float-left w-5/12 text-left;
@@ -27,6 +28,7 @@ REQ: TailwindCSS, PostCSS, PostCSS-Custom-Properties
 
         button {
             @apply p-1 border-2 rounded-lg border-red-500 text-red-500 bg-red-200;
+            @apply float-right;
         }
 
         .enabled {
@@ -91,49 +93,154 @@ REQ: TailwindCSS, PostCSS, PostCSS-Custom-Properties
     }
 
     .cartTableHeader {
-        @apply flex w-full border-b-2 px-2 pt-1;
         color: var(--dark-shade);
         border-color: var(--dark-shade);
 
         .cartTableHeaderItem {
-            @apply w-fit font-bold;
+            @apply font-bold;
         }
 
         .column0 {
-            @apply px-1 ml-1 mr-5 font-bold ;
-            color: var(--alert-color)
+            @apply font-bold ;
+            color: var(--alert-color);
         }
 
         .column1 {
-            width: var(--Column1);
+            @apply pl-3;
         }
 
         .column2 {
-            @apply text-center;
-            width: var(--Column2);
+            @apply px-2 text-center;
         }
 
         .column3 {
             @apply text-right;
-            width: var(--Column3);
-        }
-
-        .column4 {
-            width: var(--Column4);
         }
 
         .column5 {
             @apply text-center;
-            width: var(--Column5);
         }
 
         .column6 {
             @apply text-right;
-            width: var(--Column5);
         }
 
     }
 }
 
+/* ########################### Media Selector ########################### */
+/* ------------ Mobile View ------------ */
+@media (max-width: 667px) {
+    .cartTableHeader {
+        @apply flex w-full border-b-2 px-2 pt-1 justify-between content-between;
+        @apply text-sm font-semibold;
+
+        .column0 {
+            @apply w-4;
+        }
+
+        .column1 {
+            @apply w-64;
+        }
+
+        .column2 {
+            @apply hidden;
+        }
+
+        .column3 {
+            @apply w-24;
+        }
+
+        .column4 {
+            @apply hidden;
+        }
+
+        .column5 {
+            @apply w-32;
+        }
+
+        .column6 {
+            @apply w-28;
+        }
+    }
+}
+
+/* ------------ End Mobile ------------ */
+
+/* ------------ Tablet View ------------ */
+@media (min-width: 668px) and (max-width: 991px) {
+    .cartTableHeader {
+        @apply flex w-full border-b-2 px-2 pt-1 justify-between content-between;
+
+        .column0 {
+            @apply w-6 px-1;
+        }
+
+        .column1 {
+            @apply w-80;
+        }
+
+        .column2 {
+            @apply hidden;
+        }
+
+        .column3 {
+            @apply w-24 mr-2;
+        }
+
+        .column4 {
+            @apply hidden;
+        }
+
+        .column5 {
+            @apply w-32;
+        }
+
+        .column6 {
+            @apply w-28;
+        }
+    }
+}
+
+/* ------------ End Tablet ------------ */
+
+/* ------------ Desktop View ------------ */
+@media (min-width: 992px) {
+    .cartTableHeader {
+        @apply flex w-full border-b-2 px-2 pt-1 justify-between content-between;
+
+        .column0 {
+            @apply w-6 px-1;
+        }
+
+        .column1 {
+            @apply w-80;
+        }
+
+        .column2 {
+            @apply w-32;
+        }
+
+        .column3 {
+            @apply w-36;
+        }
+
+        .column4 {
+            @apply w-12;
+        }
+
+        .column5 {
+            @apply w-32;
+        }
+
+        .column6 {
+            @apply w-32;
+        }
+    }
+}
+
+/* ------------ End Desktop ------------ */
+
+/* ##########------------ End Media ------------########## */
 
 

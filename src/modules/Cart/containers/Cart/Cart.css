@@ -8,15 +8,14 @@ REQ: TailwindCSS, PostCSS, PostCSS-Custom-Properties
 */
 
 .cartRow {
-    @apply flex flex-row h-fit px-2;
     @apply border-b-2;
     border-color: var(--medium-shade);
 
     .cartDelete {
-        @apply h-fit my-1 ml-0 mr-4;
+        @apply h-fit my-1 p-0 ;
 
         button {
-            @apply relative w-fit p-1 text-center font-bold text-sm rounded-none;
+            @apply relative -ml-1 w-fit p-1 text-center font-bold text-sm rounded-none;
             @apply border-2 border-red-500 text-red-500 bg-red-200;
         }
 
@@ -27,36 +26,23 @@ REQ: TailwindCSS, PostCSS, PostCSS-Custom-Properties
         }
     }
 
-    .cartTitle {
-        @apply font-bold ;
-        width: var(--Column1);
-    }
-
     .cartCategory {
-        width: var(--Column2);
         @apply text-center italic text-gray-500 text-sm;
     }
 
     .cartPrice {
         @apply text-right font-light;
-        width: var(--Column3);
     }
 
-
-    .column4 {
-        width: var(--Column4);
-    }
 
     .cartQtyCol {
-        width: var(--Column5);
-        @apply flex h-11 ml-2 content-around;
+        @apply flex h-11 content-around;
 
         .cartQty {
             @apply w-1/3 text-center font-semibold ;
         }
 
         button {
-            @apply w-1/3 h-4/5 mx-2 my-1 text-center font-bold border-2;
             font-family: Arial, Helvetica, sans-serif;
             background-color: var(--light-shade);
             border-color: var(--dark-shade);
@@ -78,11 +64,139 @@ REQ: TailwindCSS, PostCSS, PostCSS-Custom-Properties
 
     .cartLineTotal {
         @apply text-right font-semibold;
-        width: var(--Column6);
     }
 
 }
 
 
+/* ########################### Media Selector ########################### */
+/* ------------ Mobile View ------------ */
+@media (max-width: 667px) {
+    .cartRow {
+        @apply flex flex-row h-fit px-2 justify-between content-between;
 
+        .cartDelete {
+            button {
+                @apply font-normal text-sm border-none bg-none;
+            }
+
+            @apply w-6 mr-1;
+        }
+
+        .cartTitle {
+            @apply w-64 text-xs leading-tight;
+        }
+
+        .cartCategory {
+            @apply hidden;
+        }
+
+        .cartPrice {
+            @apply w-20 mt-2 text-xs;
+        }
+
+        .column4 {
+            @apply hidden;
+        }
+
+        .cartQtyCol {
+            @apply w-32 mt-2 text-sm;
+
+            button {
+                @apply w-1/4 h-6 mx-1 mt-0 text-center font-semibold border-none;
+            }
+        }
+
+        .cartLineTotal {
+            @apply w-28 mt-2 text-sm;
+        }
+    }
+
+}
+
+/* ------------ End Mobile ------------ */
+
+/* ------------ Tablet View ------------ */
+@media (min-width: 668px) and (max-width: 991px) {
+    .cartRow {
+        @apply flex flex-row h-fit px-2 justify-between content-between;
+
+        .cartDelete {
+            @apply w-6 px-1;
+        }
+
+        .cartTitle {
+            @apply w-80 font-semibold pl-1 text-sm;
+        }
+
+        .cartCategory {
+            @apply hidden;
+        }
+
+        .cartPrice {
+            @apply w-24 mr-2;
+        }
+
+        .column4 {
+            @apply hidden;
+        }
+
+        .cartQtyCol {
+            @apply w-32;
+
+            button {
+                @apply w-1/3 h-4/5 mx-2 my-1 text-center font-bold border-2;
+            }
+        }
+
+        .cartLineTotal {
+            @apply w-28;
+        }
+    }
+}
+
+/* ------------ End Tablet ------------ */
+
+/* ------------ Desktop View ------------ */
+@media (min-width: 992px) {
+    .cartRow {
+        @apply flex flex-row h-fit px-2 justify-between content-between;
+
+        .cartDelete {
+            @apply w-6 px-1;
+        }
+
+        .cartTitle {
+            @apply w-80 font-bold pl-2;
+        }
+
+        .cartCategory {
+            @apply w-32;
+        }
+
+        .cartPrice {
+            @apply w-36;
+        }
+
+        .column4 {
+            @apply w-12;
+        }
+
+        .cartQtyCol {
+            @apply w-32;
+
+            button {
+                @apply w-1/3 h-4/5 mx-2 my-1 text-center font-bold border-2;
+            }
+        }
+
+        .cartLineTotal {
+            @apply w-32;
+        }
+    }
+}
+
+/* ------------ End Desktop ------------ */
+
+/* ##########------------ End Media ------------########## */
 

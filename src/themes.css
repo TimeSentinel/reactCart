@@ -22,16 +22,16 @@ accompanies index.css
 
 
     /* ######################## Theme2:Green Styles ######################## */
-    /*--light-color: #ddffdb;*/
-    /*--soft-color: #b0f18b;*/
-    /*--medium-color: #87b87c;*/
-    /*--dark-color: #2b7412;*/
-    /*--very-dark-color: #0a3409;*/
-    /*--bright-color: #25e507;*/
+    --light-color: #ddffdb;
+    --soft-color: #b0f18b;
+    --medium-color: #87b87c;
+    --dark-color: #2b7412;
+    --very-dark-color: #0a3409;
+    --bright-color: #25e507;
 
-    /*--ok-color: #25e507;*/
-    /*--highlight-color: #fde907;*/
-    /*--alert-color: #fa295a;*/
+    --ok-color: #25e507;
+    --highlight-color: #fde907;
+    --alert-color: #fa295a;
 
 
     /* ######################## Theme3:Orange Styles ######################## */
@@ -48,16 +48,16 @@ accompanies index.css
 
 
     /* ######################## Theme4:Purple Styles ######################## */
-    --light-color: #efdbff;
-    --soft-color: #d48bff;
-    --medium-color: #8c51a8;
-    --dark-color: #460f61;
-    --very-dark-color: #290934;
-    --bright-color: #be34f4;
+    /*--light-color: #efdbff;*/
+    /*--soft-color: #d48bff;*/
+    /*--medium-color: #8c51a8;*/
+    /*--dark-color: #460f61;*/
+    /*--very-dark-color: #290934;*/
+    /*--bright-color: #be34f4;*/
 
-    --ok-color: #25e507;
-    --highlight-color: #07fde8;
-    --alert-color: #fa29d7;
+    /*--ok-color: #25e507;*/
+    /*--highlight-color: #07fde8;*/
+    /*--alert-color: #fa29d7;*/
 
 
     /* ######################## General Theme Styles ######################## */
@@ -68,11 +68,5 @@ accompanies index.css
     --very-dark-shade: #272a2d;
 
 
-    /* ######################## Cart-Column Layout ######################## */
-    --Column1: 43%; /* Item Name */
-    --Column2: 15%; /* Category  */
-    --Column3: 13%; /* Price     */
-    --Column4: 3%; /* --filler--*/
-    --Column5: 13%; /* Quantity  */
-    --Column6: 13%; /* Total     */
+
 }

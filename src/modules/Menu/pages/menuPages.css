@@ -9,18 +9,6 @@ REQ: TailwindCSS, PostCSS, PostCSS-Custom-Properties
 
 
 /* ################################ MENU ################################ */
-.catalog-container {
-    @apply w-full grid gap-x-6 gap-y-8 grid-cols-3 px-3 pt-4;
-}
-
-.products-container {
-    width: 90%;
-    max-width: 900px;
-    margin: 30px auto;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-}
 
 
 /* *********** MENU (food) *********** */
@@ -40,8 +28,8 @@ REQ: TailwindCSS, PostCSS, PostCSS-Custom-Properties
 /* *********** Product Details *********** */
 .productPage {
     @apply w-11/12 mx-auto mt-5 pb-16 pt-8;
-    @apply border-2 shadow-2xl;
-    max-width: 1200px;
+    @apply border-2;
+    max-width: 800px;
     border-color: var(--medium-shade);
 
     .productPic {
@@ -54,8 +42,12 @@ REQ: TailwindCSS, PostCSS, PostCSS-Custom-Properties
         }
 
         .productTitle {
-            @apply w-9/12 mx-auto mb-2 mt-6;
+            @apply w-full text-center mx-auto mb-2 mt-6;
             color: var(--dark-shade);
+
+            h1 {
+                color: var(--dark-shade);
+            }
         }
     }
 
@@ -70,10 +62,12 @@ REQ: TailwindCSS, PostCSS, PostCSS-Custom-Properties
             .productPrice {
                 @apply font-bold text-2xl;
             }
+
             .productType {
                 @apply underline text-lg text-center;
                 color: var(--medium-shade);
             }
+
             .productCat {
                 @apply italic text-lg;
                 color: var(--medium-shade);
@@ -81,10 +75,10 @@ REQ: TailwindCSS, PostCSS, PostCSS-Custom-Properties
         }
 
         .productButton {
-            @apply w-4/12 mx-auto text-center my-8;
+            @apply mx-auto text-center ;
 
             button {
-                @apply p-2 font-bold border-2 rounded-xl;
+                @apply p-2 border-2 rounded-xl;
                 @apply border-green-400 text-green-400 bg-green-900;
             }
 
@@ -95,10 +89,88 @@ REQ: TailwindCSS, PostCSS, PostCSS-Custom-Properties
         }
 
         .productInCart {
-            @apply w-7/12 h-12 mx-auto content-center font-bold text-2xl text-center ;
+            @apply mx-auto text-center ;
             @apply text-red-800 bg-yellow-300 border-red-500 border-2;
         }
 
     }
 
 }
+
+
+/* ########################### Media Selector ########################### */
+/* ------------ Mobile View ------------ */
+@media (max-width: 539px) {
+    .catalog-container {
+        @apply w-full grid gap-y-2 grid-cols-1 px-2 pt-2;
+    }
+
+    .productSection p {
+        @apply leading-tight text-sm w-full;
+    }
+
+    .productPrice {
+        @apply w-full text-center;
+    }
+
+    .productType, .productCat {
+        display: none;
+    }
+
+    .productButton {
+        @apply w-7/12 my-2 text-sm;
+    }
+
+    .productInCart {
+        @apply w-9/12 h-8 font-normal text-lg border-none align-middle ;
+    }
+}
+
+/* ------------ End Mobile ------------ */
+
+/* ------------ Tablet View ------------ */
+@media (min-width: 540px) and (max-width: 991px) {
+    .catalog-container {
+        @apply w-full grid gap-x-4 gap-y-4 grid-cols-2 px-3 pt-3;
+    }
+
+
+    .productAction {
+        @apply flex flex-row justify-between my-4 h-10 ;
+    }
+
+    .productButton {
+        @apply w-5/12 text-lg font-semibold ;
+    }
+
+    .productInCart {
+        @apply w-4/12 font-semibold text-xl ;
+    }
+}
+
+/* ------------ End Tablet ------------ */
+
+/* ------------ Desktop View ------------ */
+@media (min-width: 992px) {
+    .catalog-container {
+        @apply w-full grid gap-x-6 gap-y-8 grid-cols-3 px-3 pt-4;
+    }
+
+    .productAction {
+        @apply flex flex-row justify-between my-8 h-12 ;
+        @apply font-bold text-xl;
+    }
+
+    .productButton {
+        @apply w-4/12;
+
+    }
+
+    .productInCart {
+        @apply w-5/12;
+    }
+}
+
+/* ------------ End Desktop ------------ */
+
+/* ##########------------ End Media ------------########## */

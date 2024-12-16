@@ -27,7 +27,7 @@ const CartItem = ({id}: CartProps) => {
     let rowCategory: string;
     let rowPrice: number;
 
-    const checkRoleExistence = (roleParam: string) => activeProducts.some( ({id}) => id == roleParam)
+    const checkRoleExistence = (roleParam: string) => activeProducts.some(({id}) => id == roleParam)
 
     if (!(checkRoleExistence(id))) {
         // localDispatch({
@@ -45,7 +45,6 @@ const CartItem = ({id}: CartProps) => {
         rowCategory = product?.category || "N/A";
         rowPrice = product?.price || 0;
     }
-
 
 
     const addClick = (row: string) => {

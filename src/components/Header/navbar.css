@@ -50,6 +50,7 @@ REQ: TailwindCSS, PostCSS, PostCSS-Custom-Properties
             }
 
             .disabled {
+                @apply shadow-inner shadow-gray-500;
                 @apply cursor-not-allowed;
                 color: var(--medium-color);
             }
@@ -132,7 +133,7 @@ REQ: TailwindCSS, PostCSS, PostCSS-Custom-Properties
         }
     }
 
-    .enabled, .enabled:hover, .selected, .selected:hover, .cartButton, .cartButton:hover {
+    .enabled, .enabled:hover, .selected, .selected:hover, .cartButton, .disabled {
         @apply text-sm rounded-none;
     }
 }
@@ -151,7 +152,7 @@ REQ: TailwindCSS, PostCSS, PostCSS-Custom-Properties
     }
 
     .enabled, .enabled:hover, .cartButton, .cartButton:hover {
-        @apply text-lg;
+        @apply font-semibold;
     }
 
 }

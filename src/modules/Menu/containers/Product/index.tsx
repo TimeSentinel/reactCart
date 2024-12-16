@@ -51,20 +51,23 @@ const Product = ({id, title, image, price, type, category}: ProductProps) => {
             <div className="thumbnail" onClick={handleClick}>
                 <img src={image} alt={title}/>
             </div>
-            <h2 className="Product_title" onClick={handleClick}>
-                {title}
-            </h2>
-
+            <div className="productTitle">
+                <h2 className="Product_title" onClick={handleClick}>
+                    {title}
+                </h2>
+            </div>
             <div className="productLine">
                 <div className="productPrice">${price}</div>
-                <div className="productType" onClick= { () => navigate(`/menu?q=${encodeURIComponent('T-' + type)}`)}  >
+                <div className="productType" onClick={() => navigate(`/menu?q=${encodeURIComponent('T-' + type)}`)}>
                     {type}</div>
-                <div className="productCategory" onClick= { () => navigate(`/menu?q=${encodeURIComponent(category)}`) }>
+                <div className="productCategory" onClick={() => navigate(`/menu?q=${encodeURIComponent(category)}`)}>
                     {category}</div>
             </div>
             <div className="productLine">
-            <div className="cartAdded" id={id.toString()}>
-                    { id in activeCart && <> <button onClick={() => navigate("/cart")}>{activeCart[id]} in cart! </button></>
+                <div className="cartAdded" id={id.toString()}>
+                    {id in activeCart && <>
+                        <button onClick={() => navigate("/cart")}>{activeCart[id]} in cart!</button>
+                    </>
                     }
                 </div>
                 <div className="cartButton">
