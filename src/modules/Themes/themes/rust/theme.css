@@ -121,3 +121,36 @@ accompanies index.tsx
 
 
 }
+
+
+/* ################################ General Styles ################################ */
+body {
+    @apply p-0 m-0;
+}
+
+@layer base {
+    h1 {
+        @apply text-2xl font-semibold;
+        color: var(--Rust-very-dark-color)
+    }
+
+    h2 {
+        @apply text-xl font-semibold;
+    }
+
+    h3 {
+        @apply text-xl;
+    }
+
+    h4 {
+        @apply text-lg;
+    }
+    h5 {
+        @apply italic;
+        color: var(--Rust-dark-color);
+    }
+}
+
+button {
+    @apply rounded-md p-1;
+}
