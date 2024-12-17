@@ -18,50 +18,44 @@ todo: store selected theme in local storage; retrieve local if exists
 import {useEffect, useState} from "react";
 import themes from "./themes.json"
 
-
-interface themeItems {
-    uuid: string;
-    name: string;
-    path: string;
-}
+// interface themeItem {
+//     uuid: string;
+//     name: string;
+//     path: string;
+// }
 
 function ThemeSelector() {
-    const [theme, setTheme] = useState({
-        name: "Default",
-        file: "./default.css"
-    });
+    const [theme, setTheme] = useState("./default.css");
 
-    const themeList = themes.data?.map(item => {
-        return {
-            uuid: item.uuid,
-            name: item.name ,
-            path: item.cssFile,
-        }
-    })
+    const handleChange = (e:React.ChangeEvent<HTMLSelectElement>) => {
+        setTheme(e.target.value);
+    }
+    // const themeList = themes.data?.map(item => {
+    //     return {
+    //         uuid: item.uuid,
+    //         name: item.name ,
+    //         path: item.cssFile,
+    //     } as themeItem;
+    // })
 
     useEffect(() => {
-        import(theme.file).then(() => {
+        import(theme).then(() => {
             // Styles are loaded
         });
+        console.log(theme);
     }, [theme]);
 
     return (
         <>
-        <select onChange={(e) => setTheme(e.target.value)}>
+        <select onChange={(e) => handleChange(e)}>
             {
-                themeList.map((item) => {
+                themes.data.map((item) => {
                     return (
-                        <option key={item.uuid} value={{name: item.name, path:item.path}}
-                                { (item.name === theme.name) && "selected" }
-                        >
-                            {item.name}
+                        <option key={item.uuid} value={item.cssFile} >
+                            {item.name}, {item.cssFile}
                         </option>)
                 })
             }
-
-            >
-            {item.name}
-
         </select>
     {/*code to import correct theme here*/
     }

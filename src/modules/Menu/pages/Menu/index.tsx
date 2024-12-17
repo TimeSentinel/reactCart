@@ -35,9 +35,6 @@ function Menu() {
                                 (location.pathname === "/menu" && (location.search === "?q=" + product.category ||
                                     location.search === "?q=T-" + product.type))
                                     ?
-                                    <>
-                                        {/*{product.type !== prevCat && <div className="catalogHeader" >{product.type}</div>}*/}
-
                                         <div key={product.id}>
                                             <Product
                                                 id={product.id}
@@ -48,8 +45,6 @@ function Menu() {
                                                 image={product.image}
                                             />
                                         </div>
-                                        {/*{prevCat = product.type}*/}
-                                    </>
                                     : null
                             ))}
                         </div>
