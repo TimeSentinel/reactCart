@@ -1,4 +1,4 @@
-/* Theme Component: Blue CSS
+/* Theme Component: Purple CSS
 ################################### Restaurant Functional Module ###################################
 /modules/Themes/themes/<name>/themes.css    ::: themes style sheet
 REQ: TailwindCSS, PostCSS, PostCSS-Custom-Properties
@@ -8,30 +8,112 @@ accompanies index.tsx
 */
 
 :root {
-    /* ######################## Theme4:Purple Styles ######################## */
-    --light-color: #efdbff;
-    --soft-color: #d48bff;
-    --medium-color: #8c51a8;
-    --dark-color: #460f61;
-    --very-dark-color: #290934;
-    --bright-color: #be34f4;
+    /* ######################## Theme:Purple Styles ######################## */
+    --Purple-light-color: #efdbff;
+    --Purple-soft-color: #d48bff;
+    --Purple-medium-color: #8c51a8;
+    --Purple-dark-color: #460f61;
+    --Purple-very-dark-color: #290934;
+    --Purple-bright-color: #be34f4;
 
-    --ok-color: #25e507;
-    --highlight-color: #07fde8;
-    --alert-color: #fa29d7;
+    --Purple-ok-color: #25e507;
+    --Purple-highlight-color: #07fde8;
+    --Purple-alert-color: #fa29d7;
 
     /* ######################## General Theme Styles ######################## */
 
-    --light-shade: #dddfe1;
-    --medium-shade: #aeb4b9;
-    --dark-shade: #596066;
-    --very-dark-shade: #272a2d;
+    --Purple-light-shade: #dddfe1;
+    --Purple-medium-shade: #aeb4b9;
+    --Purple-dark-shade: #596066;
+    --Purple-very-dark-shade: #272a2d;
 
-    /* ######################## Cart-Column Layout ######################## */
-    --Column1: 43%; /* Item Name */
-    --Column2: 15%; /* Category  */
-    --Column3: 13%; /* Price     */
-    --Column4: 3%; /* --filler--*/
-    --Column5: 13%; /* Quantity  */
-    --Column6: 13%; /* Total     */
+    /* ------------------------------ BORDER COLORS ------------------------------ */
+    .border-light-color {
+        border-color: var(--Purple-light-color);
+    }
+    .border-soft-color {
+        border-color: var(--Purple-soft-color);
+    }
+    .border-medium-color {
+        border-color: var(--Purple-medium-color);
+    }
+    .border-dark-color {
+        border-color: var(--Purple-dark-color);
+    }
+    .border-very-dark-color {
+        border-color: var(--Purple-very-dark-color);
+    }
+    .border-light-shade {
+        border-color: var(--Purple-light-shade);
+    }
+    .border-medium-shade {
+        border-color: var(--Purple-medium-shade);
+    }
+    .border-dark-shade {
+        border-color: var(--Purple-dark-shade);
+    }
+    .border-very-dark-shade {
+        border-color: var(--Purple-very-dark-shade);
+    }
+
+    /* ------------------------------ BACKGROUND COLORS ------------------------------ */
+    .background-light-color {
+        background-color: var(--Purple-light-color);
+    }
+    .background-soft-color {
+        background-color: var(--Purple-soft-color);
+    }
+    .background-medium-color {
+        background-color: var(--Purple-medium-color);
+    }
+    .background-dark-color {
+        background-color: var(--Purple-dark-color);
+    }
+    .background-very-dark-color {
+        background-color: var(--Purple-very-dark-color);
+    }
+    .background-light-shade {
+        background-color: var(--Purple-light-shade);
+    }
+    .background-medium-shade {
+        background-color: var(--Purple-medium-shade);
+    }
+    .background-dark-shade {
+        background-color: var(--Purple-dark-shade);
+    }
+    .background-very-dark-shade {
+        background-color: var(--Purple-very-dark-shade);
+    }
+
+
+    /* ------------------------------ FONT COLORS ------------------------------ */
+    .text-light-color {
+        color: var(--Purple-light-color);
+    }
+    .text-soft-color {
+        color: var(--Purple-soft-color);
+    }
+    .text-medium-color {
+        color: var(--Purple-medium-color);
+    }
+    .text-dark-color {
+        color: var(--Purple-dark-color);
+    }
+    .text-very-dark-color {
+        color: var(--Purple-very-dark-color);
+    }
+    .text-light-shade {
+        color: var(--Purple-light-shade);
+    }
+    .text-medium-shade {
+        color: var(--Purple-medium-shade);
+    }
+    .text-dark-shade {
+        color: var(--Purple-dark-shade);
+    }
+    .text-very-dark-shade {
+        color: var(--Purple-very-dark-shade);
+    }
+
+
 }

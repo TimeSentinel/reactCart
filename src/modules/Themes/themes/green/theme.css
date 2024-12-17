@@ -9,30 +9,113 @@ accompanies index.tsx
 
 :root {
 
-    /* ######################## Theme2:Green Styles ######################## */
-    --light-color: #ddffdb;
-    --soft-color: #b0f18b;
-    --medium-color: #87b87c;
-    --dark-color: #2b7412;
-    --very-dark-color: #0a3409;
-    --bright-color: #25e507;
+    /* ######################## Theme:Green Styles ######################## */
+    --Green-light-color: #ddffdb;
+    --Green-soft-color: #b0f18b;
+    --Green-medium-color: #87b87c;
+    --Green-dark-color: #2b7412;
+    --Green-very-dark-color: #0a3409;
+    --Green-bright-color: #25e507;
 
-    --ok-color: #25e507;
-    --highlight-color: #fde907;
-    --alert-color: #fa295a;
+    --Green-ok-color: #25e507;
+    --Green-highlight-color: #fde907;
+    --Green-alert-color: #fa295a;
 
     /* ######################## General Theme Styles ######################## */
 
-    --light-shade: #dddfe1;
-    --medium-shade: #aeb4b9;
-    --dark-shade: #596066;
-    --very-dark-shade: #272a2d;
+    --Green-light-shade: #dddfe1;
+    --Green-medium-shade: #aeb4b9;
+    --Green-dark-shade: #596066;
+    --Green-very-dark-shade: #272a2d;
 
-    /* ######################## Cart-Column Layout ######################## */
-    --Column1: 43%; /* Item Name */
-    --Column2: 15%; /* Category  */
-    --Column3: 13%; /* Price     */
-    --Column4: 3%; /* --filler--*/
-    --Column5: 13%; /* Quantity  */
-    --Column6: 13%; /* Total     */
+    /* ------------------------------ BORDER COLORS ------------------------------ */
+    .border-light-color {
+        border-color: var(--Green-light-color);
+    }
+    .border-soft-color {
+        border-color: var(--Green-soft-color);
+    }
+    .border-medium-color {
+        border-color: var(--Green-medium-color);
+    }
+    .border-dark-color {
+        border-color: var(--Green-dark-color);
+    }
+    .border-very-dark-color {
+        border-color: var(--Green-very-dark-color);
+    }
+    .border-light-shade {
+        border-color: var(--Green-light-shade);
+    }
+    .border-medium-shade {
+        border-color: var(--Green-medium-shade);
+    }
+    .border-dark-shade {
+        border-color: var(--Green-dark-shade);
+    }
+    .border-very-dark-shade {
+        border-color: var(--Green-very-dark-shade);
+    }
+
+    /* ------------------------------ BACKGROUND COLOR ------------------------------ */
+    .background-light-color {
+        background-color: var(--Green-light-color);
+    }
+    .background-soft-color {
+        background-color: var(--Green-soft-color);
+    }
+    .background-medium-color {
+        background-color: var(--Green-medium-color);
+    }
+    .background-dark-color {
+        background-color: var(--Green-dark-color);
+    }
+    .background-very-dark-color {
+        background-color: var(--Green-very-dark-color);
+    }
+    .background-light-shade {
+        background-color: var(--Green-light-shade);
+    }
+    .background-medium-shade {
+        background-color: var(--Green-medium-shade);
+    }
+    .background-dark-shade {
+        background-color: var(--Green-dark-shade);
+    }
+    .background-very-dark-shade {
+        background-color: var(--Green-very-dark-shade);
+    }
+
+
+    /* ------------------------------ FONT COLOR ------------------------------ */
+    .text-light-color {
+        color: var(--Green-light-color);
+    }
+    .text-soft-color {
+        color: var(--Green-soft-color);
+    }
+    .text-medium-color {
+        color: var(--Green-medium-color);
+    }
+    .text-dark-color {
+        color: var(--Green-dark-color);
+    }
+    .text-very-dark-color {
+        color: var(--Green-very-dark-color);
+    }
+    .text-light-shade {
+        color: var(--Green-light-shade);
+    }
+    .text-medium-shade {
+        color: var(--Green-medium-shade);
+    }
+    .text-dark-shade {
+        color: var(--Green-dark-shade);
+    }
+    .text-very-dark-shade {
+        color: var(--Green-very-dark-shade);
+    }
+
+
+
 }

@@ -1,19 +1,20 @@
-/* Theme Component: PURPLE
+/* Theme Component: import tool: Purple
 ################################### Restaurant Functional Module ###################################
-Themes
-/modules/Themes/theme/<name>/index.tsx    ::: CSS Themes; requires theme packages
-REQ: Vite-React.js+TypeScript, react-router-dom, react-hot-toast,
-Requires CSS Theme handling component
+/modules/Themes/themes/<name>/index.tsx    ::: themes style sheet import tool
+REQ: TailwindCSS, PostCSS, PostCSS-Custom-Properties
+accompanies theme.css
 (c)2024 Lance Stubblefield
 ####################################################################################################
 */
 
+
 import './theme.css'
 
-export function ThemePurple() {
+function ThemePurple() {
 
     return (
         <>
         </>
     )
 }
+export default ThemePurple

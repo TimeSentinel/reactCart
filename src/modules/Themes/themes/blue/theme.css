@@ -8,31 +8,113 @@ accompanies index.tsx
 */
 
 :root {
-    /* ######################## Theme1:Blue Styles ######################## */
-    --light-color: #dbedff;
-    --soft-color: #8bc0f1;
-    --medium-color: #7c9bb8;
-    --dark-color: #124374;
-    --very-dark-color: #091f34;
-    --bright-color: #0381f4;
+    /* ######################## Theme:Blue Styles ######################## */
+    --Blue-light-color: #dbedff;
+    --Blue-soft-color: #8bc0f1;
+    --Blue-medium-color: #7c9bb8;
+    --Blue-dark-color: #124374;
+    --Blue-very-dark-color: #091f34;
+    --Blue-bright-color: #0381f4;
 
-    --ok-color: #25e507;
-    --highlight-color: #ed42c7;
-    --alert-color: #ef9e39;
-
+    --Blue-ok-color: #25e507;
+    --Blue-highlight-color: #ed42c7;
+    --Blue-alert-color: #ef9e39;
 
     /* ######################## General Theme Styles ######################## */
 
-    --light-shade: #dddfe1;
-    --medium-shade: #aeb4b9;
-    --dark-shade: #596066;
-    --very-dark-shade: #272a2d;
+    --Blue-light-shade: #dddfe1;
+    --Blue-medium-shade: #aeb4b9;
+    --Blue-dark-shade: #596066;
+    --Blue-very-dark-shade: #272a2d;
 
-    /* ######################## Cart-Column Layout ######################## */
-    --Column1: 43%; /* Item Name */
-    --Column2: 15%; /* Category  */
-    --Column3: 13%; /* Price     */
-    --Column4: 3%; /* --filler--*/
-    --Column5: 13%; /* Quantity  */
-    --Column6: 13%; /* Total     */
+    /* ------------------------------ BORDER COLORS ------------------------------ */
+    .border-light-color {
+        border-color: var(--Blue-light-color);
+    }
+    .border-soft-color {
+        border-color: var(--Blue-soft-color);
+    }
+    .border-medium-color {
+        border-color: var(--Blue-medium-color);
+    }
+    .border-dark-color {
+        border-color: var(--Blue-dark-color);
+    }
+    .border-very-dark-color {
+        border-color: var(--Blue-very-dark-color);
+    }
+    .border-light-shade {
+        border-color: var(--Blue-light-shade);
+    }
+    .border-medium-shade {
+        border-color: var(--Blue-medium-shade);
+    }
+    .border-dark-shade {
+        border-color: var(--Blue-dark-shade);
+    }
+    .border-very-dark-shade {
+        border-color: var(--Blue-very-dark-shade);
+    }
+
+    /* ------------------------------ BACKGROUND COLORS ------------------------------ */
+    .background-light-color {
+        background-color: var(--Blue-light-color);
+    }
+    .background-soft-color {
+        background-color: var(--Blue-soft-color);
+    }
+    .background-medium-color {
+        background-color: var(--Blue-medium-color);
+    }
+    .background-dark-color {
+        background-color: var(--Blue-dark-color);
+    }
+    .background-very-dark-color {
+        background-color: var(--Blue-very-dark-color);
+    }
+    .background-light-shade {
+        background-color: var(--Blue-light-shade);
+    }
+    .background-medium-shade {
+        background-color: var(--Blue-medium-shade);
+    }
+    .background-dark-shade {
+        background-color: var(--Blue-dark-shade);
+    }
+    .background-very-dark-shade {
+        background-color: var(--Blue-very-dark-shade);
+    }
+
+
+    /* ------------------------------ FONT COLORS ------------------------------ */
+    .text-light-color {
+        color: var(--Blue-light-color);
+    }
+    .text-soft-color {
+        color: var(--Blue-soft-color);
+    }
+    .text-medium-color {
+        color: var(--Blue-medium-color);
+    }
+    .text-dark-color {
+        color: var(--Blue-dark-color);
+    }
+    .text-very-dark-color {
+        color: var(--Blue-very-dark-color);
+    }
+    .text-light-shade {
+        color: var(--Blue-light-shade);
+    }
+    .text-medium-shade {
+        color: var(--Blue-medium-shade);
+    }
+    .text-dark-shade {
+        color: var(--Blue-dark-shade);
+    }
+    .text-very-dark-shade {
+        color: var(--Blue-very-dark-shade);
+    }
+
+
+
 }

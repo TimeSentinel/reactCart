@@ -1,0 +1,147 @@
+/* Theme Component: Dark Blue CSS
+################################### Restaurant Functional Module ###################################
+/modules/Themes/themes/<name>/themes.css    ::: themes style sheet
+REQ: TailwindCSS, PostCSS, PostCSS-Custom-Properties
+accompanies index.tsx
+(c)2024 Lance Stubblefield
+####################################################################################################
+*/
+
+:root {
+    /* ######################## Theme:Dark Blue Styles ######################## */
+    --DarkBlue-light-color: #202325;
+    --DarkBlue-soft-color: #3b5165;
+    --DarkBlue-medium-color: #60778c;
+    --DarkBlue-dark-color: #2782dd;
+    --DarkBlue-very-dark-color: #091f34;
+    --DarkBlue-bright-color: #011629;
+
+    --DarkBlue-ok-color: #0e5103;
+    --DarkBlue-highlight-color: #701f5e;
+    --DarkBlue-alert-color: #6a4517;
+
+
+    /* ######################## General Theme Styles ######################## */
+
+    --DarkBlue-light-shade: #505151;
+    --DarkBlue-medium-shade: #787c80;
+    --DarkBlue-dark-shade: #a7b4bf;
+    --DarkBlue-very-dark-shade: #cbd9e6;
+
+    /* ------------------------------ BORDER COLORS ------------------------------ */
+
+    .border-light-color {
+        border-color: var(--DarkBlue-light-color);
+    }
+
+    .border-soft-color {
+        border-color: var(--DarkBlue-soft-color);
+    }
+
+    .border-medium-color {
+        border-color: var(--DarkBlue-medium-color);
+    }
+
+    .border-dark-color {
+        border-color: var(--DarkBlue-dark-color);
+    }
+
+    .border-very-dark-color {
+        border-color: var(--DarkBlue-very-dark-color);
+    }
+
+    .border-light-shade {
+        border-color: var(--DarkBlue-light-shade);
+    }
+
+    .border-medium-shade {
+        border-color: var(--DarkBlue-medium-shade);
+    }
+
+    .border-dark-shade {
+        border-color: var(--DarkBlue-dark-shade);
+    }
+
+    .border-very-dark-shade {
+        border-color: var(--DarkBlue-very-dark-shade);
+    }
+
+    /* ------------------------------ BACKGROUND COLORS ------------------------------ */
+
+    .background-light-color {
+        background-color: var(--DarkBlue-light-color);
+    }
+
+    .background-soft-color {
+        background-color: var(--DarkBlue-soft-color);
+    }
+
+    .background-medium-color {
+        background-color: var(--DarkBlue-medium-color);
+    }
+
+    .background-dark-color {
+        background-color: var(--DarkBlue-dark-color);
+    }
+
+    .background-very-dark-color {
+        background-color: var(--DarkBlue-very-dark-color);
+    }
+
+    .background-light-shade {
+        background-color: var(--DarkBlue-light-shade);
+    }
+
+    .background-medium-shade {
+        background-color: var(--DarkBlue-medium-shade);
+    }
+
+    .background-dark-shade {
+        background-color: var(--DarkBlue-dark-shade);
+    }
+
+    .background-very-dark-shade {
+        background-color: var(--DarkBlue-very-dark-shade);
+    }
+
+
+    /* ------------------------------ FONT COLORS ------------------------------ */
+
+    .text-light-color {
+        color: var(--DarkBlue-light-color);
+    }
+
+    .text-soft-color {
+        color: var(--DarkBlue-soft-color);
+    }
+
+    .text-medium-color {
+        color: var(--DarkBlue-medium-color);
+    }
+
+    .text-dark-color {
+        color: var(--DarkBlue-dark-color);
+    }
+
+    .text-very-dark-color {
+        color: var(--DarkBlue-very-dark-color);
+    }
+
+    .text-light-shade {
+        color: var(--DarkBlue-light-shade);
+    }
+
+    .text-medium-shade {
+        color: var(--DarkBlue-medium-shade);
+    }
+
+    .text-dark-shade {
+        color: var(--DarkBlue-dark-shade);
+    }
+
+    .text-very-dark-shade {
+        color: var(--DarkBlue-very-dark-shade);
+    }
+
+
+}

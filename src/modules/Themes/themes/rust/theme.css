@@ -9,31 +9,115 @@ accompanies index.tsx
 
 :root {
 
-    /* ######################## Theme3:Rust Styles ######################## */
-    --light-color: #fff2db;
-    --soft-color: #f1be8b;
-    --medium-color: #b8937c;
-    --dark-color: #743812;
-    --very-dark-color: #341909;
-    --bright-color: #ff8d46;
+    /* ######################## Theme:Rust Styles ######################## */
+    --Rust-light-color: #fff2db;
+    --Rust-soft-color: #f1be8b;
+    --Rust-medium-color: #b8937c;
+    --Rust-dark-color: #743812;
+    --Rust-very-dark-color: #341909;
+    --Rust-bright-color: #ff8d46;
 
-    --ok-color: #25e507;
-    --highlight-color: #fde907;
-    --alert-color: #fa295a;
+    --Rust-ok-color: #25e507;
+    --Rust-highlight-color: #fde907;
+    --Rust-alert-color: #fa295a;
 
 
     /* ######################## General Theme Styles ######################## */
 
-    --light-shade: #dddfe1;
-    --medium-shade: #aeb4b9;
-    --dark-shade: #596066;
-    --very-dark-shade: #272a2d;
+    --Rust-light-shade: #dddfe1;
+    --Rust-medium-shade: #aeb4b9;
+    --Rust-dark-shade: #596066;
+    --Rust-very-dark-shade: #272a2d;
 
-    /* ######################## Cart-Column Layout ######################## */
-    --Column1: 43%; /* Item Name */
-    --Column2: 15%; /* Category  */
-    --Column3: 13%; /* Price     */
-    --Column4: 3%; /* --filler--*/
-    --Column5: 13%; /* Quantity  */
-    --Column6: 13%; /* Total     */
+
+    /* ------------------------------ BORDER COLORS ------------------------------ */
+    .border-light-color {
+        border-color: var(--Rust-light-color);
+    }
+    .border-soft-color {
+        border-color: var(--Rust-soft-color);
+    }
+    .border-medium-color {
+        border-color: var(--Rust-medium-color);
+    }
+    .border-dark-color {
+        border-color: var(--Rust-dark-color);
+    }
+    .border-very-dark-color {
+        border-color: var(--Rust-very-dark-color);
+    }
+    .border-light-shade {
+        border-color: var(--Rust-light-shade);
+    }
+    .border-medium-shade {
+        border-color: var(--Rust-medium-shade);
+    }
+    .border-dark-shade {
+        border-color: var(--Rust-dark-shade);
+    }
+    .border-very-dark-shade {
+        border-color: var(--Rust-very-dark-shade);
+    }
+
+    /* ------------------------------ BACKGROUND COLORS ------------------------------ */
+    .background-light-color {
+        background-color: var(--Rust-light-color);
+    }
+    .background-soft-color {
+        background-color: var(--Rust-soft-color);
+    }
+    .background-medium-color {
+        background-color: var(--Rust-medium-color);
+    }
+    .background-dark-color {
+        background-color: var(--Rust-dark-color);
+    }
+    .background-very-dark-color {
+        background-color: var(--Rust-very-dark-color);
+    }
+    .background-light-shade {
+        background-color: var(--Rust-light-shade);
+    }
+    .background-medium-shade {
+        background-color: var(--Rust-medium-shade);
+    }
+    .background-dark-shade {
+        background-color: var(--Rust-dark-shade);
+    }
+    .background-very-dark-shade {
+        background-color: var(--Rust-very-dark-shade);
+    }
+
+
+    /* ------------------------------ FONT COLORS ------------------------------ */
+    .text-light-color {
+        color: var(--Rust-light-color);
+    }
+    .text-soft-color {
+        color: var(--Rust-soft-color);
+    }
+    .text-medium-color {
+        color: var(--Rust-medium-color);
+    }
+    .text-dark-color {
+        color: var(--Rust-dark-color);
+    }
+    .text-very-dark-color {
+        color: var(--Rust-very-dark-color);
+    }
+    .text-light-shade {
+        color: var(--Rust-light-shade);
+    }
+    .text-medium-shade {
+        color: var(--Rust-medium-shade);
+    }
+    .text-dark-shade {
+        color: var(--Rust-dark-shade);
+    }
+    .text-very-dark-shade {
+        color: var(--Rust-very-dark-shade);
+    }
+
+
+
 }

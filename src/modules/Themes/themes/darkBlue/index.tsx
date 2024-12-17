@@ -1,4 +1,4 @@
-/* Theme Component: import tool: Rust
+/* Theme Component: import tool: Dark Blue
 ################################### Restaurant Functional Module ###################################
 /modules/Themes/themes/<name>/index.tsx    ::: themes style sheet import tool
 REQ: TailwindCSS, PostCSS, PostCSS-Custom-Properties
@@ -7,14 +7,12 @@ accompanies theme.css
 ####################################################################################################
 */
 
-
 import './theme.css'
 
-function ThemeRust() {
+export function ThemeDarkBlue() {
 
     return (
         <>
         </>
     )
 }
-export default ThemeRust

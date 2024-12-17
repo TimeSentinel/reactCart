@@ -7,60 +7,74 @@ REQ: Vite-React.js+TypeScript, react-router-dom, react-hot-toast,
 ####################################################################################################
 */
 
-/*
-todo: create dropdown selection list from JSON
-todo: use dropdown selection to choose theme component or CSS file
-todo: embed this component in footer, header or main tsx file
-todo: store selected theme in local storage; retrieve local if exists
- */
 
-
-import {useEffect, useState} from "react";
+import {lazy, useEffect, useState} from "react";
+import './default.css'
 import themes from "./themes.json"
 
-// interface themeItem {
-//     uuid: string;
-//     name: string;
-//     path: string;
-// }
+function ThemeSelector(): React.JSX.Element {
+    const [theme, setTheme] = useState({
+        uuid: "6c7c7457-399b-4eac-9e8b-f05e477b7601",
+        name: "Default",
+        component: "ThemeGreen",
+        path: "./themes/green",
+    });
 
-function ThemeSelector() {
-    const [theme, setTheme] = useState("./default.css");
+    const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+        themes.data.map((item) => {
+            if (item.uuid === e.target.value) {
+                setTheme({
+                    uuid: item.uuid,
+                    name: item.name,
+                    component: item.component,
+                    path: item.path,
+                })
+            }
+        })
 
-    const handleChange = (e:React.ChangeEvent<HTMLSelectElement>) => {
-        setTheme(e.target.value);
+
     }
-    // const themeList = themes.data?.map(item => {
-    //     return {
-    //         uuid: item.uuid,
-    //         name: item.name ,
-    //         path: item.cssFile,
-    //     } as themeItem;
-    // })
+
+// #######################################################################################
+    // const Component = lazy(() =>
+    //     import(theme.path + "/index.tsx").then((module) => ({default: module.MyComponent}))
+    // );
+    // <Component />
+// #######################################################################################
+
+// #######################################################################################
+    // const PreFooterPage = lazy(() => import('./prefooter/preFooterPage'));
+    // const PreFooterArticle = lazy(() => import('./prefooter/preFooterArticle'));
+    //
+    // const MyMainComponent = ({ type }) => (
+    //     <Suspense fallback="Loading">
+    //         {type === 'page' ? <PreFooterPage /> : <PreFooterArticle />}
+    //     </Suspense>
+    // );
+// #######################################################################################
+
 
     useEffect(() => {
-        import(theme).then(() => {
-            // Styles are loaded
-        });
-        console.log(theme);
+        lazy(() => import(theme.path + "/theme.css"));
+        console.log(theme.path + "/theme.css");
     }, [theme]);
 
     return (
-        <>
-        <select onChange={(e) => handleChange(e)}>
-            {
-                themes.data.map((item) => {
-                    return (
-                        <option key={item.uuid} value={item.cssFile} >
-                            {item.name}, {item.cssFile}
-                        </option>)
-                })
-            }
-        </select>
-    {/*code to import correct theme here*/
-    }
-</>
-)
+        <div className="ThemeSelector">
+
+            <select onChange={(e) => handleChange(e)}>
+                {
+                    themes.data.map((item) => {
+                        return (
+                            <option key={item.uuid} value={item.uuid}>
+                                {item.name}
+                            </option>)
+                    })
+                }
+            </select>
+            {/*{ <Component/> }*/}
+        </div>
+    )
 }
 
 export default ThemeSelector;
