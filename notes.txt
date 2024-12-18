@@ -18,8 +18,7 @@ todo: MENU - make product details pop up
 todo: MENU - add options (name, instructions, options) when adding to cart
 
 ---------- THEMES MODULE ---------
-todo: THEMES - create theme structure
-todo: THEMES - setup themes
+todo: THEMES - setup theme functioning
 
 ---------- CART MODULE ---------
 todo: CART - add options (name, instructions, options) when adding to cart

@@ -93,7 +93,7 @@ function Navbar() {
                     </button>
                 </div>
                 <div className="navbarItem">
-                    <button className="disabled text-dark-shade">
+                    <button className="disabled text-dark-shade background-light-shade">
                         News
                     </button>
                 </div>

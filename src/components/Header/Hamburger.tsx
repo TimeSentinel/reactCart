@@ -51,7 +51,7 @@ function Hamburger() {
             {displayMain && (
                 <div id="hamburgerNavbar" className="background-soft-color">
                     <div className="hamburgerItem">
-                        <button className={location.pathname === "/" ? "selected" : "enabled"}
+                        <button className={location.pathname === "/" ? "selected background-highlight-color" : "enabled"}
                                 onClick={() => {
                                     navClick("");
                                 }}>
@@ -59,7 +59,7 @@ function Hamburger() {
                         </button>
                     </div>
                     <div className="hamburgerItem">
-                        <button className={location.pathname === "/menu" ? "selected" : "enabled"} onClick={toggleSub}>
+                        <button className={location.pathname === "/menu" ? "selected background-highlight-color" : "enabled"} onClick={toggleSub}>
                             Menu
                         </button>
                         {displaySub && (
@@ -99,29 +99,29 @@ function Hamburger() {
                         )}
                     </div>
                     <div className="hamburgerItem" id="menuX">
-                        <button className={location.pathname === "/about" ? "selected" : "enabled"}
+                        <button className={location.pathname === "/about" ? "selected background-highlight-color" : "enabled"}
                                 onClick={() => navClick("/about")}>
                             Our Story
                         </button>
                     </div>
                     <div className="hamburgerItem">
-                        <button className="disabled">
+                        <button className="disabled text-dark-shade background-medium-shade">
                             News
                         </button>
                     </div>
                     <div className="hamburgerItem">
-                        <button className="disabled">
+                        <button className="disabled text-dark-shade background-medium-shade">
                             Other
                         </button>
                     </div>
                     <div className="hamburgerItem">
-                        <button className="disabled">
+                        <button className="disabled text-dark-shade background-medium-shade">
                             Contact Us
                         </button>
                     </div>
                     <div className="hamburgerItem">
                         <button onClick={() => navClick("/cart")}
-                                className={location.pathname === "/cart" ? "selected" : "cartButton"}>
+                                className={location.pathname === "/cart" ? "selected background-highlight-color" : "cartButton"}>
                             Cart
                         </button>
                     </div>
