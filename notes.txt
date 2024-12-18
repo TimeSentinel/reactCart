@@ -52,6 +52,61 @@ HTML: document.title (tap title)
 
 
 --------------------------------------------------------------------------
+Children, cloneElement
+examples:
+1.
+    const Row = ({ children, spacing }) => {
+        const childStyle = {
+            marginLeft: `${spacing}px`,   };
+    return (
+        <div className="Row">
+            { Children.map(children, (child, index) => {
+                return cloneElement(child, {
+                style: {
+                    ...child.props.style,
+                    ...(index > 0 ? childStyle : {},   },   });   })}
+        </div>   );   };
+        function LiveOrders() {
+            return (
+                <div className="App">
+                    <Row spacing={32}>
+                        <p> Pizza Mararita </p> <p>2</p> <p>30$</p>
+                    </Row>
+                </div>   )    }
+
+2.
+    //radio.js
+    export const RadioGroup = ({ onChange, selected, children }) => {
+     const RadioOptions = React.Children.map(children, (child) => {
+       return React.cloneElement(child, {
+         onChange,
+         checked: child.props.value === selected,
+       });    });
+     return <div className="RadioGroup">{RadioOptions}</div>;    };
+    export const RadioOption = ({ value, checked, onChange, children }) => {
+     return (
+       <div className="RadioOption">
+         <input
+           id={value}
+           type="radio"
+           name={value}
+           value={value}
+           checked={checked}
+           onChange={(e) => {
+             onChange(e.target.value);
+           }}    />
+         <label htmlFor={value}>{children}</label>
+       </div>   );   };
+
+     // html
+     <RadioGroup onChange={setSelected} selected={selected}>
+      <RadioOption value="social_media">Social Media</RadioOption>
+      <RadioOption value="friends">Friends</RadioOption>
+      <RadioOption value="advertising">Advertising</RadioOption>
+      <RadioOption value="other">Other</RadioOption>
+     </RadioGroup>
+
+--------------------------------------------------------------------------
 MAP
 examples:
 1.
