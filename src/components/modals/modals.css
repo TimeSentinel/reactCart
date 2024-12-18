@@ -9,9 +9,7 @@ companion for modals.tsx
 */
 dialog {
     @apply p-3 mx-auto border-4 rounded-md;
-    background-color: var(--light-shade);
-    border-color: var(--dark-color);
-    box-shadow: 15px 15px 20px var(--dark-color);
+    box-shadow: 0 0 0 2000px #440202CC;
 }
 .modal {
     @apply m-4;
@@ -21,7 +19,6 @@ dialog {
 
         p {
             @apply leading-tight text-center font-bold text-xl;
-            color: var(--dark-color);
         }
     }
 

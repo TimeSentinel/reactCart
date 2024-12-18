@@ -43,34 +43,40 @@ function Navbar() {
         <div className="navRow">
             <div className="navbar">
                 <div className="navbarItem" id="home">
-                    <button className={location.pathname === "/" ? "selected" : "enabled"} onClick={() => navigate("")}>
+                    <button className={location.pathname === "/"
+                        ? "selected text-bright-color background-dark-color border-very-dark-color"
+                        : "enabled text-dark-color"} onClick={() => navigate("")}>
                         Home
                     </button>
                 </div>
                 <div className="navbarItem" id="menu">
-                    <button className={location.pathname === "/menu" ? "selected" : "enabled"}  onClick={() => {navClick("menu")}}
+                    <button className={location.pathname === "/menu"
+                        ? "selected text-bright-color background-dark-color border-very-dark-color"
+                        : "enabled text-dark-color"}
+                            onClick={() => {navClick("menu")}}
                     >Menu
                     </button>
-                    <div className="dropDown" id="dropDown">
-                        <div className="navbarSubItem enabled" onClick={() => {navClick("menu")}}>
+                    <div className="dropDown text-dark-color background-light-color border-medium-shade" id="dropDown">
+                        <div className="navbarSubItem enabled text-dark-color" onClick={() => {navClick("menu")}}>
                             ALL
                         </div>
                         <hr className="dropdownSpace"/>
                         {uniqueCats.length > 0 ?
                             uniqueCats.map(item => {
                                 return (
-                                    <div className="navbarSubItem enabled"
+                                    <div className="navbarSubItem enabled text-dark-color border-medium-shade background-light-shade"
+                                         id="dropDown"
                                          onClick={() => navClick2(item)} key={item}>{item}
                                     </div>
                                 )
                             }) : null
                         }
-                        <hr className="dropdownSpace"/>
+                        <hr className="dropdownSpace background-dark-color"/>
 
                         {uniqueTypes.length > 0 ?
                             uniqueTypes.map(item => {
                                 return (
-                                    <div className="navbarSubItem enabled"
+                                    <div className="navbarSubItem enabled text-dark-color border-medium-shade background-light-shade"
                                          onClick={() => navClick2("T-" + item)} key={item}>{item}
                                     </div>
                                 )
@@ -79,13 +85,15 @@ function Navbar() {
                     </div>
                 </div>
                 <div className="navbarItem enabled" id="about">
-                    <button className={location.pathname === "/about" ? "selected" : "enabled"}
+                    <button className={location.pathname === "/about"
+                        ? "selected text-bright-color background-dark-color border-very-dark-color"
+                        : "enabled text-dark-color"}
                             onClick={() => navClick("about")}>
                         Our Story
                     </button>
                 </div>
                 <div className="navbarItem">
-                    <button className="disabled">
+                    <button className="disabled text-dark-shade">
                         News
                     </button>
                 </div>
@@ -96,13 +104,17 @@ function Navbar() {
                 {/*</div>*/}
                 <div className="navbarItem" id="contact">
                     <button onClick={() => navigate("/contact")}
-                            className={location.pathname === "/contact" ? "selected" : "enabled"}>
+                            className={location.pathname === "/contact"
+                                ? "selected text-bright-color background-dark-color border-very-dark-color"
+                                : "enabled text-dark-color"}>
                         Contact Us
                     </button>
                 </div>
                 <div className="navbarItem" id="cart">
                     <button onClick={() => navigate("/cart")}
-                            className={location.pathname === "/cart" ? "selected" : "cartButton"}>
+                            className={location.pathname === "/cart"
+                                ? "selected text-bright-color background-dark-color border-very-dark-color"
+                                : "cartButton"}>
                         Cart
                     </button>
                 </div>

@@ -42,13 +42,14 @@ function Hamburger() {
 
     return (
         <div className="hamburger">
-            <div id="hamburgerIcon" onClick={toggleMain}>
-                <div className="iconBar"></div>
-                <div className="iconBar"></div>
-                <div className="iconBar"></div>
+            <div id="hamburgerIcon" className="border-medium-color background-soft-color"
+                 onClick={toggleMain}>
+                <div className="iconBar background-dark-color"></div>
+                <div className="iconBar background-dark-color"></div>
+                <div className="iconBar background-dark-color"></div>
             </div>
             {displayMain && (
-                <div id="hamburgerNavbar">
+                <div id="hamburgerNavbar" className="background-soft-color">
                     <div className="hamburgerItem">
                         <button className={location.pathname === "/" ? "selected" : "enabled"}
                                 onClick={() => {
@@ -63,9 +64,12 @@ function Hamburger() {
                         </button>
                         {displaySub && (
                             <div className="dropDown" id="dropDown">
-                                <button className="navbarSubItem enabled" onClick={() => {
-                                    navClick("/menu")
-                                }}><b>ALL</b>
+                                <button className="navbarSubItem enabled background-light-color
+                                 border-soft-color text-medium-color"
+                                        onClick={() => {
+                                            navClick("/menu")
+                                        }}>
+                                    <b>ALL</b>
                                 </button>
                                 <hr className="dropdownSpace"/>
                                 {/* ##########################vv DROP DOWN SUB-MENU vv########################## */}
@@ -73,7 +77,8 @@ function Hamburger() {
                                     hamCats.map(item => {
                                         return (
                                             <button className="navbarSubItem enabled"
-                                                    onClick={() => navClick(`/menu?q=${encodeURIComponent(item)}`)} key={item}>{item}
+                                                    onClick={() => navClick(`/menu?q=${encodeURIComponent(item)}`)}
+                                                    key={item}>{item}
                                             </button>
                                         )
                                     }) : null
@@ -83,7 +88,8 @@ function Hamburger() {
                                     hamTypes.map(item => {
                                         return (
                                             <button className="navbarSubItem enabled"
-                                                    onClick={() => navClick(`/menu?q=T-${encodeURIComponent(item)}`)} key={item}>{item}
+                                                    onClick={() => navClick(`/menu?q=T-${encodeURIComponent(item)}`)}
+                                                    key={item}>{item}
                                             </button>
                                         )
                                     }) : null

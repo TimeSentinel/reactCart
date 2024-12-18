@@ -8,29 +8,9 @@ REQ: TailwindCSS, PostCSS, PostCSS-Custom-Properties
 
 .hrDivider {
     @apply w-8/12 mx-auto border-t-2 border-dotted my-8;
-    border-color: var(--medium-color);
-}
-
-.h1 {
-
-}
-.h2 {
-
-}
-.h3 {
-
-}
-.h4 {
-
-}
-.h5 {
-
 }
 
 .mainPage {
-    background-color: var(--light-shade);
-    color: var(--dark-color);
-    border-color: var(--medium-color);
     @apply w-11/12 mx-auto mt-4 p-4;
     @apply border-2;
     .bodyHead {

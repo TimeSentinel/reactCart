@@ -8,7 +8,7 @@ REQ: Vite-React.js+TypeScript, react-router-dom, react-hot-toast,
 */
 
 
-import {lazy, useEffect, useState} from "react";
+import { useEffect, useState} from "react";
 import './default.css'
 import themes from "./themes.json"
 
@@ -31,8 +31,6 @@ function ThemeSelector(): React.JSX.Element {
                 })
             }
         })
-
-
     }
 
 // #######################################################################################
@@ -55,13 +53,12 @@ function ThemeSelector(): React.JSX.Element {
 
 
     useEffect(() => {
-        lazy(() => import(theme.path + "/theme.css"));
+        import(theme.path + "/theme.css").then(() => {});
         console.log(theme.path + "/theme.css");
     }, [theme]);
 
     return (
         <div className="ThemeSelector">
-
             <select onChange={(e) => handleChange(e)}>
                 {
                     themes.data.map((item) => {

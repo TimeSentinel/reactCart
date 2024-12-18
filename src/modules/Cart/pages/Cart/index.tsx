@@ -63,10 +63,10 @@ const Cart: React.FC = () => {
                     </button>
                 </div>
             </div>
-            <hr className="cartLineTop"/>
+            <hr className="cartLineTop border-soft-color"/>
             <div className="cartTable">
-                <div className="cartTableHeader">
-                    <div className="cartTableHeaderItem column0">X</div>
+                <div className="cartTableHeader text-dark-shade border-dark-shade">
+                    <div className="cartTableHeaderItem column0 text-alert-color">X</div>
                     <div className="cartTableHeaderItem column1">Item</div>
                     <div className="cartTableHeaderItem column2">Category</div>
                     <div className="cartTableHeaderItem column3">Price</div>
@@ -89,7 +89,7 @@ const Cart: React.FC = () => {
             <div className="cartTotal">TOTAL = <></>
                 {new Intl.NumberFormat('en-US', {style: 'currency', currency: 'USD'}).format(total) ?? 0}
             </div>
-            <hr className="cartLineBottom"/>
+            <hr className="cartLineBottom border-soft-color"/>
             <div className="cartFooter">
                 <button onClick={() => {
                     if (Object.keys(localState.shoppingCart).length !== 0) toast.success("Order Submitted!")

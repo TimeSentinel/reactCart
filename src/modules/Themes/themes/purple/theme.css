@@ -6,6 +6,45 @@ accompanies index.tsx
 (c)2024 Lance Stubblefield
 ####################################################################################################
 */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+
+    /* ################################ General Styles ################################ */
+    body {
+        @apply p-0 m-0;
+    }
+
+    @layer base {
+        h1 {
+            @apply text-2xl font-semibold;
+            color: var(--Purple-very-dark-color)
+        }
+
+        h2 {
+            @apply text-xl font-semibold;
+        }
+
+        h3 {
+            @apply text-xl;
+        }
+
+        h4 {
+            @apply text-lg;
+        }
+
+        h5 {
+            @apply italic;
+            color: var(--Purple-dark-color);
+        }
+    }
+
+    button {
+        @apply rounded-md p-1;
+    }
+}
 
 :root {
     /* ######################## Theme:Purple Styles ######################## */
@@ -28,126 +67,165 @@ accompanies index.tsx
     --Purple-very-dark-shade: #272a2d;
 
 
-
     /* ------------------------------ BORDER COLORS ------------------------------ */
+
+    .border-bright-color {
+        border-color: var(--Purple-bright-color);
+    }
+
     .border-light-color {
         border-color: var(--Purple-light-color);
     }
+
     .border-soft-color {
         border-color: var(--Purple-soft-color);
     }
+
     .border-medium-color {
         border-color: var(--Purple-medium-color);
     }
+
     .border-dark-color {
         border-color: var(--Purple-dark-color);
     }
+
     .border-very-dark-color {
         border-color: var(--Purple-very-dark-color);
     }
+
     .border-light-shade {
         border-color: var(--Purple-light-shade);
     }
+
     .border-medium-shade {
         border-color: var(--Purple-medium-shade);
     }
+
     .border-dark-shade {
         border-color: var(--Purple-dark-shade);
     }
+
     .border-very-dark-shade {
         border-color: var(--Purple-very-dark-shade);
     }
 
+    .border-ok-color {
+        border-color: var(--Purple-ok-color);
+    }
+
+    .border-alert-color {
+        border-color: var(--Purple-alert-color);
+    }
+
+    .border-highlight-color {
+        border-color: var(--Purple-highlight-color);
+    }
+
     /* ------------------------------ BACKGROUND COLORS ------------------------------ */
+
+    .background-bright-color {
+        background-color: var(--Purple-bright-color);
+    }
+
     .background-light-color {
         background-color: var(--Purple-light-color);
     }
+
     .background-soft-color {
         background-color: var(--Purple-soft-color);
     }
+
     .background-medium-color {
         background-color: var(--Purple-medium-color);
     }
+
     .background-dark-color {
         background-color: var(--Purple-dark-color);
     }
+
     .background-very-dark-color {
         background-color: var(--Purple-very-dark-color);
     }
+
     .background-light-shade {
         background-color: var(--Purple-light-shade);
     }
+
     .background-medium-shade {
         background-color: var(--Purple-medium-shade);
     }
+
     .background-dark-shade {
         background-color: var(--Purple-dark-shade);
     }
+
     .background-very-dark-shade {
         background-color: var(--Purple-very-dark-shade);
     }
 
+    .background-ok-color {
+        background-color: var(--Purple-ok-color);
+    }
+
+    .background-alert-color {
+        background-color: var(--Purple-alert-color);
+    }
+
+    .background-highlight-color {
+        background-color: var(--Purple-highlight-color);
+    }
 
     /* ------------------------------ FONT COLORS ------------------------------ */
+
+    .text-bright-color {
+        color: var(--Purple-bright-color);
+    }
+
     .text-light-color {
         color: var(--Purple-light-color);
     }
+
     .text-soft-color {
         color: var(--Purple-soft-color);
     }
+
     .text-medium-color {
         color: var(--Purple-medium-color);
     }
+
     .text-dark-color {
         color: var(--Purple-dark-color);
     }
+
     .text-very-dark-color {
         color: var(--Purple-very-dark-color);
     }
+
     .text-light-shade {
         color: var(--Purple-light-shade);
     }
+
     .text-medium-shade {
         color: var(--Purple-medium-shade);
     }
+
     .text-dark-shade {
         color: var(--Purple-dark-shade);
     }
+
     .text-very-dark-shade {
         color: var(--Purple-very-dark-shade);
     }
 
-
-}
-
-/* ################################ General Styles ################################ */
-body {
-    @apply p-0 m-0;
-}
-
-@layer base {
-    h1 {
-        @apply text-2xl font-semibold;
-        color: var(--Purple-very-dark-color)
+    .text-ok-color {
+        color: var(--Purple-ok-color);
     }
 
-    h2 {
-        @apply text-xl font-semibold;
+    .text-alert-color {
+        color: var(--Purple-alert-color);
     }
 
-    h3 {
-        @apply text-xl;
+    .text-highlight-color {
+        color: var(--Purple-highlight-color);
     }
-
-    h4 {
-        @apply text-lg;
-    }
-    h5 {
-        @apply italic;
-        color: var(--Purple-dark-color);
-    }
-}
-
-button {
-    @apply rounded-md p-1;
 }

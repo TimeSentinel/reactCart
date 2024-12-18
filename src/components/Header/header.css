@@ -10,8 +10,6 @@ REQ: TailwindCSS, PostCSS, PostCSS-Custom-Properties
 /* ################################ Header ################################ */
 .header {
     @apply align-text-bottom border-b-4;
-    background-color: var(--light-color);
-    border-color: var(--bright-color);
 
     .titleRow {
         @apply flex;

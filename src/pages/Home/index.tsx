@@ -14,7 +14,7 @@ function Home() {
 
     return (
         <>
-            <div className="mainPage">
+            <div className="mainPage background-light-shade text-dark-color border-medium-color">
                 <div className="bodyHead">
                     <h2 className=" text-center text-red-700 font-bold underline">Under Construction</h2>
                     <h1>Main Page</h1>
@@ -24,13 +24,13 @@ function Home() {
                     </p>
                     <br/>
                 </div>
-                <hr className="hrDivider"/>
+                <hr className="hrDivider border-medium-color"/>
                 <div className="bodyMain">
                     <h2>Sub-heading</h2>
                     <p>We have a lot to say, so stay tuned!</p>
                     <br/>
                 </div>
-                <hr className="hrDivider"/>
+                <hr className="hrDivider border-medium-color"/>
                 <div className="bodyFoot">
                     <h3>This is the bottom of our page!</h3>
                 </div>

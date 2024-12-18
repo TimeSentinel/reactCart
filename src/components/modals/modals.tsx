@@ -21,12 +21,13 @@ function Confirmation({modalDialog, responseText, responseAction, dialogRef}: co
 
     return (
 
-        <dialog ref={dialogRef} onClick={(e) =>
+        <dialog ref={dialogRef} className="background-light-color border-dark-color"
+                onClick={(e) =>
             (e.currentTarget === e.target) ? dialogRef.current?.close() : null}
         >
             <div className="modal">
                 <div className="modalDialog">
-                    <p>{modalDialog}</p>
+                    <p className="text-dark-color">{modalDialog}</p>
                 </div>
                 <div className="modalResponse">
                     <button className="cancelButton" onClick={() => {

@@ -7,6 +7,46 @@ accompanies index.tsx
 ####################################################################################################
 */
 
+@tailwind base;
+@tailwind utilities;
+@tailwind components;
+
+@layer base {
+    /* ################################ General Styles ################################ */
+    body {
+        @apply p-0 m-0;
+    }
+
+    @layer base {
+        h1 {
+            @apply text-2xl font-semibold;
+            color: var(--Green-very-dark-color)
+        }
+
+        h2 {
+            @apply text-xl font-semibold;
+        }
+
+        h3 {
+            @apply text-xl;
+        }
+
+        h4 {
+            @apply text-lg;
+        }
+
+        h5 {
+            @apply italic;
+            color: var(--Green-dark-color);
+        }
+    }
+
+    button {
+        @apply rounded-md p-1;
+    }
+
+}
+
 :root {
 
     /* ######################## Theme:Green Styles ######################## */
@@ -29,125 +69,169 @@ accompanies index.tsx
     --Green-very-dark-shade: #272a2d;
 
     /* ------------------------------ BORDER COLORS ------------------------------ */
+
+    .border-bright-color {
+        border-color: var(--Green-bright-color);
+    }
+
     .border-light-color {
         border-color: var(--Green-light-color);
     }
+
     .border-soft-color {
         border-color: var(--Green-soft-color);
     }
+
     .border-medium-color {
         border-color: var(--Green-medium-color);
     }
+
     .border-dark-color {
         border-color: var(--Green-dark-color);
     }
+
     .border-very-dark-color {
         border-color: var(--Green-very-dark-color);
     }
+
     .border-light-shade {
         border-color: var(--Green-light-shade);
     }
+
     .border-medium-shade {
         border-color: var(--Green-medium-shade);
     }
+
     .border-dark-shade {
         border-color: var(--Green-dark-shade);
     }
+
     .border-very-dark-shade {
         border-color: var(--Green-very-dark-shade);
     }
 
+    .border-ok-color {
+        border-color: var(--Green-ok-color);
+    }
+
+    .border-alert-color {
+        border-color: var(--Green-alert-color);
+    }
+
+    .border-highlight-color {
+        border-color: var(--Green-highlight-color);
+    }
+
     /* ------------------------------ BACKGROUND COLOR ------------------------------ */
+
+    .background-brignt-color {
+        background-color: var(--Green-bright-color);
+    }
+
     .background-light-color {
         background-color: var(--Green-light-color);
     }
+
     .background-soft-color {
         background-color: var(--Green-soft-color);
     }
+
     .background-medium-color {
         background-color: var(--Green-medium-color);
     }
+
     .background-dark-color {
         background-color: var(--Green-dark-color);
     }
+
     .background-very-dark-color {
         background-color: var(--Green-very-dark-color);
     }
+
     .background-light-shade {
         background-color: var(--Green-light-shade);
     }
+
     .background-medium-shade {
         background-color: var(--Green-medium-shade);
     }
+
     .background-dark-shade {
         background-color: var(--Green-dark-shade);
     }
+
     .background-very-dark-shade {
         background-color: var(--Green-very-dark-shade);
     }
 
+    .background-ok-color {
+        background-color: var(--Green-ok-color);
+    }
+
+    .background-alert-color {
+        background-color: var(--Green-alert-color);
+    }
+
+    .background-highlight-color {
+        background-color: var(--Green-highlight-color);
+    }
+
 
     /* ------------------------------ FONT COLOR ------------------------------ */
+
+    .text-bright-color {
+        color: var(--Green-bright-color);
+    }
+
     .text-light-color {
         color: var(--Green-light-color);
     }
+
     .text-soft-color {
         color: var(--Green-soft-color);
     }
+
     .text-medium-color {
         color: var(--Green-medium-color);
     }
+
     .text-dark-color {
         color: var(--Green-dark-color);
     }
+
     .text-very-dark-color {
         color: var(--Green-very-dark-color);
     }
+
     .text-light-shade {
         color: var(--Green-light-shade);
     }
+
     .text-medium-shade {
         color: var(--Green-medium-shade);
     }
+
     .text-dark-shade {
         color: var(--Green-dark-shade);
     }
+
     .text-very-dark-shade {
         color: var(--Green-very-dark-shade);
     }
 
+    .text-ok-color {
+        color: var(--Green-ok-color);
+    }
+
+    .text-alert-color {
+        color: var(--Green-alert-color);
+    }
+
+    .text-highlight-color {
+        color: var(--Green-highlight-color);
+    }
 
 }
 
 
-/* ################################ General Styles ################################ */
-body {
-    @apply p-0 m-0;
-}
 
-@layer base {
-    h1 {
-        @apply text-2xl font-semibold;
-        color: var(--Green-very-dark-color)
-    }
-
-    h2 {
-        @apply text-xl font-semibold;
-    }
-
-    h3 {
-        @apply text-xl;
-    }
-
-    h4 {
-        @apply text-lg;
-    }
-    h5 {
-        @apply italic;
-        color: var(--Green-dark-color);
-    }
-}
-
-button {
-    @apply rounded-md p-1;
-}

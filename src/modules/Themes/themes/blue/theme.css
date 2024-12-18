@@ -7,6 +7,47 @@ accompanies index.tsx
 ####################################################################################################
 */
 
+@tailwind base;
+@tailwind utilities;
+@tailwind components;
+
+@layer base {
+    /* ################################ General Styles ################################ */
+    body {
+        @apply p-0 m-0;
+    }
+
+    @layer base {
+        h1 {
+            @apply text-2xl font-semibold;
+            color: var(--Blue-very-dark-color)
+        }
+
+        h2 {
+            @apply text-xl font-semibold;
+        }
+
+        h3 {
+            @apply text-xl;
+        }
+
+        h4 {
+            @apply text-lg;
+        }
+
+        h5 {
+            @apply italic;
+            color: var(--Blue-dark-color);
+        }
+    }
+
+    button {
+        @apply rounded-md p-1;
+    }
+
+
+}
+
 :root {
     /* ######################## Theme:Blue Styles ######################## */
     --Blue-light-color: #dbedff;
@@ -28,128 +69,168 @@ accompanies index.tsx
     --Blue-very-dark-shade: #272a2d;
 
     /* ------------------------------ BORDER COLORS ------------------------------ */
+
+    .border-bright-color {
+        border-color: var(--Blue-bright-color);
+    }
+
     .border-light-color {
         border-color: var(--Blue-light-color);
     }
+
     .border-soft-color {
         border-color: var(--Blue-soft-color);
     }
+
     .border-medium-color {
         border-color: var(--Blue-medium-color);
     }
+
     .border-dark-color {
         border-color: var(--Blue-dark-color);
     }
+
     .border-very-dark-color {
         border-color: var(--Blue-very-dark-color);
     }
+
     .border-light-shade {
         border-color: var(--Blue-light-shade);
     }
+
     .border-medium-shade {
         border-color: var(--Blue-medium-shade);
     }
+
     .border-dark-shade {
         border-color: var(--Blue-dark-shade);
     }
+
     .border-very-dark-shade {
         border-color: var(--Blue-very-dark-shade);
     }
 
+    .border-ok-color {
+        border-color: var(--Blue-ok-color);
+    }
+
+    .border-alert-color {
+        border-color: var(--Blue-alert-color);
+    }
+
+    .border-highlight-color {
+        border-color: var(--Blue-highlight-color);
+    }
+
     /* ------------------------------ BACKGROUND COLORS ------------------------------ */
+
+    .background-brignt-color {
+        background-color: var(--Blue-bright-color);
+    }
+
     .background-light-color {
         background-color: var(--Blue-light-color);
     }
+
     .background-soft-color {
         background-color: var(--Blue-soft-color);
     }
+
     .background-medium-color {
         background-color: var(--Blue-medium-color);
     }
+
     .background-dark-color {
         background-color: var(--Blue-dark-color);
     }
+
     .background-very-dark-color {
         background-color: var(--Blue-very-dark-color);
     }
+
     .background-light-shade {
         background-color: var(--Blue-light-shade);
     }
+
     .background-medium-shade {
         background-color: var(--Blue-medium-shade);
     }
+
     .background-dark-shade {
         background-color: var(--Blue-dark-shade);
     }
+
     .background-very-dark-shade {
         background-color: var(--Blue-very-dark-shade);
     }
 
+    .background-ok-color {
+        background-color: var(--Blue-ok-color);
+    }
+
+    .background-alert-color {
+        background-color: var(--Blue-alert-color);
+    }
+
+    .background-highlight-color {
+        background-color: var(--Blue-highlight-color);
+    }
+
 
     /* ------------------------------ FONT COLORS ------------------------------ */
+
+    .text-bright-color {
+        color: var(--Blue-bright-color);
+    }
+
     .text-light-color {
         color: var(--Blue-light-color);
     }
+
     .text-soft-color {
         color: var(--Blue-soft-color);
     }
+
     .text-medium-color {
         color: var(--Blue-medium-color);
     }
+
     .text-dark-color {
         color: var(--Blue-dark-color);
     }
+
     .text-very-dark-color {
         color: var(--Blue-very-dark-color);
     }
+
     .text-light-shade {
         color: var(--Blue-light-shade);
     }
+
     .text-medium-shade {
         color: var(--Blue-medium-shade);
     }
+
     .text-dark-shade {
         color: var(--Blue-dark-shade);
     }
+
     .text-very-dark-shade {
         color: var(--Blue-very-dark-shade);
     }
 
-
-
-}
-
-
-/* ################################ General Styles ################################ */
-body {
-    @apply p-0 m-0;
-}
-
-@layer base {
-    h1 {
-        @apply text-2xl font-semibold;
-        color: var(--Blue-very-dark-color)
+    .text-ok-color {
+        color: var(--Blue-ok-color);
     }
 
-    h2 {
-        @apply text-xl font-semibold;
+    .text-alert-color {
+        color: var(--Blue-alert-color);
     }
 
-    h3 {
-        @apply text-xl;
+    .text-highlight-color {
+        color: var(--Blue-highlight-color);
     }
 
-    h4 {
-        @apply text-lg;
-    }
-    h5 {
-        @apply italic;
-        color: var(--Blue-dark-color);
-    }
-}
-
-button {
-    @apply rounded-md p-1;
 }
 
 

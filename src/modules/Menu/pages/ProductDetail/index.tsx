@@ -45,27 +45,27 @@ const ProductDetail: React.FC = () => {
     }
 
     return (
-        <div className="productPage">
+        <div className="productPage border-medium-color">
             <div className="productPic">
-                <img src={product.image} alt={product.title}/>
+                <img src={product.image} alt={product.title} className="border-dark-color"/>
                 <div className="productTitle">
-                    <h1>{title}</h1>
+                    <h1 className="text-dark-color">{title}</h1>
                 </div>
             </div>
             <div className="productSection">
-                <p> {product.description}
+                <p className="text-dark-color"> {product.description}
                 </p>
                 <div className="productCatRow">
-                    <div className="productPrice">
+                    <div className="productPrice text-dark-color">
                         {new Intl.NumberFormat('en-US', {
                             style: 'currency',
                             currency: 'USD'
                         }).format(product.price) ?? 0}
                     </div>
-                    <div className="productCat">
+                    <div className="productCat text-medium-color">
                         {product.category}
                     </div>
-                    <div className="productCat">
+                    <div className="productCat text-dark-color">
                         {product.type}
                     </div>
                 </div>

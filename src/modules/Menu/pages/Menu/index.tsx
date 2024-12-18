@@ -21,8 +21,8 @@ function Menu() {
 
     return (
         <>
-            <div className="menuHeader">
-                <h1>Our Menu</h1>
+            <div className="menuHeader text-dark-color">
+                <h1 className="text-very-dark-color">Our Menu</h1>
                 <p>Unique and custom tastes require unique and custom words...
                 </p>
             </div>

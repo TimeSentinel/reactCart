@@ -9,8 +9,6 @@ REQ: TailwindCSS, PostCSS, PostCSS-Custom-Properties
 /* ################################ Footer ################################ */
 footer {
     @apply border-t-2;
-    border-color: var(--very-dark-shade);
-    background-color: var(--dark-shade);
 
     .footRow {
         @apply flex items-center justify-between px-3;
@@ -21,11 +19,9 @@ footer {
 
         .footCenter {
             @apply text-center font-light text-sm;
-            color: var(--light-color);
 
             a, a:visited {
                 @apply underline;
-                color: var(--soft-color);
             }
 
 

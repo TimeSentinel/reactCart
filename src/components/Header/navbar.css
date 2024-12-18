@@ -6,7 +6,7 @@ REQ: TailwindCSS, PostCSS, PostCSS-Custom-Properties
 ####################################################################################################
 */
 
-/*navRow
+/*navRow >>>>STRUCTURE<<<<
     navbar
         navbarItem
             button/selected/enabled
@@ -33,14 +33,11 @@ REQ: TailwindCSS, PostCSS, PostCSS-Custom-Properties
             }
 
             .enabled {
-                color: var(--dark-color);
                 @apply shadow-sm shadow-gray-800;
             }
 
-            .enabled:hover, .selected, .selected:hover {
-                color: var(--light-color);
-                background-color: var(--bright-color);
-                border-color: var(--dark-color);
+            .enabled:hover, .selected:hover {
+                @apply text-gray-200 bg-yellow-400 border-yellow-900;
                 @apply border-b-2;
             }
 
@@ -52,7 +49,6 @@ REQ: TailwindCSS, PostCSS, PostCSS-Custom-Properties
             .disabled {
                 @apply shadow-inner shadow-gray-500;
                 @apply cursor-not-allowed;
-                color: var(--medium-color);
             }
 
             .cartButton {
@@ -71,14 +67,10 @@ REQ: TailwindCSS, PostCSS, PostCSS-Custom-Properties
     display: none;
     @apply cursor-pointer shadow-none text-center;
     @apply shadow-lg shadow-gray-800;
-    background-color: var(--light-color);
-    border-color: var(--dark-shade);
     z-index: 99;
 
     .navbarSubItem {
         @apply h-7 border-b-2 text-sm font-medium leading-tight relative;
-        border-color: var(--medium-shade);
-        background-color: var(--light-shade);
         z-index: 98;
 
         div {
@@ -87,28 +79,24 @@ REQ: TailwindCSS, PostCSS, PostCSS-Custom-Properties
 
         .enabled {
             @apply leading-tight;
-            color: var(--dark-color);
         }
 
         .enabled:hover {
-            color: var(--light-color);
-            background-color: var(--dark-color);
+            @apply text-yellow-300 bg-gray-700;
+
         }
 
         .disabled, .disabled:hover {
-            color: var(--medium-shade);
-            border-color: var(--medium-shade);
+            @apply text-gray-400 border-gray-400;
         }
     }
 
     .dropdownSpace {
         @apply border-4 relative;
-        border-color: var(--dark-color);
     }
 }
 
 #menu:hover .dropDown {
-    color: var(--dark-color);
     display: block;
 }
 

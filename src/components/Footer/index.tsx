@@ -10,19 +10,20 @@ import "./footer.css"
 
 function Footer() {
     return (
-        <footer>
+        <footer className="border-very-dark-shade background-dark-shade">
             <div className="footRow">
                 <div className="footLeft">
 
                 </div>
-                <div className="footCenter">
+                <div className="footCenter text-light-color">
                     &copy; 2024 Lance Stubblefield<br/>
                     <a href="mailto: lance@sol3.one">
                         lance@sol3.one</a>
                 </div>
                 <div className="footRight">
                     <br/>
-                    <a href="#" >admin</a>
+
+                    <a href="#" style={{color: "text-soft-color"}}>admin</a>
                 </div>
             </div>
         </footer>

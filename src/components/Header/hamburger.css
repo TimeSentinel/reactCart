@@ -14,18 +14,13 @@ support for hamburger.tsx
         @apply h-16 w-16 rounded-lg;
         @apply p-1 ml-2 mb-2 border-2;
         @apply shadow-lg shadow-gray-300;
-        border-color: var(--medium-color);
-        background-color: var(--soft-color);
 
         .iconBar {
             @apply w-full h-1/4 my-1 border-2;
-
-            background-color: var(--dark-color);
         }
     }
 
     #hamburgerNavbar {
-        background-color: var(--soft-color);
 
         .hamburgerItem, .dropDown {
             @apply block;
@@ -42,9 +37,6 @@ support for hamburger.tsx
 
                 .navbarSubItem {
                     @apply block font-medium h-8;
-                    background-color: var(--light-color);
-                    border-color: var(--soft-color);
-                    color: var(--medium-color);
                 }
             }
         }
@@ -57,20 +49,14 @@ support for hamburger.tsx
 
 .enabled {
     @apply block;
-    border-color: var(--medium-color);
 }
 
 .selected {
     @apply block;
-    background-color: var(--highlight-color);
-    border-color: var(--medium-color);
 }
 
 .disabled {
     @apply block text-sm;
-    background-color: var(--medium-shade);
-    color: var(--dark-shade);
-    border-color: var(--dark-shade);
 }
 
 /* ########################### Media Selector ########################### */

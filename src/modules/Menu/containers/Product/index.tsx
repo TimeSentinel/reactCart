@@ -47,20 +47,20 @@ const Product = ({id, title, image, price, type, category}: ProductProps) => {
     }
 
     return (
-        <div className="product-card">
+        <div className="product-card background-light-shade border-medium-color">
             <div className="thumbnail" onClick={handleClick}>
-                <img src={image} alt={title}/>
+                <img src={image} alt={title} className="border-dark-color"/>
             </div>
             <div className="productTitle">
-                <h2 className="Product_title" onClick={handleClick}>
+                <h2 className="Product_title text-very-dark-color" onClick={handleClick}>
                     {title}
                 </h2>
             </div>
             <div className="productLine">
-                <div className="productPrice">${price}</div>
-                <div className="productType" onClick={() => navigate(`/menu?q=${encodeURIComponent('T-' + type)}`)}>
+                <div className="productPrice text-very-dark-color">${price}</div>
+                <div className="productType text-dark-color" onClick={() => navigate(`/menu?q=${encodeURIComponent('T-' + type)}`)}>
                     {type}</div>
-                <div className="productCategory" onClick={() => navigate(`/menu?q=${encodeURIComponent(category)}`)}>
+                <div className="productCategory text-medium-color" onClick={() => navigate(`/menu?q=${encodeURIComponent(category)}`)}>
                     {category}</div>
             </div>
             <div className="productLine">

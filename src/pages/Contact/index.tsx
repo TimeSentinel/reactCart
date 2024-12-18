@@ -13,7 +13,7 @@ function Contact() {
 
     return (
         <>
-            <div className="mainPage">
+            <div className="mainPage background-light-shade text-dark-color border-medium-color">
                 <div className="bodyHead">
                     <h2 className=" text-center text-red-700 font-bold underline">Under Construction</h2>
                     <h1>Contact Us Page</h1>
@@ -23,13 +23,13 @@ function Contact() {
                     </p>
                     <br/>
                 </div>
-                <hr className="hrDivider"/>
+                <hr className="hrDivider  border-medium-color"/>
                 <div className="bodyMain">
                     <h2>Sub-heading</h2>
                     <p>We look forward to hearing from you.</p>
                     <br/>
                 </div>
-                <hr className="hrDivider"/>
+                <hr className="hrDivider  border-medium-color"/>
                 <div className="bodyFoot">
                     <h3>Thanks!</h3>
                 </div>

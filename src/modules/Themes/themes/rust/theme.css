@@ -7,6 +7,45 @@ accompanies index.tsx
 ####################################################################################################
 */
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    /* ################################ General Styles ################################ */
+    body {
+        @apply p-0 m-0;
+    }
+
+    @layer base {
+        h1 {
+            @apply text-2xl font-semibold;
+            color: var(--Rust-very-dark-color)
+        }
+
+        h2 {
+            @apply text-xl font-semibold;
+        }
+
+        h3 {
+            @apply text-xl;
+        }
+
+        h4 {
+            @apply text-lg;
+        }
+
+        h5 {
+            @apply italic;
+            color: var(--Rust-dark-color);
+        }
+    }
+
+    button {
+        @apply rounded-md p-1;
+    }
+}
+
 :root {
 
     /* ######################## Theme:Rust Styles ######################## */
@@ -31,126 +70,167 @@ accompanies index.tsx
 
 
     /* ------------------------------ BORDER COLORS ------------------------------ */
+
+    .border-bright-color {
+        border-color: var(--Rust-bright-color);
+    }
+
     .border-light-color {
         border-color: var(--Rust-light-color);
     }
+
     .border-soft-color {
         border-color: var(--Rust-soft-color);
     }
+
     .border-medium-color {
         border-color: var(--Rust-medium-color);
     }
+
     .border-dark-color {
         border-color: var(--Rust-dark-color);
     }
+
     .border-very-dark-color {
         border-color: var(--Rust-very-dark-color);
     }
+
     .border-light-shade {
         border-color: var(--Rust-light-shade);
     }
+
     .border-medium-shade {
         border-color: var(--Rust-medium-shade);
     }
+
     .border-dark-shade {
         border-color: var(--Rust-dark-shade);
     }
+
     .border-very-dark-shade {
         border-color: var(--Rust-very-dark-shade);
     }
 
+    .border-ok-color {
+        border-color: var(--Rust-ok-color);
+    }
+
+    .border-alert-color {
+        border-color: var(--Rust-alert-color);
+    }
+
+    .border-highlight-color {
+        border-color: var(--Rust-highlight-color);
+    }
+
     /* ------------------------------ BACKGROUND COLORS ------------------------------ */
+
+    .background-bright-color {
+        background-color: var(--Rust-bright-color);
+    }
+
     .background-light-color {
         background-color: var(--Rust-light-color);
     }
+
     .background-soft-color {
         background-color: var(--Rust-soft-color);
     }
+
     .background-medium-color {
         background-color: var(--Rust-medium-color);
     }
+
     .background-dark-color {
         background-color: var(--Rust-dark-color);
     }
+
     .background-very-dark-color {
         background-color: var(--Rust-very-dark-color);
     }
+
     .background-light-shade {
         background-color: var(--Rust-light-shade);
     }
+
     .background-medium-shade {
         background-color: var(--Rust-medium-shade);
     }
+
     .background-dark-shade {
         background-color: var(--Rust-dark-shade);
     }
+
     .background-very-dark-shade {
         background-color: var(--Rust-very-dark-shade);
     }
 
+    .background-ok-color {
+        background-color: var(--Rust-ok-color);
+    }
+
+    .background-alert-color {
+        background-color: var(--Rust-alert-color);
+    }
+
+    .background-highlight-color {
+        background-color: var(--Rust-highlight-color);
+    }
+
 
     /* ------------------------------ FONT COLORS ------------------------------ */
+
+    .text-bright-color {
+        color: var(--Rust-bright-color);
+    }
+
     .text-light-color {
         color: var(--Rust-light-color);
     }
+
     .text-soft-color {
         color: var(--Rust-soft-color);
     }
+
     .text-medium-color {
         color: var(--Rust-medium-color);
     }
+
     .text-dark-color {
         color: var(--Rust-dark-color);
     }
+
     .text-very-dark-color {
         color: var(--Rust-very-dark-color);
     }
+
     .text-light-shade {
         color: var(--Rust-light-shade);
     }
+
     .text-medium-shade {
         color: var(--Rust-medium-shade);
     }
+
     .text-dark-shade {
         color: var(--Rust-dark-shade);
     }
+
     .text-very-dark-shade {
         color: var(--Rust-very-dark-shade);
     }
 
-
-
-}
-
-
-/* ################################ General Styles ################################ */
-body {
-    @apply p-0 m-0;
-}
-
-@layer base {
-    h1 {
-        @apply text-2xl font-semibold;
-        color: var(--Rust-very-dark-color)
+    .text-ok-color {
+        color: var(--Rust-ok-color);
     }
 
-    h2 {
-        @apply text-xl font-semibold;
+    .text-alert-color {
+        color: var(--Rust-alert-color);
     }
 
-    h3 {
-        @apply text-xl;
-    }
-
-    h4 {
-        @apply text-lg;
-    }
-    h5 {
-        @apply italic;
-        color: var(--Rust-dark-color);
+    .text-highlight-color {
+        color: var(--Rust-highlight-color);
     }
 }
 
-button {
-    @apply rounded-md p-1;
-}
+
