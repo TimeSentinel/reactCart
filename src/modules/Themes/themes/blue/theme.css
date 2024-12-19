@@ -48,6 +48,10 @@ accompanies index.tsx
 
 }
 
+.logo {
+    background-image: url("src/modules/Themes/themes/blue/blue.png") ;
+}
+
 :root {
     /* ######################## Theme:Blue Styles ######################## */
     --Blue-light-color: #dbedff;

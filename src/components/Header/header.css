@@ -16,6 +16,9 @@ REQ: TailwindCSS, PostCSS, PostCSS-Custom-Properties
 
         .headerLeft {
             @apply text-left;
+            .logo {
+                @apply w-32 h-32 bg-no-repeat bg-contain;
+            }
         }
         .headerCenter {
 

@@ -47,7 +47,7 @@ REQ: TailwindCSS, PostCSS, PostCSS-Custom-Properties
             }
 
             .disabled {
-                @apply shadow-inner shadow-gray-500;
+                @apply shadow-none;
                 @apply cursor-not-allowed;
             }
 

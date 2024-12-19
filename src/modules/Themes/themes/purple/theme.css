@@ -46,6 +46,10 @@ accompanies index.tsx
     }
 }
 
+.logo {
+    background-image: url("src/modules/Themes/themes/purple/purple.png");
+}
+
 :root {
     /* ######################## Theme:Purple Styles ######################## */
     --Purple-light-color: #efdbff;

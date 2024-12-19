@@ -9,7 +9,6 @@ Required header.css, Navbar.tsx
 
 import "./header.css";
 import cartIcon from "/images/cart-100.png";
-import logo from "/images/logos/delectatorium-purple.png";
 
 import {useContext} from "react";
 import {useNavigate} from "react-router-dom";
@@ -28,7 +27,7 @@ function Header() {
                 <div className="titleRow">
                     <div className="headerLeft">
                         <div className="logo">
-                            <img className="logoImg" src={logo} alt="logo" />
+
 
                         </div>
                     </div>

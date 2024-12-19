@@ -46,6 +46,10 @@ accompanies index.tsx
     }
 }
 
+.logo {
+    background-image: url("src/modules/Themes/themes/rust/orange.png");
+}
+
 :root {
 
     /* ######################## Theme:Rust Styles ######################## */

@@ -47,6 +47,9 @@ accompanies index.tsx
     }
 
 }
+.logo {
+    background-image: url("src/modules/Themes/themes/darkBlue/darkblue.png") ;
+}
 
 :root {
     /* ######################## Theme:Dark Blue Styles ######################## */
@@ -54,7 +57,7 @@ accompanies index.tsx
     --DarkBlue-soft-color: #3b5165;
     --DarkBlue-medium-color: #60778c;
     --DarkBlue-dark-color: #2578cb;
-    --DarkBlue-very-dark-color: #60affc;
+    --DarkBlue-very-dark-color: #89c2fa;
     --DarkBlue-bright-color: #011629;
 
     --DarkBlue-ok-color: #0e5103;

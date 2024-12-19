@@ -8,7 +8,7 @@ REQ: Vite-React.js+TypeScript, react-router-dom, react-hot-toast,
 */
 
 
-import { useEffect, useState} from "react";
+import {useInsertionEffect, useState} from "react";
 import './default.css'
 import themes from "./themes.json"
 
@@ -33,27 +33,8 @@ function ThemeSelector(): React.JSX.Element {
         })
     }
 
-// #######################################################################################
-    // const Component = lazy(() =>
-    //     import(theme.path + "/index.tsx").then((module) => ({default: module.MyComponent}))
-    // );
-    // <Component />
-// #######################################################################################
-
-// #######################################################################################
-    // const PreFooterPage = lazy(() => import('./prefooter/preFooterPage'));
-    // const PreFooterArticle = lazy(() => import('./prefooter/preFooterArticle'));
-    //
-    // const MyMainComponent = ({ type }) => (
-    //     <Suspense fallback="Loading">
-    //         {type === 'page' ? <PreFooterPage /> : <PreFooterArticle />}
-    //     </Suspense>
-    // );
-// #######################################################################################
-
-
-    useEffect(() => {
-        import(theme.path + "/theme.css").then(() => {});
+    useInsertionEffect(() => {
+        import(theme.path + "/theme.css");
         console.log(theme.path + "/theme.css");
     }, [theme]);
 
