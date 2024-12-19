@@ -50,6 +50,25 @@ CODE
 ##################################################################################
 HTML: document.title (tap title)
 
+--------------------------------------------------------------------------
+CREATING JSX COMPONENT: HOC (higher order component)
+
+const withSubscription = (WrappedComponent, selectData) => {
+    return (props) => {
+        const [data, setData] = useState([]);
+        useEffect(() => {
+            const newData = selectData(DataSource, props);
+            setData(newData)   }
+        DataSource.addListener(handleChange)
+        return () => {
+            DataSource.removeListenter(handleChange)   };    }, []);
+            return <WrappedComponent data={data} {...props}  />    }    }
+
+Use:
+    const LiveOrdersListWithSubscription = withSubscription(LiveOrders,
+    () => DataSource.getOrders()   );
+    const UsersSubscribedWithSubscription = withSubscription(UserList,
+    () => DataSource.getSubscribers()   );
 
 --------------------------------------------------------------------------
 Children, cloneElement
