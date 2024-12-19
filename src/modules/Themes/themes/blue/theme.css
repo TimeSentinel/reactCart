@@ -49,7 +49,7 @@ accompanies index.tsx
 }
 
 .logo {
-    background-image: url("src/modules/Themes/themes/blue/blue.png") ;
+    background-image: url("logo.png") ;
 }
 
 :root {

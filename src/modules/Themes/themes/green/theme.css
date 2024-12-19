@@ -47,7 +47,7 @@ accompanies index.tsx
 
 }
 .logo {
-    background-image: url("src/modules/Themes/themes/green/green.png") ;
+    background-image: url("logo.png") ;
 }
 
 :root {

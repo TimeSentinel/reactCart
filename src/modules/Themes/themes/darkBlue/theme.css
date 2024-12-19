@@ -48,7 +48,7 @@ accompanies index.tsx
 
 }
 .logo {
-    background-image: url("src/modules/Themes/themes/darkBlue/darkblue.png") ;
+    background-image: url("logo.png") ;
 }
 
 :root {

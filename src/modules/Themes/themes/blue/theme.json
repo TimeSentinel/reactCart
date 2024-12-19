@@ -1,0 +1,35 @@
+{
+  "theme": "Blue",
+  "colors": {
+    "light-color": "#dbedff",
+    "soft-color": "#8bc0f1",
+    "medium-color": "#7c9bb8",
+    "dark-color": "#124374",
+    "very-dark-color": "#091f34",
+    "bright-color": "#0381f4",
+    "ok-color": "#25e507",
+    "highlight-color": "#ed42c7",
+    "alert-color": "#ef9e39",
+    "light-shade": "#dddfe1",
+    "medium-shade": "#aeb4b9",
+    "dark-shade": "#596066",
+    "very-dark-shade": "#272a2d"
+  },
+  "settings": {
+    "logo-url": "/logos/blue.png"
+  },
+  "root": {
+    "body": " padding: 0px;  margin: 0px;",
+    "h1": "font-size: 1.5rem; line-height: 2rem; font-weight: 600; color: #091f34",
+    "h2": "font-size: 1.25rem; line-height: 1.75rem; font-weight: 600; color: #124374",
+    "h3": "font-size: 1.25rem; line-height: 1.75rem; color: #124374",
+    "h4": "font-size: 1.125rem; line-height: 1.75rem; color: #124374",
+    "h5": "font-style: italic; color: #124374;",
+    "font": "",
+    "font-size": "",
+    "button": "",
+    "p": ""
+  }
+}
+
+
