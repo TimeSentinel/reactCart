@@ -6,230 +6,219 @@ accompanies index.tsx
 (c)2024 Lance Stubblefield
 ####################################################################################################
 */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
+
+@tailwind base;
 @layer base {
 
     /* ################################ General Styles ################################ */
     body {
-        @apply p-0 m-0;
+        padding: 0;
+        margin: 0;
     }
 
     @layer base {
         h1 {
-            @apply text-2xl font-semibold;
-            color: var(--Purple-very-dark-color)
+            font-size: 1.5rem;
+            line-height: 2rem;
+            font-weight: 600;
+            color: #290934;
         }
 
         h2 {
-            @apply text-xl font-semibold;
+            font-size: 1.25rem;
+            line-height: 1.75rem;
+            font-weight: 600;
         }
 
         h3 {
-            @apply text-xl;
+            font-size: 1.25rem;
+            line-height: 1.75rem;
         }
 
         h4 {
-            @apply text-lg;
+            font-size: 1.125rem;
+            line-height: 1.75rem;
         }
 
         h5 {
-            @apply italic;
-            color: var(--Purple-dark-color);
+            font-style: italic;
+            color: #460f61;
         }
     }
 
     button {
-        @apply rounded-md p-1;
+        border-radius: 0.375rem;
+        padding: 0.25rem;
     }
 }
 
 .logo {
-    background-image: url("logo.png");
+    background-image: url("./logo.png");
 }
 
 :root {
-    /* ######################## Theme:Purple Styles ######################## */
-    --Purple-light-color: #efdbff;
-    --Purple-soft-color: #d48bff;
-    --Purple-medium-color: #8c51a8;
-    --Purple-dark-color: #460f61;
-    --Purple-very-dark-color: #290934;
-    --Purple-bright-color: #be34f4;
-
-    --Purple-ok-color: #25e507;
-    --Purple-highlight-color: #07fde8;
-    --Purple-alert-color: #fa29d7;
-
-    /* ######################## General Theme Styles ######################## */
-
-    --Purple-light-shade: #dddfe1;
-    --Purple-medium-shade: #aeb4b9;
-    --Purple-dark-shade: #596066;
-    --Purple-very-dark-shade: #272a2d;
-
-
     /* ------------------------------ BORDER COLORS ------------------------------ */
 
     .border-bright-color {
-        border-color: var(--Purple-bright-color);
+        border-color: #be34f4;
     }
 
     .border-light-color {
-        border-color: var(--Purple-light-color);
+        border-color: #efdbff;
     }
 
     .border-soft-color {
-        border-color: var(--Purple-soft-color);
+        border-color: #d48bff;
     }
 
     .border-medium-color {
-        border-color: var(--Purple-medium-color);
+        border-color: #8c51a8;
     }
 
     .border-dark-color {
-        border-color: var(--Purple-dark-color);
+        border-color: #460f61;
     }
 
     .border-very-dark-color {
-        border-color: var(--Purple-very-dark-color);
+        border-color: #290934;
     }
 
     .border-light-shade {
-        border-color: var(--Purple-light-shade);
+        border-color: #dddfe1;
     }
 
     .border-medium-shade {
-        border-color: var(--Purple-medium-shade);
+        border-color: #aeb4b9;
     }
 
     .border-dark-shade {
-        border-color: var(--Purple-dark-shade);
+        border-color: #596066;
     }
 
     .border-very-dark-shade {
-        border-color: var(--Purple-very-dark-shade);
+        border-color: #272a2d;
     }
 
     .border-ok-color {
-        border-color: var(--Purple-ok-color);
+        border-color: #25e507;
     }
 
     .border-alert-color {
-        border-color: var(--Purple-alert-color);
+        border-color: #fa29d7;
     }
 
     .border-highlight-color {
-        border-color: var(--Purple-highlight-color);
+        border-color: #07fde8;
     }
 
     /* ------------------------------ BACKGROUND COLORS ------------------------------ */
 
     .background-bright-color {
-        background-color: var(--Purple-bright-color);
+        background-color: #be34f4;
     }
 
     .background-light-color {
-        background-color: var(--Purple-light-color);
+        background-color: #efdbff;
     }
 
     .background-soft-color {
-        background-color: var(--Purple-soft-color);
+        background-color: #d48bff;
     }
 
     .background-medium-color {
-        background-color: var(--Purple-medium-color);
+        background-color: #8c51a8;
     }
 
     .background-dark-color {
-        background-color: var(--Purple-dark-color);
+        background-color: #460f61;
     }
 
     .background-very-dark-color {
-        background-color: var(--Purple-very-dark-color);
+        background-color: #290934;
     }
 
     .background-light-shade {
-        background-color: var(--Purple-light-shade);
+        background-color: #dddfe1;
     }
 
     .background-medium-shade {
-        background-color: var(--Purple-medium-shade);
+        background-color: #aeb4b9;
     }
 
     .background-dark-shade {
-        background-color: var(--Purple-dark-shade);
+        background-color: #596066;
     }
 
     .background-very-dark-shade {
-        background-color: var(--Purple-very-dark-shade);
+        background-color: #272a2d;
     }
 
     .background-ok-color {
-        background-color: var(--Purple-ok-color);
+        background-color: #25e507;
     }
 
     .background-alert-color {
-        background-color: var(--Purple-alert-color);
+        background-color: #fa29d7;
     }
 
     .background-highlight-color {
-        background-color: var(--Purple-highlight-color);
+        background-color: #07fde8;
     }
+
 
     /* ------------------------------ FONT COLORS ------------------------------ */
 
     .text-bright-color {
-        color: var(--Purple-bright-color);
+        color: #be34f4;
     }
 
     .text-light-color {
-        color: var(--Purple-light-color);
+        color: #efdbff;
     }
 
     .text-soft-color {
-        color: var(--Purple-soft-color);
+        color: #d48bff;
     }
 
     .text-medium-color {
-        color: var(--Purple-medium-color);
+        color: #8c51a8;
     }
 
     .text-dark-color {
-        color: var(--Purple-dark-color);
+        color: #460f61;
     }
 
     .text-very-dark-color {
-        color: var(--Purple-very-dark-color);
+        color: #290934;
     }
 
     .text-light-shade {
-        color: var(--Purple-light-shade);
+        color: #dddfe1;
     }
 
     .text-medium-shade {
-        color: var(--Purple-medium-shade);
+        color: #aeb4b9;
     }
 
     .text-dark-shade {
-        color: var(--Purple-dark-shade);
+        color: #596066;
     }
 
     .text-very-dark-shade {
-        color: var(--Purple-very-dark-shade);
+        color: #272a2d;
     }
 
     .text-ok-color {
-        color: var(--Purple-ok-color);
+        color: #25e507;
     }
 
     .text-alert-color {
-        color: var(--Purple-alert-color);
+        color: #fa29d7;
     }
 
     .text-highlight-color {
-        color: var(--Purple-highlight-color);
+        color: #07fde8;
     }
+
 }

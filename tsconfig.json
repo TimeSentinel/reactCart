@@ -6,7 +6,9 @@
       "@cart/*": ["pkg-Cart/*"],
       "@context/*": ["context/*"],
       "src/*": ["./src/*"]
-    }
+    },
+    "resolveJsonModule": true,
+    "esModuleInterop": true
   },
   "files": [],
   "references": [
