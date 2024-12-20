@@ -16,7 +16,7 @@
     "very-dark-shade": "#272a2d"
   },
   "settings": {
-    "logo-url": "src/modules/Themes/themes/purple/purple.png"
+    "logo-url": "/themes/purple/logo.png"
   },
   "root": {
     "body": " padding: 0px;  margin: 0px;",

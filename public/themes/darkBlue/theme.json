@@ -19,7 +19,7 @@
 ,
   "settings":
   {
-    "logo-url": "logos/darkblue.png"
+    "logo-url": "/themes/darkBlue/logo.png"
   },
   "root":
   {
