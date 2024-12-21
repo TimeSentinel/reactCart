@@ -14,9 +14,9 @@ function About() {
 
     return (
         <>
-            <div className="mainPage background-light-shade text-dark-color border-medium-color">
-                <div className="bodyHead">
-                    <h2 className=" text-center text-red-700 font-bold underline">Under Construction</h2>
+            <div className="mainPage background-light-color text-dark-color border-medium-color">
+                <div className="bodyHead ">
+                    <h2 className=" text-center  text-red-700 font-bold underline">Under Construction</h2>
                     <h1>About Us Page</h1>
                     <p>
                         This is the story of us; how we came to be, what our goals are, and why you want to visit. <br/>
@@ -24,7 +24,7 @@ function About() {
                     <br/>
                 </div>
                 <hr className="hrDivider border-medium-color"/>
-                <div className="bodyMain">
+                <div className="bodyMain ">
                     <h2>Sub-heading</h2>
                     <p>We have a lot to say, so stay tuned!</p>
                     <br/>

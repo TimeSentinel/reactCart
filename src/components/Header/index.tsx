@@ -22,8 +22,8 @@ function Header() {
     const navigate = useNavigate();
 
     return (
-        <header className="border-bright-color background-light-color">
-            <div className="header">
+        <header className="border-bright-color ">
+            <div className="header background-light-color">
                 <div className="titleRow">
                     <div className="headerLeft">
                         <div className="logo">

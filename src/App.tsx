@@ -8,7 +8,6 @@ REQ: Vite-React.js+TypeScript, react-router-dom, react-hot-toast,
 
 // Style Sheets
 import './App.css';
-import './themes.css'
 // Application Elements
 import {useEffect, useReducer} from "react";
 import {Route, Routes} from 'react-router-dom';
@@ -26,7 +25,6 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 
 
-
 function App() {
     const [state, dispatch] = useReducer(reducerFn, initialState);
     const [localState, localDispatch] = useLocalStorage("ShoppingCart")
@@ -42,11 +40,9 @@ function App() {
 
     return (
         <ctx.Provider value={{state, dispatch, localState, localDispatch}}>
+
             <div className="App">
-                <Toaster
-                    position="top-right"
-                    reverseOrder={false}
-                />
+                <Toaster reverseOrder={true} />
                 <Layout>
                     <Routes>
                         <Route path='/' element={<Home />}/>

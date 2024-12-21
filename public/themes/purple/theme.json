@@ -1,22 +1,22 @@
 {
   "theme": "Purple",
   "colors": {
-    "light-color": "#efdbff",
-    "soft-color": "#d48bff",
-    "medium-color": "#8c51a8",
-    "dark-color": "#460f61",
-    "very-dark-color": "#290934",
-    "bright-color": "#be34f4",
-    "ok-color": "#25e507",
-    "highlight-color": "#07fde8",
-    "alert-color": "#fa29d7",
-    "light-shade": "#dddfe1",
-    "medium-shade": "#aeb4b9",
-    "dark-shade": "#596066",
-    "very-dark-shade": "#272a2d"
+    "lightColor": "#efdbff",
+    "softColor": "#d48bff",
+    "mediumColor": "#8c51a8",
+    "darkColor": "#460f61",
+    "veryDarkColor": "#290934",
+    "brightColor": "#be34f4",
+    "okColor": "#25e507",
+    "highlightColor": "#07fde8",
+    "alertColor": "#fa29d7",
+    "lightShade": "#dddfe1",
+    "mediumShade": "#aeb4b9",
+    "darkShade": "#596066",
+    "veryDarkShade": "#272a2d"
   },
   "settings": {
-    "logo-url": "/themes/purple/logo.png"
+    "logoUrl": "/themes/purple/logo.png"
   },
   "root": {
     "body": " padding: 0px;  margin: 0px;",
@@ -26,7 +26,7 @@
     "h4": "font-size: 1.125rem; line-height: 1.75rem; color: #460f61",
     "h5": "font-style: italic; color: #460f61;",
     "font": "",
-    "font-size": "",
+    "fontSize": "",
     "button": "",
     "p": ""
   }

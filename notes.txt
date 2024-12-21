@@ -1,11 +1,8 @@
 TODO
 -------------------------------------------------------------------------
 
-todo: ask Aiden about the searchParam delay issue
 
----------- diagram for themes ---------
-setup style template (ie. <style>  color1: {import from json} </style>
-
+todo: fix toasts
 
 ---------- HEADER/FOOTER ---------
 todo: HEADER/FOOTER - social media links

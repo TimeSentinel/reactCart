@@ -9,7 +9,6 @@ REQ: Vite-React.js+TypeScript, react-router-dom, react-hot-toast,
 import {ReactNode} from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import Themes from "../modules/Themes";
 
 interface Props {
     children: ReactNode;
@@ -19,9 +18,8 @@ const Layout = ({children}: Props) => {
 
     return (
         <main>
-            <Themes/>
             <Header/>
-            <section className="">
+            <section >
                 {children}
             </section>
             <Footer/>

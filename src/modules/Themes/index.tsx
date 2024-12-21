@@ -7,19 +7,62 @@ REQ: Vite-React.js+TypeScript, react-router-dom, react-hot-toast,
 ####################################################################################################
 */
 
-import {useEffect, useState} from "react";
+import React, {useEffect, useRef, useState} from "react";
+import defaultTheme from "src/modules/Themes/default.json"
 import './default.css'
 import themes from "./themes.json"
 
+interface themeInterface {
+    uuid: string,
+    name: string,
+    component: string,
+    path: string,
+}
 
-function ThemeSelector(): Element {
+interface themeColorsInterface {
+    lightColor: string,
+    softColor: string,
+    mediumColor: string,
+    darkColor: string,
+    veryDarkColor: string,
+    brightColor: string,
+    okColor: string,
+    highlightColor: string,
+    alertColor: string,
+    lightShade: string,
+    mediumShade: string,
+    darkShade: string,
+    veryDarkShade: string,
+}
 
-    const [theme, setTheme] = useState({
-        uuid: "",
-        name: "",
-        component: "",
-        path: "",
-    })
+interface themeSettingsInterface {
+    logoUrl: string,
+}
+
+interface themeRootInterface {
+    body: string,
+    h1: string,
+    h2: string,
+    h3: string,
+    h4: string,
+    h5: string,
+    font: string,
+    fontSize: string,
+    button: string,
+    p: string,
+}
+
+interface themeCatalogInterface {
+    theme: string,
+    colors: themeColorsInterface,
+    settings: themeSettingsInterface,
+    root: themeRootInterface,
+}
+
+function ThemeSelector(): React.JSX.Element {
+    const [theme, setTheme] = useState({} as themeInterface)
+    const [themeCatalog, setThemeCatalog] = useState([{} as themeCatalogInterface]);
+    const errorMsg = useRef<string>("");
 
     useEffect(() => {
         themes.data.map((item) => {
@@ -34,38 +77,16 @@ function ThemeSelector(): Element {
         })
     }, [])
 
-    const [currentJson, setCurrentJson] = useState({
-        name: "",
-        colors: [],
-        settings: [],
-        root: []
-    })
-
-    const [error, setError] = useState({})
-
-    const [specificTheme, setSpecificTheme] = useState([{
-        name: "",
-        colors: {},
-        settings: {},
-        root: {}
-    }])
-
     useEffect(() => {
-        themes.data.map(async (item) => {
+        const themeTemp: themeCatalogInterface[] = [];
+        themes.data.map((item) => {
             fetch(item.path + "/theme.json")
                 .then(res => res.json())
-                .then(data => setCurrentJson(data))
-                .catch(error => setError(error));``
-            // import(item.path + "/theme.json")
-            console.log("Jake, from StateFarm" + item.path + "/theme.json")
-            setSpecificTheme([...specificTheme, {
-                name: item.name,
-                colors: currentJson.colors, settings: currentJson.settings, root: currentJson.root
-            }])
-            console.log("baby Bacon: " + currentJson.name)
+                .then(data => themeTemp.push(data))
+                .catch(error => errorMsg.current = error.message);
         })
+        setThemeCatalog(themeTemp);
     }, [])
-
 
     const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
         themes.data.map((item) => {
@@ -80,60 +101,70 @@ function ThemeSelector(): Element {
         })
     }
 
-    useEffect(() => {
-        console.log("count Spacula: " + theme.name);
-        console.log("raisons: " + specificTheme[0].colors);
-// const css = {
-// ------------------------- ROOT -------------------------
-// .logo { backgroundImage: url(logo); }
+    const curTheme =
+        themeCatalog.find((item) => item.theme === theme.name) || defaultTheme
 
-// ---------------------- BORDER COLORS ----------------------
-// .border-bright-color { border-color: specificTheme.colors.light-color;}
-// .border-light-color { border-color: specificTheme.colors.light-color;}
-// .border-soft-color { border-color: specificTheme.colors.soft-color;}
-// .border-medium-color { border-color: specificTheme.colors.medium-color;}
-// .border-dark-color { border-color: specificTheme.colors.dark-color;}
-// .border-very-dark-color { border-color: specificTheme.colors.very-dark-color;}
-// .border-light-shade { border-color: specificTheme.colors.light-shade;}
-// .border-medium-shade { border-color: specificTheme.colors.medium-shade;}
-// .border-dark-shade { border-color: specificTheme.colors.dark-shade;}
-// .border-very-dark-shade { border-color: specificTheme.colors.very-dark-shade;}
-// .border-ok-color { border-color: specificTheme.colors.ok-color;}
-// .border-alert-color { border-color: specificTheme.colors.alert-color;}
-// .border-highlight-color { border-color: specificTheme.colors.highlight-color; }
+    let css = ""
+    if (curTheme.root !== undefined) {
+        css =
+            // ---------------------- Root ----------------------
+            `body { ${curTheme.root.body}; } ` +
+            `h1 { ${curTheme.root.h1}; } ` +
+            `h2 { ${curTheme.root.h2}; } ` +
+            `h3 { ${curTheme.root.h3}; } ` +
+            `h4 { ${curTheme.root.h4}; } ` +
+            `h5 { ${curTheme.root.h5}; } ` +
+            `font { ${curTheme.root.font}; } ` +
+            `fontSize { ${curTheme.root.fontSize}; } ` +
+            `button { ${curTheme.root.button}; } ` +
+            `p { ${curTheme.root.p}; } ` +
+            // ------------------------- Settings -------------------------
+            `.logo { background-image: url(${curTheme.settings.logoUrl}); }` +
+            // ---------------------- Border Colors ----------------------
+            `.border-bright-color { border-color: ${curTheme.colors.brightColor} ` +
+            `.border-light-color { border-color: ${curTheme.colors.lightColor} ;} ` +
+            `.border-soft-color { border-color: ${curTheme.colors.softColor} ;} ` +
+            `.border-medium-color { border-color: ${curTheme.colors.mediumColor} ;} ` +
+            `.border-dark-color { border-color: ${curTheme.colors.darkColor} ;} ` +
+            `.border-very-dark-color { border-color: ${curTheme.colors.veryDarkColor} ;} ` +
+            `.border-light-shade { border-color: ${curTheme.colors.lightShade} ;} ` +
+            `.border-medium-shade { border-color: ${curTheme.colors.mediumShade} ;} ` +
+            `.border-dark-shade { border-color: ${curTheme.colors.darkShade} ;} ` +
+            `.border-very-dark-shade { border-color: ${curTheme.colors.veryDarkShade} ;} ` +
+            `.border-ok-color { border-color: ${curTheme.colors.okColor} ;} ` +
+            `.border-alert-color { border-color: ${curTheme.colors.alertColor} ;} ` +
+            `.border-highlight-color { border-color: ${curTheme.colors.highlightColor} ; } ` +
+            // ---------------------- BACKGROUND COLORS ----------------------
+            `.background-bright-color { background-color: ${curTheme.colors.brightColor};} ` +
+            `.background-light-color { background-color: ${curTheme.colors.lightColor};} ` +
+            `.background-soft-color { background-color: ${curTheme.colors.softColor};} ` +
+            `.background-medium-color { background-color: ${curTheme.colors.mediumColor};} ` +
+            `.background-dark-color { background-color: ${curTheme.colors.darkColor};} ` +
+            `.background-very-dark-color { background-color: ${curTheme.colors.veryDarkColor};} ` +
+            `.background-light-shade { background-color: ${curTheme.colors.lightShade};} ` +
+            `.background-medium-shade { background-color: ${curTheme.colors.mediumShade};} ` +
+            `.background-dark-shade { background-color: ${curTheme.colors.darkShade};} ` +
+            `.background-very-dark-shade { background-color: ${curTheme.colors.veryDarkShade};} ` +
+            `.background-ok-color { background-color: ${curTheme.colors.okColor};} ` +
+            `.background-alert-color { background-color: ${curTheme.colors.alertColor};} ` +
+            `.background-highlight-color { background-color: ${curTheme.colors.highlightColor};} ` +
+            // ---------------------- TEXT COLORS ----------------------
+            `.text-bright-color { color: ${curTheme.colors.brightColor};} ` +
+            `.text-light-color { color: ${curTheme.colors.lightColor};} ` +
+            `.text-soft-color { color: ${curTheme.colors.softColor};} ` +
+            `.text-medium-color { color: ${curTheme.colors.mediumColor};} ` +
+            `.text-dark-color { color: ${curTheme.colors.darkColor};} ` +
+            `.text-very-dark-color { color: ${curTheme.colors.veryDarkColor};} ` +
+            `.text-light-shade { color: ${curTheme.colors.lightShade};} ` +
+            `.text-medium-shade { color: ${curTheme.colors.mediumShade};} ` +
+            `.text-dark-shade { color: ${curTheme.colors.darkShade};} ` +
+            `.text-very-dark-shade { color: ${curTheme.colors.veryDarkShade};} ` +
+            `.text-ok-color { color: ${curTheme.colors.okColor};} ` +
+            `.text-alert-color { color: ${curTheme.colors.alertColor};} ` +
+            `.text-highlight-color { color: ${curTheme.colors.highlightColor};} `
 
-// ---------------------- BACKGROUND COLORS ----------------------
-// .background-bright-color { background-color: specificTheme.colors.light-color;}
-// .background-light-color { background-color: specificTheme.colors.light-color;}
-// .background-soft-color { background-color: specificTheme.colors.soft-color;}
-// .background-medium-color { background-color: specificTheme.colors.medium-color;}
-// .background-dark-color { background-color: specificTheme.colors.dark-color;}
-// .background-very-dark-color { background-color: specificTheme.colors.very-dark-color;}
-// .background-light-shade { background-color: specificTheme.colors.light-shade;}
-// .background-medium-shade { background-color: specificTheme.colors.medium-shade;}
-// .background-dark-shade { background-color: specificTheme.colors.dark-shade;}
-// .background-very-dark-shade { background-color: specificTheme.colors.very-dark-shade;}
-// .background-ok-color { background-color: specificTheme.colors.ok-color;}
-// .background-alert-color { background-color: specificTheme.colors.alert-color;}
-// .background-highlight-color { background-color: specificTheme.colors.highlight-color;}
-
-// ---------------------- TEXT COLORS ----------------------
-// .text-bright-color { color: specificTheme.colors.light-color;}
-// .text-light-color { color: specificTheme.colors.light-color;}
-// .text-soft-color { color: specificTheme.colors.soft-color;}
-// .text-medium-color { color: specificTheme.colors.medium-color;}
-// .text-dark-color { color: specificTheme.colors.dark-color;}
-// .text-very-dark-color { color: specificTheme.colors.very-dark-color;}
-// .text-light-shade { color: specificTheme.colors.light-shade;}
-// .text-medium-shade { color: specificTheme.colors.medium-shade;}
-// .text-dark-shade { color: specificTheme.colors.dark-shade;}
-// .text-very-dark-shade { color: specificTheme.colors.very-dark-shade;}
-// .text-ok-color { color: specificTheme.colors.ok-color;}
-// .text-alert-color { color: specificTheme.colors.alert-color;}
-// .text-highlight-color { color: specificTheme.colors.highlight-color;}
-    })
-
-
+    }
+console.log(css);
     return (
         <>
             <div className="ThemeSelector">
@@ -148,8 +179,9 @@ function ThemeSelector(): Element {
                     }
                 </select>
             </div>
-            <div></div>
-            <style>{}</style>
+            <div className="error"
+                 style={{display: errorMsg.current !== "" ? 'block' : 'none'}}>{errorMsg.current}</div>
+            <style>{css !== "" && css}</style>
         </>
     )
 }

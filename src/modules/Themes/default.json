@@ -1,5 +1,5 @@
 {
-  "theme": "Rust",
+  "theme": "Default",
   "colors":
   {
     "lightColor": "#fff2db",
@@ -19,7 +19,7 @@
 ,
   "settings":
   {
-    "logoUrl": "/themes/rust/logo.png"
+    "logoUrl": "src/modules/Themes/default.png"
   },
   "root":
   {

@@ -13,6 +13,11 @@ accompanies index.tsx
         @apply w-fit p-0 ml-4 my-0.5 h-5 border-2 border-gray-600 bg-gray-400;
     }
 }
+.error {
+    background-color: #f8ec65;
+    @apply h-fit text-red-600 leading-tight font-bold py-2 px-4;
+    @apply border-b-2 border-red-700;
+}
 
 :root {
 
@@ -70,16 +75,10 @@ accompanies index.tsx
 
     /* ######################## General Theme Styles ######################## */
 
-    --light-shade: #dddfe1;
-    --medium-shade: #aeb4b9;
-    --dark-shade: #596066;
-    --very-dark-shade: #272a2d;
+    /*--light-shade: #dddfe1;*/
+    /*--medium-shade: #aeb4b9;*/
+    /*--dark-shade: #596066;*/
+    /*--very-dark-shade: #272a2d;*/
 
-    /* ######################## Cart-Column Layout ######################## */
-    --Column1: 43%; /* Item Name */
-    --Column2: 15%; /* Category  */
-    --Column3: 13%; /* Price     */
-    --Column4: 3%; /* --filler--*/
-    --Column5: 13%; /* Quantity  */
-    --Column6: 13%; /* Total     */
+
 }

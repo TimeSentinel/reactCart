@@ -13,7 +13,6 @@ function Footer() {
         <footer className="border-very-dark-shade background-dark-shade">
             <div className="footRow">
                 <div className="footLeft">
-
                 </div>
                 <div className="footCenter text-light-color">
                     &copy; 2024 Lance Stubblefield<br/>
@@ -22,7 +21,6 @@ function Footer() {
                 </div>
                 <div className="footRight">
                     <br/>
-
                     <a href="#" style={{color: "text-soft-color"}}>admin</a>
                 </div>
             </div>
