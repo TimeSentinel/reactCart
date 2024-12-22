@@ -8,10 +8,10 @@ REQ: Vite-React.js+TypeScript, react-router-dom, react-hot-toast,
 */
 
 import React, {useContext, useEffect, useRef, useState} from "react";
-import defaultTheme from "src/modules/Themes/default.json"
-import './default.css'
+import defaultTheme from "./default.json"
+import './themes.css'
 import themes from "./themes.json"
-import {ctx} from "../../context";
+import {ctx} from "src/context";
 
 interface themeColorsInterface {
     lightColor: string,

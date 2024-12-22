@@ -19,7 +19,7 @@
 ,
   "settings":
   {
-    "logoUrl": "src/modules/Themes/default.png"
+    "logoUrl": "/themes/default/logo.png"
   },
   "root":
   {
