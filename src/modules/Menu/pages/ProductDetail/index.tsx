@@ -45,46 +45,50 @@ const ProductDetail: React.FC = () => {
     }
 
     return (
-        <div className="productPage border-medium-color">
-            <div className="productPic">
-                <img src={product.image} alt={product.title} className="border-dark-color"/>
-                <div className="productTitle">
-                    <h1 className="text-dark-color">{title}</h1>
-                </div>
-            </div>
-            <div className="productSection">
-                <p className="text-dark-color"> {product.description}
-                </p>
-                <div className="productCatRow">
-                    <div className="productPrice text-dark-color">
-                        {new Intl.NumberFormat('en-US', {
-                            style: 'currency',
-                            currency: 'USD'
-                        }).format(product.price) ?? 0}
-                    </div>
-                    <div className="productCat text-medium-color">
-                        {product.category}
-                    </div>
-                    <div className="productCat text-dark-color">
-                        {product.type}
-                    </div>
-                </div>
-                <div className="productAction">
-                    <div className="productButton">
-                        <button onClick={() => addClick(product.id)}>ADD TO CART</button>
-                    </div>
+        <>
 
-                    {product.id in localState && <div className="productInCart">
-                        {/*todo: add to cart form with customize, notes, name...*/}
-                        <button onClick={() =>
-                            navigate("/cart")}>
-                            {localState[product.id]} in cart!
-                        </button>
+
+            <div className="productPage border-medium-color background-light-color">
+                <div className="productPic">
+                    <img src={product.image} alt={product.title} className="border-dark-color"/>
+                    <div className="productTitle">
+                        <h1 className="text-dark-color">{title}</h1>
                     </div>
-                    }
+                </div>
+                <div className="productSection">
+                    <p className="text-dark-color"> {product.description}
+                    </p>
+                    <div className="productCatRow">
+                        <div className="productPrice text-dark-color">
+                            {new Intl.NumberFormat('en-US', {
+                                style: 'currency',
+                                currency: 'USD'
+                            }).format(product.price) ?? 0}
+                        </div>
+                        <div className="productCat text-medium-color">
+                            {product.category}
+                        </div>
+                        <div className="productCat text-dark-color">
+                            {product.type}
+                        </div>
+                    </div>
+                    <div className="productAction">
+                        <div className="productButton">
+                            <button onClick={() => addClick(product.id)}>ADD TO CART</button>
+                        </div>
+
+                        {product.id in localState && <div className="productInCart">
+                            {/*todo: add to cart form with customize, notes, name...*/}
+                            <button onClick={() =>
+                                navigate("/cart")}>
+                                {localState[product.id]} in cart!
+                            </button>
+                        </div>
+                        }
+                    </div>
                 </div>
             </div>
-        </div>
+        </>
     )
 }
 

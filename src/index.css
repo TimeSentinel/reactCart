@@ -6,12 +6,7 @@ REQ: TailwindCSS, PostCSS, PostCSS-Custom-Properties
 ####################################################################################################
 */
 
-@tailwind base;
-@tailwind components;
 @tailwind utilities;
-
-
-
 
 /* ########################### Media Selector ########################### */
 /* ------------ Mobile View ------------ */

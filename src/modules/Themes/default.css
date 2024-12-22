@@ -8,9 +8,10 @@ accompanies index.tsx
 */
 
 .ThemeSelector {
-    @apply block w-full h-fit bg-gray-600 border-b-2 border-gray-800 text-xs text-gray-800 leading-tight;
+    @apply block p-2 h-fit ;
     select {
-        @apply w-fit p-0 ml-4 my-0.5 h-5 border-2 border-gray-600 bg-gray-400;
+        @apply min-w-36 w-fit h-fit p-1 ml-4 my-0.5 font-sans;
+        @apply text-xs text-gray-800 leading-tight font-bold border-2 border-gray-700 bg-gray-400;
     }
 }
 .error {

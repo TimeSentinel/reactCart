@@ -19,7 +19,7 @@ const Layout = ({children}: Props) => {
     return (
         <main>
             <Header/>
-            <section >
+            <section>
                 {children}
             </section>
             <Footer/>

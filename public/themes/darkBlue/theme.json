@@ -23,14 +23,14 @@
   },
   "root":
   {
-    "body": " padding: 0px;  margin: 0px;",
-    "h1": "fontSize: 1.5rem; line-height: 2rem; font-weight: 600; color: #89c2fa",
+    "body": " padding: 0px;  margin: 0px; background-color: #000910;",
+    "h1": "fontSize: 2.5rem; line-height: 2rem; font-weight: 600; color: #89c2fa",
     "h2": "fontSize: 1.25rem; line-height: 1.75rem; font-weight: 600; color: #2578cb",
     "h3": "fontSize: 1.25rem; line-height: 1.75rem; color: #2578cb",
     "h4": "fontSize: 1.125rem; line-height: 1.75rem; color: #2578cb",
     "h5": "fontStyle: italic; color: #2578cb;",
-    "font": "",
-    "fontSize": "",
+    "font": "Arial, Helvetica, sans-serif;",
+    "fontSize": "20px;",
     "button": "",
     "p": ""
   }

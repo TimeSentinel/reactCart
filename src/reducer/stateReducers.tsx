@@ -8,6 +8,7 @@ REQ: Vite-React.js+TypeScript, react-router-dom, react-hot-toast,
 
 export interface StateInterface {
     products: ProductInterface[];
+    cssStyle: string;
 }
 
 export interface ActionInterface {
@@ -27,6 +28,7 @@ export interface ProductInterface {
 
 export const initialState: StateInterface = {
     products: [],
+    cssStyle: "",
 }
 
 export const reducerFn = (state: StateInterface, action: ActionInterface) => {
@@ -35,9 +37,13 @@ export const reducerFn = (state: StateInterface, action: ActionInterface) => {
         case "ADD_PRODUCTS":
             return {
                 ...state,
-                products: payload as ProductInterface[]
+                products: (payload as ProductInterface[])
             }
-
+        case "UPDATE_CSS":
+            return {
+                ...state,
+                cssStyle: (payload as string)
+            }
         default:
             return state
     }

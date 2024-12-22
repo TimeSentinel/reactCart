@@ -7,12 +7,14 @@ REQ: Vite-React.js+TypeScript, react-router-dom, react-hot-toast,
 */
 
 import "./footer.css"
+import Themes from "../../modules/Themes";
 
 function Footer() {
     return (
         <footer className="border-very-dark-shade background-dark-shade">
             <div className="footRow">
                 <div className="footLeft">
+                    <Themes/>
                 </div>
                 <div className="footCenter text-light-color">
                     &copy; 2024 Lance Stubblefield<br/>

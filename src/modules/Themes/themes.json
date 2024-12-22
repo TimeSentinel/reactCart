@@ -3,37 +3,31 @@
     {
       "uuid": "6c7c7457-399b-4eac-9e8b-f05e477b7601",
       "name": "Default",
-      "component": "ThemeGreen",
       "path": "/themes/green"
     },
     {
       "uuid": "34802391-2f3d-4aa9-9059-a1e4785141db",
       "name": "Blue",
-      "component": "ThemeBlue",
       "path": "/themes/blue"
     },
     {
       "uuid": "8dd45a56-0003-44ad-839f-e2354c666554",
       "name": "Rust",
-      "component": "ThemeRust",
       "path": "/themes/rust"
     },
     {
       "uuid": "345c94e1-5e61-4d7e-ad39-e5cd42cfb125",
       "name": "Green",
-      "component": "ThemeGreen",
       "path": "/themes/green"
     },
     {
       "uuid": "58126bc5-e4a9-42e9-b1cd-05514aada4f7",
       "name": "Purple",
-      "component": "ThemePurple",
       "path": "/themes/purple"
     },
     {
       "uuid": "60a453ff-5dab-47fe-8040-986bdf606cd9",
       "name": "Dark Blue",
-      "component": "ThemeDarkBlue",
       "path": "/themes/darkBlue"
     }
   ]

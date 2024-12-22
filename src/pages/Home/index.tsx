@@ -13,9 +13,8 @@ function Home() {
 
 
     return (
-        <>
-            <div className="mainPage background-light-shade text-dark-color border-medium-color">
-                <div className="background-light-color">
+            <div className="mainPage background-light-color text-dark-color border-medium-color">
+                <div>
                 <div className="bodyHead">
                     <h2 className=" text-center text-red-700 font-bold underline">Under Construction</h2>
                     <h1>Main Page</h1>
@@ -37,8 +36,6 @@ function Home() {
                 </div>
                 </div>
             </div>
-
-        </>
     )
 }
 

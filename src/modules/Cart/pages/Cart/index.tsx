@@ -7,7 +7,7 @@ REQ: Vite-React.js+TypeScript, react-router-dom, react-hot-toast,
 ####################################################################################################
 */
 
-import {useContext, useEffect, useRef, useState} from "react";
+import {useContext, useEffect, useRef, useState, FC} from "react";
 import {CartItem} from "src/modules/Cart/containers/Cart";
 import {ctx} from "src/context";
 import toast from "react-hot-toast";
@@ -15,7 +15,7 @@ import {ProductInterface} from 'src/reducer/stateReducers';
 import "src/modules/Cart/pages/cartPages.css"
 import Confirmation from "src/components/modals/modals.tsx";
 
-const Cart: React.FC = () => {
+const Cart: FC = () => {
     const state = useContext(ctx).state
     const localState = useContext(ctx).localState;
     const localDispatch = useContext(ctx).localDispatch

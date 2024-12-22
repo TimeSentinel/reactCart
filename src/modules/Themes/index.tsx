@@ -7,17 +7,11 @@ REQ: Vite-React.js+TypeScript, react-router-dom, react-hot-toast,
 ####################################################################################################
 */
 
-import React, {useEffect, useRef, useState} from "react";
+import React, {useContext, useEffect, useRef, useState} from "react";
 import defaultTheme from "src/modules/Themes/default.json"
 import './default.css'
 import themes from "./themes.json"
-
-interface themeInterface {
-    uuid: string,
-    name: string,
-    component: string,
-    path: string,
-}
+import {ctx} from "../../context";
 
 interface themeColorsInterface {
     lightColor: string,
@@ -59,19 +53,26 @@ interface themeCatalogInterface {
     root: themeRootInterface,
 }
 
+
 function ThemeSelector(): React.JSX.Element {
-    const [theme, setTheme] = useState({} as themeInterface)
+    const cssStyle = useContext(ctx).state.cssStyle;
+    const cssDispatch = useContext(ctx).dispatch;
+    const cssName = useContext(ctx).localState.cssName;
+    const localDispatch = useContext(ctx).localDispatch
+
     const [themeCatalog, setThemeCatalog] = useState([{} as themeCatalogInterface]);
     const errorMsg = useRef<string>("");
 
     useEffect(() => {
         themes.data.map((item) => {
-            if (item.name === "Default") {
-                setTheme({
-                    uuid: item.uuid,
-                    name: item.name,
-                    component: item.component,
-                    path: item.path,
+            if (item.name === cssName.name) {
+                localDispatch({
+                    type: "CSS_NAME",
+                    payload: {
+                        uuid: item.uuid,
+                        name: item.name,
+                        path: item.path,
+                    },
                 });
             }
         })
@@ -91,80 +92,89 @@ function ThemeSelector(): React.JSX.Element {
     const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
         themes.data.map((item) => {
             if (item.uuid === e.target.value) {
-                setTheme({
-                    uuid: item.uuid,
-                    name: item.name,
-                    component: item.component,
-                    path: item.path,
-                })
+                localDispatch({
+                    type: "CSS_NAME",
+                    payload: {
+                        uuid: item.uuid,
+                        name: item.name,
+                        path: item.path,
+                    },
+                });
             }
         })
     }
 
     const curTheme =
-        themeCatalog.find((item) => item.theme === theme.name) || defaultTheme
+        themeCatalog.find((item) => item.theme === cssName.name) || defaultTheme
 
-    let css = ""
-    if (curTheme.root !== undefined) {
-        css =
-            // ---------------------- Root ----------------------
-            `body { ${curTheme.root.body}; } ` +
-            `h1 { ${curTheme.root.h1}; } ` +
-            `h2 { ${curTheme.root.h2}; } ` +
-            `h3 { ${curTheme.root.h3}; } ` +
-            `h4 { ${curTheme.root.h4}; } ` +
-            `h5 { ${curTheme.root.h5}; } ` +
-            `font { ${curTheme.root.font}; } ` +
-            `fontSize { ${curTheme.root.fontSize}; } ` +
-            `button { ${curTheme.root.button}; } ` +
-            `p { ${curTheme.root.p}; } ` +
-            // ------------------------- Settings -------------------------
-            `.logo { background-image: url(${curTheme.settings.logoUrl}); }` +
-            // ---------------------- Border Colors ----------------------
-            `.border-bright-color { border-color: ${curTheme.colors.brightColor} ` +
-            `.border-light-color { border-color: ${curTheme.colors.lightColor} ;} ` +
-            `.border-soft-color { border-color: ${curTheme.colors.softColor} ;} ` +
-            `.border-medium-color { border-color: ${curTheme.colors.mediumColor} ;} ` +
-            `.border-dark-color { border-color: ${curTheme.colors.darkColor} ;} ` +
-            `.border-very-dark-color { border-color: ${curTheme.colors.veryDarkColor} ;} ` +
-            `.border-light-shade { border-color: ${curTheme.colors.lightShade} ;} ` +
-            `.border-medium-shade { border-color: ${curTheme.colors.mediumShade} ;} ` +
-            `.border-dark-shade { border-color: ${curTheme.colors.darkShade} ;} ` +
-            `.border-very-dark-shade { border-color: ${curTheme.colors.veryDarkShade} ;} ` +
-            `.border-ok-color { border-color: ${curTheme.colors.okColor} ;} ` +
-            `.border-alert-color { border-color: ${curTheme.colors.alertColor} ;} ` +
-            `.border-highlight-color { border-color: ${curTheme.colors.highlightColor} ; } ` +
-            // ---------------------- BACKGROUND COLORS ----------------------
-            `.background-bright-color { background-color: ${curTheme.colors.brightColor};} ` +
-            `.background-light-color { background-color: ${curTheme.colors.lightColor};} ` +
-            `.background-soft-color { background-color: ${curTheme.colors.softColor};} ` +
-            `.background-medium-color { background-color: ${curTheme.colors.mediumColor};} ` +
-            `.background-dark-color { background-color: ${curTheme.colors.darkColor};} ` +
-            `.background-very-dark-color { background-color: ${curTheme.colors.veryDarkColor};} ` +
-            `.background-light-shade { background-color: ${curTheme.colors.lightShade};} ` +
-            `.background-medium-shade { background-color: ${curTheme.colors.mediumShade};} ` +
-            `.background-dark-shade { background-color: ${curTheme.colors.darkShade};} ` +
-            `.background-very-dark-shade { background-color: ${curTheme.colors.veryDarkShade};} ` +
-            `.background-ok-color { background-color: ${curTheme.colors.okColor};} ` +
-            `.background-alert-color { background-color: ${curTheme.colors.alertColor};} ` +
-            `.background-highlight-color { background-color: ${curTheme.colors.highlightColor};} ` +
-            // ---------------------- TEXT COLORS ----------------------
-            `.text-bright-color { color: ${curTheme.colors.brightColor};} ` +
-            `.text-light-color { color: ${curTheme.colors.lightColor};} ` +
-            `.text-soft-color { color: ${curTheme.colors.softColor};} ` +
-            `.text-medium-color { color: ${curTheme.colors.mediumColor};} ` +
-            `.text-dark-color { color: ${curTheme.colors.darkColor};} ` +
-            `.text-very-dark-color { color: ${curTheme.colors.veryDarkColor};} ` +
-            `.text-light-shade { color: ${curTheme.colors.lightShade};} ` +
-            `.text-medium-shade { color: ${curTheme.colors.mediumShade};} ` +
-            `.text-dark-shade { color: ${curTheme.colors.darkShade};} ` +
-            `.text-very-dark-shade { color: ${curTheme.colors.veryDarkShade};} ` +
-            `.text-ok-color { color: ${curTheme.colors.okColor};} ` +
-            `.text-alert-color { color: ${curTheme.colors.alertColor};} ` +
-            `.text-highlight-color { color: ${curTheme.colors.highlightColor};} `
-
-    }
-console.log(css);
+    useEffect(() => {
+        let css = ""
+        if (curTheme.root !== undefined) {
+            css =
+                // ---------------------- Root ----------------------
+                `body { ${curTheme.root.body};
+                 font-family: ${curTheme.root.font}; 
+                 font-size: ${curTheme.root.fontSize}; 
+                 } ` +
+                `h1 { ${curTheme.root.h1}; } ` +
+                `h2 { ${curTheme.root.h2}; } ` +
+                `h3 { ${curTheme.root.h3}; } ` +
+                `h4 { ${curTheme.root.h4}; } ` +
+                `h5 { ${curTheme.root.h5}; } ` +
+                `button { ${curTheme.root.button}; } ` +
+                `p { ${curTheme.root.p}; } ` +
+                // ------------------------- Settings -------------------------
+                `.logo { background-image: url(${curTheme.settings.logoUrl}); }` +
+                // ---------------------- Border Colors ----------------------
+                `.border-bright-color { border-color: ${curTheme.colors.brightColor} }` +
+                `.border-light-color { border-color: ${curTheme.colors.lightColor} ;} ` +
+                `.border-soft-color { border-color: ${curTheme.colors.softColor} ;} ` +
+                `.border-medium-color { border-color: ${curTheme.colors.mediumColor} ;} ` +
+                `.border-dark-color { border-color: ${curTheme.colors.darkColor} ;} ` +
+                `.border-very-dark-color { border-color: ${curTheme.colors.veryDarkColor} ;} ` +
+                `.border-light-shade { border-color: ${curTheme.colors.lightShade} ;} ` +
+                `.border-medium-shade { border-color: ${curTheme.colors.mediumShade} ;} ` +
+                `.border-dark-shade { border-color: ${curTheme.colors.darkShade} ;} ` +
+                `.border-very-dark-shade { border-color: ${curTheme.colors.veryDarkShade} ;} ` +
+                `.border-ok-color { border-color: ${curTheme.colors.okColor} ;} ` +
+                `.border-alert-color { border-color: ${curTheme.colors.alertColor} ;} ` +
+                `.border-highlight-color { border-color: ${curTheme.colors.highlightColor} ; } ` +
+                // ---------------------- BACKGROUND COLORS ----------------------
+                `.background-bright-color { background-color: ${curTheme.colors.brightColor};} ` +
+                `.background-light-color { background-color: ${curTheme.colors.lightColor};} ` +
+                `.background-soft-color { background-color: ${curTheme.colors.softColor};} ` +
+                `.background-medium-color { background-color: ${curTheme.colors.mediumColor};} ` +
+                `.background-dark-color { background-color: ${curTheme.colors.darkColor};} ` +
+                `.background-very-dark-color { background-color: ${curTheme.colors.veryDarkColor};} ` +
+                `.background-light-shade { background-color: ${curTheme.colors.lightShade};} ` +
+                `.background-medium-shade { background-color: ${curTheme.colors.mediumShade};} ` +
+                `.background-dark-shade { background-color: ${curTheme.colors.darkShade};} ` +
+                `.background-very-dark-shade { background-color: ${curTheme.colors.veryDarkShade};} ` +
+                `.background-ok-color { background-color: ${curTheme.colors.okColor};} ` +
+                `.background-alert-color { background-color: ${curTheme.colors.alertColor};} ` +
+                `.background-highlight-color { background-color: ${curTheme.colors.highlightColor};} ` +
+                // ---------------------- TEXT COLORS ----------------------
+                `.text-bright-color { color: ${curTheme.colors.brightColor};} ` +
+                `.text-light-color { color: ${curTheme.colors.lightColor};} ` +
+                `.text-soft-color { color: ${curTheme.colors.softColor} ;} ` +
+                `.text-medium-color { color: ${curTheme.colors.mediumColor};} ` +
+                `.text-dark-color { color: ${curTheme.colors.darkColor};} ` +
+                `.text-very-dark-color { color: ${curTheme.colors.veryDarkColor};} ` +
+                `.text-light-shade { color: ${curTheme.colors.lightShade};} ` +
+                `.text-medium-shade { color: ${curTheme.colors.mediumShade};} ` +
+                `.text-dark-shade { color: ${curTheme.colors.darkShade};} ` +
+                `.text-very-dark-shade { color: ${curTheme.colors.veryDarkShade};} ` +
+                `.text-ok-color { color: ${curTheme.colors.okColor};} ` +
+                `.text-alert-color { color: ${curTheme.colors.alertColor};} ` +
+                `.text-highlight-color { color: ${curTheme.colors.highlightColor};} `;
+        }
+        cssDispatch({
+            type: "UPDATE_CSS",
+            payload: css
+        })
+    }, [cssName.name ]);
+    console.log("Style: " + cssStyle)
+    console.log("theme: " + curTheme.theme)
     return (
         <>
             <div className="ThemeSelector">
@@ -181,7 +191,8 @@ console.log(css);
             </div>
             <div className="error"
                  style={{display: errorMsg.current !== "" ? 'block' : 'none'}}>{errorMsg.current}</div>
-            <style>{css !== "" && css}</style>
+            <style>{cssStyle !== "" && cssStyle}</style>
+
         </>
     )
 }

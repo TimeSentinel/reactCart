@@ -6,10 +6,17 @@ REQ: Vite-React.js+TypeScript, react-router-dom, react-hot-toast,
 ####################################################################################################
 */
 
-import {useEffect, useReducer} from "react";
+import React, {useEffect, useReducer} from "react";
+
+interface ThemeInterface {
+    uuid: string,
+    name: string,
+    path: string,
+}
 
 export interface LocalStateInterface {
     shoppingCart: CartInterface;
+    cssName: ThemeInterface;
 }
 
 export interface LocalActionInterface {
@@ -26,9 +33,13 @@ interface CartInterface {
     [id: string]: number;
 }
 
-
 export const initialLocalState: LocalStateInterface = {
     shoppingCart: {},
+    cssName: {
+        uuid: "6c7c7457-399b-4eac-9e8b-f05e477b7601",
+        name: "Default",
+        path: "/themes/green",
+    },
 }
 
 export const useLocalStorage: (storageKey: string) => [LocalStateInterface, React.Dispatch<LocalActionInterface>] = (storageKey: string) => {
@@ -67,7 +78,7 @@ const localReducerFn = (state: LocalStateInterface, action: LocalActionInterface
             }
             return {
                 ...state,
-                shoppingCart: newCart as CartInterface
+                shoppingCart: (newCart as CartInterface)
             }
         }
         case "REMOVE_ITEM": {
@@ -75,7 +86,7 @@ const localReducerFn = (state: LocalStateInterface, action: LocalActionInterface
             delete newCart[(payload as CartReducerInterface).id]
             return {
                 ...state,
-                shoppingCart: newCart as CartInterface
+                shoppingCart: (newCart as CartInterface)
             }
         }
         case "EMPTY_CART":
@@ -84,6 +95,11 @@ const localReducerFn = (state: LocalStateInterface, action: LocalActionInterface
             return {
                 ...state,
                 shoppingCart: {}
+            }
+        case "CSS_NAME":
+            return  {
+                ...state,
+                cssName: (payload as ThemeInterface)
             }
         default:
             return state

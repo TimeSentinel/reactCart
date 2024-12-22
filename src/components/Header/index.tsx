@@ -22,13 +22,11 @@ function Header() {
     const navigate = useNavigate();
 
     return (
-        <header className="border-bright-color ">
-            <div className="header background-light-color">
+        <header>
+            <div className="header background-light-color border-dark-color">
                 <div className="titleRow">
                     <div className="headerLeft">
                         <div className="logo">
-
-
                         </div>
                     </div>
                     <div className="headerCenter">
