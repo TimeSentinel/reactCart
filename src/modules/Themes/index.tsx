@@ -132,7 +132,7 @@ function ThemeSelector(): React.JSX.Element {
     }, []) // test load cssName.name
 
     useEffect(() => { // loading css from themeCatalog and setting <css>
-        if (themes.current.data !== undefined) {
+        if (themes.current.data !== undefined) { // && cssName.name !== curTheme.theme
             const curPath =
                 themes.current.data.find((item) => item.name === cssName.name)?.path
                 ?? "/themes/default"
