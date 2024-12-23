@@ -14,4 +14,12 @@ export default defineConfig({
       cart: "/src/pkg-cart",
     },
   },
+  build: {
+    cssMinify: false,
+    minify: false,
+    terserOptions: {
+      compress: false,
+      mangle: false,
+    }
+  }
 })

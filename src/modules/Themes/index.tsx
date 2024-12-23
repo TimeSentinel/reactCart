@@ -8,7 +8,6 @@ REQ: Vite-React.js+TypeScript, react-router-dom, react-hot-toast,
 */
 
 import React, {useContext, useEffect, useRef, useState} from "react";
-import defaultTheme from "./default.json"
 import './themes.css'
 import themes from "./themes.json"
 import {ctx} from "src/context";
@@ -53,7 +52,6 @@ interface themeCatalogInterface {
     root: themeRootInterface,
 }
 
-
 function ThemeSelector(): React.JSX.Element {
     const cssStyle = useContext(ctx).state.cssStyle;
     const cssDispatch = useContext(ctx).dispatch;
@@ -71,22 +69,21 @@ function ThemeSelector(): React.JSX.Element {
                     payload: {
                         uuid: item.uuid,
                         name: item.name,
-                        path: item.path,
                     },
                 });
             }
         })
     }, [])
 
+
     useEffect(() => {
-        const themeTemp: themeCatalogInterface[] = [];
-        themes.data.map((item) => {
+        Promise.all(themes.data.map((item) =>
             fetch(item.path + "/theme.json")
                 .then(res => res.json())
-                .then(data => themeTemp.push(data))
-                .catch(error => errorMsg.current = error.message);
-        })
-        setThemeCatalog(themeTemp);
+                .catch(error => errorMsg.current = error.message)
+        )).then((themeTemp) => {
+            setThemeCatalog(themeTemp)
+        });
     }, [])
 
     const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -104,81 +101,84 @@ function ThemeSelector(): React.JSX.Element {
         })
     }
 
-    const curTheme =
-        themeCatalog.find((item) => item.theme === cssName.name) || defaultTheme
-
     useEffect(() => {
-        let css = ""
-        if (curTheme.root !== undefined) {
-            css =
-                // ---------------------- Root ----------------------
-                `body { ${curTheme.root.body};
-                 font-family: ${curTheme.root.font}; 
-                 font-size: ${curTheme.root.fontSize}; 
+        themeCatalog.map((item) => console.log("item: " + item.theme))
+        const curTheme =
+            themeCatalog.find((item) => item.theme === cssName.name) ??
+            themeCatalog.find((item) => item.theme === "Default");
+        if (curTheme === undefined) return;
+
+        const css =
+            //region css
+            // ---------------------- Root ----------------------
+            `body { ${curTheme.root.body};
+                 font-family: ${curTheme.root.font};
+                 font-size: ${curTheme.root.fontSize};
                  } ` +
-                `h1 { ${curTheme.root.h1}; } ` +
-                `h2 { ${curTheme.root.h2}; } ` +
-                `h3 { ${curTheme.root.h3}; } ` +
-                `h4 { ${curTheme.root.h4}; } ` +
-                `h5 { ${curTheme.root.h5}; } ` +
-                `button { ${curTheme.root.button}; } ` +
-                `p { ${curTheme.root.p}; } ` +
-                // ------------------------- Settings -------------------------
-                `.logo { background-image: url(${curTheme.settings.logoUrl}); }` +
-                // ---------------------- Border Colors ----------------------
-                `.border-bright-color { border-color: ${curTheme.colors.brightColor} }` +
-                `.border-light-color { border-color: ${curTheme.colors.lightColor} ;} ` +
-                `.border-soft-color { border-color: ${curTheme.colors.softColor} ;} ` +
-                `.border-medium-color { border-color: ${curTheme.colors.mediumColor} ;} ` +
-                `.border-dark-color { border-color: ${curTheme.colors.darkColor} ;} ` +
-                `.border-very-dark-color { border-color: ${curTheme.colors.veryDarkColor} ;} ` +
-                `.border-light-shade { border-color: ${curTheme.colors.lightShade} ;} ` +
-                `.border-medium-shade { border-color: ${curTheme.colors.mediumShade} ;} ` +
-                `.border-dark-shade { border-color: ${curTheme.colors.darkShade} ;} ` +
-                `.border-very-dark-shade { border-color: ${curTheme.colors.veryDarkShade} ;} ` +
-                `.border-ok-color { border-color: ${curTheme.colors.okColor} ;} ` +
-                `.border-alert-color { border-color: ${curTheme.colors.alertColor} ;} ` +
-                `.border-highlight-color { border-color: ${curTheme.colors.highlightColor} ; } ` +
-                // ---------------------- BACKGROUND COLORS ----------------------
-                `.background-bright-color { background-color: ${curTheme.colors.brightColor};} ` +
-                `.background-light-color { background-color: ${curTheme.colors.lightColor};} ` +
-                `.background-soft-color { background-color: ${curTheme.colors.softColor};} ` +
-                `.background-medium-color { background-color: ${curTheme.colors.mediumColor};} ` +
-                `.background-dark-color { background-color: ${curTheme.colors.darkColor};} ` +
-                `.background-very-dark-color { background-color: ${curTheme.colors.veryDarkColor};} ` +
-                `.background-light-shade { background-color: ${curTheme.colors.lightShade};} ` +
-                `.background-medium-shade { background-color: ${curTheme.colors.mediumShade};} ` +
-                `.background-dark-shade { background-color: ${curTheme.colors.darkShade};} ` +
-                `.background-very-dark-shade { background-color: ${curTheme.colors.veryDarkShade};} ` +
-                `.background-ok-color { background-color: ${curTheme.colors.okColor};} ` +
-                `.background-alert-color { background-color: ${curTheme.colors.alertColor};} ` +
-                `.background-highlight-color { background-color: ${curTheme.colors.highlightColor};} ` +
-                // ---------------------- TEXT COLORS ----------------------
-                `.text-bright-color { color: ${curTheme.colors.brightColor};} ` +
-                `.text-light-color { color: ${curTheme.colors.lightColor};} ` +
-                `.text-soft-color { color: ${curTheme.colors.softColor} ;} ` +
-                `.text-medium-color { color: ${curTheme.colors.mediumColor};} ` +
-                `.text-dark-color { color: ${curTheme.colors.darkColor};} ` +
-                `.text-very-dark-color { color: ${curTheme.colors.veryDarkColor};} ` +
-                `.text-light-shade { color: ${curTheme.colors.lightShade};} ` +
-                `.text-medium-shade { color: ${curTheme.colors.mediumShade};} ` +
-                `.text-dark-shade { color: ${curTheme.colors.darkShade};} ` +
-                `.text-very-dark-shade { color: ${curTheme.colors.veryDarkShade};} ` +
-                `.text-ok-color { color: ${curTheme.colors.okColor};} ` +
-                `.text-alert-color { color: ${curTheme.colors.alertColor};} ` +
-                `.text-highlight-color { color: ${curTheme.colors.highlightColor};} `;
-        }
+            `h1 { ${curTheme.root.h1}; } ` +
+            `h2 { ${curTheme.root.h2}; } ` +
+            `h3 { ${curTheme.root.h3}; } ` +
+            `h4 { ${curTheme.root.h4}; } ` +
+            `h5 { ${curTheme.root.h5}; } ` +
+            `button { ${curTheme.root.button}; } ` +
+            `p { ${curTheme.root.p}; } ` +
+            // ------------------------- Settings -------------------------
+            `.logo { background-image: url(${curTheme.settings.logoUrl}); }` +
+            // ---------------------- Border Colors ----------------------
+            `.border-bright-color { border-color: ${curTheme.colors.brightColor} }` +
+            `.border-light-color { border-color: ${curTheme.colors.lightColor} ;} ` +
+            `.border-soft-color { border-color: ${curTheme.colors.softColor} ;} ` +
+            `.border-medium-color { border-color: ${curTheme.colors.mediumColor} ;} ` +
+            `.border-dark-color { border-color: ${curTheme.colors.darkColor} ;} ` +
+            `.border-very-dark-color { border-color: ${curTheme.colors.veryDarkColor} ;} ` +
+            `.border-light-shade { border-color: ${curTheme.colors.lightShade} ;} ` +
+            `.border-medium-shade { border-color: ${curTheme.colors.mediumShade} ;} ` +
+            `.border-dark-shade { border-color: ${curTheme.colors.darkShade} ;} ` +
+            `.border-very-dark-shade { border-color: ${curTheme.colors.veryDarkShade} ;} ` +
+            `.border-ok-color { border-color: ${curTheme.colors.okColor} ;} ` +
+            `.border-alert-color { border-color: ${curTheme.colors.alertColor} ;} ` +
+            `.border-highlight-color { border-color: ${curTheme.colors.highlightColor} ; } ` +
+            // ---------------------- BACKGROUND COLORS ----------------------
+            `.background-bright-color { background-color: ${curTheme.colors.brightColor};} ` +
+            `.background-light-color { background-color: ${curTheme.colors.lightColor};} ` +
+            `.background-soft-color { background-color: ${curTheme.colors.softColor};} ` +
+            `.background-medium-color { background-color: ${curTheme.colors.mediumColor};} ` +
+            `.background-dark-color { background-color: ${curTheme.colors.darkColor};} ` +
+            `.background-very-dark-color { background-color: ${curTheme.colors.veryDarkColor};} ` +
+            `.background-light-shade { background-color: ${curTheme.colors.lightShade};} ` +
+            `.background-medium-shade { background-color: ${curTheme.colors.mediumShade};} ` +
+            `.background-dark-shade { background-color: ${curTheme.colors.darkShade};} ` +
+            `.background-very-dark-shade { background-color: ${curTheme.colors.veryDarkShade};} ` +
+            `.background-ok-color { background-color: ${curTheme.colors.okColor};} ` +
+            `.background-alert-color { background-color: ${curTheme.colors.alertColor};} ` +
+            `.background-highlight-color { background-color: ${curTheme.colors.highlightColor};} ` +
+            // ---------------------- TEXT COLORS ----------------------
+            `.text-bright-color { color: ${curTheme.colors.brightColor};} ` +
+            `.text-light-color { color: ${curTheme.colors.lightColor};} ` +
+            `.text-soft-color { color: ${curTheme.colors.softColor} ;} ` +
+            `.text-medium-color { color: ${curTheme.colors.mediumColor};} ` +
+            `.text-dark-color { color: ${curTheme.colors.darkColor};} ` +
+            `.text-very-dark-color { color: ${curTheme.colors.veryDarkColor};} ` +
+            `.text-light-shade { color: ${curTheme.colors.lightShade};} ` +
+            `.text-medium-shade { color: ${curTheme.colors.mediumShade};} ` +
+            `.text-dark-shade { color: ${curTheme.colors.darkShade};} ` +
+            `.text-very-dark-shade { color: ${curTheme.colors.veryDarkShade};} ` +
+            `.text-ok-color { color: ${curTheme.colors.okColor};} ` +
+            `.text-alert-color { color: ${curTheme.colors.alertColor};} ` +
+            `.text-highlight-color { color: ${curTheme.colors.highlightColor};} `;
+        //endregion
+
         cssDispatch({
             type: "UPDATE_CSS",
             payload: css
         })
-    }, [cssName.name ]);
-    console.log("Style: " + cssStyle)
-    console.log("theme: " + curTheme.theme)
+    }, [cssName.name, themeCatalog]);
+
     return (
         <>
             <div className="ThemeSelector">
                 <select onChange={(e) => handleChange(e)}>
+                    <option key="defaultTheme" value="defaultTheme">Default</option>
                     {
                         themes.data.map((item) => {
                             return (

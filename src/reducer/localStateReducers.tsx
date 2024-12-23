@@ -11,7 +11,6 @@ import React, {useEffect, useReducer} from "react";
 interface ThemeInterface {
     uuid: string,
     name: string,
-    path: string,
 }
 
 export interface LocalStateInterface {
@@ -38,7 +37,6 @@ export const initialLocalState: LocalStateInterface = {
     cssName: {
         uuid: "6c7c7457-399b-4eac-9e8b-f05e477b7601",
         name: "Default",
-        path: "/themes/green",
     },
 }
 
@@ -55,7 +53,7 @@ export const useLocalStorage: (storageKey: string) => [LocalStateInterface, Reac
 };
 
 const localReducerFn = (state: LocalStateInterface, action: LocalActionInterface) => {
-    console.log("localReducerFN")
+    // console.log("localReducerFN")
     const {type, payload} = action
     switch (type) {
         case "ADD_TO_CART": {

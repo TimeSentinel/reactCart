@@ -27,7 +27,7 @@ import Contact from "./pages/Contact";
 
 function App() {
     const [state, dispatch] = useReducer(reducerFn, initialState);
-    const [localState, localDispatch] = useLocalStorage("ShoppingCart")
+    const [localState, localDispatch] = useLocalStorage("LocalStorage")
 
     // ------------------------------ CART MODULE CODE ------------------------------
     useEffect(() => {

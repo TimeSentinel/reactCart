@@ -11,7 +11,7 @@ footer {
     @apply border-t-2;
 
     .footRow {
-        @apply flex items-center justify-between px-3;
+        @apply flex items-center justify-between px-3 ;
 
         .footLeft {
 

@@ -15,8 +15,7 @@
     "mediumShade": "#aeb4b9",
     "darkShade": "#596066",
     "veryDarkShade": "#272a2d"
-  }
-,
+  },
   "settings":
   {
     "logoUrl": "/themes/default/logo.png"
@@ -34,5 +33,4 @@
     "button": "",
     "p": ""
   }
-
 }

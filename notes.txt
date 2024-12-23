@@ -1,13 +1,11 @@
 TODO
 -------------------------------------------------------------------------
-
-
-todo: fix toasts
+todo: THEMES - move main Themes to public
+todo: THEMES - show selected theme in footer
+todo: THEMES - load one theme at a time - fallback to default
 
 ---------- HEADER/FOOTER ---------
 todo: HEADER/FOOTER - social media links
-todo: HEADER/FOOTER - add theme selection
-todo: HEADER - restaurant name and logo
 
 ---------- MENU MODULE ---------
 todo: MENU - add code for category grouping
