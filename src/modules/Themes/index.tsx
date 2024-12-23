@@ -95,7 +95,7 @@ function ThemeSelector(): React.JSX.Element {
     //endregion
     // --------------------------------------
 
-    // useEffect(() => { // loading themes from cssName.name
+    // useEffect(() => { // loading themes from cssName.name  <------------------ALT
     //     themes.data.map((item) => {
     //         if (item.name === cssName.name) {
     //             localDispatch({
@@ -129,14 +129,14 @@ function ThemeSelector(): React.JSX.Element {
                 return data
             })
             .catch(error => errorMsg.current = "themes/themes.json: " + error.message)
-    }, []) // test load cssName.name
+    }, [])
 
     useEffect(() => { // loading css from themeCatalog and setting <css>
-        if (themes.current.data !== undefined) { // && cssName.name !== curTheme.theme
+        if (themes.current.data !== undefined) { // && cssName.name !== curTheme.theme <------------------ALT
             const curPath =
                 themes.current.data.find((item) => item.name === cssName.name)?.path
                 ?? "/themes/default"
-            console.log("curPath: " + curPath)
+            console.log("curPath: " + curPath) // <---------------------------------------------------------DEBUG
             fetch(curPath + "/theme.json")
                 .then(res => res.json())
                 .then(data => setCurTheme(data))
