@@ -1,8 +1,6 @@
 TODO
 -------------------------------------------------------------------------
-todo: THEMES - move main Themes to public
-todo: THEMES - show selected theme in footer
-todo: THEMES - load one theme at a time - fallback to default
+todo: THEMES - fix continuous refreshing
 
 ---------- HEADER/FOOTER ---------
 todo: HEADER/FOOTER - social media links

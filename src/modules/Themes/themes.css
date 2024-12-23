@@ -8,12 +8,14 @@ accompanies index.tsx
 */
 
 .ThemeSelector {
-    @apply block p-2 h-fit ;
+    @apply block p-2 h-fit bg-transparent text-left;
     select {
-        @apply min-w-36 w-fit h-fit p-1 ml-4 my-0.5 font-sans;
-        @apply text-xs text-gray-800 leading-tight font-bold border-2 border-gray-700 bg-gray-400;
+        @apply min-w-36 w-fit h-fit p-1 ml-4 my-0.5 bg-gray-300 cursor-pointer ;
+        @apply text-xs text-gray-950 leading-tight font-bold font-sans;
+        @apply rounded-md shadow-sm shadow-gray-700;
     }
 }
+
 .error {
     background-color: #f8ec65;
     @apply h-fit text-red-600 leading-tight font-bold py-2 px-4;

@@ -1,7 +1,6 @@
 {
   "theme": "Dark Blue",
-  "colors":
-  {
+  "colors": {
     "lightColor": "#202325",
     "softColor": "#3b5165",
     "mediumColor": "#60778c",
@@ -15,14 +14,11 @@
     "mediumShade": "#787c80",
     "darkShade": "#a7b4bf",
     "veryDarkShade": "#cbd9e6"
-  }
-,
-  "settings":
-  {
+  },
+  "settings": {
     "logoUrl": "/themes/darkBlue/logo.png"
   },
-  "root":
-  {
+  "root": {
     "body": " padding: 0px;  margin: 0px; background-color: #000910;",
     "h1": "fontSize: 2.5rem; line-height: 2rem; font-weight: 600; color: #89c2fa",
     "h2": "fontSize: 1.25rem; line-height: 1.75rem; font-weight: 600; color: #2578cb",
@@ -34,5 +30,4 @@
     "button": "",
     "p": ""
   }
-
 }

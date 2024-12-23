@@ -1,7 +1,6 @@
 {
   "theme": "Rust",
-  "colors":
-  {
+  "colors": {
     "lightColor": "#fff2db",
     "softColor": "#f1be8b",
     "mediumColor": "#b8937c",
@@ -15,14 +14,11 @@
     "mediumShade": "#aeb4b9",
     "darkShade": "#596066",
     "veryDarkShade": "#272a2d"
-  }
-,
-  "settings":
-  {
+  },
+  "settings": {
     "logoUrl": "/themes/rust/logo.png"
   },
-  "root":
-  {
+  "root": {
     "body": " padding: 0px;  margin: 0px; background-color: #d5d1ca;",
     "h1": "fontSize: 2.5rem; line-height: 2rem; font-weight: 600; color: #341909",
     "h2": "fontSize: 1.5rem; line-height: 1.75rem; font-weight: 600; color: #743812",
@@ -34,5 +30,4 @@
     "button": "",
     "p": ""
   }
-
 }
