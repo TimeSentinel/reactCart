@@ -1,6 +1,5 @@
 TODO
 -------------------------------------------------------------------------
-todo: THEMES - fix continuous refreshing
 
 ---------- HEADER/FOOTER ---------
 todo: HEADER/FOOTER - social media links
@@ -13,9 +12,6 @@ todo: MENU - add options handling to cart
 todo: MENU - add more foods to json
 todo: MENU - make product details pop up
 todo: MENU - add options (name, instructions, options) when adding to cart
-
----------- THEMES MODULE ---------
-todo: THEMES - setup theme functioning
 
 ---------- CART MODULE ---------
 todo: CART - add options (name, instructions, options) when adding to cart

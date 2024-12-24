@@ -7,12 +7,11 @@ REQ: Vite-React.js+TypeScript, react-router-dom, react-hot-toast,
 */
 
 import React, {useEffect, useReducer} from "react";
-import {ThemeInterface} from "../modules/Themes";
 
 //region ---vv-------- interfaces --------vv---
 export interface LocalStateInterface {
     shoppingCart: CartInterface;  // Cart Module
-    cssName: ThemeInterface;  // Themes Module
+    cssUUID: string;  // Themes Module
 }
 
 export interface LocalActionInterface {
@@ -31,12 +30,7 @@ interface CartInterface {  // Cart Module
 
 export const initialLocalState: LocalStateInterface = {
     shoppingCart: {},  //Cart Module
-    cssName: {  // Themes Module - Default Theme
-        uuid: "6c7c7457-399b-4eac-9e8b-f05e477b7601",
-        name: "Default",
-        text: "black",
-        background: "white"
-    },
+    cssUUID: "defaultTheme",
 }
 //endregion
 // ------------------------------------------------
@@ -95,10 +89,10 @@ const localReducerFn = (state: LocalStateInterface, action: LocalActionInterface
                 ...state,
                 shoppingCart: {}
             }
-        case "CSS_NAME": // Themes Module
+        case "CSS_UUID": // Themes Module
             return  {
                 ...state,
-                cssName: (payload as ThemeInterface)
+                cssUUID: (payload as string)
             }
         default:
             return state

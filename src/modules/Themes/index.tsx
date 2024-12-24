@@ -13,21 +13,13 @@ import './themes.css';
 
 // --------------------------------------
 //region vv---------- INTERFACES ----------vv
-export interface ThemeInterface {
+
+interface themeListDataInterface {
     uuid: string,
     name: string,
     text: string,
-    background: string
-}
-
-interface themeListInterface {
-    data: [{
-        uuid: string,
-        name: string,
-        text: string,
-        background: string,
-        path: string
-    }]
+    background: string,
+    path: string,
 }
 
 interface themeColorsInterface {
@@ -78,69 +70,43 @@ function ThemeSelector(): React.JSX.Element {
     //region vv---------- INITIALIZATION ----------vv
     const cssStyle = useContext(ctx).state.cssStyle;
     const cssDispatch = useContext(ctx).dispatch;
-    const cssName = useContext(ctx).localState.cssName;
+    const cssUUID = useContext(ctx).localState.cssUUID;
     const localDispatch = useContext(ctx).localDispatch
-
+    const [themes, setThemes] = useState<themeListDataInterface[]>([{
+        uuid: "",
+        name: "",
+        text: "",
+        background: "",
+        path: ""
+    }]);
     const errorMsg = useRef<string>("");
-    const [curTheme, setCurTheme] = useState({} as themeCatalogInterface);
-    const themes = useRef<themeListInterface>({
-            data: [{
-                uuid: "",
-                name: "",
-                text: "",
-                background: "",
-                path: ""
-            }]
-        });
+
     //endregion
     // --------------------------------------
 
-    // useEffect(() => { // loading themes from cssName.name  <------------------ALT
-    //     themes.data.map((item) => {
-    //         if (item.name === cssName.name) {
-    //             localDispatch({
-    //                 type: "CSS_NAME",
-    //                 payload: {
-    //                     uuid: item.uuid,
-    //                     name: item.name,
-    //                     text: item.text,
-    //                     background: item.background
-    //                 },
-    //             });
-    //         }
-    //     })
-    // }, []) // loading themes from cssName.name
-
-    useEffect(() => { // test load cssName.name
+    // Load Themes List
+    useEffect(() => {
         fetch("/themes/themes.json")
             .then(res => res.json())
             .then(data => {
-                console.log(data.data)
-                localDispatch({
-                    type: "CSS_NAME",
-                    payload: {
-                        uuid: themes.current.data.find((item) => item.uuid === cssName.uuid)?.uuid,
-                        name: themes.current.data.find((item) => item.uuid === cssName.uuid)?.name,
-                        text: themes.current.data.find((item) => item.uuid === cssName.uuid)?.text,
-                        background: themes.current.data.find((item) => item.uuid === cssName.uuid)?.background
-                    }
-                })
-                themes.current.data = data.data;
-                return data
+                setThemes(data.data);
             })
             .catch(error => errorMsg.current = "themes/themes.json: " + error.message)
     }, [])
 
-    useEffect(() => { // loading css from themeCatalog and setting <css>
-        if (themes.current.data !== undefined) { // && cssName.name !== curTheme.theme <------------------ALT
-            const curPath =
-                themes.current.data.find((item) => item.name === cssName.name)?.path
+    // Update Theme when cssUUID changes
+    useEffect(() => {
+        const fetchTheme = (uuid: string) => {
+            const curPath: string =
+                themes.find((item: themeListDataInterface) => item.uuid === uuid)?.path
                 ?? "/themes/default"
-            console.log("curPath: " + curPath) // <---------------------------------------------------------DEBUG
-            fetch(curPath + "/theme.json")
+
+            return fetch(curPath + "/theme.json")
                 .then(res => res.json())
-                .then(data => setCurTheme(data))
-                .catch(error => errorMsg.current = "<name>/theme.json: " + error.message);
+                .catch(error => errorMsg.current = "<name>/theme.json: " + error.message)
+        }
+
+        const updateCSS = (curTheme: themeCatalogInterface) => {
             if (curTheme.root === undefined) return;
 
             const css =
@@ -204,41 +170,37 @@ function ThemeSelector(): React.JSX.Element {
                 `.text-highlight-color { color: ${curTheme.colors.highlightColor};} `;
             //endregion
             // --------------------------------------
+
             cssDispatch({
                 type: "UPDATE_CSS",
                 payload: css
             })
         }
-    }, [cssName, curTheme]);  // loading css from themeCatalog and setting <css>
+
+        fetchTheme(cssUUID).then(theme => {
+            updateCSS(theme)
+        })
+    }, [cssUUID, themes])
 
     const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {  // React.ChangeEvent<HTMLSelectElement>
-        themes.current.data.map((item) => {
-            if (item.uuid === e.target.value) {                              // e.target.value
-                localDispatch({
-                    type: "CSS_NAME",
-                    payload: {
-                        uuid: item.uuid,
-                        name: item.name,
-                        text: item.text,
-                        background: item.background
-                    },
-                });
-            }
-        })
+        localDispatch({
+            type: "CSS_UUID",
+            payload: e.target.value,
+        });
     }
 
     return (
         <>
             <div className="ThemeSelector">
                 <select onChange={(e) => handleChange(e)}
-                        value={cssName.uuid}
+                        value={cssUUID}
                         style={{
-                            backgroundColor: cssName.background,
-                            color: cssName.text,
+                            backgroundColor: themes.find((item: themeListDataInterface) => item.uuid === cssUUID)?.background,
+                            color: themes.find((item: themeListDataInterface) => item.uuid === cssUUID)?.text,
                         }}
                 >
                     {
-                        themes.current.data.map((item) => {
+                        themes.map((item) => {
                             return (
                                 <option
                                     key={item.uuid}
