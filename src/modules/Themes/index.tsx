@@ -84,9 +84,9 @@ function ThemeSelector(): React.JSX.Element {
     //endregion
     // --------------------------------------
 
-    // Load Themes List
+    // !!! Load Themes List
     useEffect(() => {
-        fetch("/themes/themes.json")
+        fetch("/themes/themes.json") //     <---!!!Path to themes list json file!!!
             .then(res => res.json())
             .then(data => {
                 setThemes(data.data);
@@ -94,14 +94,14 @@ function ThemeSelector(): React.JSX.Element {
             .catch(error => errorMsg.current = "themes/themes.json: " + error.message)
     }, [])
 
-    // Update Theme when cssUUID changes
+    // !!! Update Theme when cssUUID changes
     useEffect(() => {
         const fetchTheme = (uuid: string) => {
             const curPath: string =
                 themes.find((item: themeListDataInterface) => item.uuid === uuid)?.path
-                ?? "/themes/default"
+                ?? "/themes/default"    //              <----  path to default theme folder!!!
 
-            return fetch(curPath + "/theme.json")
+            return fetch(curPath + "/theme.json") //    <---- !!!name of individual theme descriptors
                 .then(res => res.json())
                 .catch(error => errorMsg.current = "<name>/theme.json: " + error.message)
         }
@@ -182,6 +182,7 @@ function ThemeSelector(): React.JSX.Element {
         })
     }, [cssUUID, themes])
 
+    // Change theme on user interaction
     const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {  // React.ChangeEvent<HTMLSelectElement>
         localDispatch({
             type: "CSS_UUID",

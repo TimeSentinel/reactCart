@@ -14,8 +14,8 @@ import {useContext} from "react";
 import {useNavigate} from "react-router-dom";
 
 import {ctx} from "src/context";
-import Navbar from "./Navbar.tsx";
-import Hamburger from "./Hamburger.tsx";
+import Navbar from "./navbar/Navbar.tsx";
+import Hamburger from "./hamburger/Hamburger.tsx";
 
 function Header() {
     const localState = useContext(ctx).localState.shoppingCart
@@ -31,7 +31,7 @@ function Header() {
                     </div>
                     <div className="headerCenter">
                         <h1>Delectorium</h1>
-                        <h5>Food so good, you can't stop!</h5>
+                        <h5>Food so good, you won't stop!</h5>
 
                     </div>
                     <div className="headerRight">

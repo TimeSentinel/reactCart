@@ -6,7 +6,7 @@ REQ: Vite-React.js+TypeScript, react-router-dom, react-hot-toast,
 ####################################################################################################
 */
 
-export interface StateInterface {
+export interface StateInterface { // Menu Module
     products: ProductInterface[];
     cssStyle: string;
 }
@@ -16,7 +16,7 @@ export interface ActionInterface {
     payload: unknown;
 }
 
-export interface ProductInterface {
+export interface ProductInterface {  // Menu Module
     id: string;
     type: string;
     category: string;
@@ -27,19 +27,19 @@ export interface ProductInterface {
 }
 
 export const initialState: StateInterface = {
-    products: [],
-    cssStyle: "",
+    products: [],           // Menu Module
+    cssStyle: "Default",    // Themes Module
 }
 
 export const reducerFn = (state: StateInterface, action: ActionInterface) => {
     const {type, payload} = action
     switch (type) {
-        case "ADD_PRODUCTS":
+        case "ADD_PRODUCTS":    // Menu Module
             return {
                 ...state,
                 products: (payload as ProductInterface[])
             }
-        case "UPDATE_CSS":
+        case "UPDATE_CSS":      // Themes Module
             return {
                 ...state,
                 cssStyle: (payload as string)
