@@ -113,16 +113,17 @@ REQ: TailwindCSS, PostCSS, PostCSS-Custom-Properties
 /* ------------ Tablet View ------------ */
 @media (min-width: 668px) and (max-width: 991px) {
     .navbar {
-        @apply w-10/12;
+        @apply w-9/12;
         display: flex;
 
         .navbarItem {
-            @apply mx-0;
+            @apply mx-1;
         }
     }
 
     .enabled, .enabled:hover, .selected, .selected:hover, .cartButton, .disabled {
-        @apply text-sm rounded-none;
+        @apply rounded-none;
+        font-size: .75rem;
     }
 }
 
@@ -139,8 +140,9 @@ REQ: TailwindCSS, PostCSS, PostCSS-Custom-Properties
         }
     }
 
-    .enabled, .enabled:hover, .cartButton, .cartButton:hover {
-        @apply font-semibold;
+    .enabled, .selected, .enabled:hover, .cartButton, .cartButton:hover {
+        @apply font-semibold rounded-lg;
+        font-size: .875rem;
     }
 
 }

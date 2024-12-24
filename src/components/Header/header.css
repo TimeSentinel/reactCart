@@ -61,7 +61,7 @@ REQ: TailwindCSS, PostCSS, PostCSS-Custom-Properties
             @apply flex w-1/6 h-full;
 
             .logo {
-                @apply max-w-48 h-16 mr-2;
+                @apply min-w-14 max-h-20 mr-2;
             }
             h1 {
                 @apply leading-tight text-lg;
@@ -103,7 +103,7 @@ REQ: TailwindCSS, PostCSS, PostCSS-Custom-Properties
             @apply flex w-2/6 h-full;
 
             .logo {
-                @apply max-w-48 h-5/6
+                @apply max-w-48 max-h-24 ml-16 mr-2;
             }
         }
 
@@ -142,7 +142,7 @@ REQ: TailwindCSS, PostCSS, PostCSS-Custom-Properties
             @apply flex w-1/5 h-full;
 
             .logo {
-                @apply max-w-48 h-full;
+                @apply max-w-24 max-h-32 w-fit h-fit;
             }
         }
 

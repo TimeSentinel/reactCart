@@ -11,7 +11,7 @@ support for hamburger.tsx
     @apply -mt-14;
 
     #hamburgerIcon {
-        @apply h-16 w-16 rounded-lg;
+        @apply h-14 w-14 rounded-lg;
         @apply p-1 ml-2 mb-2 border-2;
         @apply shadow-lg shadow-gray-300;
 

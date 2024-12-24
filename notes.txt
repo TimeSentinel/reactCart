@@ -1,6 +1,7 @@
 TODO
 -------------------------------------------------------------------------
-
+---------- THEMES ------------
+todo: make good logos
 ---------- HEADER/FOOTER ---------
 todo: HEADER/FOOTER - social media links
 
