@@ -5,6 +5,10 @@ todo: make good logos
 ---------- HEADER/FOOTER ---------
 todo: HEADER/FOOTER - social media links
 
+todo: NAV: 'Pages' - News, Gallery
+todo: NAV: 'Us' - About, Contact, Catering
+todo: NAV: 'Menu' - Order Online/Pickup/Delivery, Catering
+
 ---------- MENU MODULE ---------
 todo: MENU - add code for category grouping
 todo: MENU - more complex filtering (filter by Cat AND Type?)
@@ -19,10 +23,12 @@ todo: CART - add options (name, instructions, options) when adding to cart
 todo: CART - submit pickup/delivery order
 
 ---------- PAGES/CONTENT ---------
-todo: *home page
+todo: *home page : add images,
 todo: *about us page
 todo: *contact us page
 todo: *news page
+todo: *gallery page
+
 
 ---------- NEW MODULES ---------
 todo: *contact page: file upload and email - custom server?
