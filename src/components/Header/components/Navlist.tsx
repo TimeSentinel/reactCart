@@ -8,6 +8,8 @@ REQ: Vite-React.js+TypeScript, react-router-dom,
 
 import './navlist.css'
 import NavButton from "./NavButton.tsx";
+import {useNavigate, useSearchParams} from "react-router-dom";
+import {useState} from "react";
 
 /*
     mainrow = the container for the elements. mainrow can be defined in hamburger and navbar style sheets
@@ -18,33 +20,73 @@ import NavButton from "./NavButton.tsx";
  */
 
 function Navlist() {
-    function onClick() {
+    // ------------------ navigation --------------------------------------------------
+    const [searchParams, setSearchParams] = useSearchParams();
+    const [searchQuery, setSearchQuery] = useState<string | null>(searchParams.get('q') || null);
+    const navigate = useNavigate();
 
+    function navDirectClick(page: string) {
+        navigate("/" + page);
     }
 
-    const style = {
+    function navSearchClick(key: string) {
+        setSearchParams({q: key})
+        setSearchQuery(searchParams.get('q'));
+        navigate(`/menu?q=${encodeURIComponent(key)}`);
+        console.log(searchQuery);
+    }
+
+    // ------------------------------------------------------------------------------------
+
+
+//region   ------------------------ Level Styles ------------------------
+    const styleL1 = { // CSS Style for level 1
         display: "flex",
     }
+
+    const styleL2 = {// CSS Style for level 2
+        display: "flex",
+    }
+
+    // const styleL3 = {// CSS Style for level 3
+    //     display: "flex",
+    // }
+
+//endregion
+    // ----------------------------------------------------------------
 
     return (
 
         <div className="mainrow">
-            <div className="level1 enabled">
-                <NavButton enabled={true} style={style} onClick={onClick}>Home</NavButton>
+            <div className="level1 ">
+                <NavButton enabled={true} style={styleL1} onclick={() => navDirectClick("")}>Home</NavButton>
             </div>
-            <div className="level1 enabled">Menu
-                <div className="level2 enabled">{/*import Menu list*/}</div>
-                <div className="level2 disabled">Catering</div>
+            <div className="level1 ">
+                <NavButton enabled={true} style={styleL1} onclick={}>Menu</NavButton>
+                <div className="level2 ">{/*import Menu list*/}</div>
+                <div className="level2 ">
+                    <NavButton enabled={false} style={styleL2} onclick={}>Catering</NavButton>
+                </div>
             </div>
-            <div className="level1 enabled">Us
-                <div className="level2 enabled">Our Story</div>
-                <div className="level2 enabled">Contact Us</div>
+            <div className="level1 ">
+                <NavButton enabled={true} style={styleL1} onclick={}>Us</NavButton>
+                <div className="level2 ">
+                    <NavButton enabled={true} style={styleL2} onclick={}>Our Story</NavButton>
+                </div>
+                <div className="level2 ">
+                    <NavButton enabled={true} style={styleL2} onclick={}>Contact Us</NavButton>
+                </div>
             </div>
-            <div className="level1 enabled">Media
-                <div className="level2 disabled">News</div>
-                <div className="level2 disabled">Gallery</div>
+            <div className="level1 ">
+                <NavButton enabled={true} style={styleL1} onclick={}>Media</NavButton>
+                <div className="level2 ">
+                    <NavButton enabled={false} style={styleL2} onclick={}>News</NavButton>
+                </div>
+                <div className="level2 ">
+                    <NavButton enabled={false} style={styleL2} onclick={}>Gallery</NavButton>
+                </div>
             </div>
-            <div className="level1 enabled">{/*import cart button*/}</div>
+            <div className="level1 ">{/*import cart button*/}</div>
         </div>
 
     )

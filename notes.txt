@@ -9,6 +9,8 @@ todo: *NAV: 'Pages' - News, Gallery
 todo: *NAV: 'Us' - About, Contact, Catering
 todo: *NAV: 'Menu' - Order Online/Pickup/Delivery, Catering
 
+todo: isolate CART and MENU modules more. import menus and navigation from module instead of direct integration
+
 ---------- MENU MODULE ---------
 todo: *MENU - add code for category grouping
 todo: *MENU - more complex filtering (filter by Cat AND Type?)
