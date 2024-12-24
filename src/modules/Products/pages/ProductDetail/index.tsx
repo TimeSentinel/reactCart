@@ -7,7 +7,7 @@ REQ: Vite-React.js+TypeScript, react-router-dom, react-hot-toast,
 ####################################################################################################
 */
 
-import "src/modules/Menu/pages/menuPages.css"
+import "src/modules/Products/pages/menuPages.css"
 import {useParams} from "react-router-dom"
 import {useContext} from "react";
 import {ProductInterface} from 'src/reducer/stateReducers.tsx';

@@ -25,11 +25,12 @@ function Navlist() {
     const [searchQuery, setSearchQuery] = useState<string | null>(searchParams.get('q') || null);
     const navigate = useNavigate();
 
-    function navDirectClick(page: string) {
+    function navDirectClick(page: string) { // direct navigation to a page
         navigate("/" + page);
     }
 
-    function navSearchClick(key: string) {
+    // @ts-ignore
+    function navSearchClick(key: string) {  // filtered navigation
         setSearchParams({q: key})
         setSearchQuery(searchParams.get('q'));
         navigate(`/menu?q=${encodeURIComponent(key)}`);
@@ -56,39 +57,37 @@ function Navlist() {
     // ----------------------------------------------------------------
 
     return (
-
         <div className="mainrow">
             <div className="level1 ">
                 <NavButton enabled={true} style={styleL1} onclick={() => navDirectClick("")}>Home</NavButton>
             </div>
             <div className="level1 ">
-                <NavButton enabled={true} style={styleL1} onclick={}>Menu</NavButton>
+                <NavButton enabled={true} style={styleL1} onclick={() => navDirectClick("")}>Menu</NavButton>
                 <div className="level2 ">{/*import Menu list*/}</div>
                 <div className="level2 ">
-                    <NavButton enabled={false} style={styleL2} onclick={}>Catering</NavButton>
+                    <NavButton enabled={false} style={styleL2} onclick={() => navDirectClick("")}>Catering</NavButton>
                 </div>
             </div>
             <div className="level1 ">
-                <NavButton enabled={true} style={styleL1} onclick={}>Us</NavButton>
+                <NavButton enabled={true} style={styleL1} onclick={() => navDirectClick("")}>Us</NavButton>
                 <div className="level2 ">
-                    <NavButton enabled={true} style={styleL2} onclick={}>Our Story</NavButton>
+                    <NavButton enabled={true} style={styleL2} onclick={() => navDirectClick("")}>Our Story</NavButton>
                 </div>
                 <div className="level2 ">
-                    <NavButton enabled={true} style={styleL2} onclick={}>Contact Us</NavButton>
+                    <NavButton enabled={true} style={styleL2} onclick={() => navDirectClick("")}>Contact Us</NavButton>
                 </div>
             </div>
             <div className="level1 ">
-                <NavButton enabled={true} style={styleL1} onclick={}>Media</NavButton>
+                <NavButton enabled={true} style={styleL1} onclick={() => navDirectClick("")}>Media</NavButton>
                 <div className="level2 ">
-                    <NavButton enabled={false} style={styleL2} onclick={}>News</NavButton>
+                    <NavButton enabled={false} style={styleL2} onclick={() => navDirectClick("")}>News</NavButton>
                 </div>
                 <div className="level2 ">
-                    <NavButton enabled={false} style={styleL2} onclick={}>Gallery</NavButton>
+                    <NavButton enabled={false} style={styleL2} onclick={() => navDirectClick("")}>Gallery</NavButton>
                 </div>
             </div>
             <div className="level1 ">{/*import cart button*/}</div>
         </div>
-
     )
 }
 

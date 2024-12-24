@@ -7,6 +7,10 @@ accompanies index.tsx
 ####################################################################################################
 */
 
+@import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Charm:wght@400;700&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&family=Zen+Dots&display=swap');
+
+
+
 .ThemeSelector {
     @apply block p-2 h-fit bg-transparent text-left;
     select {

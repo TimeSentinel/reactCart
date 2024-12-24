@@ -25,7 +25,7 @@
     "h3": "fontSize: 1.25rem; line-height: 1.75rem; color: #2b7412",
     "h4": "fontSize: 1.125rem; line-height: 1.75rem; color: #2b7412",
     "h5": "fontStyle: italic; color: #2b7412;",
-    "font": "Arial, Helvetica, sans-serif;",
+    "font": "'Black Ops One', Arial, sans-serif;",
     "fontSize": "20px;",
     "button": "",
     "p": ""
