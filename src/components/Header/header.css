@@ -47,16 +47,15 @@ REQ: TailwindCSS, PostCSS, PostCSS-Custom-Properties
         @apply h-24 px-2 pt-2;
 
         .headerLeft {
-            @apply flex w-2/12 h-full;
+            @apply absolute overflow-visible;
 
             .logo {
-                @apply w-full h-24 px-2 mr-4;
+                @apply w-32 h-24 ml-2 mt-16;
             }
-
         }
 
         .headerCenter {
-            @apply w-9/12 h-full pl-2;
+            @apply w-10/12 h-full pl-2;
 
             h1 {
                 font-size: .9em;
@@ -92,7 +91,7 @@ REQ: TailwindCSS, PostCSS, PostCSS-Custom-Properties
         }
 
         .headerCenter {
-            @apply w-7/12 h-full pl-2;
+            @apply w-7/12 h-full pl-2 ml-2;
 
             h1 {
                 font-size: 1em;
@@ -171,12 +170,20 @@ REQ: TailwindCSS, PostCSS, PostCSS-Custom-Properties
             @apply w-1/4 h-full;
 
             .logo {
-                @apply max-w-48 h-32 ;
+                @apply w-full h-32 ;
             }
         }
 
         .headerCenter {
-            @apply w-2/4 h-full;
+            @apply w-4/6 h-full pl-2 text-left;
+
+            h1 {
+                font-size: 1.5em;
+            }
+
+            h5 {
+                font-size: 1em;
+            }
         }
 
         .headerRight {

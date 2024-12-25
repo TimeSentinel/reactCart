@@ -59,7 +59,7 @@ const Cart: FC = () => {
                         Object.keys(localState.shoppingCart).length == 0 &&
                         "disabled" || "enabled"
                     }>
-                        EMPTY CART
+                        Empty Cart
                     </button>
                 </div>
             </div>
