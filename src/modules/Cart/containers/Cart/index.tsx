@@ -80,26 +80,26 @@ const CartItem = ({id}: CartProps) => {
     }
 
     return (
-        <div className="cartRow border-medium-shade" key={id}>
+        <div className="cartRow border-medium-color" key={id}>
             <div className="cartDelete">
                 <button onClick={() => localDispatch({type: "REMOVE_ITEM", payload: {id}})}>X
                 </button>
             </div>
-            <div className="cartTitle">
+            <div className="cartTitle text-very-dark-color">
                 {rowTitle ?? ""}
             </div>
-            <div className="cartCategory">{rowCategory ?? ""}</div>
-            <div className="cartPrice">
+            <div className="cartCategory text-dark-color">{rowCategory ?? ""}</div>
+            <div className="cartPrice  text-very-dark-color">
                 {new Intl.NumberFormat('en-US', {style: 'currency', currency: 'USD'}).format(rowPrice) ?? 0}
             </div>
             <div className="column4"></div>
-            <div className="cartQtyCol">
-                <button className="cartInc background-light-shade text-dark-shade border-dark-shade"
+            <div className="cartQtyCol  text-very-dark-color">
+                <button className="cartInc background-light-color text-dark-color border-dark-color"
                         onClick={() => addClick(id)}>+</button>
                 <div className="cartQty">{shoppingCart[id] | 0}</div>
-                <button className="cartDec background-light-shade text-dark-shade border-dark-shade" onClick={() => minusClick(id)}>-</button>
+                <button className="cartDec background-light-color text-dark-color border-dark-color" onClick={() => minusClick(id)}>-</button>
             </div>
-            <div className="cartLineTotal">
+            <div className="cartLineTotal  text-very-dark-color">
                 {new Intl.NumberFormat('en-US', {
                     style: 'currency',
                     currency: 'USD'

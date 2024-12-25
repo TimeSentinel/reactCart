@@ -23,7 +23,11 @@ function Menu() {
         <>
             <div className="menuHeader text-dark-color">
                 <h1 className="text-very-dark-color">Our Menu</h1>
-                <p>Unique and custom tastes require unique and custom words...
+                <p>
+                    Unique and custom tastes require unique and custom words...
+                </p>
+                <p>
+                    Choose from our wide diversity of dishes. Something for everyone in the family to enjoy!
                 </p>
             </div>
             <div className="menuContainer">

@@ -13,8 +13,10 @@ REQ: TailwindCSS, PostCSS, PostCSS-Custom-Properties
 
 /* *********** MENU (food) *********** */
 .menuHeader {
-    @apply w-11/12 h-36 mx-auto pt-4;
-
+    @apply w-11/12 h-fit mx-auto pt-4;
+    p {
+        font-size: .75em;
+    }
     h1 {
         @apply my-3;
     }

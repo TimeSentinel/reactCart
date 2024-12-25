@@ -8,7 +8,7 @@ REQ: TailwindCSS, PostCSS, PostCSS-Custom-Properties
 */
 
 .cartRow {
-    @apply border-b-2;
+    @apply border-b-2 pt-1;
 
     .cartDelete {
         @apply h-fit my-1 p-0 ;
@@ -26,7 +26,7 @@ REQ: TailwindCSS, PostCSS, PostCSS-Custom-Properties
     }
 
     .cartCategory {
-        @apply text-center italic text-gray-500 text-sm;
+        @apply text-center italic text-sm;
     }
 
     .cartPrice {
@@ -59,7 +59,7 @@ REQ: TailwindCSS, PostCSS, PostCSS-Custom-Properties
     }
 
     .cartLineTotal {
-        @apply text-right font-semibold;
+        @apply text-right font-semibold text-lg;
     }
 
 }
