@@ -42,24 +42,30 @@ function Hamburger() {
 
     return (
         <div className="hamburger">
-            <div id="hamburgerIcon" className="border-medium-color background-soft-color"
-                 onClick={toggleMain}>
-                <div className="iconBar background-dark-color"></div>
-                <div className="iconBar background-dark-color"></div>
-                <div className="iconBar background-dark-color"></div>
+            <div className="menuRow">
+                <div className="filler"></div>
+                <div id="hamburgerIcon" className="border-medium-color background-soft-color"
+                     onClick={toggleMain}>
+                    <div className="iconBar background-dark-color"></div>
+                    <div className="iconBar background-dark-color"></div>
+                    <div className="iconBar background-dark-color"></div>
+                </div>
             </div>
             {displayMain && (
                 <div id="hamburgerNavbar" className="background-soft-color">
                     <div className="hamburgerItem">
-                        <button className={location.pathname === "/" ? "selected background-highlight-color" : "enabled"}
-                                onClick={() => {
-                                    navClick("");
-                                }}>
+                        <button
+                            className={location.pathname === "/" ? "selected background-highlight-color" : "enabled"}
+                            onClick={() => {
+                                navClick("");
+                            }}>
                             Home
                         </button>
                     </div>
                     <div className="hamburgerItem">
-                        <button className={location.pathname === "/menu" ? "selected background-highlight-color" : "enabled"} onClick={toggleSub}>
+                        <button
+                            className={location.pathname === "/menu" ? "selected background-highlight-color" : "enabled"}
+                            onClick={toggleSub}>
                             Menu
                         </button>
                         {displaySub && (
@@ -99,8 +105,9 @@ function Hamburger() {
                         )}
                     </div>
                     <div className="hamburgerItem" id="menuX">
-                        <button className={location.pathname === "/about" ? "selected background-highlight-color" : "enabled"}
-                                onClick={() => navClick("/about")}>
+                        <button
+                            className={location.pathname === "/about" ? "selected background-highlight-color" : "enabled"}
+                            onClick={() => navClick("/about")}>
                             Our Story
                         </button>
                     </div>

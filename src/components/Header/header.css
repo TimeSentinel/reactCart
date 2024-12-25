@@ -15,13 +15,12 @@ REQ: TailwindCSS, PostCSS, PostCSS-Custom-Properties
         @apply flex;
 
         .headerLeft {
-            @apply text-left;
-            .logo {
-                @apply w-32 h-32 bg-no-repeat bg-contain;
-            }
-        }
-        .headerCenter {
+            @apply text-left w-2/6;
 
+            .logo {
+                @apply bg-no-repeat bg-contain;
+                @apply cursor-pointer;
+            }
         }
 
         .headerRight {
@@ -30,98 +29,85 @@ REQ: TailwindCSS, PostCSS, PostCSS-Custom-Properties
             .cartCorner {
                 @apply float-right cursor-pointer;
 
-                .cartCount {
-                    @apply text-green-500 font-bold;
-                }
-
-                img {
-                    @apply float-right;
-                }
             }
         }
     }
-
-
 }
 
 /* --------------- END -- Header -- END --------------- */
 
-
 /* ########################### Media Selector ########################### */
 /* ------------ Small View ------------ */
-@media (max-width: 440px) {
+@media (max-width: 529px) {
     .header {
-        @apply m-0;
+        @apply m-0 h-fit;
     }
 
     .titleRow {
         @apply h-24 px-2 pt-2;
 
         .headerLeft {
-            @apply flex w-1/6 h-full;
+            @apply flex w-2/12 h-full;
 
             .logo {
-                @apply min-w-14 max-h-20 mr-2;
+                @apply w-full h-24 px-2 mr-4;
             }
-            h1 {
-                @apply leading-tight text-lg;
-            }
+
         }
 
         .headerCenter {
-            @apply w-4/6 h-full pl-2;
+            @apply w-9/12 h-full pl-2;
+
+            h1 {
+                font-size: .9em;
+            }
+
+            h5 {
+                font-size: .7em;
+            }
         }
 
         .headerRight {
-            @apply w-1/6 h-full mr-4;
-
-            .cartCorner {
-                @apply w-16;
-                .cartCount {
-                    @apply mx-1 px-0 text-sm;
-
-                }
-                img {
-                    @apply w-6;
-                }
-            }
+            @apply w-1/12 h-full mr-2;
         }
     }
 }
 
 /* ------------ End small ------------ */
 
-@media (min-width: 441px) and (max-width: 667px) {
+@media (min-width: 530px) and (max-width: 667px) {
     .header {
-        @apply m-0;
+        @apply m-0 h-fit;
     }
 
     .titleRow {
         @apply h-24 px-2 pt-2;
 
         .headerLeft {
-            @apply flex w-2/6 h-full;
+            @apply w-3/12 h-fit;
 
             .logo {
-                @apply max-w-48 max-h-24 ml-16 mr-2;
+                @apply w-full max-h-32 h-32 ml-2 ;
             }
         }
 
         .headerCenter {
-            @apply w-3/6 h-full;
+            @apply w-7/12 h-full pl-2;
+
+            h1 {
+                font-size: 1em;
+            }
+
+            h5 {
+                font-size: .8em;
+            }
         }
 
         .headerRight {
-            @apply w-1/6 h-full mr-4;
+            @apply w-1/12 h-full mr-4;
 
             .cartCorner {
-                @apply w-32;
-                .cartCount {
-                    @apply  mx-1 px-0 text-lg;
-                }
-                img {
-                    @apply w-8;
-                }
+                @apply w-full;
             }
         }
     }
@@ -133,34 +119,37 @@ REQ: TailwindCSS, PostCSS, PostCSS-Custom-Properties
 @media (min-width: 668px) and (max-width: 991px) {
     .header {
         @apply m-1;
+        height: 150px;
     }
 
     .titleRow {
         @apply h-24 px-2 pt-2;
 
         .headerLeft {
-            @apply flex w-1/5 h-full;
+            @apply flex w-1/6 h-full;
 
             .logo {
-                @apply max-w-24 max-h-32 w-fit h-fit;
+                @apply w-full h-32;
             }
         }
 
         .headerCenter {
-            @apply w-3/5 h-full;
+            @apply w-4/6 h-full pl-2 text-center;
+
+            h1 {
+                font-size: 1.5em;
+            }
+
+            h5 {
+                font-size: 1em;
+            }
         }
 
         .headerRight {
-            @apply w-1/5 h-full mr-4;
+            @apply w-1/6 h-full mr-4;
 
             .cartCorner {
                 @apply w-32;
-                .cartCount {
-                    @apply mx-2 px-2 text-xl;
-                }
-                img {
-                    @apply w-10;
-                }
             }
         }
     }
@@ -172,6 +161,7 @@ REQ: TailwindCSS, PostCSS, PostCSS-Custom-Properties
 @media (min-width: 992px) {
     .header {
         @apply m-2;
+        height: 150px;
     }
 
     .titleRow {
@@ -181,7 +171,7 @@ REQ: TailwindCSS, PostCSS, PostCSS-Custom-Properties
             @apply w-1/4 h-full;
 
             .logo {
-                @apply max-w-32 h-full;
+                @apply max-w-48 h-32 ;
             }
         }
 
@@ -194,12 +184,6 @@ REQ: TailwindCSS, PostCSS, PostCSS-Custom-Properties
 
             .cartCorner {
                 @apply w-32;
-               .cartCount {
-                   @apply mx-2 px-2 text-xl;
-               }
-                img {
-                    @apply w-10;
-                }
             }
         }
     }

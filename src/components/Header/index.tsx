@@ -8,17 +8,13 @@ Required header.css, Navbar.tsx
 */
 
 import "./header.css";
-import cartIcon from "/images/cart-100.png";
-
-import {useContext} from "react";
 import {useNavigate} from "react-router-dom";
 
-import {ctx} from "src/context";
 import Navbar from "./navbar/Navbar.tsx";
 import Hamburger from "./hamburger/Hamburger.tsx";
+import CartCount from "../../modules/Cart/components/cartCount/CartCount.tsx";
 
 function Header() {
-    const localState = useContext(ctx).localState.shoppingCart
     const navigate = useNavigate();
 
     return (
@@ -26,7 +22,7 @@ function Header() {
             <div className="header background-light-color border-dark-color">
                 <div className="titleRow">
                     <div className="headerLeft">
-                        <div className="logo">
+                        <div className="logo" onClick={() => navigate("/")}>
                         </div>
                     </div>
                     <div className="headerCenter">
@@ -36,12 +32,11 @@ function Header() {
                     </div>
                     <div className="headerRight">
                         <div className="cartCorner" onClick={() => navigate("/cart")}>
-                            <span className="cartCount">{Object.keys(localState).length}</span>
-                            <img src={cartIcon} alt="cart"/>
+                            <CartCount />
                         </div>
                     </div>
                 </div>
-                <Navbar/>
+                <Navbar />
                 <Hamburger />
             </div>
         </header>

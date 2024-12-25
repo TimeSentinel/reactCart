@@ -92,7 +92,7 @@ function Navbar() {
                         Our Story
                     </button>
                 </div>
-                <div className="navbarItem">
+                <div className="navbarItem-disabled">
                     <button className="disabled text-medium-shade background-light-shade">
                         News
                     </button>
@@ -114,7 +114,7 @@ function Navbar() {
                     <button onClick={() => navigate("/cart")}
                             className={location.pathname === "/cart"
                                 ? "selected text-bright-color background-dark-color border-very-dark-color"
-                                : "cartButton"}>
+                                : "enabled cartButton"}>
                         Cart
                     </button>
                 </div>
