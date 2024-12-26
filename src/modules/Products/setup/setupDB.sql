@@ -2,7 +2,7 @@ CREATE SCHEMA products2025;
 
 -- Categories ------------------------++++++++++++++++
 CREATE TABLE IF NOT EXISTS products.categories.defs (
-    catID int NOT NULL,
+    catID UUID NOT NULL,
     catName varchar(255) NOT NULL,
     catDesc varchar(255),
     catAvail varchar(255),
@@ -47,10 +47,14 @@ CREATE TABLE IF NOT EXISTS products.options.defs (
 );
 
 CREATE TABLE IF NOT EXISTS products.options.items (
-    optItemValue varchar(255) REFERENCES products.options.defs(optValue),
+--    optItemValue varchar(255) REFERENCES products.options.defs(optValue),
     optItemName varchar(255) NOT NULL,
     optItemDefault varchar(16) REFERENCES products.options.defaults(defaultValue),
-    optCost numeric(5, 2)
+    optCost numeric(5, 2),
+    CONSTRAINT fkValue
+        FOREIGN KEY(optValue)
+        REFERENCES products.options.defs(optValue)
+        ON DELETE CASCADE
 );
 
 -- PRODUCT LIST/CATALOG ------------------++++++++++++++++
@@ -72,11 +76,17 @@ CREATE TABLE IF NOT EXISTS products.list (
 
 CREATE TABLE IF NOT EXISTS products.keywords (
     keyID int REFERENCES products.keywords.defs(keyID),
-    productID int REFERENCES products.list(productID)
+    CONSTRAINT fkProduct
+        FOREIGN KEY(productID)
+        REFERENCES products.list(productID)
+        ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS products.options (
     optID int REFERENCES products.options.defs(optID),
-    productID int REFERENCES products.list(productID)
+    CONSTRAINT fkProduct
+        FOREIGN KEY(productID)
+        REFERENCES products.list(productID)
+        ON DELETE CASCADE
 );
 
