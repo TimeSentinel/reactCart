@@ -1,4 +1,5 @@
-TODO
+
+T O D O
 -------------------------------------------------------------------------
 ---------- THEMES ------------
 todo: *make good logos
@@ -11,7 +12,8 @@ todo: *NAV: 'Menu' - Order Online/Pickup/Delivery, Catering
 
 todo: isolate CART and MENU modules more. import menus and navigation from module instead of direct integration
 
----------- MENU MODULE ---------
+---------- PRODUCTS MODULE ---------
+Change 'MENU' to 'PRODUCTS' with new structure and layout
 todo: *MENU - add code for category grouping
 todo: *MENU - more complex filtering (filter by Cat AND Type?)
 todo: *MENU - add options handling to product details
@@ -36,6 +38,7 @@ todo: *contact page: file upload and email - custom server?
 todo: BLOG - news/blog from json
 todo: CATERING - menu page
 todo: CATERING - scheduling calendar
+todo: RECIPES - recipe and cooking tips
 
 ------------- DATABASE --------------
 todo: BLOG - news, Cart from database

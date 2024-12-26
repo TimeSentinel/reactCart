@@ -24,6 +24,7 @@ import Cart from "./modules/Cart/pages/Cart";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 
+//todo: separation of modules
 
 function App() {
     const [state, dispatch] = useReducer(reducerFn, initialState);
