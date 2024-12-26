@@ -40,17 +40,14 @@ CREATE TABLE IF NOT EXISTS products.options.types (
 );
 
 CREATE TABLE IF NOT EXISTS products.options.defs (
-    optKey int NOT NULL,
-    optID UUID NOT NULL,
-    optName varchar(255) NOT NULL,
+    optValue varchar(255) NOT NULL,
     optType varchar(16) REFERENCES products.options.types (optTypeValue),
     optDesc varchar(255),
-    PRIMARY KEY(optKey)
-    UNIQUE(optID)
+    UNIQUE(optValue)
 );
 
 CREATE TABLE IF NOT EXISTS products.options.items (
-    optItemID int REFERENCES products.options.defs(optID),
+    optItemValue varchar(255) REFERENCES products.options.defs(optValue),
     optItemName varchar(255) NOT NULL,
     optItemDefault varchar(16) REFERENCES products.options.defaults(defaultValue),
     optCost numeric(5, 2)
