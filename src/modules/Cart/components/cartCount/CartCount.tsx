@@ -7,8 +7,8 @@ REQ: Vite-React.js+TypeScript, react-router-dom,
 */
 
 import {useContext} from "react";
-import {ctx} from "../../../../context";
-import cartIcon from "/images/cart-100.png";
+import {ctx} from "src/context";
+import cartIcon from "/cart/cart-100.png";
 import './cartCount.css'
 
 function CartCount(){

@@ -11,7 +11,7 @@ REQ: Vite-React.js+TypeScript, react-router-dom, react-hot-toast,
 import "src/modules/Cart/pages/cartPages.css"
 import {Product} from "../../containers/Product";
 import {useContext} from "react";
-import {ctx} from "../../../../context";
+import {ctx} from "src/context";
 import {useLocation} from "react-router-dom";
 
 
@@ -20,7 +20,7 @@ function Menu() {
     const location = useLocation();
 
     return (
-        <>
+        <div className="productContainer background-light-color border-medium-color">
             <div className="menuHeader text-dark-color">
                 <h1 className="text-very-dark-color">Our Menu</h1>
                 <p>
@@ -57,7 +57,7 @@ function Menu() {
                     )
                 }
             </div>
-        </>
+        </div>
     )
 }
 

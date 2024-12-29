@@ -45,7 +45,8 @@ function Navbar() {
                 <div className="navbarItem" id="home">
                     <button className={location.pathname === "/"
                         ? "selected text-bright-color background-dark-color border-very-dark-color"
-                        : "enabled text-very-dark-color background-soft-color border-dark-color"} onClick={() => navigate("")}>
+                        : "enabled text-very-dark-color background-soft-color border-dark-color"}
+                            onClick={() => navigate("")}>
                         Home
                     </button>
                 </div>
@@ -53,20 +54,25 @@ function Navbar() {
                     <button className={location.pathname === "/menu"
                         ? "selected text-bright-color background-dark-color border-very-dark-color"
                         : "enabled text-very-dark-color background-soft-color border-dark-color"}
-                            onClick={() => {navClick("menu")}}
+                            onClick={() => {
+                                navClick("menu")
+                            }}
                     >Menu
                     </button>
                     <div className="dropDown text-dark-color background-light-color border-medium-shade" id="dropDown">
-                        <div className="navbarSubItem enabled text-dark-color" onClick={() => {navClick("menu")}}>
+                        <div className="navbarSubItem enabled text-dark-color" onClick={() => {
+                            navClick("menu")
+                        }}>
                             ALL
                         </div>
                         <hr className="dropdownSpace"/>
                         {uniqueCats.length > 0 ?
                             uniqueCats.map(item => {
                                 return (
-                                    <div className="navbarSubItem enabled text-dark-color border-medium-shade background-light-shade"
-                                         id="dropDown"
-                                         onClick={() => navClick2(item)} key={item}>{item}
+                                    <div
+                                        className="navbarSubItem enabled text-dark-color border-medium-shade background-light-shade"
+                                        id="dropDown"
+                                        onClick={() => navClick2(item)} key={item}>{item}
                                     </div>
                                 )
                             }) : null
@@ -76,8 +82,9 @@ function Navbar() {
                         {uniqueTypes.length > 0 ?
                             uniqueTypes.map(item => {
                                 return (
-                                    <div className="navbarSubItem enabled text-very-dark-color border-medium-shade background-light-shade"
-                                         onClick={() => navClick2("T-" + item)} key={item}>{item}
+                                    <div
+                                        className="navbarSubItem enabled text-very-dark-color border-medium-shade background-light-shade"
+                                        onClick={() => navClick2("T-" + item)} key={item}>{item}
                                     </div>
                                 )
                             }) : null
@@ -89,11 +96,23 @@ function Navbar() {
                         ? "selected text-bright-color background-dark-color border-very-dark-color"
                         : "enabled text-very-dark-color background-soft-color border-dark-color"}
                             onClick={() => navClick("about")}>
-                        Our Story
+                        About
                     </button>
                 </div>
-                <div className="navbarItem-disabled">
-                    <button className="disabled text-medium-shade background-light-shade">
+                <div className="navbarItem enabled" id="gallery">
+                    <button className={location.pathname === "/gallery"
+                        ? "selected text-bright-color background-dark-color border-very-dark-color"
+                        : "enabled text-very-dark-color background-soft-color border-dark-color"}
+                            onClick={() => navClick("gallery")}>
+                        Gallery
+                    </button>
+                </div>
+                <div className="navbarItem enabled">
+                    <button
+                        className={location.pathname === "/news"
+                            ? "selected text-bright-color background-dark-color border-very-dark-color"
+                            : "enabled text-very-dark-color background-soft-color border-dark-color"}
+                        onClick={() => navClick("news")}>
                         News
                     </button>
                 </div>

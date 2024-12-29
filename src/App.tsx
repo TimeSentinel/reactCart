@@ -23,6 +23,8 @@ import {ProductDetail} from "./modules/Products/pages/ProductDetail";
 import Cart from "./modules/Cart/pages/Cart";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import News from "src/modules/News";
+import Gallery from "src/modules/Gallery";
 
 //todo: separation of modules
 
@@ -50,7 +52,8 @@ function App() {
                         <Route path='menu' element={<Menu />}/>
                         <Route path='products/:title' element={<ProductDetail />}/>
                         <Route path='about' element={<About />}/>
-                        <Route path='news' element={<Home />}/>
+                        <Route path='gallery' element={<Gallery />}/>
+                        <Route path='news' element={<News />}/>
                         <Route path='contact' element={<Contact />}/>
                         <Route path='cart' element={<Cart />}/>
                     </Routes>

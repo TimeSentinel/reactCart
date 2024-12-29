@@ -1,13 +1,10 @@
 
 T O D O
 -------------------------------------------------------------------------
----------- THEMES ------------
-todo: *make good logos
+
 ---------- HEADER/FOOTER ---------
 todo: *HEADER/FOOTER - social media links
 todo: *NAV: Hamburger and navbar should import a single menu structure
-todo: *NAV: 'Pages' - News, Gallery
-todo: *NAV: 'Us' - About, Contact, Catering
 todo: *NAV: 'Menu' - Order Online/Pickup/Delivery, Catering
 
 todo: isolate CART and MENU modules more. import menus and navigation from module instead of direct integration
@@ -18,7 +15,6 @@ todo: *MENU - add code for category grouping
 todo: *MENU - more complex filtering (filter by Cat AND Type?)
 todo: *MENU - add options handling to product details
 todo: *MENU - add options handling to cart
-todo: *MENU - add more foods to json
 todo: *MENU - make product details pop up
 todo: *MENU - add options (name, instructions, options) when adding to cart
 
@@ -26,29 +22,11 @@ todo: *MENU - add options (name, instructions, options) when adding to cart
 todo: *CART - add options (name, instructions, options) when adding to cart
 todo: *CART - submit pickup/delivery order
 
----------- PAGES/CONTENT ---------
-todo: *home page : add images,
-todo: *about us page
-todo: *contact us page
-todo: news page
-todo: gallery page
-
 ---------- NEW MODULES ---------
-todo: *contact page: file upload and email - custom server?
-todo: BLOG - news/blog from json
 todo: CATERING - menu page
 todo: CATERING - scheduling calendar
-todo: RECIPES - recipe and cooking tips
 
-------------- DATABASE --------------
-todo: BLOG - news, Cart from database
-todo: CMS - admin login
 
-todo: USER - user accounts: login, user page, user settings, theme, etc
-todo: USER - user accounts: order history, billing info
-todo: MAINTENANCE - check local storage for old/corrupt setup and clear or modify as needed
-
-todo: CART - payment for cart
 
 CODE
 ##################################################################################

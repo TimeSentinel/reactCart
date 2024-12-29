@@ -1,0 +1,34 @@
+{
+  "articles": [
+    {
+      "uuid": "6b37d3d5-c748-435b-beb8-9584c53892b1",
+      "title": "Grand Opening",
+      "short": "Come join our celebration!",
+      "paragraph": "Grand Opening celebration going on now at Delectorium. Come in and meet us. We would love an opportunity to show you what we are passionate about.",
+      "summary": "We have put a lot of work into this project and hope to see you here!",
+      "photoPath": "/news/images/party.jpg",
+      "photoAlt": "Party photo",
+      "dateAdded": "2024-12-02"
+    },
+    {
+      "uuid": "d4dd649c-f26f-468a-a059-6052b187f41a\n\n",
+      "title": "Welcome to the Batcave!",
+      "short": "Catering and Special Celebrations",
+      "paragraph": "One of our passions is to travel and bring back, not only new flavors and recipes, but entire experiences. We recently had the opportunity to cater an event inside Hollywood's new underground event center. It was great. We were able to bring in some cultural effects from our travel and the overall event was an amazing success.",
+      "summary": "If you have a crazy idea - we will help you make it happen.",
+      "photoPath": "/news/images/cave.jpg",
+      "photoAlt": "Cave restaurant photo",
+      "dateAdded": "2024-12-10"
+    },
+    {
+      "uuid": "1d599e80-b176-46a7-8410-2e9773eea8e2",
+      "title": "Friday Night Specials",
+      "short": "We have a couples/partners special running every Friday.",
+      "paragraph": "Two friends, couples, partners... Maybe three or four friends. Bring all your partners in for our Friday night special. Let us pick the dish and every other person at your table dines free!",
+      "summary": "Of course, we will work within your dietary constraints on any dish we make.",
+      "photoPath": "/news/images/restaurant01.jpg",
+      "photoAlt": "Couple enjoying meal photo",
+      "dateAdded": "2024-12-28"
+    }
+  ]
+}

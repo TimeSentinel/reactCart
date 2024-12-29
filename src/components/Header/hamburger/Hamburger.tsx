@@ -108,21 +108,27 @@ function Hamburger() {
                         <button
                             className={location.pathname === "/about" ? "selected background-highlight-color" : "enabled"}
                             onClick={() => navClick("/about")}>
-                            Our Story
+                            About
                         </button>
                     </div>
                     <div className="hamburgerItem">
-                        <button className="disabled text-dark-shade background-medium-shade">
+                        <button
+                            className={location.pathname === "/news" ? "selected background-highlight-color" : "enabled"}
+                            onClick={() => navClick("/news")}>
                             News
                         </button>
                     </div>
                     <div className="hamburgerItem">
-                        <button className="disabled text-dark-shade background-medium-shade">
-                            Other
+                        <button
+                            className={location.pathname === "/gallery" ? "selected background-highlight-color" : "enabled"}
+                            onClick={() => navClick("/gallery")}>
+                            Gallery
                         </button>
                     </div>
                     <div className="hamburgerItem">
-                        <button className="disabled text-dark-shade background-medium-shade">
+                        <button
+                            className={location.pathname === "/contact" ? "selected background-highlight-color" : "enabled"}
+                            onClick={() => navClick("/contact")}>
                             Contact Us
                         </button>
                     </div>

@@ -9,7 +9,9 @@ REQ: TailwindCSS, PostCSS, PostCSS-Custom-Properties
 
 
 /* ################################ MENU ################################ */
-
+.productContainer {
+    @apply mx-auto border-2 mt-4;
+}
 
 /* *********** MENU (food) *********** */
 .menuHeader {
@@ -96,6 +98,10 @@ REQ: TailwindCSS, PostCSS, PostCSS-Custom-Properties
         @apply w-full grid gap-y-2 grid-cols-1 px-2 pt-2;
     }
 
+    .productContainer {
+        @apply w-full;
+    }
+
     .productSection p {
         @apply leading-tight text-sm w-full;
     }
@@ -125,6 +131,9 @@ REQ: TailwindCSS, PostCSS, PostCSS-Custom-Properties
         @apply w-full grid gap-x-4 gap-y-4 grid-cols-2 px-3 pt-3;
     }
 
+    .productContainer {
+        @apply w-11/12;
+    }
 
     .productAction {
         @apply flex flex-row justify-between my-4 h-10 ;
@@ -145,6 +154,10 @@ REQ: TailwindCSS, PostCSS, PostCSS-Custom-Properties
 @media (min-width: 992px) {
     .catalog-container {
         @apply w-full grid gap-x-6 gap-y-8 grid-cols-3 px-3 pt-4;
+    }
+
+    .productContainer {
+        @apply w-11/12;
     }
 
     .productAction {

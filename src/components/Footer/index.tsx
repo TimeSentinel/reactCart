@@ -23,7 +23,7 @@ function Footer() {
                 </div>
                 <div className="footRight">
                     <br/>
-                    <a href="#" style={{color: "text-soft-color"}}>admin</a>
+                    <a href="#" style={{color: "text-light-color"}}>&lt;social&gt;</a>
                 </div>
             </div>
         </footer>
